@@ -121,17 +121,18 @@
 				.
 				| .keys
 				| to_entries
-				| map (.key)
-				| map (select (startswith ("_")))
+				| map (select (.key | startswith ("_")))
 				| map (
 					{
-						key : .,
+						key : .key,
+						original : .value,
 					} + (
-						split ("_")
+						.value
+						| split ("/")
 						| {
-							year : (2000 + (.[3] | tonumber)),
-							month : .[1] | tonumber,
-							day : .[2] | tonumber,
+							year : (2000 + (.[2] | tonumber)),
+							month : .[0] | tonumber,
+							day : .[1] | tonumber,
 						}
 					)
 					| .date = (
@@ -182,8 +183,8 @@
 				)
 				| group_by ([.location.key, .date.key])
 				| map ({
-					location : .[0].location,
-					date : .[0].date,
+					location : .[0].location | del (.key),
+					date : .[0].date | del (.key),
 					values : map ({key : .dataset, value : .value}) | from_entries,
 				})
 				| sort_by ([.location.label, .date.date])
