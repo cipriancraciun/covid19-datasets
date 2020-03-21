@@ -12,20 +12,24 @@
 	_index="${4}"
 	_metric="${5}"
 	shift -- 5
+	test "${#}" -eq 0
 	
 	"${ZRUN[@]}" ':: tools / julia / exec' \
 			./sources/jhu-plot.jl \
 			"${_dataset}" \
-			"${_output}.tmp" \
-			"${_format}" \
+			"${_output}.tmp.pdf" \
+			pdf \
 			"${_index}" \
 			"${_metric}" \
 	#
 	
-	mv -T -- \
-			"${_output}.tmp" \
+	"${ZRUN[@]}" ':: tools / inkscape / convert' \
+			"${_output}.tmp.pdf" \
 			"${_output}" \
+			"${_format}" \
 	#
+	
+	rm -- "${_output}.tmp.pdf"
 !!
 
 

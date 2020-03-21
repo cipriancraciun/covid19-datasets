@@ -56,41 +56,69 @@ build ./exports/jhu/values.tsv : z-run-in-out ./exports/jhu/values.json | ${zrun
 build ./plots/jhu/absolute-confirmed.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
     scriptlet = ':: plots / jhu'
     arguments = pdf day_index_1000 absolute_confirmed
-    pool = console
-
-build ./plots/jhu/absolute-deaths.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
-    scriptlet = ':: plots / jhu'
-    arguments = pdf day_index_1000 absolute_deaths
-    pool = console
 
 build ./plots/jhu/absolute-recovered.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
     scriptlet = ':: plots / jhu'
     arguments = pdf day_index_1000 absolute_recovered
-    pool = console
+
+build ./plots/jhu/absolute-deaths.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 absolute_deaths
 
 build ./plots/jhu/absolute-infected.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
     scriptlet = ':: plots / jhu'
     arguments = pdf day_index_1000 absolute_infected
-    pool = console
 
 
 build ./plots/jhu/relative-confirmed.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
     scriptlet = ':: plots / jhu'
     arguments = pdf day_index_1000 relative_confirmed
-    pool = console
-
-build ./plots/jhu/relative-deaths.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
-    scriptlet = ':: plots / jhu'
-    arguments = pdf day_index_1000 relative_deaths
-    pool = console
 
 # build ./plots/jhu/relative-recovered.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
 #    scriptlet = ':: plots / jhu'
 #    arguments = pdf day_index_1000 relative_recovered
-#    pool = console
+
+build ./plots/jhu/relative-deaths.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 relative_deaths
 
 build ./plots/jhu/relative-infected.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
     scriptlet = ':: plots / jhu'
     arguments = pdf day_index_1000 relative_infected
-    pool = console
+
+
+
+
+build ./plots/jhu/absolute-confirmed.svg : z-run-in-out ./plots/jhu/absolute-confirmed.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = svg
+
+build ./plots/jhu/absolute-recovered.svg : z-run-in-out ./plots/jhu/absolute-recovered.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = svg
+
+build ./plots/jhu/absolute-deaths.svg : z-run-in-out ./plots/jhu/absolute-deaths.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = svg
+
+build ./plots/jhu/absolute-infected.svg : z-run-in-out ./plots/jhu/absolute-infected.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = svg
+
+
+build ./plots/jhu/relative-confirmed.svg : z-run-in-out ./plots/jhu/relative-confirmed.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = svg
+
+# build ./plots/jhu/relative-recovered.svg : z-run-in-out ./plots/jhu/relative-recovered.pdf | ${zrun_library} ${ninja_force}
+#    scriptlet = ':: tools / inkscape / convert'
+#    arguments = svg
+
+build ./plots/jhu/relative-deaths.svg : z-run-in-out ./plots/jhu/relative-deaths.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = svg
+
+build ./plots/jhu/relative-infected.svg : z-run-in-out ./plots/jhu/relative-infected.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = svg
 

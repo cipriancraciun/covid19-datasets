@@ -84,3 +84,41 @@
 	mv -T -- "${_output}.tmp" "${_output}"
 !!
 
+
+
+
+<< tools / inkscape / convert
+	
+	test "${#}" -eq 3
+	_input="${1}"
+	_output="${2}"
+	_format="${3}"
+	shift -- 3
+	test "${#}" -eq 0
+	
+	case "${_format}" in
+		( pdf | ps | png )
+			_export_flag="--export-${_format}"
+		;;
+		( svg )
+			_export_flag="--export-plain-svg"
+		;;
+		( * )
+			printf -- '[ii]  invalid format `%s`;  aborting!\n' "${_format}" >&2
+		;;
+	esac
+	
+	nice -n 19 -- \
+	inkscape \
+			"${_export_flag}" "${_output}.tmp" \
+			--export-area-page \
+			--export-width 1200 \
+			--export-text-to-path \
+			--export-background '#ffffff' \
+			--export-background-opacity 0.0 \
+			--file "${_input}" \
+		#
+	
+	mv -T -- "${_output}.tmp" "${_output}"
+!!
+
