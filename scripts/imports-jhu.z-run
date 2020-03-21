@@ -183,7 +183,7 @@
 				)
 				| group_by ([.location.key, .date.key])
 				| map ({
-					location : .[0].location | del (.key),
+					location : .[0].location,
 					date : .[0].date | del (.key),
 					values : map ({key : .dataset, value : .value}) | from_entries,
 				})
@@ -194,6 +194,154 @@
 			"${_output}" \
 			--argfile dates ./imports/jhu/dates.json \
 			--argfile locations ./imports/jhu/locations.json \
+	#
+!!
+
+
+
+
+--<< exports / jhu / values / json
+	
+	test "${#}" -eq 2
+	_input="${1}"
+	_output="${2}"
+	shift -- 2
+	test "${#}" -eq 0
+	
+	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
+			'
+				
+				.
+				| map (
+					.values = {absolute : .values}
+				)
+				| map (
+					.values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
+				)
+				| reduce
+					.[] as $current
+					(
+						{previous : null, records : []}
+					;
+						.
+						| .previous as $previous
+						| .records as $records
+						| $current
+						| if (($previous != null) and ($previous.location.key == $current.location.key)) then
+							.
+							| .values.relative = {
+								confirmed : ($current.values.absolute.confirmed - $previous.values.absolute.confirmed) | (if (. != 0) then . else null end),
+								recovered : ($current.values.absolute.recovered - $previous.values.absolute.recovered) | (if (. != 0) then . else null end),
+								deaths : ($current.values.absolute.deaths - $previous.values.absolute.deaths) | (if (. != 0) then . else null end),
+								infected : ($current.values.absolute.infected - $previous.values.absolute.infected) | (if (. != 0) then . else null end),
+							}
+							| .values.relative_pct = {
+								confirmed : (try (.values.relative.confirmed * 100.0 / $previous.values.absolute.confirmed) catch null) | (if (. != 0) then . else null end),
+								recovered : (try (.values.relative.recovered * 100.0 / $previous.values.absolute.recovered) catch null) | (if (. != 0) then . else null end),
+								infected : (try (.values.relative.infected * 100.0 / $previous.values.absolute.infected) catch null) | (if (. != 0) then . else null end),
+								deaths : (try (.values.relative.deaths * 100.0 / $previous.values.absolute.deaths) catch null) | (if (. != 0) then . else null end),
+							}
+							| if ((.values.absolute.confirmed != 0) or ($previous.day_index != null)) then
+								.day_index = ($previous.day_index + 1)
+							else
+								.
+							end
+						else
+							.
+							| if (.values.absolute.confirmed != 0) then
+								.day_index = 1
+							else
+								.
+							end
+						end
+						| {
+							previous : .,
+							records : ($records + [.]),
+						}
+					)
+				| .records
+				| map (select (.day_index != null))
+				
+			' \
+			"${_input}" \
+			"${_output}" \
+	#
+!!
+
+
+--<< exports / jhu / values / tsv
+	
+	test "${#}" -eq 2
+	_input="${1}"
+	_output="${2}"
+	shift -- 2
+	test "${#}" -eq 0
+	
+	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
+			'
+			(
+				[
+					
+					"location_key",
+					"location_label",
+					"country",
+					"province",
+					"location_lat",
+					"location_long",
+					
+					"date",
+					"day_index",
+					
+					"absolute_confirmed",
+					"absolute_deaths",
+					"absolute_recovered",
+					"absolute_infected",
+					
+					"relative_confirmed",
+					"relative_deaths",
+					"relative_recovered",
+					"relative_infected",
+					
+					"relative_confirmed_pct",
+					"relative_deaths_pct",
+					"relative_recovered_pct",
+					"relative_infected_pct"
+					
+				]
+				| join ("\t")
+				
+			) , (
+				
+				.[]
+				| (
+					[
+					
+						.location.key,
+						.location.label,
+						.location.country,
+						.location.province,
+						.location.lat_long[0],
+						.location.lat_long[1],
+						
+						.date.date,
+						.day_index
+						
+					] + [
+						
+						.values
+						| (.absolute, .relative, .relative_pct)
+						| (.confirmed, .deaths, .recovered, .infected)
+						
+					]
+				)
+				| map (if (. != null) then tostring else "" end)
+				| join ("\t")
+				
+			)
+			' \
+			"${_input}" \
+			"${_output}" \
+			--raw-output \
 	#
 !!
 

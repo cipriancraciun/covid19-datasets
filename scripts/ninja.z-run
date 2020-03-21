@@ -54,3 +54,7 @@
 	| sort
 !!
 
+<<~~.. ninja / commands
+	"${ZRUN[@]}" ':: ninja' -t commands
+!!
+

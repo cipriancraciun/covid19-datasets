@@ -73,7 +73,7 @@
 	
 	rm -f -- "${_output}.tmp"
 	
-	if ! jqe "${_flags[@]}" ". | ${_script}" \
+	if ! nice -n 19 -- jqe "${_flags[@]}" ". | ${_script}" \
 			< "${_input}" \
 			> "${_output}.tmp" \
 	; then
