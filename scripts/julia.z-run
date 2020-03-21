@@ -1,0 +1,68 @@
+#!/dev/null
+
+
+
+
+<< tools / julia / exec
+	
+	test "${#}" -ge 1
+	_script="${1}"
+	shift -- 1
+	_arguments=( "${@}" )
+	shift -- "${#}"
+	
+	nodaemon \
+		nice -n 19 -- \
+	julia \
+			--project=./.outputs/julia/environment \
+			--sysimage=./.outputs/julia/sysimage.so \
+			--trace-compile="${_script}.compile.${$}.tmp" \
+		-- \
+			"${_script}" \
+			"${_arguments[@]}" \
+	#
+	
+	mv -T -- \
+			"${_script}.compile.${$}.tmp" \
+			"${_script}.compile" \
+	#
+!!
+
+
+
+
+<< tools / julia / bootstrap
+	
+	test "${#}" -eq 0
+	
+	if test ! -e ./.outputs/julia ; then
+		mkdir -- ./.outputs/julia
+	fi
+	
+	find ./sources/ \
+			-type f \
+			-name '*.jl.compile' \
+			-exec cat -- {} + \
+		>| ./sources/julia-environment.jl.compile.tmp \
+	#
+	
+	nodaemon \
+		nice -n 19 -- \
+	julia -- \
+			./sources/julia-environment.jl \
+			./.outputs/julia/environment \
+			./.outputs/julia/sysimage.so.tmp \
+			./sources/julia-environment.jl.compile.tmp \
+	#
+	
+	mv -T -- \
+			./.outputs/julia/sysimage.so.tmp \
+			./.outputs/julia/sysimage.so \
+	#
+	
+	mv -T -- \
+			./sources/julia-environment.jl.compile.tmp \
+			./sources/julia-environment.jl.compile \
+	#
+!!
+

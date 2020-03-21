@@ -3,7 +3,7 @@
 
 rule marker
     command = exec -- touch -- ${out}
-    description = [marker]  ${out}
+    description =
 
 rule fetch-curl
     command = exec -- z-run ':: tools / fetch / curl' ${url} ${out}
@@ -15,9 +15,9 @@ rule csv-to-json
 
 rule z-run-in-out
     command = exec -- z-run ${scriptlet} ${in} ${out} ${arguments}
-    description = [z-run]  ${scriptlet} ${out}
+    description = [z-run]  ${scriptlet}  ${out}
 
 rule z-run-out-in
     command = exec -- z-run ${scriptlet} ${out} ${in} ${arguments}
-    description = [z-run]  ${scriptlet} ${out}
+    description = [z-run]  ${scriptlet}  ${out}
 

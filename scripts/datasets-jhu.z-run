@@ -3,7 +3,35 @@
 
 
 
---<< imports / jhu / merge
+<< plots / jhu
+	
+	test "${#}" -eq 5
+	_dataset="${1}"
+	_output="${2}"
+	_format="${3}"
+	_index="${4}"
+	_metric="${5}"
+	shift -- 5
+	
+	"${ZRUN[@]}" ':: tools / julia / exec' \
+			./sources/jhu-plot.jl \
+			"${_dataset}" \
+			"${_output}.tmp" \
+			"${_format}" \
+			"${_index}" \
+			"${_metric}" \
+	#
+	
+	mv -T -- \
+			"${_output}.tmp" \
+			"${_output}" \
+	#
+!!
+
+
+
+
+<< imports / jhu / merge
 	
 	test "${#}" -ge 2
 	_output="${1}"
@@ -51,7 +79,7 @@
 
 
 
---<< imports / jhu / extract / locations
+<< imports / jhu / extract / locations
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -107,7 +135,7 @@
 
 
 
---<< imports / jhu / extract / dates
+<< imports / jhu / extract / dates
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -154,7 +182,7 @@
 
 
 
---<< imports / jhu / extract / values
+<< imports / jhu / extract / values
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -187,7 +215,29 @@
 					date : .[0].date | del (.key),
 					values : map ({key : .dataset, value : .value}) | from_entries,
 				})
-				| sort_by ([.location.label, .date.date])
+				| group_by ([.location.country, .date])
+				| map (
+					{
+						location : {
+							key : [.[0].location.country, "total"] | crypto_md5,
+							country : .[0].location.country,
+							province : "total",
+							label : .[0].location.country,
+						},
+						date : .[0].date,
+						values :
+							map (.values | to_entries | .[])
+							| group_by (.key)
+							| map ({
+								key : .[0].key,
+								value : map (.value) | add,
+							})
+							| from_entries
+					}
+					,
+					.[]
+				)
+				| sort_by ([.location.country, .date.date, .location.label, .location.province, .location.key])
 				
 			' \
 			"${_input}" \
@@ -200,7 +250,7 @@
 
 
 
---<< exports / jhu / values / json
+<< exports / jhu / values / json
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -218,6 +268,7 @@
 				| map (
 					.values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
 				)
+				| sort_by ([.location.key, .date.date])
 				| reduce
 					.[] as $current
 					(
@@ -226,8 +277,9 @@
 						.
 						| .previous as $previous
 						| .records as $records
+						| (if (($previous != null) and ($previous.location.key == $current.location.key)) then $previous else null end) as $previous
 						| $current
-						| if (($previous != null) and ($previous.location.key == $current.location.key)) then
+						| if ($previous != null) then
 							.
 							| .values.relative = {
 								confirmed : ($current.values.absolute.confirmed - $previous.values.absolute.confirmed) | (if (. != 0) then . else null end),
@@ -241,26 +293,28 @@
 								infected : (try (.values.relative.infected * 100.0 / $previous.values.absolute.infected) catch null) | (if (. != 0) then . else null end),
 								deaths : (try (.values.relative.deaths * 100.0 / $previous.values.absolute.deaths) catch null) | (if (. != 0) then . else null end),
 							}
-							| if ((.values.absolute.confirmed != 0) or ($previous.day_index != null)) then
-								.day_index = ($previous.day_index + 1)
-							else
-								.
-							end
 						else
 							.
-							| if (.values.absolute.confirmed != 0) then
-								.day_index = 1
-							else
-								.
-							end
 						end
+						| if ((.values.absolute.confirmed >= 1) or ($previous.day_index_1 != null)) then
+							.day_index_1 = (($previous.day_index_1 // 0) + 1)
+						else . end
+						| if ((.values.absolute.confirmed >= 10) or ($previous.day_index_10 != null)) then
+							.day_index_10 = (($previous.day_index_10 // 0) + 1)
+						else . end
+						| if ((.values.absolute.confirmed >= 100) or ($previous.day_index_100 != null)) then
+							.day_index_100 = (($previous.day_index_100 // 0) + 1)
+						else . end
+						| if ((.values.absolute.confirmed >= 1000) or ($previous.day_index_1000 != null)) then
+							.day_index_1000 = (($previous.day_index_1000 // 0) + 1)
+						else . end
 						| {
 							previous : .,
 							records : ($records + [.]),
 						}
 					)
 				| .records
-				| map (select (.day_index != null))
+				| map (select (.day_index_1 != null))
 				
 			' \
 			"${_input}" \
@@ -269,7 +323,7 @@
 !!
 
 
---<< exports / jhu / values / tsv
+<< exports / jhu / values / tsv
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -290,7 +344,10 @@
 					"location_long",
 					
 					"date",
-					"day_index",
+					"day_index_1",
+					"day_index_10",
+					"day_index_100",
+					"day_index_1000",
 					
 					"absolute_confirmed",
 					"absolute_deaths",
@@ -324,7 +381,10 @@
 						.location.lat_long[1],
 						
 						.date.date,
-						.day_index
+						.day_index_1,
+						.day_index_10,
+						.day_index_100,
+						.day_index_1000
 						
 					] + [
 						

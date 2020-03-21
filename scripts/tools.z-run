@@ -3,7 +3,7 @@
 
 
 
---<< tools / fetch / curl
+<< tools / fetch / curl
 	
 	test "${#}" -eq 2
 	_url="${1}"
@@ -26,7 +26,7 @@
 
 
 
---<< tools / convert / csv-to-json
+<< tools / convert / csv-to-json
 	
 	test "${#}" -eq 3
 	_input="${1}"
@@ -60,7 +60,7 @@
 
 
 
---<< tools / jq / filter
+<< tools / jq / filter
 	
 	test "${#}" -ge 3
 	_script="${1}"

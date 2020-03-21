@@ -1,0 +1,96 @@
+#!/dev/null
+
+
+
+
+build ./imports/jhu/confirmed.csv : fetch-curl | ${ninja_force}
+    url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv'
+
+build ./imports/jhu/recovered.csv : fetch-curl | ${ninja_force}
+    url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
+
+build ./imports/jhu/deaths.csv : fetch-curl | ${ninja_force}
+    url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv'
+
+
+
+
+build ./imports/jhu/confirmed.csv.json : csv-to-json ./imports/jhu/confirmed.csv | ./sources/csv-to-json.py ${zrun_library} ${ninja_force}
+    dataset = confirmed
+
+build ./imports/jhu/recovered.csv.json : csv-to-json ./imports/jhu/recovered.csv | ./sources/csv-to-json.py ${zrun_library} ${ninja_force}
+    dataset = recovered
+
+build ./imports/jhu/deaths.csv.json : csv-to-json ./imports/jhu/deaths.csv | ./sources/csv-to-json.py ${zrun_library} ${ninja_force}
+    dataset = deaths
+
+build ./imports/jhu/merged.csv.json : z-run-out-in $
+        ./imports/jhu/confirmed.csv.json $
+        ./imports/jhu/recovered.csv.json $
+        ./imports/jhu/deaths.csv.json $
+        | ${zrun_library} ${ninja_force}
+    scriptlet = ':: imports / jhu / merge'
+
+
+
+
+build ./imports/jhu/locations.json : z-run-in-out ./imports/jhu/merged.csv.json | ${zrun_library} ${ninja_force}
+    scriptlet = ':: imports / jhu / extract / locations'
+
+build ./imports/jhu/dates.json : z-run-in-out ./imports/jhu/merged.csv.json | ${zrun_library} ${ninja_force}
+    scriptlet = ':: imports / jhu / extract / dates'
+
+build ./imports/jhu/values.json : z-run-in-out ./imports/jhu/merged.csv.json $
+        | ./imports/jhu/locations.json ./imports/jhu/dates.json ${zrun_library} ${ninja_force}
+    scriptlet = ':: imports / jhu / extract / values'
+
+build ./exports/jhu/values.json : z-run-in-out ./imports/jhu/values.json | ${zrun_library} ${ninja_force}
+    scriptlet = ':: exports / jhu / values / json'
+
+build ./exports/jhu/values.tsv : z-run-in-out ./exports/jhu/values.json | ${zrun_library} ${ninja_force}
+    scriptlet = ':: exports / jhu / values / tsv'
+
+
+
+
+build ./plots/jhu/absolute-confirmed.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 absolute_confirmed
+    pool = console
+
+build ./plots/jhu/absolute-deaths.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 absolute_deaths
+    pool = console
+
+build ./plots/jhu/absolute-recovered.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 absolute_recovered
+    pool = console
+
+build ./plots/jhu/absolute-infected.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 absolute_infected
+    pool = console
+
+
+build ./plots/jhu/relative-confirmed.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 relative_confirmed
+    pool = console
+
+build ./plots/jhu/relative-deaths.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 relative_deaths
+    pool = console
+
+# build ./plots/jhu/relative-recovered.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+#    scriptlet = ':: plots / jhu'
+#    arguments = pdf day_index_1000 relative_recovered
+#    pool = console
+
+build ./plots/jhu/relative-infected.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+    scriptlet = ':: plots / jhu'
+    arguments = pdf day_index_1000 relative_infected
+    pool = console
+

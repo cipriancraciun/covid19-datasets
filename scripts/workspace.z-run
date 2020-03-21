@@ -1,0 +1,29 @@
+#!/dev/null
+
+
+
+
+<< workspace / initialize / outputs
+	
+	test "${#}" -eq 0
+	
+	_datasets=(
+			"./.outputs/ninja"
+			"./.outputs/julia"
+		)
+	
+	if test ! -d ./.outputs ; then
+		_outputs_store="${TMPDIR:-/tmp}/outputs--${UID}--${RANDOM}-${RANDOM}-${RANDOM}-${RANDOM}"
+		mkdir -- "${_outputs_store}"
+		_outputs_store="$( exec -- readlink -e -- "${_outputs_store}" )"
+		ln -s -f -T -- "${_outputs_store}" ./.outputs
+	fi
+	
+	for _folder in "${_datasets[@]}" ; do
+		if test ! -e "${_folder}" ; then
+			mkdir -- "${_folder}"
+		fi
+	done
+	
+!!
+

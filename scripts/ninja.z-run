@@ -10,23 +10,24 @@
 	builddir = ./.outputs/ninja
 	ninja_required_version = 1.10
 	
-	zrun_library_0 = ${builddir}/z-run.{{ ZRUN_FINGERPRINT }}.marker
+	zrun_library_0 = ${builddir}/markers/z-run.library.{{ ZRUN_FINGERPRINT }}
 	zrun_library = ${zrun_library_0}
-	zrun_library = ${builddir}/z-run.dummy
+	zrun_library = ${builddir}/markers/z-run.library.dummy
+	ninja_force = ${builddir}/markers/ninja.force
 	
 	{{ ZRUN ":: ninja / script / tools" }}
-	{{ ZRUN ":: ninja / script / imports / jhu" }}
+	{{ ZRUN ":: ninja / script / datasets / jhu" }}
 	
-	build ${zrun_library_0} : marker | ${builddir}/ninja.force
-	build ${zrun_library} : marker | ${builddir}/ninja.force
-	build ${builddir}/ninja.force : marker
+	build ${zrun_library_0} : marker | ${ninja_force}
+	build ${zrun_library} : marker | ${ninja_force}
+	build ${ninja_force} : marker
 !!
 
 
 
 
 --::&&.. ninja / script / tools :: ./tools.ninja
---::&&.. ninja / script / imports / jhu :: ./imports-jhu.ninja
+--::&&.. ninja / script / datasets / jhu :: ./datasets-jhu.ninja
 
 
 
@@ -34,15 +35,22 @@
 <<== ninja / generate
 	#! {{}}
 	{{ range $_, $_target := ZRUN ":: ninja / targets" | split_lines }}
+	
 	<< ninja / build / {{ $_target }}
 		test "${#}" -eq 0
 		exec -- "${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
 	!!
-	<< ninja / less / {{ $_target }}
+	
+	<< ninja / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+		{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) }}
 		exec -- less -- {{ $_target | shell_quote }}
+		{{ else if or ($_target | has_suffix (".pdf")) }}
+		exec -- zathura -- {{ $_target | shell_quote }}
+		{{ end }}
 	!!
+	
 	{{ end }}
 !!
 
@@ -57,5 +65,15 @@
 
 <<~~.. ninja / commands
 	"${ZRUN[@]}" ':: ninja' -t commands
+!!
+
+
+
+
+<< ninja / force
+	test "${#}" -eq 0
+	if test -e ./.outputs/ninja/markers/ninja.force ; then
+		rm -- ./.outputs/ninja/markers/ninja.force
+	fi
 !!
 
