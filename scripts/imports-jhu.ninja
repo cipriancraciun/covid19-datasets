@@ -47,6 +47,6 @@ build ./imports/jhu/values.json : z-run-in-out ./imports/jhu/merged.csv.json $
 build ./exports/jhu/values.json : z-run-in-out ./imports/jhu/values.json | ${zrun_library}
     scriptlet = ':: exports / jhu / values / json'
 
-build ./exports/jhu/values.tsv : z-run-in-out ./exports/jhu/values.json | ${zrun_library_0}
+build ./exports/jhu/values.tsv : z-run-in-out ./exports/jhu/values.json | ${zrun_library}
     scriptlet = ':: exports / jhu / values / tsv'
 

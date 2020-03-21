@@ -17,8 +17,9 @@
 	{{ ZRUN ":: ninja / script / tools" }}
 	{{ ZRUN ":: ninja / script / imports / jhu" }}
 	
-	build ${zrun_library_0} : marker
-	build ${zrun_library} : marker
+	build ${zrun_library_0} : marker | ${builddir}/ninja.force
+	build ${zrun_library} : marker | ${builddir}/ninja.force
+	build ${builddir}/ninja.force : marker
 !!
 
 
