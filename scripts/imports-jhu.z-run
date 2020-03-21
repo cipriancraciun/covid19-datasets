@@ -1,0 +1,198 @@
+#!/dev/null
+
+
+
+
+--<< imports / jhu / merge
+	
+	test "${#}" -ge 2
+	_output="${1}"
+	shift -- 1
+	_inputs=( "${@}" )
+	shift -- "${#}"
+	test "${#}" -eq 0
+	
+	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
+			'
+				
+				.
+				
+				| (
+					map (
+						.keys
+						| to_entries
+						| .[]
+					)
+					| unique
+					| from_entries
+				) as $keys
+				
+				| (
+					map (
+						.dataset as $dataset
+						| .records
+						| map (.dataset = $dataset)
+					)
+					| add
+				) as $records
+				
+				| {
+					keys : $keys,
+					records : $records,
+				}
+				
+			' \
+			<( exec -- cat -- "${_inputs[@]}" ) \
+			"${_output}" \
+			--slurp \
+	#
+!!
+
+
+
+
+--<< imports / jhu / extract / locations
+	
+	test "${#}" -eq 2
+	_input="${1}"
+	_output="${2}"
+	shift -- 2
+	test "${#}" -eq 0
+	
+	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
+			'
+				
+				.
+				| .records
+				| map ([.Country_Region, .Province_State, .Lat, .Long])
+				| group_by ([.[0], .[1]])
+				| map (
+					.[0]
+					| {
+						key : [.[0], .[1]] | crypto_md5,
+						country : .[0],
+						province : .[1],
+						lat_long : [.[2], .[3]],
+					}
+					| .province_0 = (
+						if (.country == "US") then
+							.province
+							| split (", ")
+							| if ((. | length) == 2) then
+								.[1] + " / " + .[0]
+							else
+								.[0]
+							end
+						else
+							.province
+						end)
+					| .label = (
+						if (.province_0 != null) then
+							.country + " / " + .province_0
+						else
+							.country
+						end)
+					| del (.province_0)
+				)
+				| sort_by (.label)
+				| map ({key : .key, value : .})
+				| from_entries
+				
+			' \
+			"${_input}" \
+			"${_output}" \
+	#
+!!
+
+
+
+
+--<< imports / jhu / extract / dates
+	
+	test "${#}" -eq 2
+	_input="${1}"
+	_output="${2}"
+	shift -- 2
+	test "${#}" -eq 0
+	
+	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
+			'
+				
+				.
+				| .keys
+				| to_entries
+				| map (.key)
+				| map (select (startswith ("_")))
+				| map (
+					{
+						key : .,
+					} + (
+						split ("_")
+						| {
+							year : (2000 + (.[3] | tonumber)),
+							month : .[1] | tonumber,
+							day : .[2] | tonumber,
+						}
+					)
+					| .date = (
+						[.year, .month, .day]
+						| map (tostring)
+						| map (if ((. | length) == 1) then "0" + . else . end)
+						| join ("-"))
+				)
+				| sort_by (.date)
+				| map ({key : .key, value : .})
+				| from_entries
+				
+			' \
+			"${_input}" \
+			"${_output}" \
+	#
+!!
+
+
+
+
+--<< imports / jhu / extract / values
+	
+	test "${#}" -eq 2
+	_input="${1}"
+	_output="${2}"
+	shift -- 2
+	test "${#}" -eq 0
+	
+	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
+			'
+				
+				.
+				| .records
+				| map (
+					.location = ([.Country_Region, .Province_State] | crypto_md5 | $locations[.])
+				)
+				| map (
+					. as $record
+					| $dates
+					| .[]
+					| {
+						dataset : $record.dataset,
+						location : $record.location,
+						date : .,
+						value : $record[.key],
+					}
+				)
+				| group_by ([.location.key, .date.key])
+				| map ({
+					location : .[0].location,
+					date : .[0].date,
+					values : map ({key : .dataset, value : .value}) | from_entries,
+				})
+				| sort_by ([.location.label, .date.date])
+				
+			' \
+			"${_input}" \
+			"${_output}" \
+			--argfile dates ./imports/jhu/dates.json \
+			--argfile locations ./imports/jhu/locations.json \
+	#
+!!
+

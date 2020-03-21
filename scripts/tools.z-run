@@ -1,0 +1,86 @@
+#!/dev/null
+
+
+
+
+--<< tools / fetch / curl
+	
+	test "${#}" -eq 2
+	_url="${1}"
+	_output="${2}"
+	shift -- 2
+	test "${#}" -eq 0
+	
+	rm -f -- "${_output}.tmp"
+	
+	if ! curl -s -f -L -- "${_url}" \
+			> "${_output}.tmp" \
+	; then
+		rm -f -- "${_output}.tmp"
+		exit -- 1
+	fi
+	
+	mv -T -- "${_output}.tmp" "${_output}"
+!!
+
+
+
+
+--<< tools / convert / csv-to-json
+	
+	test "${#}" -eq 3
+	_input="${1}"
+	_output="${2}"
+	_dataset="${3}"
+	shift -- 3
+	test "${#}" -eq 0
+	
+	rm -f -- "${_output}.tmp"
+	
+	if ! "${ZRUN[@]}" ':: tools / convert / csv-to-json / exec' \
+				"${_input}" \
+				"${_output}.tmp" \
+				"${_dataset}" \
+	; then
+		rm -f -- "${_output}.tmp"
+		exit -- 1
+	fi
+	
+	mv -T -- "${_output}.tmp" "${_output}"
+!!
+
+--<<~~ tools / convert / csv-to-json / exec
+	#! {{}}
+	#! <python2>
+	{{ ZRUN ":: tools / convert / csv-to-json / script" }}
+!!
+
+--::&&.. tools / convert / csv-to-json / script :: ../sources/csv-to-json.py
+
+
+
+
+--<< tools / jq / filter
+	
+	test "${#}" -ge 3
+	_script="${1}"
+	_input="${2}"
+	_output="${3}"
+	shift -- 3
+	_flags=( --ascii-output "${@}" )
+	shift -- "${#}"
+	test "${#}" -eq 0
+	
+	rm -f -- "${_output}.tmp"
+	
+	if ! jqe "${_flags[@]}" ". | ${_script}" \
+			< "${_input}" \
+			> "${_output}.tmp" \
+	; then
+		rm -f -- "${_output}.tmp"
+		exit -- 1
+	fi
+	
+	mv -T -- "${_output}.tmp" "${_output}"
+!!
+

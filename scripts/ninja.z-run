@@ -1,0 +1,56 @@
+#!/dev/null
+
+
+
+
+<<~~ ninja
+	#! {{}}
+	#! <ninja>
+	
+	builddir = ./.outputs/ninja
+	ninja_required_version = 1.10
+	
+	zrun_library_0 = ${builddir}/z-run.{{ ZRUN_FINGERPRINT }}.marker
+	zrun_library = ${zrun_library_0}
+	zrun_library = ${builddir}/z-run.dummy
+	
+	{{ ZRUN ":: ninja / script / tools" }}
+	{{ ZRUN ":: ninja / script / imports / jhu" }}
+	
+	build ${zrun_library_0} : marker
+	build ${zrun_library} : marker
+!!
+
+
+
+
+--::&&.. ninja / script / tools :: ./tools.ninja
+--::&&.. ninja / script / imports / jhu :: ./imports-jhu.ninja
+
+
+
+
+<<== ninja / generate
+	#! {{}}
+	{{ range $_, $_target := ZRUN ":: ninja / targets" | split_lines }}
+	<< ninja / build / {{ $_target }}
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+	!!
+	<< ninja / less / {{ $_target }}
+		test "${#}" -eq 0
+		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+		exec -- less -- {{ $_target | shell_quote }}
+	!!
+	{{ end }}
+!!
+
+--<<~~.. ninja / targets
+	test "${#}" -eq 0
+	"${ZRUN[@]}" ':: ninja' -t targets all \
+	| sed -r \
+			-e '\#^([^:]+): marker$# d' \
+			-e 's#^([^:]+): .*$#\1#' \
+	| sort
+!!
+
