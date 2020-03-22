@@ -3,7 +3,7 @@
 
 
 
-<< tools / julia / exec
+--<< tools / julia / exec
 	
 	test "${#}" -ge 1
 	_script="${1}"
@@ -11,58 +11,98 @@
 	_arguments=( "${@}" )
 	shift -- "${#}"
 	
-	nodaemon \
-		nice -n 19 -- \
-	julia \
-			--project=./.outputs/julia/environment \
-			--sysimage=./.outputs/julia/sysimage.so \
-			--trace-compile="${_script}.compile.${$}.tmp" \
-		-- \
-			"${_script}" \
-			"${_arguments[@]}" \
-	#
+	_script_name="$( exec -- basename -- "${_script}" .jl )"
+	_sysimage="./.outputs/julia/${_script_name}.so"
+	_compile="./.outputs/julia/${_script_name}.compile"
+	_marker="$( exec -- date -- +%s )-${$}"
+	
+	if test ! -e "${_compile}" ; then
+		mkdir -- "${_compile}"
+	fi
+	
+	rm -f -- "${_compile}/${_marker}.tmp"
+	
+	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+			nodaemon \
+			nice -n 19 -- \
+			julia \
+					--project=./.outputs/julia/environment \
+					--sysimage="${_sysimage}" \
+					--startup-file=no \
+					--trace-compile="${_compile}/${_marker}.tmp" \
+				-- \
+					"${_script}" \
+					"${_arguments[@]}" \
+	; then
+		rm -f -- "${_compile}/${_marker}.tmp"
+		exit -- 1
+	fi
 	
 	mv -T -- \
-			"${_script}.compile.${$}.tmp" \
-			"${_script}.compile" \
+			"${_compile}/${_marker}.tmp" \
+			"${_compile}/${_marker}" \
 	#
 !!
 
 
 
 
-<< tools / julia / bootstrap
+--<< tools / julia / bootstrap
 	
+	test "${#}" -eq 1
+	_script="${1}"
+	shift -- 1
 	test "${#}" -eq 0
+	
+	_script_name="$( exec -- basename -- "${_script}" .jl )"
+	_sysimage="./.outputs/julia/${_script_name}.so"
+	_compile="./.outputs/julia/${_script_name}.so.compile"
 	
 	if test ! -e ./.outputs/julia ; then
 		mkdir -- ./.outputs/julia
 	fi
 	
-	find ./sources/ \
-			-type f \
-			-name '*.jl.compile' \
-			-exec cat -- {} + \
-		>| ./sources/julia-environment.jl.compile.tmp \
-	#
+	if test ! -e "${_compile}" ; then
+		find "./.outputs/julia/${_script_name}.compile" \
+				-type f -not -name '*.tmp' \
+				-exec cat -- {} + \
+		| LC_ALL=C sort -u \
+			>| "${_compile}.tmp" \
+		#
+		mv -T -- \
+				"${_compile}.tmp" \
+				"${_compile}" \
+		#
+	fi
 	
-	nodaemon \
-		nice -n 19 -- \
-	julia -- \
-			./sources/julia-environment.jl \
-			./.outputs/julia/environment \
-			./.outputs/julia/sysimage.so.tmp \
-			./sources/julia-environment.jl.compile.tmp \
-	#
+	rm -f -- "${_sysimage}.tmp"
+	
+	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+			nodaemon \
+			nice -n 19 -- \
+			julia \
+					--startup-file=no \
+				-- \
+					./sources/julia-environment.jl \
+					./.outputs/julia/environment \
+					"${_sysimage}.tmp" \
+					"${_compile}" \
+	; then
+		rm -f -- "${_sysimage}.tmp"
+		exit -- 1
+	fi
 	
 	mv -T -- \
-			./.outputs/julia/sysimage.so.tmp \
-			./.outputs/julia/sysimage.so \
+			"${_sysimage}.tmp" \
+			"${_sysimage}" \
 	#
-	
-	mv -T -- \
-			./sources/julia-environment.jl.compile.tmp \
-			./sources/julia-environment.jl.compile \
+!!
+
+
+<< tools / julia / bootstrap / jhu-plot
+	exec -- "${ZRUN[@]}" ':: tools / julia / bootstrap' \
+			./sources/jhu-plot.jl \
+			"${@}" \
 	#
 !!
 

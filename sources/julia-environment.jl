@@ -1,12 +1,24 @@
 
 
+_packages = [
+		:DataFrames,
+		:Statistics,
+		:CSV,
+		:Gadfly,
+		:Cairo,
+		:Fontconfig,
+		:Formatting,
+		:Printf,
+	]
+
+_packages_nocompile = [
+		:Fontconfig,
+	]
+
+
 (_project_path, _sysimage_path, _precompile_path) = ARGS
 
-if Base.isfile(_sysimage_path)
-	_baseimage_path = _sysimage_path
-else
-	_baseimage_path = nothing
-end
+_baseimage_path = if Base.isfile(_sysimage_path) _sysimage_path end
 
 
 begin
@@ -15,40 +27,24 @@ begin
 	
 	Pkg.activate(_project_path)
 	
-	Pkg.add("DataFrames")
-	Pkg.add("CSV")
-	
-	Pkg.add("Gadfly")
-	Pkg.add("Cairo")
-	Pkg.add("Fontconfig")
-	
-	Pkg.add("Printf")
-	Pkg.add("Formatting")
-	
-	Pkg.status()
+	for _package in _packages
+		Pkg.add(String(_package))
+	end
 end
 
 
 begin
 	
 	Pkg.develop("PackageCompiler")
-	using PackageCompiler
+	import PackageCompiler
 	
 	PackageCompiler.create_sysimage(
-			[
-				:DataFrames,
-				:CSV,
-				:Gadfly,
-				:Cairo,
-				:Fontconfig,
-				:Printf,
-				:Formatting,
-			],
+			filter((_package -> ! (_package in _packages_nocompile)), _packages),
 			project = _project_path,
 			sysimage_path = _sysimage_path,
 			base_sysimage = _baseimage_path,
-			incremental = true,
 			precompile_statements_file = _precompile_path,
+			incremental = true,
 		)
 end
 

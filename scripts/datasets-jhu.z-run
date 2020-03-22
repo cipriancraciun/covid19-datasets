@@ -3,29 +3,73 @@
 
 
 
-<< plots / jhu
+--<<~~.. ninja / script / datasets / jhu / plots
+	#! {{}}
 	
-	test "${#}" -eq 5
+	{{ range $_, $_filter := array "global" "romania" }}
+	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
+	{{ range $_, $_delta := array "absolute" "relative" }}
+	
+	{{ $_index := "day_index_100" }}
+	{{ if eq $_filter "global" }}
+	{{ $_index = "day_index_1000" }}
+	{{ end }}
+	
+	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_delta }}-{{ $_metric }}.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+	    scriptlet = ':: plots / jhu'
+	    arguments = pdf {{ $_filter }} {{ $_index }} {{ $_delta }}_{{ $_metric }}
+	    pool = cpu_heavy
+	
+	build ./plots/jhu/{{ $_filter }}/all/{{ $_delta }}-{{ $_metric }}.pdf : symlink ./plots/jhu/{{ $_filter }}/pdf/{{ $_delta }}-{{ $_metric }}.pdf
+	
+	{{ range $_, $_format := array "svg" "png" }}
+	
+	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_delta }}-{{ $_metric }}.{{ $_format }} : z-run-in-out ./plots/jhu/{{ $_filter }}/pdf/{{ $_delta }}-{{ $_metric }}.pdf | ${zrun_library} ${ninja_force}
+	    scriptlet = ':: tools / inkscape / convert'
+	    arguments = {{ $_format }}
+	    pool = cpu_moderate
+	
+	build ./plots/jhu/{{ $_filter }}/all/{{ $_delta }}-{{ $_metric }}.{{ $_format }} : symlink ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_delta }}-{{ $_metric }}.{{ $_format }}
+	
+	{{ end }}
+	{{ end }}
+	{{ end }}
+	{{ end }}
+!!
+
+
+
+
+--<< plots / jhu
+	
+	test "${#}" -eq 6
 	_dataset="${1}"
 	_output="${2}"
 	_format="${3}"
-	_index="${4}"
-	_metric="${5}"
-	shift -- 5
+	_filter="${4}"
+	_index="${5}"
+	_metric="${6}"
+	shift -- 6
 	test "${#}" -eq 0
 	
 	export -- \
 			FONTCONFIG_PATH=/etc/fonts \
 	#
 	
-	"${ZRUN[@]}" ':: tools / julia / exec' \
+	rm -f -- "${_output}.tmp.pdf"
+	
+	if ! "${ZRUN[@]}" ':: tools / julia / exec' \
 			./sources/jhu-plot.jl \
 			"${_dataset}" \
 			"${_output}.tmp.pdf" \
 			pdf \
+			"${_filter}" \
 			"${_index}" \
 			"${_metric}" \
-	#
+	; then
+		rm -f -- "${_output}.tmp.pdf"
+		exit -- 1
+	fi
 	
 	"${ZRUN[@]}" ':: tools / inkscape / convert' \
 			"${_output}.tmp.pdf" \
@@ -39,7 +83,7 @@
 
 
 
-<< imports / jhu / merge
+--<< imports / jhu / merge
 	
 	test "${#}" -ge 2
 	_output="${1}"
@@ -87,7 +131,7 @@
 
 
 
-<< imports / jhu / extract / locations
+--<< imports / jhu / extract / locations
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -143,7 +187,7 @@
 
 
 
-<< imports / jhu / extract / dates
+--<< imports / jhu / extract / dates
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -190,7 +234,7 @@
 
 
 
-<< imports / jhu / extract / values
+--<< imports / jhu / extract / values
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -258,7 +302,7 @@
 
 
 
-<< exports / jhu / values / json
+--<< exports / jhu / values / json
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -331,7 +375,7 @@
 !!
 
 
-<< exports / jhu / values / tsv
+--<< exports / jhu / values / tsv
 	
 	test "${#}" -eq 2
 	_input="${1}"

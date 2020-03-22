@@ -7,6 +7,7 @@ begin
 	import Gadfly.px
 	import Cairo
 	
+	using DataFrames
 	using Statistics
 	using Formatting
 	using Printf
@@ -20,10 +21,12 @@ end
 	_dataset_path,
 	_plot_path,
 	_plot_format,
+	_dataset_filter,
 	_dataset_index,
 	_dataset_metric,
 ) = ARGS
 
+_dataset_filter = Symbol(_dataset_filter)
 _dataset_index = Symbol(_dataset_index)
 _dataset_metric = Symbol(_dataset_metric)
 _plot_format = Symbol(_plot_format)
@@ -47,19 +50,55 @@ _dataset = filter(
 		(_data ->
 			(_data[_dataset_index] !== missing) &&
 			(_data[_dataset_metric] !== missing) &&
+			(_data[_dataset_metric] != 0) &&
 			(_data[:province] !== missing) &&
 			(_data[:province] == "total")),
 		_dataset,
 	)
 
-_dataset = filter(
-		(_data -> _data[:country] in [
-				"China",
-				"Italy", "Spain", "Germany", "France",
-				"US", "Iran",
-		]),
-		_dataset,
-	)
+
+
+
+if _dataset_filter == :global
+	
+	_dataset_countries = [
+			"China", "Korea, South",
+			"Italy", "Spain", "Germany", "France",
+			"US",
+		]
+	
+	_dataset = filter(
+			(_data -> _data[:country] in _dataset_countries),
+			_dataset,
+		)
+	
+	_dataset_smoothing = ! (_dataset_metric in [:relative_recovered])
+	
+elseif _dataset_filter == :romania
+	
+	_dataset_countries = [
+			"Romania",
+		#	"Bulgaria", "Hungaria",
+			"Italy", "Spain", "Germany", "France",
+			"Austria", "Switzerland", "United Kingdom",
+			"US",
+		]
+	
+	_dataset = filter(
+			(_data -> _data[:country] in _dataset_countries),
+			_dataset,
+		)
+	
+	_dataset = filter(
+			(_data -> _data[_dataset_index] <= 10),
+			_dataset,
+		)
+	
+	_dataset_smoothing = ! (_dataset_metric in [:relative_deaths, :relative_recovered])
+	
+else
+	throw(error("[698e83db]"))
+end
 
 
 
@@ -83,6 +122,35 @@ _dataset_rmax_metric = ceil(_dataset_max_metric / _dataset_rstep_metric) * _data
 
 
 Gadfly.push_theme(:dark)
+
+
+_plot_palette = Gadfly.Scale.color_discrete().f(14)
+
+_plot_colors = DataFrame([
+		"Romania" _plot_palette[1];
+		"China" _plot_palette[2];
+		"Italy" _plot_palette[3];
+		"Spain" _plot_palette[4];
+		"Germany" _plot_palette[5];
+		"France" _plot_palette[6];
+		"Austria" _plot_palette[7];
+		"Switzerland" _plot_palette[8];
+		"United Kingdom" _plot_palette[9];
+		"US" _plot_palette[10];
+		"Korea, South" _plot_palette[11];
+		"Iran" _plot_palette[12];
+		"Bulgaria" _plot_palette[13];
+		"Hungaria" _plot_palette[14];
+	])
+
+_plot_colors = filter(
+		(_color -> _color[1] in _dataset_countries),
+		_plot_colors,
+	)
+
+_plot_colors_count = size(_plot_colors)[1]
+_plot_colors[:,2] = circshift(Gadfly.Scale.color_discrete().f(_plot_colors_count), 1)
+
 
 _plot_font_name = "JetBrains Mono"
 _plot_font_size = 12px
@@ -122,7 +190,11 @@ _plot = Gadfly.plot(
 			x = _dataset_index,
 			y = _dataset_metric,
 			color = :country,
-			Gadfly.Geom.smooth(method = :loess, smoothing = 0.75),
+			if _dataset_smoothing
+				Gadfly.Geom.smooth(method = :loess, smoothing = 0.75)
+			else
+				Gadfly.Geom.line
+			end,
 		),
 		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
 		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
@@ -132,6 +204,7 @@ _plot = Gadfly.plot(
 		Gadfly.Guide.ylabel(nothing),
 		Gadfly.Guide.xticks(ticks = [1; 5 : 5 : _dataset_max_index;]),
 		Gadfly.Guide.yticks(ticks = [_dataset_rmin_metric : _dataset_rstep_metric : _dataset_rmax_metric;]),
+		Gadfly.Scale.color_discrete_manual(_plot_colors[:,2]..., levels = _plot_colors[:,1]),
 		_plot_style,
 	)
 

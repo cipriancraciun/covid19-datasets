@@ -17,6 +17,7 @@
 	
 	{{ ZRUN ":: ninja / script / tools" }}
 	{{ ZRUN ":: ninja / script / datasets / jhu" }}
+	{{ ZRUN ":: ninja / script / datasets / jhu / plots" }}
 	
 	build ${zrun_library_0} : marker | ${ninja_force}
 	build ${zrun_library} : marker | ${ninja_force}
@@ -32,7 +33,7 @@
 
 
 
-<<== ninja / generate
+--<<== ninja / generate
 	#! {{}}
 	{{ range $_, $_target := ZRUN ":: ninja / targets" | split_lines }}
 	
@@ -54,7 +55,7 @@
 	{{ end }}
 !!
 
---<<~~.. ninja / targets
+<<~~.. ninja / targets
 	test "${#}" -eq 0
 	"${ZRUN[@]}" ':: ninja' -t targets all \
 	| sed -r \

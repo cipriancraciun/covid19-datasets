@@ -3,7 +3,7 @@
 
 
 
-<< tools / fetch / curl
+--<< tools / fetch / curl
 	
 	test "${#}" -eq 2
 	_url="${1}"
@@ -26,7 +26,7 @@
 
 
 
-<< tools / convert / csv-to-json
+--<< tools / convert / csv-to-json
 	
 	test "${#}" -eq 3
 	_input="${1}"
@@ -37,10 +37,12 @@
 	
 	rm -f -- "${_output}.tmp"
 	
-	if ! "${ZRUN[@]}" ':: tools / convert / csv-to-json / exec' \
-				"${_input}" \
-				"${_output}.tmp" \
-				"${_dataset}" \
+	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+			nice -n 19 -- \
+			"${ZRUN[@]}" ':: tools / convert / csv-to-json / exec' \
+					"${_input}" \
+					"${_output}.tmp" \
+					"${_dataset}" \
 	; then
 		rm -f -- "${_output}.tmp"
 		exit -- 1
@@ -60,7 +62,7 @@
 
 
 
-<< tools / jq / filter
+--<< tools / jq / filter
 	
 	test "${#}" -ge 3
 	_script="${1}"
@@ -73,9 +75,11 @@
 	
 	rm -f -- "${_output}.tmp"
 	
-	if ! nice -n 19 -- jqe "${_flags[@]}" ". | ${_script}" \
-			< "${_input}" \
-			> "${_output}.tmp" \
+	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+			nice -n 19 -- \
+			jqe "${_flags[@]}" ". | ${_script}" \
+				< "${_input}" \
+				> "${_output}.tmp" \
 	; then
 		rm -f -- "${_output}.tmp"
 		exit -- 1
@@ -87,7 +91,7 @@
 
 
 
-<< tools / inkscape / convert
+--<< tools / inkscape / convert
 	
 	test "${#}" -eq 3
 	_input="${1}"
@@ -108,16 +112,22 @@
 		;;
 	esac
 	
-	nice -n 19 -- \
-	inkscape \
-			"${_export_flag}" "${_output}.tmp" \
-			--export-area-page \
-			--export-width 1200 \
-			--export-text-to-path \
-			--export-background '#ffffff' \
-			--export-background-opacity 0.0 \
-			--file "${_input}" \
-		#
+	rm -f -- "${_output}.tmp"
+	
+	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+			nice -n 19 -- \
+			inkscape \
+					"${_export_flag}" "${_output}.tmp" \
+					--export-area-page \
+					--export-width 1200 \
+					--export-text-to-path \
+					--export-background '#ffffff' \
+					--export-background-opacity 0.0 \
+					--file "${_input}" \
+	; then
+		rm -f -- "${_output}.tmp"
+		exit -- 1
+	fi
 	
 	mv -T -- "${_output}.tmp" "${_output}"
 !!
