@@ -114,10 +114,14 @@ _dataset_max_date = maximum(_dataset[!, :date])
 _dataset_max_index = maximum(_dataset[!, _dataset_index])
 _dataset_min_metric = minimum(_dataset[!, _dataset_metric])
 _dataset_max_metric = maximum(_dataset[!, _dataset_metric])
-_dataset_q99_metric = quantile(_dataset[!, _dataset_metric], 0.99)
+_dataset_qmin_metric = quantile(_dataset[!, _dataset_metric], 0.01)
+_dataset_qmax_metric = quantile(_dataset[!, _dataset_metric], 0.99)
 
-if _dataset_max_metric > _dataset_q99_metric * 2
-	_dataset_max_metric = _dataset_q99_metric
+if (abs(_dataset_min_metric - _dataset_qmin_metric) / _dataset_qmin_metric) > 0.25
+	_dataset_min_metric = _dataset_qmin_metric
+end
+if (abs(_dataset_max_metric - _dataset_qmax_metric) / _dataset_qmax_metric) > 0.25
+	_dataset_max_metric = _dataset_qmax_metric
 end
 
 
@@ -128,6 +132,9 @@ if _dataset_metric in [:relative_recovered, :relative_deaths, :relative_infected
 	_dataset_rstep_metric = maximum([floor((_dataset_max_metric - _dataset_min_metric) / 10), 1])
 	_dataset_cmin_metric = 0
 	_dataset_cmax_metric = 100
+	_dataset_rsuf_metric = "%"
+elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_deaths, :deltapct_infected]
+	_dataset_rstep_metric = maximum([floor((_dataset_max_metric - _dataset_min_metric) / 10), 1])
 	_dataset_rsuf_metric = "%"
 else
 	_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_max_metric - _dataset_min_metric)), 1])
