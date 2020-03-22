@@ -1,11 +1,16 @@
 
 
 begin
+	
 	import CSV
 	import Gadfly
 	import Gadfly.px
 	import Cairo
+	
+	using Statistics
+	using Formatting
 	using Printf
+	
 end
 
 
@@ -59,6 +64,24 @@ _dataset = filter(
 
 
 
+_dataset_min_date = minimum(_dataset[!, :date])
+_dataset_max_date = maximum(_dataset[!, :date])
+_dataset_max_index = maximum(_dataset[!, _dataset_index])
+_dataset_min_metric = minimum(_dataset[!, _dataset_metric])
+_dataset_max_metric = maximum(_dataset[!, _dataset_metric])
+_dataset_q99_metric = quantile(_dataset[!, _dataset_metric], 0.99)
+
+if _dataset_max_metric > _dataset_q99_metric * 2
+	_dataset_max_metric = _dataset_q99_metric
+end
+
+_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_max_metric - _dataset_min_metric)), 1])
+_dataset_rmin_metric = floor(_dataset_min_metric / _dataset_rstep_metric) * _dataset_rstep_metric
+_dataset_rmax_metric = ceil(_dataset_max_metric / _dataset_rstep_metric) * _dataset_rstep_metric
+
+
+
+
 Gadfly.push_theme(:dark)
 
 _plot_font_name = "JetBrains Mono"
@@ -101,12 +124,14 @@ _plot = Gadfly.plot(
 			color = :country,
 			Gadfly.Geom.smooth(method = :loess, smoothing = 0.75),
 		),
-		Gadfly.Coord.cartesian(xmin = 1, ymin = minimum(_dataset[!, _dataset_metric])),
+		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
 		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
-		Gadfly.Scale.y_continuous(format = :plain),
-		Gadfly.Guide.title(@sprintf("JHU CSSE COVID-19 dataset -- `%s` / `%s`", _dataset_metric, _dataset_index)),
+		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true))),
+		Gadfly.Guide.title(@sprintf("JHU CSSE COVID-19 dataset -- `%s` per `%s` (until %s)", _dataset_metric, _dataset_index, _dataset_max_date)),
 		Gadfly.Guide.xlabel(nothing),
 		Gadfly.Guide.ylabel(nothing),
+		Gadfly.Guide.xticks(ticks = [1; 5 : 5 : _dataset_max_index;]),
+		Gadfly.Guide.yticks(ticks = [_dataset_rmin_metric : _dataset_rstep_metric : _dataset_rmax_metric;]),
 		_plot_style,
 	)
 

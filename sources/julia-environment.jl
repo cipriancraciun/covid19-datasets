@@ -17,9 +17,13 @@ begin
 	
 	Pkg.add("DataFrames")
 	Pkg.add("CSV")
+	
 	Pkg.add("Gadfly")
 	Pkg.add("Cairo")
 	Pkg.add("Fontconfig")
+	
+	Pkg.add("Printf")
+	Pkg.add("Formatting")
 	
 	Pkg.status()
 end
@@ -37,6 +41,8 @@ begin
 				:Gadfly,
 				:Cairo,
 				:Fontconfig,
+				:Printf,
+				:Formatting,
 			],
 			project = _project_path,
 			sysimage_path = _sysimage_path,
