@@ -72,7 +72,10 @@ if _dataset_filter == :global
 			_dataset,
 		)
 	
-	_dataset_smoothing = ! (_dataset_metric in [:relative_recovered])
+	_dataset_smoothing = if (_dataset_metric in [
+			:delta_recovered,
+			:deltapct_recovered,
+		]) nothing else 0.9 end
 	
 elseif _dataset_filter == :romania
 	
@@ -94,7 +97,10 @@ elseif _dataset_filter == :romania
 			_dataset,
 		)
 	
-	_dataset_smoothing = ! (_dataset_metric in [:relative_deaths, :relative_recovered])
+	_dataset_smoothing = if (_dataset_metric in [
+			:delta_deaths, :delta_recovered,
+			:deltapct_deaths, :deltapct_recovered,
+		]) nothing else 0.9 end
 	
 else
 	throw(error("[698e83db]"))
@@ -114,9 +120,29 @@ if _dataset_max_metric > _dataset_q99_metric * 2
 	_dataset_max_metric = _dataset_q99_metric
 end
 
-_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_max_metric - _dataset_min_metric)), 1])
+
+_dataset_cmin_metric = nothing
+_dataset_cmax_metric = nothing
+
+if _dataset_metric in [:relative_recovered, :relative_deaths, :relative_infected]
+	_dataset_rstep_metric = maximum([floor((_dataset_max_metric - _dataset_min_metric) / 10), 1])
+	_dataset_cmin_metric = 0
+	_dataset_cmax_metric = 100
+	_dataset_rsuf_metric = "%"
+else
+	_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_max_metric - _dataset_min_metric)), 1])
+	_dataset_rsuf_metric = ""
+end
+
 _dataset_rmin_metric = floor(_dataset_min_metric / _dataset_rstep_metric) * _dataset_rstep_metric
 _dataset_rmax_metric = ceil(_dataset_max_metric / _dataset_rstep_metric) * _dataset_rstep_metric
+
+if _dataset_cmin_metric !== nothing
+	_dataset_rmin_metric = maximum([_dataset_rmin_metric, _dataset_cmin_metric])
+end
+if _dataset_cmax_metric !== nothing
+	_dataset_rmax_metric = minimum([_dataset_rmax_metric, _dataset_cmax_metric])
+end
 
 
 
@@ -190,15 +216,15 @@ _plot = Gadfly.plot(
 			x = _dataset_index,
 			y = _dataset_metric,
 			color = :country,
-			if _dataset_smoothing
-				Gadfly.Geom.smooth(method = :loess, smoothing = 0.75)
+			if _dataset_smoothing !== nothing
+				Gadfly.Geom.smooth(method = :loess, smoothing = _dataset_smoothing)
 			else
 				Gadfly.Geom.line
 			end,
 		),
 		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
 		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
-		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true))),
+		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true) * _dataset_rsuf_metric)),
 		Gadfly.Guide.title(@sprintf("JHU CSSE COVID-19 dataset -- `%s` per `%s` (until %s)", _dataset_metric, _dataset_index, _dataset_max_date)),
 		Gadfly.Guide.xlabel(nothing),
 		Gadfly.Guide.ylabel(nothing),

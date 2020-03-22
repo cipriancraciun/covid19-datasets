@@ -8,29 +8,31 @@
 	
 	{{ range $_, $_filter := array "global" "romania" }}
 	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
-	{{ range $_, $_delta := array "absolute" "relative" }}
+	{{ range $_, $_method := array "absolute" "relative" "delta" "deltapct" }}
+	{{ if and (eq $_method "relative") (eq $_metric "confirmed") | not }}
 	
 	{{ $_index := "day_index_100" }}
 	{{ if eq $_filter "global" }}
 	{{ $_index = "day_index_1000" }}
 	{{ end }}
 	
-	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_delta }}-{{ $_metric }}.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
 	    scriptlet = ':: plots / jhu'
-	    arguments = pdf {{ $_filter }} {{ $_index }} {{ $_delta }}_{{ $_metric }}
+	    arguments = pdf {{ $_filter }} {{ $_index }} {{ $_method }}_{{ $_metric }}
 	    pool = cpu_heavy
 	
-	build ./plots/jhu/{{ $_filter }}/all/{{ $_delta }}-{{ $_metric }}.pdf : symlink ./plots/jhu/{{ $_filter }}/pdf/{{ $_delta }}-{{ $_metric }}.pdf
+	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.pdf : symlink ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf
 	
 	{{ range $_, $_format := array "svg" "png" }}
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_delta }}-{{ $_metric }}.{{ $_format }} : z-run-in-out ./plots/jhu/{{ $_filter }}/pdf/{{ $_delta }}-{{ $_metric }}.pdf | ${zrun_library} ${ninja_force}
+	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf | ${zrun_library} ${ninja_force}
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
 	    pool = cpu_moderate
 	
-	build ./plots/jhu/{{ $_filter }}/all/{{ $_delta }}-{{ $_metric }}.{{ $_format }} : symlink ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_delta }}-{{ $_metric }}.{{ $_format }}
+	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.{{ $_format }} : symlink ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }}
 	
+	{{ end }}
 	{{ end }}
 	{{ end }}
 	{{ end }}
@@ -320,6 +322,18 @@
 				| map (
 					.values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
 				)
+				| map (
+					if (.values.absolute.confirmed != 0) then
+						.values.relative = (
+							.values.absolute
+							| {
+								recovered : ((.recovered / .confirmed) * 100),
+								deaths : ((.deaths / .confirmed) * 100),
+								infected : ((.infected / .confirmed) * 100),
+							}
+						)
+					else . end
+				)
 				| sort_by ([.location.key, .date.date])
 				| reduce
 					.[] as $current
@@ -333,17 +347,17 @@
 						| $current
 						| if ($previous != null) then
 							.
-							| .values.relative = {
+							| .values.delta = {
 								confirmed : ($current.values.absolute.confirmed - $previous.values.absolute.confirmed) | (if (. != 0) then . else null end),
 								recovered : ($current.values.absolute.recovered - $previous.values.absolute.recovered) | (if (. != 0) then . else null end),
 								deaths : ($current.values.absolute.deaths - $previous.values.absolute.deaths) | (if (. != 0) then . else null end),
 								infected : ($current.values.absolute.infected - $previous.values.absolute.infected) | (if (. != 0) then . else null end),
 							}
-							| .values.relative_pct = {
-								confirmed : (try (.values.relative.confirmed * 100.0 / $previous.values.absolute.confirmed) catch null) | (if (. != 0) then . else null end),
-								recovered : (try (.values.relative.recovered * 100.0 / $previous.values.absolute.recovered) catch null) | (if (. != 0) then . else null end),
-								infected : (try (.values.relative.infected * 100.0 / $previous.values.absolute.infected) catch null) | (if (. != 0) then . else null end),
-								deaths : (try (.values.relative.deaths * 100.0 / $previous.values.absolute.deaths) catch null) | (if (. != 0) then . else null end),
+							| .values.delta_pct = {
+								confirmed : (try (.values.delta.confirmed * 100.0 / $previous.values.absolute.confirmed) catch null) | (if (. != 0) then . else null end),
+								recovered : (try (.values.delta.recovered * 100.0 / $previous.values.absolute.recovered) catch null) | (if (. != 0) then . else null end),
+								infected : (try (.values.delta.infected * 100.0 / $previous.values.absolute.infected) catch null) | (if (. != 0) then . else null end),
+								deaths : (try (.values.delta.deaths * 100.0 / $previous.values.absolute.deaths) catch null) | (if (. != 0) then . else null end),
 							}
 						else
 							.
@@ -411,10 +425,15 @@
 					"relative_recovered",
 					"relative_infected",
 					
-					"relative_confirmed_pct",
-					"relative_deaths_pct",
-					"relative_recovered_pct",
-					"relative_infected_pct"
+					"delta_confirmed",
+					"delta_deaths",
+					"delta_recovered",
+					"delta_infected",
+					
+					"deltapct_confirmed",
+					"deltapct_deaths",
+					"deltapct_recovered",
+					"deltapct_infected"
 					
 				]
 				| join ("\t")
@@ -441,7 +460,7 @@
 					] + [
 						
 						.values
-						| (.absolute, .relative, .relative_pct)
+						| (.absolute, .relative, .delta, .delta_pct)
 						| (.confirmed, .deaths, .recovered, .infected)
 						
 					]
