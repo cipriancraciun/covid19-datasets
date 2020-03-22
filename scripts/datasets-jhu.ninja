@@ -122,3 +122,39 @@ build ./plots/jhu/relative-infected.svg : z-run-in-out ./plots/jhu/relative-infe
     scriptlet = ':: tools / inkscape / convert'
     arguments = svg
 
+
+
+
+build ./plots/jhu/absolute-confirmed.png : z-run-in-out ./plots/jhu/absolute-confirmed.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = png
+
+build ./plots/jhu/absolute-recovered.png : z-run-in-out ./plots/jhu/absolute-recovered.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = png
+
+build ./plots/jhu/absolute-deaths.png : z-run-in-out ./plots/jhu/absolute-deaths.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = png
+
+build ./plots/jhu/absolute-infected.png : z-run-in-out ./plots/jhu/absolute-infected.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = png
+
+
+build ./plots/jhu/relative-confirmed.png : z-run-in-out ./plots/jhu/relative-confirmed.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = png
+
+# build ./plots/jhu/relative-recovered.png : z-run-in-out ./plots/jhu/relative-recovered.pdf | ${zrun_library} ${ninja_force}
+#    scriptlet = ':: tools / inkscape / convert'
+#    arguments = png
+
+build ./plots/jhu/relative-deaths.png : z-run-in-out ./plots/jhu/relative-deaths.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = png
+
+build ./plots/jhu/relative-infected.png : z-run-in-out ./plots/jhu/relative-infected.pdf | ${zrun_library} ${ninja_force}
+    scriptlet = ':: tools / inkscape / convert'
+    arguments = png
+
