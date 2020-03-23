@@ -25,6 +25,7 @@
 	{{ ZRUN ":: ninja / script / tools" }}
 	{{ ZRUN ":: ninja / script / datasets / jhu" }}
 	{{ ZRUN ":: ninja / script / datasets / jhu / plots" }}
+	{{ ZRUN ":: ninja / script / datasets / facts" }}
 	
 	build ${zrun_library} : marker
 	build ${ninja_force} : marker
@@ -32,6 +33,7 @@
 
 --::&&.. ninja / script / tools :: ./tools.ninja
 --::&&.. ninja / script / datasets / jhu :: ./datasets-jhu.ninja
+--::&&.. ninja / script / datasets / facts :: ./datasets-facts.ninja
 
 
 

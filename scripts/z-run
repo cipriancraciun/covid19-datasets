@@ -16,6 +16,7 @@
 && ./julia.z-run
 
 && ./datasets-jhu.z-run
+&& ./datasets-facts.z-run
 
 && ./ninja.z-run
 

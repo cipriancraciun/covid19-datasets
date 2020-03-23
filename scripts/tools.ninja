@@ -13,12 +13,12 @@ rule csv-to-json
     restat = true
 
 rule z-run-in-out
-    command = exec -- z-run ${scriptlet} ${in} ${out} ${arguments}
+    command = exec -- z-run ${scriptlet} ${arguments_pre} ${in} ${out} ${arguments}
     description = [z-run]  ${scriptlet}  ${out}
     restat = true
 
 rule z-run-out-in
-    command = exec -- z-run ${scriptlet} ${out} ${in} ${arguments}
+    command = exec -- z-run ${scriptlet} ${arguments_pre} ${out} ${in} ${arguments}
     description = [z-run]  ${scriptlet}  ${out}
     restat = true
 

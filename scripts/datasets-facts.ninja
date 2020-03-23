@@ -1,0 +1,26 @@
+
+
+
+
+build ./imports/facts/countries-raw.json : fetch-curl $
+        | ${ninja_force}
+    url = 'https://github.com/mledoze/countries/raw/master/dist/countries.json'
+
+
+
+
+build ./imports/facts/countries.json : z-run-in-out $
+        ./imports/facts/countries-raw.json $
+        | ./sources/facts-imports-countries.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / facts / imports / countries / script'
+    pool = cpu_moderate
+
+
+build ./imports/facts/countries-by-alias.json : z-run-in-out $
+        ./imports/facts/countries.json $
+        | ./sources/facts-imports-countries-by-alias.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / facts / imports / countries-by-alias / script'
+    pool = cpu_moderate
+
