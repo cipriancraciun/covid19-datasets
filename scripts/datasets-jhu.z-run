@@ -170,7 +170,9 @@
 					| .province_0 = (
 						if (.country == "US") then
 							.province
-							| split (", ")
+							| if (. != null) then
+								split (", ")
+							else . end
 							| if ((. | length) == 2) then
 								.[1] + " / " + .[0]
 							else
@@ -329,6 +331,9 @@
 				.
 				| map (
 					.values = {absolute : .values}
+					| .values.absolute.confirmed |= (. // 0)
+					| .values.absolute.recovered |= (. // 0)
+					| .values.absolute.deaths |= (. // 0)
 				)
 				| map (
 					.values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
