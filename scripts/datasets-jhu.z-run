@@ -20,24 +20,30 @@
 	{{ $_index = "day_index_1000" }}
 	{{ end }}
 	
-	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library}
+	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out $
+	        ./exports/jhu/values.tsv $
+	        | ./sources/jhu-plot.jl ${zrun_library}
 	    scriptlet = ':: plots / jhu'
 	    arguments = pdf {{ $_filter }} {{ $_index }} {{ $_method }}_{{ $_metric }}
 	    pool = cpu_heavy
 	
-	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.pdf : symlink ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf
+	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.pdf : symlink $
+	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf
 	
 	{{ $_filter_all_charts = append $_filter_all_charts (printf "./plots/jhu/%s/all/%s-%s.pdf" $_filter $_method $_metric) }}
 	{{ $_filter_method_charts = append $_filter_method_charts (printf "./plots/jhu/%s/all/%s-%s.pdf" $_filter $_method $_metric) }}
 	
 	{{ range $_, $_format := array "svg" "png" }}
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf | ${zrun_library}
+	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out $
+	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf $
+	        | ${zrun_library}
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
 	    pool = cpu_moderate
 	
-	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.{{ $_format }} : symlink ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }}
+	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.{{ $_format }} : symlink $
+	        ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }}
 	
 	{{ end }}
 	{{ end }}
@@ -96,7 +102,7 @@
 
 
 
---<< imports / jhu / merge
+--<< process / jhu / imports / merge
 	
 	test "${#}" -ge 2
 	_output="${1}"
@@ -106,45 +112,19 @@
 	test "${#}" -eq 0
 	
 	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
-			'
-				
-				.
-				
-				| (
-					map (
-						.keys
-						| to_entries
-						| .[]
-					)
-					| unique
-					| from_entries
-				) as $keys
-				
-				| (
-					map (
-						.dataset as $dataset
-						| .records
-						| map (.dataset = $dataset)
-					)
-					| add
-				) as $records
-				
-				| {
-					keys : $keys,
-					records : $records,
-				}
-				
-			' \
+			':: process / jhu / imports / merge / script' \
 			<( exec -- cat -- "${_inputs[@]}" ) \
 			"${_output}" \
 			--slurp \
 	#
 !!
 
+--::&&.. process / jhu / imports / merge / script :: ../sources/jhu-imports-merged.jq
 
 
 
---<< imports / jhu / extract / locations
+
+--<< process / jhu / imports / locations
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -153,56 +133,18 @@
 	test "${#}" -eq 0
 	
 	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
-			'
-				
-				.
-				| .records
-				| map ([.Country_Region, .Province_State, .Lat, .Long])
-				| group_by ([.[0], .[1]])
-				| map (
-					.[0]
-					| {
-						key : [.[0], .[1]] | crypto_md5,
-						country : .[0],
-						province : .[1],
-						lat_long : [.[2], .[3]],
-					}
-					| .province_0 = (
-						if (.country == "US") then
-							.province
-							| if (. != null) then
-								split (", ")
-							else . end
-							| if ((. | length) == 2) then
-								.[1] + " / " + .[0]
-							else
-								.[0]
-							end
-						else
-							.province
-						end)
-					| .label = (
-						if (.province_0 != null) then
-							.country + " / " + .province_0
-						else
-							.country
-						end)
-					| del (.province_0)
-				)
-				| sort_by (.label)
-				| map ({key : .key, value : .})
-				| from_entries
-				
-			' \
+			':: process / jhu / imports / locations / script' \
 			"${_input}" \
 			"${_output}" \
 	#
 !!
 
+--::&&.. process / jhu / imports / locations / script :: ../sources/jhu-imports-locations.jq
 
 
 
---<< imports / jhu / extract / dates
+
+--<< process / jhu / imports / dates
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -211,45 +153,18 @@
 	test "${#}" -eq 0
 	
 	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
-			'
-				
-				.
-				| .keys
-				| to_entries
-				| map (select (.key | startswith ("_")))
-				| map (
-					{
-						key : .key,
-						original : .value,
-					} + (
-						.value
-						| split ("/")
-						| {
-							year : (2000 + (.[2] | tonumber)),
-							month : .[0] | tonumber,
-							day : .[1] | tonumber,
-						}
-					)
-					| .date = (
-						[.year, .month, .day]
-						| map (tostring)
-						| map (if ((. | length) == 1) then "0" + . else . end)
-						| join ("-"))
-				)
-				| sort_by (.date)
-				| map ({key : .key, value : .})
-				| from_entries
-				
-			' \
+			':: process / jhu / imports / dates / script' \
 			"${_input}" \
 			"${_output}" \
 	#
 !!
 
+--::&&.. process / jhu / imports / dates / script :: ../sources/jhu-imports-dates.jq
 
 
 
---<< imports / jhu / extract / values
+
+--<< process / jhu / imports / values
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -258,55 +173,7 @@
 	test "${#}" -eq 0
 	
 	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
-			'
-				
-				.
-				| .records
-				| map (
-					.location = ([.Country_Region, .Province_State] | crypto_md5 | $locations[.])
-				)
-				| map (
-					. as $record
-					| $dates
-					| .[]
-					| {
-						dataset : $record.dataset,
-						location : $record.location,
-						date : .,
-						value : $record[.key],
-					}
-				)
-				| group_by ([.location.key, .date.key])
-				| map ({
-					location : .[0].location,
-					date : .[0].date | del (.key),
-					values : map ({key : .dataset, value : .value}) | from_entries,
-				})
-				| group_by ([.location.country, .date])
-				| map (
-					{
-						location : {
-							key : [.[0].location.country, "total"] | crypto_md5,
-							country : .[0].location.country,
-							province : "total",
-							label : .[0].location.country,
-						},
-						date : .[0].date,
-						values :
-							map (.values | to_entries | .[])
-							| group_by (.key)
-							| map ({
-								key : .[0].key,
-								value : map (.value) | add,
-							})
-							| from_entries
-					}
-					,
-					.[]
-				)
-				| sort_by ([.location.country, .date.date, .location.label, .location.province, .location.key])
-				
-			' \
+			':: process / jhu / imports / values / script' \
 			"${_input}" \
 			"${_output}" \
 			--argfile dates ./imports/jhu/dates.json \
@@ -314,10 +181,12 @@
 	#
 !!
 
+--::&&.. process / jhu / imports / values / script :: ../sources/jhu-imports-values.jq
 
 
 
---<< exports / jhu / values / json
+
+--<< process / jhu / exports / values / json
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -326,86 +195,18 @@
 	test "${#}" -eq 0
 	
 	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
-			'
-				
-				.
-				| map (
-					.values = {absolute : .values}
-					| .values.absolute.confirmed |= (. // 0)
-					| .values.absolute.recovered |= (. // 0)
-					| .values.absolute.deaths |= (. // 0)
-				)
-				| map (
-					.values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
-				)
-				| map (
-					if (.values.absolute.confirmed != 0) then
-						.values.relative = (
-							.values.absolute
-							| {
-								recovered : ((.recovered / .confirmed) * 100),
-								deaths : ((.deaths / .confirmed) * 100),
-								infected : ((.infected / .confirmed) * 100),
-							}
-						)
-					else . end
-				)
-				| sort_by ([.location.key, .date.date])
-				| reduce
-					.[] as $current
-					(
-						{previous : null, records : []}
-					;
-						.
-						| .previous as $previous
-						| .records as $records
-						| (if (($previous != null) and ($previous.location.key == $current.location.key)) then $previous else null end) as $previous
-						| $current
-						| if ($previous != null) then
-							.
-							| .values.delta = {
-								confirmed : ($current.values.absolute.confirmed - $previous.values.absolute.confirmed) | (if (. != 0) then . else null end),
-								recovered : ($current.values.absolute.recovered - $previous.values.absolute.recovered) | (if (. != 0) then . else null end),
-								deaths : ($current.values.absolute.deaths - $previous.values.absolute.deaths) | (if (. != 0) then . else null end),
-								infected : ($current.values.absolute.infected - $previous.values.absolute.infected) | (if (. != 0) then . else null end),
-							}
-							| .values.delta_pct = {
-								confirmed : (try (.values.delta.confirmed * 100.0 / $previous.values.absolute.confirmed) catch null) | (if (. != 0) then . else null end),
-								recovered : (try (.values.delta.recovered * 100.0 / $previous.values.absolute.recovered) catch null) | (if (. != 0) then . else null end),
-								infected : (try (.values.delta.infected * 100.0 / $previous.values.absolute.infected) catch null) | (if (. != 0) then . else null end),
-								deaths : (try (.values.delta.deaths * 100.0 / $previous.values.absolute.deaths) catch null) | (if (. != 0) then . else null end),
-							}
-						else
-							.
-						end
-						| if ((.values.absolute.confirmed >= 1) or ($previous.day_index_1 != null)) then
-							.day_index_1 = (($previous.day_index_1 // 0) + 1)
-						else . end
-						| if ((.values.absolute.confirmed >= 10) or ($previous.day_index_10 != null)) then
-							.day_index_10 = (($previous.day_index_10 // 0) + 1)
-						else . end
-						| if ((.values.absolute.confirmed >= 100) or ($previous.day_index_100 != null)) then
-							.day_index_100 = (($previous.day_index_100 // 0) + 1)
-						else . end
-						| if ((.values.absolute.confirmed >= 1000) or ($previous.day_index_1000 != null)) then
-							.day_index_1000 = (($previous.day_index_1000 // 0) + 1)
-						else . end
-						| {
-							previous : .,
-							records : ($records + [.]),
-						}
-					)
-				| .records
-				| map (select (.day_index_1 != null))
-				
-			' \
+			':: process / jhu / exports / values / json / script' \
 			"${_input}" \
 			"${_output}" \
 	#
 !!
 
+--::&&.. process / jhu / exports / values / json / script :: ../sources/jhu-exports-values-json.jq
 
---<< exports / jhu / values / tsv
+
+
+
+--<< process / jhu / exports / values / tsv
 	
 	test "${#}" -eq 2
 	_input="${1}"
@@ -414,81 +215,12 @@
 	test "${#}" -eq 0
 	
 	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
-			'
-			(
-				[
-					
-					"location_key",
-					"location_label",
-					"country",
-					"province",
-					"location_lat",
-					"location_long",
-					
-					"date",
-					"day_index_1",
-					"day_index_10",
-					"day_index_100",
-					"day_index_1000",
-					
-					"absolute_confirmed",
-					"absolute_deaths",
-					"absolute_recovered",
-					"absolute_infected",
-					
-					"relative_confirmed",
-					"relative_deaths",
-					"relative_recovered",
-					"relative_infected",
-					
-					"delta_confirmed",
-					"delta_deaths",
-					"delta_recovered",
-					"delta_infected",
-					
-					"deltapct_confirmed",
-					"deltapct_deaths",
-					"deltapct_recovered",
-					"deltapct_infected"
-					
-				]
-				| join ("\t")
-				
-			) , (
-				
-				.[]
-				| (
-					[
-					
-						.location.key,
-						.location.label,
-						.location.country,
-						.location.province,
-						.location.lat_long[0],
-						.location.lat_long[1],
-						
-						.date.date,
-						.day_index_1,
-						.day_index_10,
-						.day_index_100,
-						.day_index_1000
-						
-					] + [
-						
-						.values
-						| (.absolute, .relative, .delta, .delta_pct)
-						| (.confirmed, .deaths, .recovered, .infected)
-						
-					]
-				)
-				| map (if (. != null) then tostring else "" end)
-				| join ("\t")
-				
-			)
-			' \
+			':: process / jhu / exports / values / tsv / script' \
 			"${_input}" \
 			"${_output}" \
 			--raw-output \
 	#
 !!
+
+--::&&.. process / jhu / exports / values / tsv / script :: ../sources/jhu-exports-values-tsv.jq
 

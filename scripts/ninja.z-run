@@ -6,6 +6,14 @@
 <<~~ ninja
 	#! {{}}
 	#! <ninja>
+	{{ ZRUN ":: ninja / script" }}
+!!
+
+
+
+
+--<<~~.. ninja / script
+	#! {{}}
 	
 	builddir = ./.outputs/ninja
 	ninja_required_version = 1.10
@@ -21,9 +29,6 @@
 	build ${zrun_library} : marker
 	build ${ninja_force} : marker
 !!
-
-
-
 
 --::&&.. ninja / script / tools :: ./tools.ninja
 --::&&.. ninja / script / datasets / jhu :: ./datasets-jhu.ninja
@@ -54,6 +59,9 @@
 	
 	{{ end }}
 !!
+
+
+
 
 <<~~.. ninja / targets
 	test "${#}" -eq 0
