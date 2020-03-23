@@ -194,7 +194,7 @@ _plot_style = Gadfly.style(
 		point_size = 4px,
 		line_width = 2px,
 		grid_line_width = 1px,
-		highlight_width = 2px,
+		highlight_width = 1px,
 		major_label_font = _plot_font_name,
 		major_label_font_size = _plot_font_size,
 		minor_label_font = _plot_font_name,
@@ -207,6 +207,7 @@ _plot_style = Gadfly.style(
 		key_label_font_size = _plot_font_size,
 		key_position = :right,
 		key_max_columns = 16,
+		colorkey_swatch_shape = :circle,
 		discrete_highlight_color = (_ -> nothing),
 		plot_padding = [16px],
 	)
@@ -219,6 +220,7 @@ _plot = Gadfly.plot(
 			y = _dataset_metric,
 			color = :country,
 			Gadfly.Geom.point,
+			Gadfly.style(discrete_highlight_color = (_ -> "black")),
 		),
 		Gadfly.layer(
 			_dataset,
