@@ -62,35 +62,47 @@ _dataset = filter(
 if _dataset_filter == :global
 	
 	_dataset_countries = [
-			"China", "Korea, South",
+			"China", "South Korea",
 			"Italy", "Spain", "Germany", "France",
 			"US",
 		]
 	
-	_dataset = filter(
-			(_data -> _data[:country] in _dataset_countries),
-			_dataset,
-		)
-	
 	_dataset_smoothing = if (_dataset_metric in [
-			:delta_recovered,
-			:deltapct_recovered,
+			:delta_recovered, :deltapct_recovered,
 		]) nothing else 0.9 end
+	
+elseif _dataset_filter == :continents
+	
+	_dataset_countries = [
+			
+			"Asia", "Europe", "Americas",
+			"Oceania", "Africa",
+			
+		]
+	
+	_dataset_smoothing = 0.9
+	
+elseif _dataset_filter == :subcontinents
+	
+	_dataset_countries = [
+			"Western Asia", "Central Asia", "Southern Asia", "South-Eastern Asia", "Eastern Asia",
+			"Western Europe", "Northern Europe", "Central Europe", "Southern Europe", "Eastern Europe",
+			"North America", "Central America", "South America",
+			"Western Africa", "Northern Africa", "Middle Africa", "Southern Africa", "Eastern Africa",
+			"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
+		]
+	
+	_dataset_smoothing = 0.9
 	
 elseif _dataset_filter == :romania
 	
 	_dataset_countries = [
 			"Romania",
-		#	"Bulgaria", "Hungaria",
+			"Bulgaria", "Hungaria",
 			"Italy", "Spain", "Germany", "France",
 			"Austria", "Switzerland", "United Kingdom",
 			"US",
 		]
-	
-	_dataset = filter(
-			(_data -> _data[:country] in _dataset_countries),
-			_dataset,
-		)
 	
 	_dataset = filter(
 			(_data -> _data[_dataset_index] <= 10),
@@ -98,15 +110,33 @@ elseif _dataset_filter == :romania
 		)
 	
 	_dataset_smoothing = if (_dataset_metric in [
-			:absolute_deaths, :absolute_recovered,
-			:relative_deaths, :relative_recovered,
-			:delta_deaths, :delta_recovered,
-			:deltapct_deaths, :deltapct_recovered,
+			:absolute_deaths, :relative_deaths, :delta_deaths, :deltapct_deaths,
+			:absolute_recovered, :relative_recovered, :delta_recovered, :deltapct_recovered,
 		]) nothing else 0.9 end
 	
 else
 	throw(error("[698e83db]"))
 end
+
+
+
+
+_dataset = filter(
+		(_data -> _data[:country] in _dataset_countries),
+		_dataset,
+	)
+
+_dataset_countries = unique(_dataset[!, :country])
+
+_dataset_countries = filter(
+		(_country -> maximum(filter((_data -> _data[:country] == _country), _dataset)[!, _dataset_index]) >= 4),
+		_dataset_countries,
+	)
+
+_dataset = filter(
+		(_data -> _data[:country] in _dataset_countries),
+		_dataset,
+	)
 
 
 
@@ -159,23 +189,60 @@ end
 Gadfly.push_theme(:dark)
 
 
-_plot_palette = Gadfly.Scale.color_discrete().f(14)
+_plot_palette_20 = Gadfly.Scale.color_discrete().f(25)
+_plot_palette_10 = Gadfly.Scale.color_discrete().f(10)
 
 _plot_colors = DataFrame([
-		"Romania" _plot_palette[1];
-		"China" _plot_palette[2];
-		"Italy" _plot_palette[3];
-		"Spain" _plot_palette[4];
-		"Germany" _plot_palette[5];
-		"France" _plot_palette[6];
-		"Austria" _plot_palette[7];
-		"Switzerland" _plot_palette[8];
-		"United Kingdom" _plot_palette[9];
-		"US" _plot_palette[10];
-		"Korea, South" _plot_palette[11];
-		"Iran" _plot_palette[12];
-		"Bulgaria" _plot_palette[13];
-		"Hungaria" _plot_palette[14];
+		
+		"Romania" _plot_palette_20[1];
+		"China" _plot_palette_20[2];
+		"Italy" _plot_palette_20[3];
+		"Spain" _plot_palette_20[4];
+		"Germany" _plot_palette_20[5];
+		"France" _plot_palette_20[6];
+		"Austria" _plot_palette_20[7];
+		"Switzerland" _plot_palette_20[8];
+		"United Kingdom" _plot_palette_20[9];
+		"US" _plot_palette_20[10];
+		"South Korea" _plot_palette_20[11];
+		"Iran" _plot_palette_20[12];
+		"Bulgaria" _plot_palette_20[13];
+		"Hungaria" _plot_palette_20[14];
+		
+		"Asia" _plot_palette_10[1];
+		"Europe"  _plot_palette_10[2];
+		"Americas" _plot_palette_10[3];
+		"Oceania" _plot_palette_10[4];
+		"Africa" _plot_palette_10[5];
+		
+		"Western Asia" _plot_palette_20[1];
+		"Central Asia" _plot_palette_20[2];
+		"Southern Asia" _plot_palette_20[3];
+		"South-Eastern Asia" _plot_palette_20[4];
+		"Eastern Asia" _plot_palette_20[5];
+		
+		"Western Europe" _plot_palette_20[6];
+		"Northern Europe" _plot_palette_20[7];
+		"Central Europe" _plot_palette_20[8];
+		"Southern Europe" _plot_palette_20[9];
+		"Eastern Europe" _plot_palette_20[10];
+		
+		"North America" _plot_palette_20[11];
+		"Central America" _plot_palette_20[12];
+		"South America" _plot_palette_20[13];
+		
+		"Western Africa" _plot_palette_20[14];
+		"Northern Africa" _plot_palette_20[15];
+		"Middle Africa" _plot_palette_20[16];
+		"Southern Africa" _plot_palette_20[17];
+		"Eastern Africa" _plot_palette_20[18];
+		
+		"Australia and New Zealand" _plot_palette_20[19];
+		"Caribbean" _plot_palette_20[20];
+		"Melanesia" _plot_palette_20[21];
+		"Micronesia" _plot_palette_20[22];
+		"Polynesia" _plot_palette_20[23];
+		
 	])
 
 _plot_colors = filter(
