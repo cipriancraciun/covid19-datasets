@@ -15,15 +15,15 @@ build ./imports/jhu/deaths.csv : fetch-curl | ${ninja_force}
 
 
 
-build ./imports/jhu/confirmed.csv.json : csv-to-json ./imports/jhu/confirmed.csv | ./sources/csv-to-json.py ${zrun_library} ${ninja_force}
+build ./imports/jhu/confirmed.csv.json : csv-to-json ./imports/jhu/confirmed.csv | ./sources/csv-to-json.py ${zrun_library}
     dataset = confirmed
     pool = cpu_moderate
 
-build ./imports/jhu/recovered.csv.json : csv-to-json ./imports/jhu/recovered.csv | ./sources/csv-to-json.py ${zrun_library} ${ninja_force}
+build ./imports/jhu/recovered.csv.json : csv-to-json ./imports/jhu/recovered.csv | ./sources/csv-to-json.py ${zrun_library}
     dataset = recovered
     pool = cpu_moderate
 
-build ./imports/jhu/deaths.csv.json : csv-to-json ./imports/jhu/deaths.csv | ./sources/csv-to-json.py ${zrun_library} ${ninja_force}
+build ./imports/jhu/deaths.csv.json : csv-to-json ./imports/jhu/deaths.csv | ./sources/csv-to-json.py ${zrun_library}
     dataset = deaths
     pool = cpu_moderate
 
@@ -31,31 +31,31 @@ build ./imports/jhu/merged.csv.json : z-run-out-in $
         ./imports/jhu/confirmed.csv.json $
         ./imports/jhu/recovered.csv.json $
         ./imports/jhu/deaths.csv.json $
-        | ${zrun_library} ${ninja_force}
+        | ${zrun_library}
     scriptlet = ':: imports / jhu / merge'
     pool = cpu_heavy
 
 
 
 
-build ./imports/jhu/locations.json : z-run-in-out ./imports/jhu/merged.csv.json | ${zrun_library} ${ninja_force}
+build ./imports/jhu/locations.json : z-run-in-out ./imports/jhu/merged.csv.json | ${zrun_library}
     scriptlet = ':: imports / jhu / extract / locations'
     pool = cpu_moderate
 
-build ./imports/jhu/dates.json : z-run-in-out ./imports/jhu/merged.csv.json | ${zrun_library} ${ninja_force}
+build ./imports/jhu/dates.json : z-run-in-out ./imports/jhu/merged.csv.json | ${zrun_library}
     scriptlet = ':: imports / jhu / extract / dates'
     pool = cpu_moderate
 
 build ./imports/jhu/values.json : z-run-in-out ./imports/jhu/merged.csv.json $
-        | ./imports/jhu/locations.json ./imports/jhu/dates.json ${zrun_library} ${ninja_force}
+        | ./imports/jhu/locations.json ./imports/jhu/dates.json ${zrun_library}
     scriptlet = ':: imports / jhu / extract / values'
     pool = cpu_heavy
 
-build ./exports/jhu/values.json : z-run-in-out ./imports/jhu/values.json | ${zrun_library} ${ninja_force}
+build ./exports/jhu/values.json : z-run-in-out ./imports/jhu/values.json | ${zrun_library}
     scriptlet = ':: exports / jhu / values / json'
     pool = cpu_heavy
 
-build ./exports/jhu/values.tsv : z-run-in-out ./exports/jhu/values.json | ${zrun_library} ${ninja_force}
+build ./exports/jhu/values.tsv : z-run-in-out ./exports/jhu/values.json | ${zrun_library}
     scriptlet = ':: exports / jhu / values / tsv'
     pool = cpu_heavy
 

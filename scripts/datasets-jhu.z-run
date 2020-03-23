@@ -20,7 +20,7 @@
 	{{ $_index = "day_index_1000" }}
 	{{ end }}
 	
-	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library} ${ninja_force}
+	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out ./exports/jhu/values.tsv | ./sources/jhu-plot.jl ${zrun_library}
 	    scriptlet = ':: plots / jhu'
 	    arguments = pdf {{ $_filter }} {{ $_index }} {{ $_method }}_{{ $_metric }}
 	    pool = cpu_heavy
@@ -32,7 +32,7 @@
 	
 	{{ range $_, $_format := array "svg" "png" }}
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf | ${zrun_library} ${ninja_force}
+	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf | ${zrun_library}
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
 	    pool = cpu_moderate

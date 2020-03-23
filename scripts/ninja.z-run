@@ -10,8 +10,7 @@
 	builddir = ./.outputs/ninja
 	ninja_required_version = 1.10
 	
-	zrun_library_0 = ${builddir}/markers/z-run.library.{{ ZRUN_FINGERPRINT }}
-	zrun_library = ${zrun_library_0}
+	zrun_library = ${builddir}/markers/z-run.library.{{ ZRUN_FINGERPRINT }}
 	zrun_library = ${builddir}/markers/z-run.library.dummy
 	ninja_force = ${builddir}/markers/ninja.force
 	
@@ -19,8 +18,7 @@
 	{{ ZRUN ":: ninja / script / datasets / jhu" }}
 	{{ ZRUN ":: ninja / script / datasets / jhu / plots" }}
 	
-	build ${zrun_library_0} : marker | ${ninja_force}
-	build ${zrun_library} : marker | ${ninja_force}
+	build ${zrun_library} : marker
 	build ${ninja_force} : marker
 !!
 

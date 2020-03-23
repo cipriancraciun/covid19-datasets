@@ -20,6 +20,11 @@
 		exit -- 1
 	fi
 	
+	if cmp -s -- "${_output}.tmp" "${_output}" ; then
+		rm -- "${_output}.tmp"
+		exit -- 0
+	fi
+	
 	mv -T -- "${_output}.tmp" "${_output}"
 !!
 
@@ -46,6 +51,11 @@
 	; then
 		rm -f -- "${_output}.tmp"
 		exit -- 1
+	fi
+	
+	if cmp -s -- "${_output}.tmp" "${_output}" ; then
+		rm -- "${_output}.tmp"
+		exit -- 0
 	fi
 	
 	mv -T -- "${_output}.tmp" "${_output}"
@@ -83,6 +93,11 @@
 	; then
 		rm -f -- "${_output}.tmp"
 		exit -- 1
+	fi
+	
+	if cmp -s -- "${_output}.tmp" "${_output}" ; then
+		rm -- "${_output}.tmp"
+		exit -- 0
 	fi
 	
 	mv -T -- "${_output}.tmp" "${_output}"
@@ -127,6 +142,11 @@
 	; then
 		rm -f -- "${_output}.tmp"
 		exit -- 1
+	fi
+	
+	if cmp -s -- "${_output}.tmp" "${_output}" ; then
+		rm -- "${_output}.tmp"
+		exit -- 0
 	fi
 	
 	mv -T -- "${_output}.tmp" "${_output}"
