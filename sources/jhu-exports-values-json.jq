@@ -60,6 +60,9 @@
 		| if ((.values.absolute.confirmed >= 1000) or ($previous.day_index_1000 != null)) then
 			.day_index_1000 = (($previous.day_index_1000 // 0) + 1)
 		else . end
+		| if ((.values.absolute.confirmed >= 10000) or ($previous.day_index_10000 != null)) then
+			.day_index_10000 = (($previous.day_index_10000 // 0) + 1)
+		else . end
 		| {
 			previous : .,
 			records : ($records + [.]),

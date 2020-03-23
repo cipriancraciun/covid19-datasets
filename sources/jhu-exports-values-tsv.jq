@@ -13,6 +13,7 @@
 		"day_index_10",
 		"day_index_100",
 		"day_index_1000",
+		"day_index_10000",
 		
 		"absolute_confirmed",
 		"absolute_deaths",
@@ -54,7 +55,8 @@
 			.day_index_1,
 			.day_index_10,
 			.day_index_100,
-			.day_index_1000
+			.day_index_1000,
+			.day_index_10000
 			
 		] + [
 			

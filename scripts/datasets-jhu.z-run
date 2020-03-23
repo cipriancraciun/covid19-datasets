@@ -6,7 +6,7 @@
 --<<~~.. ninja / script / datasets / jhu / plots
 	#! {{}}
 	
-	{{ range $_, $_filter := array "global" "romania" }}
+	{{ range $_, $_filter := array "global" "romania" "continents" "subcontinents" }}
 	{{ $_filter_all_charts := array }}
 	
 	{{ range $_, $_method := array "absolute" "relative" "delta" "deltapct" }}
@@ -16,8 +16,10 @@
 	{{ if and (eq $_method "relative") (eq $_metric "confirmed") | not }}
 	
 	{{ $_index := "day_index_100" }}
-	{{ if eq $_filter "global" }}
+	{{ if or (eq $_filter "global") }}
 	{{ $_index = "day_index_1000" }}
+	{{ else if or (eq $_filter "continents") (eq $_filter "subcontinents") }}
+	{{ $_index = "day_index_10000" }}
 	{{ end }}
 	
 	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out $
@@ -136,6 +138,8 @@
 			':: process / jhu / imports / locations / script' \
 			"${_input}" \
 			"${_output}" \
+			--argfile countries ./imports/facts/countries.json \
+			--argfile countries_by_alias ./imports/facts/countries-by-alias.json \
 	#
 !!
 

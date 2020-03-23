@@ -50,7 +50,9 @@ build ./imports/jhu/merged.csv.json : z-run-out-in $
 
 build ./imports/jhu/locations.json : z-run-in-out $
         ./imports/jhu/merged.csv.json $
-        | ./sources/jhu-imports-locations.jq ${zrun_library}
+        | ./imports/facts/countries.json $
+          ./imports/facts/countries-by-alias.json $
+          ./sources/jhu-imports-locations.jq ${zrun_library}
     scriptlet = ':: process / jhu / imports / locations'
     pool = cpu_moderate
 
