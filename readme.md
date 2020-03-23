@@ -22,9 +22,9 @@ As with anything on the Internet these days, I take no responsibility for anythi
 
 ## Selected plots
 
-![./plots/jhu/global/all/absolute-confirmed.svg]
-![./plots/jhu/global/all/delta-confirmed.svg]
-![./plots/jhu/global/all/absolute-deaths.svg]
+![absolute-confirmed](./plots/jhu/global/all/absolute-confirmed.svg)
+![delta-confirmed](./plots/jhu/global/all/delta-confirmed.svg)
+![absolute-deaths](./plots/jhu/global/all/absolute-deaths.svg)
 
 
 
