@@ -2,13 +2,15 @@
 
 # COVID-19 derived datasets
 
-This repository contains datasets related to COVID-19.
+This repository contains various datasets related to COVID-19:
+* the data files are available inside the [./exports](./exports) folder;
+* the original and intermediary data files are available inside the [./imports](./imports) folder;
+
+Also some visualizations based on the derived datasets are available at:
+* https://scratchpad.volution.ro/ciprian/eedf5eb117ec363ca4f88492b48dbcd3/
+* or inside the [./plots](./plots) folder of this repository;
 
 None of these datasets were collected by me, however I have re-processed, re-formated and augmented them for easier manipulation.
-
-Also I have created some graphs based on the derived data which are available at:
-* https://scratchpad.volution.ro/ciprian/eedf5eb117ec363ca4f88492b48dbcd3/
-* or inside the [./plots] folder of this repository;
 
 
 
@@ -20,7 +22,7 @@ As with anything on the Internet these days, I take no responsibility for anythi
 
 
 
-## Selected plots
+## Visualizations
 
 ![absolute-confirmed](./plots/jhu/global/svg/absolute-confirmed.svg)
 ![delta-confirmed](./plots/jhu/global/svg/delta-confirmed.svg)
@@ -31,12 +33,19 @@ As with anything on the Internet these days, I take no responsibility for anythi
 
 ## JHU CSSE COVID-19 dataset
 
+* I have re-formated the original JHU dataset in a one-data-point-per-row format (thus more "relational" and SQL friendly):
+
+  * in JSON format: [values.json](./exports/jhu/values.json);
+  * in TSV format: [values.tsv](./exports/jhu/values.tsv);
+
+* I have also augmented the original JHU dataset with the following:
+
+  * `day_index_1000` means how many days have passed for that country since there were at least 1000 confirmed cases;
+  * `relative_*` means the percentage of that metric relative to the number of confirmed cases for that same day;
+  * `delta_*` means the delta of that metric compared to the same metric for the previous day;
+  * `*_infected` means the number of "active" cases (i.e. `infected := confirmed - recovered - deaths`);
+
 * the original data is available at [github.com/CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19);
-* the re-formatted data is available as <a href="./exports/jhu/values.tsv">TSV</a> or <a href="./exports/jhu/values.json">JSON</a> on this site;
-* `day_index_1000` means how many days have passed for that country since there were at least 1000 confirmed cases;
-* `relative_*` means the percentage of that metric relative to the number of confirmed cases for that same day;
-* `delta_*` means the delta of that metric compared to the same metric for the previous day;
-* `*_infected` means the number of "active" cases (i.e. `infected := confirmed - recovered - deaths`);
 
 
 
