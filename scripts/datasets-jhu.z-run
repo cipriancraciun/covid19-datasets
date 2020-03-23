@@ -7,8 +7,12 @@
 	#! {{}}
 	
 	{{ range $_, $_filter := array "global" "romania" }}
-	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
+	{{ $_filter_all_charts := array }}
+	
 	{{ range $_, $_method := array "absolute" "relative" "delta" "deltapct" }}
+	{{ $_filter_method_charts := array }}
+	
+	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
 	{{ if and (eq $_method "relative") (eq $_metric "confirmed") | not }}
 	
 	{{ $_index := "day_index_100" }}
@@ -23,6 +27,9 @@
 	
 	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.pdf : symlink ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf
 	
+	{{ $_filter_all_charts = append $_filter_all_charts (printf "./plots/jhu/%s/all/%s-%s.pdf" $_filter $_method $_metric) }}
+	{{ $_filter_method_charts = append $_filter_method_charts (printf "./plots/jhu/%s/all/%s-%s.pdf" $_filter $_method $_metric) }}
+	
 	{{ range $_, $_format := array "svg" "png" }}
 	
 	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf | ${zrun_library} ${ninja_force}
@@ -35,7 +42,11 @@
 	{{ end }}
 	{{ end }}
 	{{ end }}
+	
+	build __jhu_plots__{{ $_filter }}__{{ $_method }}__pdf : phony {{ $_filter_method_charts | array_join " " }}
 	{{ end }}
+	
+	build __jhu_plots__{{ $_filter }}__all__pdf : phony {{ $_filter_all_charts | array_join " " }}
 	{{ end }}
 !!
 

@@ -98,6 +98,8 @@ elseif _dataset_filter == :romania
 		)
 	
 	_dataset_smoothing = if (_dataset_metric in [
+			:absolute_deaths, :absolute_recovered,
+			:relative_deaths, :relative_recovered,
 			:delta_deaths, :delta_recovered,
 			:deltapct_deaths, :deltapct_recovered,
 		]) nothing else 0.9 end
