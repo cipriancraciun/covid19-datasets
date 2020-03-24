@@ -6,6 +6,13 @@
 	| .values.absolute.deaths |= (. // 0)
 )
 | map (
+	select (
+		(.values.absolute.confirmed != 0)
+		or (.values.absolute.recovered != 0)
+		or (.values.absolute.deaths != 0)
+	)
+)
+| map (
 	.values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
 )
 | map (
@@ -63,10 +70,22 @@
 		| if ((.values.absolute.confirmed >= 10000) or ($previous.day_index_10000 != null)) then
 			.day_index_10000 = (($previous.day_index_10000 // 0) + 1)
 		else . end
-		| {
-			previous : .,
-			records : ($records + [.]),
-		}
+		| if (
+				($previous == null)
+				or (.values.absolute.confirmed != $previous.values.absolute.confirmed)
+				or (.values.absolute.recovered != $previous.values.absolute.recovered)
+				or (.values.absolute.deaths != $previous.values.absolute.deaths)
+		) then
+			{
+				previous : .,
+				records : ($records + [.]),
+			}
+		else
+			{
+				previous : .,
+				records : $records,
+			}
+		end
 	)
 | .records
 | map (select (.day_index_1 != null))
