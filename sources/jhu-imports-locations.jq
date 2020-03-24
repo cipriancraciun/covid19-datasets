@@ -78,6 +78,13 @@
 | map (
 	.key = ([.country, .province] | crypto_md5)
 )
+| map (
+	if (.province != null) then
+		.type = "province"
+	else
+		.type = "country"
+	end
+)
 | sort_by ([.country, .province])
 | map ({key : .key_original, value : .})
 | from_entries

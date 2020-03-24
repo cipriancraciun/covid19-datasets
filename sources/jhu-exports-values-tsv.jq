@@ -2,6 +2,7 @@
 	[
 		
 		"location_key",
+		"location_type",
 		"location_label",
 		"country",
 		"province",
@@ -46,6 +47,7 @@
 		[
 		
 			.location.key,
+			.location.type,
 			.location.label,
 			.location.country,
 			.location.province,

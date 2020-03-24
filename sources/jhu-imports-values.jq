@@ -31,10 +31,10 @@
 | (. + (
 	(
 		.
-		+ map (.location = {country : .location.region})
-		+ map (.location = {country : .location.subregion})
+		+ map (.location = {country : .location.region, type : "region"})
+		+ map (.location = {country : .location.subregion, type : "subregion"})
 	)
-	| group_by ([.location.country, .date])
+	| group_by ([.location.type, .location.country, .date])
 	| map (
 		{
 			location : (
