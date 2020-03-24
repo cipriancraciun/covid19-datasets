@@ -69,14 +69,14 @@ build ./imports/jhu/values.json : z-run-in-out $
     scriptlet = ':: process / jhu / imports / values'
     pool = cpu_heavy
 
-build ./exports/jhu/values.json : z-run-in-out $
+build ./exports/jhu/v1/values.json : z-run-in-out $
         ./imports/jhu/values.json $
         | ./sources/jhu-exports-values-json.jq ${zrun_library}
     scriptlet = ':: process / jhu / exports / values / json'
     pool = cpu_heavy
 
-build ./exports/jhu/values.tsv : z-run-in-out $
-        ./exports/jhu/values.json $
+build ./exports/jhu/v1/values.tsv : z-run-in-out $
+        ./exports/jhu/v1/values.json $
         | ./sources/jhu-exports-values-tsv.jq ${zrun_library}
     scriptlet = ':: process / jhu / exports / values / tsv'
     pool = cpu_heavy

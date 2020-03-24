@@ -2,6 +2,18 @@
 
 # COVID-19 derived datasets
 
+
+
+
+## Warnings
+
+* **due to JHU dataset changes, the values for 2020-03-23 are not reliable;**
+
+
+
+
+## About
+
 This repository contains various datasets related to COVID-19:
 * the data files are available inside the [./exports](./exports) folder;
 * the original and intermediary data files are available inside the [./imports](./imports) folder;
@@ -22,13 +34,6 @@ As with anything on the Internet these days, I take no responsibility for anythi
 
 
 
-## Warnings
-
-* **due to JHU dataset changes, the values for 2020-03-23 are not reliable;**
-
-
-
-
 ## Visualizations
 
 ![absolute-confirmed](./plots/jhu/global/svg/absolute-confirmed.svg)
@@ -42,8 +47,8 @@ As with anything on the Internet these days, I take no responsibility for anythi
 
 * I have re-formated the original JHU dataset in a one-data-point-per-row format (thus more "relational" and SQL friendly):
 
-  * in JSON format: [values.json](./exports/jhu/values.json);
-  * in TSV format: [values.tsv](./exports/jhu/values.tsv);
+  * in JSON format: [values.json](./exports/jhu/v1/values.json);
+  * in TSV format: [values.tsv](./exports/jhu/v1/values.tsv);
 
 * I have also augmented the original JHU dataset with the following:
 

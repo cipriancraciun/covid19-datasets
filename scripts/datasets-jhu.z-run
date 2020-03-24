@@ -23,7 +23,7 @@
 	{{ end }}
 	
 	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out $
-	        ./exports/jhu/values.tsv $
+	        ./exports/jhu/v1/values.tsv $
 	        | ./sources/jhu-plot.jl ${zrun_library}
 	    scriptlet = ':: plots / jhu'
 	    arguments = pdf {{ $_filter }} {{ $_index }} {{ $_method }}_{{ $_metric }}
