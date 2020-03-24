@@ -10,13 +10,28 @@
 | map (
 	.[0]
 	
+	| (. + [[.[0], .[1]] | crypto_md5])
+	
+	| if (
+			[.[0], .[1]]
+			| (
+				(. == ["Australia", "From Diamond Princess"]) or
+				(. == ["Canada", "Diamond Princess"]) or
+				(. == ["US", "Diamond Princess"]) or
+				(. == ["Cruise Ship", "Diamond Princess"]) or
+				false
+			)
+	) then
+		["Cruise Ship", "Diamond Princess", null, null, .[4]]
+	else . end
+	
 	| {
 		country : .[0],
 		province : .[1],
 		province_latlong : (if ((.[2] != null) and (.[3] != null)) then [.[2], .[3]] else null end),
+		key_original : .[4],
 	}
 	
-	| .key_original = ([.country, .province] | crypto_md5)
 	| .country_original = .country
 	| .province_original = .province
 	
@@ -44,8 +59,8 @@
 		| if (. != null) then
 			.
 		else
-			["6148536e", $alias] | debug
-			| null
+			# ["6148536e", $alias] | debug |
+			null
 		end)
 	
 	| .country = .country_0.name
@@ -79,10 +94,16 @@
 	.key = ([.country, .province] | crypto_md5)
 )
 | map (
-	if (.province != null) then
-		.type = "province"
+	if (.country != null) then
+		if (.province != null) then
+			.type = "province"
+		else
+			.type = "country"
+		end
 	else
-		.type = "country"
+		.
+		| .type = "unknown"
+		| .label = ([.country_original, .province_original] | map (select (. != null)) | join (" / "))
 	end
 )
 | sort_by ([.country, .province])

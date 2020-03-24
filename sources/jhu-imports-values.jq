@@ -8,6 +8,10 @@
 			]
 			| crypto_md5
 			| $locations[.])
+	| if (.location == null) then
+		["1cc7c3fa", .] | debug |
+		.
+	else . end
 )
 | map (
 	. as $record
@@ -29,7 +33,8 @@
 })
 
 | (. + (
-	(
+	map (select (.location.type != "unknown"))
+	| (
 		.
 		+ map (.location = {country : .location.region, type : "region"})
 		+ map (.location = {country : .location.subregion, type : "subregion"})
