@@ -22,6 +22,13 @@ As with anything on the Internet these days, I take no responsibility for anythi
 
 
 
+## Warnings
+
+* **due to JHU dataset changes, the values for 2020-03-23 are not reliable;**
+
+
+
+
 ## Visualizations
 
 ![absolute-confirmed](./plots/jhu/global/svg/absolute-confirmed.svg)
@@ -44,6 +51,10 @@ As with anything on the Internet these days, I take no responsibility for anythi
   * `relative_*` means the percentage of that metric relative to the number of confirmed cases for that same day;
   * `delta_*` means the delta of that metric compared to the same metric for the previous day;
   * `*_infected` means the number of "active" cases (i.e. `infected := confirmed - recovered - deaths`);
+
+* I have normalized the country names (i.e. some countries are named differently in differnent rows, etc.);
+* I have augmented the country data with ISO codes, continents, subcontinents and other useful information;
+* I have added rows for continent and sub-continent levels;
 
 * the original data is available at [github.com/CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19);
 
