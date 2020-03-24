@@ -145,6 +145,24 @@
 		exit -- 1
 	fi
 	
+	if test "${_format}" == pdf ; then
+		pdftk \
+				"${_output}.tmp" \
+				update_info \
+				<(
+					pdftk \
+							"${_output}.tmp" \
+							dump_data \
+					| sed -r \
+							-e 's#^InfoValue:.*#InfoValue:#' \
+					#
+				) \
+				output \
+				"${_output}.tmp.1" \
+		#
+		mv -T -- "${_output}.tmp.1" "${_output}.tmp"
+	fi
+	
 	if cmp -s -- "${_output}.tmp" "${_output}" ; then
 		rm -- "${_output}.tmp"
 		exit -- 0

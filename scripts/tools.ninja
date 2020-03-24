@@ -37,7 +37,7 @@ rule symlink
 
 
 pool cpu_heavy
-    depth = 2
+    depth = 1
 
 pool cpu_moderate
     depth = 4
