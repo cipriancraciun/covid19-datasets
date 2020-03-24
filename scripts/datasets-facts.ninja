@@ -8,6 +8,24 @@ build ./imports/facts/countries-raw.json : fetch-curl $
 
 
 
+build ./imports/factbook/population.txt : fetch-curl $
+        | ${ninja_force}
+    url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_335.txt'
+
+build ./imports/factbook/median-age.txt : fetch-curl $
+        | ${ninja_force}
+    url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_343.txt'
+
+build ./imports/factbook/death-rate.txt : fetch-curl $
+        | ${ninja_force}
+    url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_346.txt'
+
+build ./imports/factbook/area.txt : fetch-curl $
+        | ${ninja_force}
+    url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_279.txt'
+
+
+
 
 build ./imports/facts/countries.json : z-run-in-out $
         ./imports/facts/countries-raw.json $
@@ -22,5 +40,69 @@ build ./imports/facts/countries-by-alias.json : z-run-in-out $
         | ./sources/facts-imports-countries-by-alias.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / facts / imports / countries-by-alias / script'
+    pool = cpu_moderate
+
+
+
+
+build ./imports/factbook/population.json : z-run-in-out $
+        ./imports/factbook/population.txt $
+        | ./imports/facts/countries-by-alias.json $
+          ./sources/factbook-imports-table.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / factbook / imports / table / script'
+    arguments = $
+        --raw-input --slurp $
+        --arg field population $
+        --argfile countries_by_alias ./imports/facts/countries-by-alias.json
+    pool = cpu_moderate
+
+build ./imports/factbook/median-age.json : z-run-in-out $
+        ./imports/factbook/median-age.txt $
+        | ./imports/facts/countries-by-alias.json $
+          ./sources/factbook-imports-table.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / factbook / imports / table / script'
+    arguments = $
+        --raw-input --slurp $
+        --arg field median_age $
+        --argfile countries_by_alias ./imports/facts/countries-by-alias.json
+    pool = cpu_moderate
+
+build ./imports/factbook/death-rate.json : z-run-in-out $
+        ./imports/factbook/death-rate.txt $
+        | ./imports/facts/countries-by-alias.json $
+          ./sources/factbook-imports-table.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / factbook / imports / table / script'
+    arguments = $
+        --raw-input --slurp $
+        --arg field death_rate $
+        --argfile countries_by_alias ./imports/facts/countries-by-alias.json
+    pool = cpu_moderate
+
+build ./imports/factbook/area.json : z-run-in-out $
+        ./imports/factbook/area.txt $
+        | ./imports/facts/countries-by-alias.json $
+          ./sources/factbook-imports-table.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / factbook / imports / table / script'
+    arguments = $
+        --raw-input --slurp $
+        --arg field area $
+        --argfile countries_by_alias ./imports/facts/countries-by-alias.json
+    pool = cpu_moderate
+
+
+
+
+build ./imports/factbook/fields.json : z-run-out-in $
+        ./imports/factbook/population.json $
+        ./imports/factbook/median-age.json $
+        ./imports/factbook/death-rate.json $
+        ./imports/factbook/area.json $
+        | ./sources/factbook-imports-fields.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter / multi'
+    arguments_pre = ':: process / factbook / imports / fields / script'
     pool = cpu_moderate
 

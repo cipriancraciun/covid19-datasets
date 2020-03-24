@@ -169,7 +169,7 @@ elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_d
 	_dataset_rstep_metric = maximum([floor((_dataset_max_metric - _dataset_min_metric) / 10), 1])
 	_dataset_rsuf_metric = "%"
 else
-	_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_max_metric - _dataset_min_metric)), 1])
+	_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_max_metric - _dataset_min_metric)), 0])
 	_dataset_rsuf_metric = ""
 end
 

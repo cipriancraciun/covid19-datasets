@@ -16,6 +16,28 @@
 	.values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
 )
 | map (
+	if (.factbook != null) then
+		.values.absolute_pop1k = {
+			confirmed : (.values.absolute.confirmed / (.factbook.population / 1000)),
+			recovered : (.values.absolute.recovered / (.factbook.population / 1000)),
+			deaths : (.values.absolute.deaths / (.factbook.population / 1000)),
+			infected : (.values.absolute.infected / (.factbook.population / 1000)),
+		}
+		| .values.absolute_pop10k = {
+			confirmed : (.values.absolute_pop1k.confirmed * 10),
+			recovered : (.values.absolute_pop1k.recovered * 10),
+			deaths : (.values.absolute_pop1k.deaths * 10),
+			infected : (.values.absolute_pop1k.infected * 10),
+		}
+		| .values.absolute_pop100k = {
+			confirmed : (.values.absolute_pop1k.confirmed * 100),
+			recovered : (.values.absolute_pop1k.recovered * 100),
+			deaths : (.values.absolute_pop1k.deaths * 100),
+			infected : (.values.absolute_pop1k.infected * 100),
+		}
+	else . end
+)
+| map (
 	if (.values.absolute.confirmed != 0) then
 		.values.relative = (
 			.values.absolute
@@ -64,11 +86,11 @@
 		| if ((.values.absolute.confirmed >= 100) or ($previous.day_index_100 != null)) then
 			.day_index_100 = (($previous.day_index_100 // 0) + 1)
 		else . end
-		| if ((.values.absolute.confirmed >= 1000) or ($previous.day_index_1000 != null)) then
-			.day_index_1000 = (($previous.day_index_1000 // 0) + 1)
+		| if ((.values.absolute.confirmed >= 1000) or ($previous.day_index_1k != null)) then
+			.day_index_1k = (($previous.day_index_1k // 0) + 1)
 		else . end
-		| if ((.values.absolute.confirmed >= 10000) or ($previous.day_index_10000 != null)) then
-			.day_index_10000 = (($previous.day_index_10000 // 0) + 1)
+		| if ((.values.absolute.confirmed >= 10000) or ($previous.day_index_10k != null)) then
+			.day_index_10k = (($previous.day_index_10k // 0) + 1)
 		else . end
 		| if (
 				($previous == null)

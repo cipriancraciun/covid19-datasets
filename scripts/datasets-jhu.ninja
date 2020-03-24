@@ -64,10 +64,16 @@ build ./imports/jhu/dates.json : z-run-in-out $
 
 build ./imports/jhu/values.json : z-run-in-out $
         ./imports/jhu/merged.csv.json $
-        | ./imports/jhu/locations.json ./imports/jhu/dates.json $
+        | ./imports/jhu/locations.json $
+          ./imports/jhu/dates.json $
+          ./imports/facts/countries.json $
+          ./imports/factbook/fields.json $
           ./sources/jhu-imports-values.jq ${zrun_library}
     scriptlet = ':: process / jhu / imports / values'
     pool = cpu_heavy
+
+
+
 
 build ./exports/jhu/v1/values.json : z-run-in-out $
         ./imports/jhu/values.json $

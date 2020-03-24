@@ -52,7 +52,7 @@
 	{{ range $_, $_filter := array "global" "romania" "continents" "subcontinents" }}
 	{{ $_filter_all_charts := array }}
 	
-	{{ range $_, $_method := array "absolute" "relative" "delta" "deltapct" }}
+	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
 	{{ $_filter_method_charts := array }}
 	
 	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
@@ -60,9 +60,9 @@
 	
 	{{ $_index := "day_index_100" }}
 	{{ if or (eq $_filter "global") }}
-	{{ $_index = "day_index_1000" }}
+	{{ $_index = "day_index_1k" }}
 	{{ else if or (eq $_filter "continents") (eq $_filter "subcontinents") }}
-	{{ $_index = "day_index_10000" }}
+	{{ $_index = "day_index_10k" }}
 	{{ end }}
 	
 	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out $
@@ -156,11 +156,10 @@
 	shift -- "${#}"
 	test "${#}" -eq 0
 	
-	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
+	exec -- "${ZRUN[@]}" ':: tools / jq / filter / multi' \
 			':: process / jhu / imports / merge / script' \
-			<( exec -- cat -- "${_inputs[@]}" ) \
 			"${_output}" \
-			--slurp \
+			"${_inputs[@]}" \
 	#
 !!
 
@@ -225,6 +224,8 @@
 			"${_output}" \
 			--argfile dates ./imports/jhu/dates.json \
 			--argfile locations ./imports/jhu/locations.json \
+			--argfile countries ./imports/facts/countries.json \
+			--argfile factbook ./imports/factbook/fields.json \
 	#
 !!
 

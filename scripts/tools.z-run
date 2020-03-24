@@ -105,6 +105,25 @@
 !!
 
 
+--<< tools / jq / filter / multi
+	
+	test "${#}" -ge 3
+	_script="${1}"
+	_output="${2}"
+	shift -- 2
+	_inputs=( "${@}" )
+	shift -- "${#}"
+	test "${#}" -eq 0
+	
+	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
+			"${_script}" \
+			<( exec -- cat -- "${_inputs[@]}" ) \
+			"${_output}" \
+			--slurp \
+	#
+!!
+
+
 
 
 --<< tools / inkscape / convert

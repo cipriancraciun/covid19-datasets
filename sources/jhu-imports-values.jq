@@ -35,7 +35,7 @@
 | (. + (
 	map (select (.location.type != "unknown"))
 	| (
-		.
+		map (.location.type = "country")
 		+ map (.location = {country : .location.region, type : "region"})
 		+ map (.location = {country : .location.subregion, type : "subregion"})
 	)
@@ -64,5 +64,41 @@
 		}
 	)
 ))
+
+| map (
+	if (.location.type == "country") then
+		.factbook = $factbook[.location.country_code]
+		| if (.factbook != null) then
+			.factbook = (
+				.factbook.fields
+				| to_entries
+				| map ({key : .key, value : .value.value})
+				| from_entries
+			)
+		else . end
+	else if ((.location.type == "region") or (.location.type == "subregion")) then
+		. as $data
+		| .location.country as $name
+		| $data.factbook = (
+			$countries
+			| map (
+				select (
+					(($data.location.type == "region") and (.region == $name)) or
+					(($data.location.type == "subregion") and (.subregion == $name)) or
+					false
+				)
+				| .code
+			)
+			| map (
+				$factbook[.]
+				| .fields
+			)
+			| {
+				population : map (.population.value) | add,
+				area : map (.area.value) | add,
+			}
+		)
+	else . end end
+)
 
 | sort_by ([.location.country, .date.date, .location.label, .location.province, .location.key])
