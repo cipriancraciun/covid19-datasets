@@ -4,6 +4,8 @@
 		"location_key",
 		"location_type",
 		"location_label",
+		
+		"country_code",
 		"country",
 		"province",
 		"location_lat",
@@ -34,7 +36,11 @@
 		"deltapct_confirmed",
 		"deltapct_deaths",
 		"deltapct_recovered",
-		"deltapct_infected"
+		"deltapct_infected",
+		
+		"location_key_original",
+		"country_original",
+		"province_original"
 		
 	]
 	| join ("\t")
@@ -49,6 +55,7 @@
 			.location.key,
 			.location.type,
 			.location.label,
+			.location.country_code,
 			.location.country,
 			.location.province,
 			.location.latlong[0],
@@ -66,6 +73,12 @@
 			.values
 			| (.absolute, .relative, .delta, .delta_pct)
 			| (.confirmed, .deaths, .recovered, .infected)
+			
+		] + [
+			
+			.location.key_original,
+			.location.country_original,
+			.location.province_original
 			
 		]
 	)

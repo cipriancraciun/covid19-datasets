@@ -43,6 +43,9 @@
 				| .province = "total"
 				| .province_latlong = null
 				| .label = .country
+				| .key_original = null
+				| .country_original = null
+				| .province_original = null
 			),
 			date : .[0].date,
 			values :
