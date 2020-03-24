@@ -39,7 +39,7 @@ As with anything on the Internet these days, I take no responsibility for anythi
 ## Visualizations
 
 ![absolute-confirmed](./plots/jhu/global/svg/absolute-confirmed.svg)
-![delta-confirmed](./plots/jhu/global/svg/delta-confirmed.svg)
+![absolute_pop100k-confirmed](./plots/jhu/global/svg/absolute_pop100k-confirmed.svg)
 ![absolute-deaths](./plots/jhu/global/svg/absolute-deaths.svg)
 
 
@@ -48,21 +48,18 @@ As with anything on the Internet these days, I take no responsibility for anythi
 ## JHU CSSE COVID-19 dataset
 
 * I have re-formated the original JHU dataset in a one-data-point-per-row format (thus more "relational" and SQL friendly):
-
   * in JSON format: [values.json](./exports/jhu/v1/values.json);
   * in TSV format: [values.tsv](./exports/jhu/v1/values.tsv);
-
 * I have also augmented the original JHU dataset with the following:
-
-  * `day_index_1000` means how many days have passed for that country since there were at least 1000 confirmed cases;
+  * `day_index_*` means how many days have passed for that country since there were at least that many confirmed cases;
+  * `absolute_pop100k` means the absolute metric per 100k people in that country / region;
   * `relative_*` means the percentage of that metric relative to the number of confirmed cases for that same day;
   * `delta_*` means the delta of that metric compared to the same metric for the previous day;
   * `*_infected` means the number of "active" cases (i.e. `infected := confirmed - recovered - deaths`);
-
 * I have normalized the country names (i.e. some countries are named differently in differnent rows, etc.);
 * I have augmented the country data with ISO codes, continents, subcontinents and other useful information;
+* I have augmented the country data with area, population, average death rate, and median age (from CIA Factbook);
 * I have added rows for continent and sub-continent levels;
-
 * the original data is available at [github.com/CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19);
 
 
