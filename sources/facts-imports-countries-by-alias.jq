@@ -18,6 +18,8 @@ map ({key : .aliases[], value : .code})
 		"korea_south" : "KR",
 		"sudan" : "SS", # ???
 		"cruise_ship" : "US", # ???
+		"the_bahamas" : "BS",
+		"the_gambia" : "GM",
 	}
 	| to_entries
 ))

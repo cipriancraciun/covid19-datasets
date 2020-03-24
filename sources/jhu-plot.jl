@@ -129,7 +129,7 @@ _dataset = filter(
 _dataset_countries = unique(_dataset[!, :country])
 
 _dataset_countries = filter(
-		(_country -> maximum(filter((_data -> _data[:country] == _country), _dataset)[!, _dataset_index]) >= 4),
+		(_country -> maximum(filter((_data -> _data[:country] == _country), _dataset)[!, _dataset_index]) >= 5),
 		_dataset_countries,
 	)
 
