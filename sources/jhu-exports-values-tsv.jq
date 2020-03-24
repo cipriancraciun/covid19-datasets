@@ -41,6 +41,7 @@
 ) , (
 	
 	.[]
+	| .location.latlong = (.location.province_latlong // .location.country_latlong)
 	| (
 		[
 		
@@ -48,8 +49,8 @@
 			.location.label,
 			.location.country,
 			.location.province,
-			.location.lat_long[0],
-			.location.lat_long[1],
+			.location.latlong[0],
+			.location.latlong[1],
 			
 			.date.date,
 			.day_index_1,

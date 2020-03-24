@@ -1,7 +1,13 @@
 .
 | .records
 | map (
-	.location = ([.Country_Region, .Province_State] | crypto_md5 | $locations[.])
+	.location = (
+			[
+				(.Country_Region | if (. != "") then . else null end),
+				(.Province_State | if (. != "") then . else null end)
+			]
+			| crypto_md5
+			| $locations[.])
 )
 | map (
 	. as $record
@@ -25,12 +31,8 @@
 | (. + (
 	(
 		.
-		+ map (
-			.location.country = .location.region
-			| .location.subregion = null | .location.country_code = null | .location.country_latlong = null)
-		+ map (
-			.location.country = .location.subregion
-			| .location.subregion = null | .location.country_code = null | .location.country_latlong = null)
+		+ map (.location = {country : .location.region})
+		+ map (.location = {country : .location.subregion})
 	)
 	| group_by ([.location.country, .date])
 	| map (

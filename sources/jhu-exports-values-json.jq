@@ -89,3 +89,4 @@
 	)
 | .records
 | map (select (.day_index_1 != null))
+| sort_by ([.location.country, .date.date, .location.label, .location.province, .location.key])

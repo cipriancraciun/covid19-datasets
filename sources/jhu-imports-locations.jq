@@ -1,23 +1,31 @@
 .
 | .records
-| map ([.Country_Region, .Province_State, .Lat, .Long])
+| map ([
+		(.Country_Region | if (. != "") then . else null end),
+		(.Province_State | if (. != "") then . else null end),
+		(.Lat | if (. != 0) then . else null end),
+		(.Long | if (. != 0) then . else null end)
+	])
 | group_by ([.[0], .[1]])
 | map (
 	.[0]
 	
 	| {
-		key : [.[0], .[1]] | crypto_md5,
 		country : .[0],
 		province : .[1],
-		province_latlong : [.[2], .[3]],
+		province_latlong : (if ((.[2] != null) and (.[3] != null)) then [.[2], .[3]] else null end),
 	}
 	
+	| .key_original = ([.country, .province] | crypto_md5)
+	| .country_original = .country
+	| .province_original = .province
+	
 	| .province = (
-		if (.country == "US") then
+		if ((.country == .province) or (.province == null) or (.province == "")) then
+			"mainland"
+		else if (.country == "US") then
 			.province
-			| if (. != null) then
-				split (", ")
-			else . end
+			| split (", ")
 			| if ((. | length) == 2) then
 				.[1] + " / " + .[0]
 			else
@@ -25,7 +33,7 @@
 			end
 		else
 			.province
-		end)
+		end end)
 	
 	| .country_0 = (
 		.country
@@ -55,6 +63,21 @@
 		end)
 	
 )
-| sort_by (.label)
-| map ({key : .key, value : .})
+| unique
+| group_by (.country)
+| map (
+	if ((. | map (.province) | unique | length) == 1) then
+		map (
+			.
+			| .province = null
+			| .label = .country
+		)
+	else . end
+	| .[]
+)
+| map (
+	.key = ([.country, .province] | crypto_md5)
+)
+| sort_by ([.country, .province])
+| map ({key : .key_original, value : .})
 | from_entries
