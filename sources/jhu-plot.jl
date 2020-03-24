@@ -64,7 +64,7 @@ if _dataset_filter == :global
 	_dataset_countries = [
 			"China", "South Korea",
 			"Italy", "Spain", "Germany", "France",
-			"US",
+			"United States",
 		]
 	
 	_dataset_smoothing = if (_dataset_metric in [
@@ -101,7 +101,7 @@ elseif _dataset_filter == :romania
 			"Bulgaria", "Hungaria",
 			"Italy", "Spain", "Germany", "France",
 			"Austria", "Switzerland", "United Kingdom",
-			"US",
+			"United States",
 		]
 	
 	_dataset = filter(
@@ -203,7 +203,7 @@ _plot_colors = DataFrame([
 		"Austria" _plot_palette_20[7];
 		"Switzerland" _plot_palette_20[8];
 		"United Kingdom" _plot_palette_20[9];
-		"US" _plot_palette_20[10];
+		"United States" _plot_palette_20[10];
 		"South Korea" _plot_palette_20[11];
 		"Iran" _plot_palette_20[12];
 		"Bulgaria" _plot_palette_20[13];
