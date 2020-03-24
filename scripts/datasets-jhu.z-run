@@ -3,6 +3,49 @@
 
 
 
+<< view / jhu / plots / all
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec'
+!!
+
+<< view / jhu / plots / global
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/global/*'
+!!
+
+<< view / jhu / plots / continents
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/continents/*'
+!!
+
+<< view / jhu / plots / subcontinents
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/subcontinents/*'
+!!
+
+<< view / jhu / plots / romania
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/romania/*'
+!!
+
+--<< view / jhu / plots / exec
+	"${ZRUN[@]}" ':: ninja'
+	exec -- sxiv -i \
+		< <(
+			find ./plots/jhu/ \
+					-type f \
+					-name '*.png' \
+					"${@}" \
+					-print \
+			| sort \
+			#
+		) \
+	#
+!!
+
+
+
+
 --<<~~.. ninja / script / datasets / jhu / plots
 	#! {{}}
 	
