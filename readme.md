@@ -7,7 +7,9 @@
 
 ## Warnings
 
-* **due to JHU dataset changes, the values for 2020-03-23 are not reliable;**
+* (temporary issue) **due to JHU dataset changen, the values for 2020-03-23 are not yet reliable;**
+* (permanent change) **due to JHU dataset changes, the recovered and infected values starting with 2020-03-23 will not be provided;**
+  (values for previous days are still provided;)
 
 
 
