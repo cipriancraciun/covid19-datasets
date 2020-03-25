@@ -59,9 +59,15 @@
 	
 	{{ range $_, $_day := $_days }}
 	
-	build ./imports/jhu/daily/{{ $_day }}.csv : fetch-curl $
+	build ./imports/jhu/daily/raw-csv/{{ $_day }}.csv : fetch-curl $
 	        | ${ninja_force}
 	    url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/{{ $_day }}.csv'
+	
+	build ./imports/jhu/daily/raw-json/{{ $_day }}.json : csv-to-json $
+	        ./imports/jhu/daily/raw-csv/{{ $_day }}.csv $
+	        | ./sources/csv-to-json.py ${zrun_library}
+	    dataset = {{ $_day }}
+	    pool = cpu_moderate
 	
 	{{ end }}
 !!
