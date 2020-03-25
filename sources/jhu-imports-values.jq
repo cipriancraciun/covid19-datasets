@@ -4,7 +4,8 @@
 	.location = (
 			[
 				(.country_region | if (. != "") then . else null end),
-				(.province_state | if (. != "") then . else null end)
+				(.province_state | if (. != "") then . else null end),
+				(.admin2 | if (. != "") then . else null end)
 			]
 			| crypto_md5
 			| $locations[.])
@@ -44,7 +45,7 @@
 		{
 			location : (
 				.[0].location
-				| .key = ([.country, "total"] | crypto_md5)
+				| .key = ([.country, "total", null] | crypto_md5)
 				| .province = "total"
 				| .province_latlong = null
 				| .label = .country
