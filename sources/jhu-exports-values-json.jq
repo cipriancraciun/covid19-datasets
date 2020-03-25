@@ -8,8 +8,8 @@
 | map (
 	select (
 		(.values.absolute.confirmed != 0)
-		or (.values.absolute.recovered != 0)
-		or (.values.absolute.deaths != 0)
+#		or (.values.absolute.recovered != 0)
+#		or (.values.absolute.deaths != 0)
 	)
 )
 | map (

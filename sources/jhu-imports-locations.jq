@@ -19,6 +19,8 @@
 				(. == ["Canada", "Diamond Princess"]) or
 				(. == ["US", "Diamond Princess"]) or
 				(. == ["Cruise Ship", "Diamond Princess"]) or
+				(. == ["Diamond Princess", null]) or
+				(. == [null, "Diamond Princess"]) or
 				false
 			)
 	) then
@@ -51,7 +53,7 @@
 		end end)
 	
 	| .country_0 = (
-		.country
+		(.country // "")
 		| ascii_downcase | gsub ("[^a-z0-9]+"; "_") | gsub ("(^_+)|(_+$)"; "")
 		| . as $alias
 		| $countries_by_alias[$alias]
@@ -70,18 +72,13 @@
 	| .subregion = .country_0.subregion
 	| del (.country_0)
 	
-	| .label = (
-		if (.province != null) then
-			.country + " / " + .province
-		else
-			.country
-		end)
+	| .label = ([.country, .province] | map (select (. != null)) | join (" / "))
 	
 )
 | unique
 | group_by (.country)
 | map (
-	if ((. | map (.province) | unique | length) == 1) then
+	if ((.[0].country != null) and ((. | map (.province) | unique | length) == 1)) then
 		map (
 			.
 			| .province = null
@@ -104,8 +101,9 @@
 		.
 		| .type = "unknown"
 		| .label = ([.country_original, .province_original] | map (select (. != null)) | join (" / "))
+		| .province = null
 	end
 )
-| sort_by ([.country, .province])
+| sort_by ([.country, .province, .key_original])
 | map ({key : .key_original, value : .})
 | from_entries
