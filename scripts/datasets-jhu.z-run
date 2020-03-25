@@ -46,6 +46,29 @@
 
 
 
+--<<~~.. ninja / script / datasets / jhu / fetch
+	#! {{}}
+	
+	{{ $_days := array }}
+	{{ range $_, $_day := array "01-22-2020" "01-23-2020" "01-24-2020" "01-25-2020" "01-26-2020" "01-27-2020" "01-28-2020" "01-29-2020" "01-30-2020" "01-31-2020" }}
+	{{ $_days = append $_days $_day }} {{ end }}
+	{{ range $_, $_day := array "02-01-2020" "02-02-2020" "02-03-2020" "02-04-2020" "02-05-2020" "02-06-2020" "02-07-2020" "02-08-2020" "02-09-2020" "02-10-2020" "02-11-2020" "02-12-2020" "02-13-2020" "02-14-2020" "02-15-2020" "02-16-2020" "02-17-2020" "02-18-2020" "02-19-2020" "02-20-2020" "02-21-2020" "02-22-2020" "02-23-2020" "02-24-2020" "02-25-2020" "02-26-2020" "02-27-2020" "02-28-2020" "02-29-2020" }}
+	{{ $_days = append $_days $_day }} {{ end }}
+	{{ range $_, $_day := array "03-01-2020" "03-02-2020" "03-03-2020" "03-04-2020" "03-05-2020" "03-06-2020" "03-07-2020" "03-08-2020" "03-09-2020" "03-10-2020" "03-11-2020" "03-12-2020" "03-13-2020" "03-14-2020" "03-15-2020" "03-16-2020" "03-17-2020" "03-18-2020" "03-19-2020" "03-20-2020" "03-21-2020" "03-22-2020" "03-23-2020" "03-24-2020" }}
+	{{ $_days = append $_days $_day }} {{ end }}
+	
+	{{ range $_, $_day := $_days }}
+	
+	build ./imports/jhu/daily/{{ $_day }}.csv : fetch-curl $
+	        | ${ninja_force}
+	    url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/{{ $_day }}.csv'
+	
+	{{ end }}
+!!
+
+
+
+
 --<<~~.. ninja / script / datasets / jhu / plots
 	#! {{}}
 	
@@ -222,8 +245,8 @@
 			':: process / jhu / imports / values / script' \
 			"${_input}" \
 			"${_output}" \
-			--argfile dates ./imports/jhu/dates.json \
-			--argfile locations ./imports/jhu/locations.json \
+			--argfile dates ./imports/jhu/series/dates.json \
+			--argfile locations ./imports/jhu/series/locations.json \
 			--argfile countries ./imports/facts/countries.json \
 			--argfile factbook ./imports/factbook/fields.json \
 	#

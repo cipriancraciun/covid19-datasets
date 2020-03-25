@@ -24,6 +24,7 @@
 	
 	{{ ZRUN ":: ninja / script / tools" }}
 	{{ ZRUN ":: ninja / script / datasets / jhu" }}
+	{{ ZRUN ":: ninja / script / datasets / jhu / fetch" }}
 	{{ ZRUN ":: ninja / script / datasets / jhu / plots" }}
 	{{ ZRUN ":: ninja / script / datasets / facts" }}
 	
