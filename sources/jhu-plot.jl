@@ -67,10 +67,6 @@ if _dataset_filter == :global
 			"United States",
 		]
 	
-	_dataset_smoothing = if (_dataset_metric in [
-			:delta_recovered, :deltapct_recovered,
-		]) nothing else 0.9 end
-	
 elseif _dataset_filter == :continents
 	
 	_dataset_countries = [
@@ -79,8 +75,6 @@ elseif _dataset_filter == :continents
 			"Oceania", "Africa",
 			
 		]
-	
-	_dataset_smoothing = 0.9
 	
 elseif _dataset_filter == :subcontinents
 	
@@ -91,8 +85,6 @@ elseif _dataset_filter == :subcontinents
 			"Western Africa", "Northern Africa", "Middle Africa", "Southern Africa", "Eastern Africa",
 			"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
 		]
-	
-	_dataset_smoothing = 0.9
 	
 elseif _dataset_filter == :romania
 	
@@ -105,14 +97,9 @@ elseif _dataset_filter == :romania
 		]
 	
 	_dataset = filter(
-			(_data -> _data[_dataset_index] <= 10),
+			(_data -> _data[_dataset_index] <= 15),
 			_dataset,
 		)
-	
-	_dataset_smoothing = if (_dataset_metric in [
-			:absolute_deaths, :relative_deaths, :delta_deaths, :deltapct_deaths,
-			:absolute_recovered, :relative_recovered, :delta_recovered, :deltapct_recovered,
-		]) nothing else 0.9 end
 	
 else
 	throw(error("[698e83db]"))
@@ -129,7 +116,7 @@ _dataset = filter(
 _dataset_countries = unique(_dataset[!, :country])
 
 _dataset_countries = filter(
-		(_country -> maximum(filter((_data -> _data[:country] == _country), _dataset)[!, _dataset_index]) >= 5),
+		(_country -> size(filter((_data -> _data[:country] == _country), _dataset)[!, _dataset_metric])[1] >= 4),
 		_dataset_countries,
 	)
 
@@ -137,6 +124,8 @@ _dataset = filter(
 		(_data -> _data[:country] in _dataset_countries),
 		_dataset,
 	)
+
+_dataset_smoothing = 0.9
 
 
 
