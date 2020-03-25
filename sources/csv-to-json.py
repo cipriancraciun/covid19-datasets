@@ -18,16 +18,23 @@ def convert (_input, _output, _dataset) :
 	
 	_records = []
 	_keys = {}
+	_keys_reverse = {}
 	for _record in _reader :
 		for _key in _record.iterkeys () :
-			_keys[_normalize_key (_key)] = _key
-		_record = {_normalize_key (_key) : _normalize_value (_value) for _key, _value in _record.iteritems ()}
+			_key_normalized = _normalize_key (_key)
+			if _key_normalized not in _keys :
+				if _key_normalized not in _keys :
+					_keys[_key_normalized] = []
+				_keys[_key_normalized].append (_key)
+				_keys_reverse[_key] = _key_normalized
+		_record = {_keys_reverse[_key] : _normalize_value (_value) for _key, _value in _record.iteritems ()}
 		_records.append (_record)
 	
 	_data = {
 			"dataset" : _dataset,
 			"records" : _records,
 			"keys" : _keys,
+			"keys_normalized" : _keys_reverse,
 		}
 	
 	json.dump (_data, _output, ensure_ascii = True, sort_keys = True, indent = 2, separators = (",", " : "))
@@ -50,7 +57,9 @@ def _normalize_key (_key) :
 	_key = _key.decode ("utf-8")
 	
 	_normalized = unidecode.unidecode (_key)
+	_normalized = _normalized.lower ()
 	_normalized = _normalize_key_forbidden.sub ("_", _normalized)
+	_normalized = _normalized.strip ("_")
 	if _normalized[0] >= "0" and _normalized[0] <= "9" :
 		_normalized = "_" + _normalized
 	
@@ -86,7 +95,8 @@ def _normalize_value (_value) :
 		pass
 	
 	_value = _value.decode ("utf-8")
-	_normalized = unidecode.unidecode (_value)
+#	_normalized = unidecode.unidecode (_value)
+#	_normalized = _normalized.strip (" ")
 	
 	return _value
 

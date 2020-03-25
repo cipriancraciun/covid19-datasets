@@ -3,8 +3,8 @@
 | map (
 	.location = (
 			[
-				(.Country_Region | if (. != "") then . else null end),
-				(.Province_State | if (. != "") then . else null end)
+				(.country_region | if (. != "") then . else null end),
+				(.province_state | if (. != "") then . else null end)
 			]
 			| crypto_md5
 			| $locations[.])

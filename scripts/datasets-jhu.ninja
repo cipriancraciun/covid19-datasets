@@ -41,8 +41,9 @@ build ./imports/jhu/series/raw-json/merged.json : z-run-out-in $
         ./imports/jhu/series/raw-json/confirmed.json $
         ./imports/jhu/series/raw-json/recovered.json $
         ./imports/jhu/series/raw-json/deaths.json $
-        | ./sources/jhu-imports-merged.jq ${zrun_library}
-    scriptlet = ':: process / jhu / imports / merge'
+        | ./sources/jhu-imports-merge.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter / multi'
+    arguments_pre = ':: process / jhu / imports / merge / script'
     pool = cpu_heavy
 
 
@@ -53,13 +54,18 @@ build ./imports/jhu/series/locations.json : z-run-in-out $
         | ./imports/facts/countries.json $
           ./imports/facts/countries-by-alias.json $
           ./sources/jhu-imports-locations.jq ${zrun_library}
-    scriptlet = ':: process / jhu / imports / locations'
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / imports / locations / script'
+    arguments = $
+        --argfile countries ./imports/facts/countries.json $
+        --argfile countries_by_alias ./imports/facts/countries-by-alias.json
     pool = cpu_moderate
 
 build ./imports/jhu/series/dates.json : z-run-in-out $
         ./imports/jhu/series/raw-json/merged.json $
         | ./sources/jhu-imports-dates.jq ${zrun_library}
-    scriptlet = ':: process / jhu / imports / dates'
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / imports / dates / script'
     pool = cpu_moderate
 
 build ./imports/jhu/series/values.json : z-run-in-out $
@@ -69,7 +75,13 @@ build ./imports/jhu/series/values.json : z-run-in-out $
           ./imports/facts/countries.json $
           ./imports/factbook/fields.json $
           ./sources/jhu-imports-values.jq ${zrun_library}
-    scriptlet = ':: process / jhu / imports / values'
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / imports / values / script'
+    arguments = $
+        --argfile dates ./imports/jhu/series/dates.json $
+        --argfile locations ./imports/jhu/series/locations.json $
+        --argfile countries ./imports/facts/countries.json $
+        --argfile factbook ./imports/factbook/fields.json
     pool = cpu_heavy
 
 
@@ -78,12 +90,16 @@ build ./imports/jhu/series/values.json : z-run-in-out $
 build ./exports/jhu/v1/values.json : z-run-in-out $
         ./imports/jhu/series/values.json $
         | ./sources/jhu-exports-values-json.jq ${zrun_library}
-    scriptlet = ':: process / jhu / exports / values / json'
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / exports / values / json / script'
     pool = cpu_heavy
 
 build ./exports/jhu/v1/values.tsv : z-run-in-out $
         ./exports/jhu/v1/values.json $
         | ./sources/jhu-exports-values-tsv.jq ${zrun_library}
-    scriptlet = ':: process / jhu / exports / values / tsv'
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / exports / values / tsv / script'
+    arguments = $
+        --raw-output
     pool = cpu_heavy
 
