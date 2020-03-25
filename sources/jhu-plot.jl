@@ -6,6 +6,7 @@ begin
 	import Gadfly
 	import Gadfly.px
 	import Cairo
+	import Colors
 	
 	using DataFrames
 	using Statistics
@@ -67,6 +68,41 @@ if _dataset_filter == :global
 			"United States",
 		]
 	
+elseif _dataset_filter == Symbol("europe-major")
+	
+	_dataset_countries = [
+			"China", "South Korea",
+			"Italy", "Spain", "Germany", "France",
+		]
+	
+elseif _dataset_filter == Symbol("europe-minor")
+	
+	_dataset_countries = [
+			"South Korea",
+			"Italy", "Spain", "Germany", "France",
+			"United Kingdom", "Switzerland",
+		#	"Netherlands", "Austria", "Belgium",
+		#	"Portugal", "Sweden", "Denmark",
+		]
+	
+	_dataset = filter(
+			(_data -> _data[_dataset_index] <= 25),
+			_dataset,
+		)
+	
+elseif _dataset_filter == :romania
+	
+	_dataset_countries = [
+			"Romania", "Hungaria", "Bulgaria",
+			"Italy", "Spain", "Germany", "France",
+			"United Kingdom", "Austria",
+		]
+	
+	_dataset = filter(
+			(_data -> _data[_dataset_index] <= 15),
+			_dataset,
+		)
+	
 elseif _dataset_filter == :continents
 	
 	_dataset_countries = [
@@ -85,21 +121,6 @@ elseif _dataset_filter == :subcontinents
 			"Western Africa", "Northern Africa", "Middle Africa", "Southern Africa", "Eastern Africa",
 			"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
 		]
-	
-elseif _dataset_filter == :romania
-	
-	_dataset_countries = [
-			"Romania",
-			"Bulgaria", "Hungaria",
-			"Italy", "Spain", "Germany", "France",
-			"Austria", "Switzerland", "United Kingdom",
-			"United States",
-		]
-	
-	_dataset = filter(
-			(_data -> _data[_dataset_index] <= 15),
-			_dataset,
-		)
 	
 else
 	throw(error("[698e83db]"))
@@ -178,59 +199,63 @@ end
 Gadfly.push_theme(:dark)
 
 
-_plot_palette_20 = Gadfly.Scale.color_discrete().f(25)
-_plot_palette_10 = Gadfly.Scale.color_discrete().f(10)
-
 _plot_colors = DataFrame([
 		
-		"Romania" _plot_palette_20[1];
-		"China" _plot_palette_20[2];
-		"Italy" _plot_palette_20[3];
-		"Spain" _plot_palette_20[4];
-		"Germany" _plot_palette_20[5];
-		"France" _plot_palette_20[6];
-		"Austria" _plot_palette_20[7];
-		"Switzerland" _plot_palette_20[8];
-		"United Kingdom" _plot_palette_20[9];
-		"United States" _plot_palette_20[10];
-		"South Korea" _plot_palette_20[11];
-		"Iran" _plot_palette_20[12];
-		"Bulgaria" _plot_palette_20[13];
-		"Hungaria" _plot_palette_20[14];
+		"China" Colors.parse(Colors.Colorant, "white");
+		"South Korea" nothing;
+		"United States" nothing;
+		"Iran" nothing;
 		
-		"Asia" _plot_palette_10[1];
-		"Europe"  _plot_palette_10[2];
-		"Americas" _plot_palette_10[3];
-		"Oceania" _plot_palette_10[4];
-		"Africa" _plot_palette_10[5];
+		"Italy" nothing;
+		"Spain" nothing;
+		"Germany" nothing;
+		"France" nothing;
+		"United Kingdom" nothing;
+		"Switzerland" nothing;
+		"Netherlands" nothing;
+		"Austria" nothing;
+		"Belgium" nothing;
+		"Portugal" nothing;
+		"Sweden" nothing;
+		"Denmark" nothing;
 		
-		"Western Asia" _plot_palette_20[1];
-		"Central Asia" _plot_palette_20[2];
-		"Southern Asia" _plot_palette_20[3];
-		"South-Eastern Asia" _plot_palette_20[4];
-		"Eastern Asia" _plot_palette_20[5];
+		"Romania" nothing;
+		"Hungaria" nothing;
+		"Bulgaria" nothing;
 		
-		"Western Europe" _plot_palette_20[6];
-		"Northern Europe" _plot_palette_20[7];
-		"Central Europe" _plot_palette_20[8];
-		"Southern Europe" _plot_palette_20[9];
-		"Eastern Europe" _plot_palette_20[10];
+		"Asia" nothing;
+		"Europe" nothing;
+		"Americas" nothing;
+		"Oceania" nothing;
+		"Africa" nothing;
 		
-		"North America" _plot_palette_20[11];
-		"Central America" _plot_palette_20[12];
-		"South America" _plot_palette_20[13];
+		"Western Asia" nothing;
+		"Central Asia" nothing;
+		"Southern Asia" nothing;
+		"South-Eastern Asia" nothing;
+		"Eastern Asia" nothing;
 		
-		"Western Africa" _plot_palette_20[14];
-		"Northern Africa" _plot_palette_20[15];
-		"Middle Africa" _plot_palette_20[16];
-		"Southern Africa" _plot_palette_20[17];
-		"Eastern Africa" _plot_palette_20[18];
+		"Western Europe" nothing;
+		"Northern Europe" nothing;
+		"Central Europe" nothing;
+		"Southern Europe" nothing;
+		"Eastern Europe" nothing;
 		
-		"Australia and New Zealand" _plot_palette_20[19];
-		"Caribbean" _plot_palette_20[20];
-		"Melanesia" _plot_palette_20[21];
-		"Micronesia" _plot_palette_20[22];
-		"Polynesia" _plot_palette_20[23];
+		"North America" nothing;
+		"Central America" nothing;
+		"South America" nothing;
+		
+		"Western Africa" nothing;
+		"Northern Africa" nothing;
+		"Middle Africa" nothing;
+		"Southern Africa" nothing;
+		"Eastern Africa" nothing;
+		
+		"Australia and New Zealand" nothing;
+		"Caribbean" nothing;
+		"Melanesia" nothing;
+		"Micronesia" nothing;
+		"Polynesia" nothing;
 		
 	])
 

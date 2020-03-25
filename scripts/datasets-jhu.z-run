@@ -23,6 +23,16 @@
 	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/subcontinents/*'
 !!
 
+<< view / jhu / plots / europe-major
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/europe-major/*'
+!!
+
+<< view / jhu / plots / europe-minor
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/europe-minor/*'
+!!
+
 << view / jhu / plots / romania
 	test "${#}" -eq 0
 	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/romania/*'
@@ -86,7 +96,7 @@
 --<<~~.. ninja / script / datasets / jhu / plots
 	#! {{}}
 	
-	{{ range $_, $_filter := array "global" "romania" "continents" "subcontinents" }}
+	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "continents" "subcontinents" }}
 	{{ $_filter_all_charts := array }}
 	
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
@@ -97,6 +107,8 @@
 	
 	{{ $_index := "day_index_100" }}
 	{{ if or (eq $_filter "global") }}
+	{{ $_index = "day_index_1k" }}
+	{{ else if or (eq $_filter "europe-major") }}
 	{{ $_index = "day_index_1k" }}
 	{{ else if or (eq $_filter "continents") (eq $_filter "subcontinents") }}
 	{{ $_index = "day_index_10k" }}
