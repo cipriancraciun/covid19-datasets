@@ -1,5 +1,5 @@
 .
-| .records
+
 | map (
 	.location = (
 			[
@@ -14,24 +14,31 @@
 		.
 	else . end
 )
+
 | map (
-	. as $record
-	| $dates
-	| .[]
-	| {
-		dataset : $record.dataset,
-		location : $record.location,
-		date : .,
-		value : $record[.key],
-	}
+	.date = $dates[.date]
+	| del (.date.key)
+	| if (.date == null) then
+		["e832a6ba", .] | debug |
+		.
+	else . end
 )
 
-| group_by ([.location.key, .date.key])
-| map ({
-	location : .[0].location,
-	date : .[0].date | del (.key),
-	values : map ({key : .dataset, value : .value}) | from_entries,
-})
+| group_by ([.location.key, .date.date])
+| map (
+	. as $records
+	| .[0]
+	| .values = (
+		$records
+		| map (.values | to_entries | .[])
+		| group_by (.key)
+		| map ({
+			key : .[0].key,
+			value : map (.value) | add,
+		})
+		| from_entries
+	)
+)
 
 | (. + (
 	map (select (.location.type != "unknown"))

@@ -187,7 +187,9 @@
 --::&&.. process / jhu / imports / merge / script :: ../sources/jhu-imports-merge.jq
 --::&&.. process / jhu / imports / locations / script :: ../sources/jhu-imports-locations.jq
 --::&&.. process / jhu / imports / dates / script :: ../sources/jhu-imports-dates.jq
+--::&&.. process / jhu / imports / values / series / script :: ../sources/jhu-imports-values-series.jq
 --::&&.. process / jhu / imports / values / script :: ../sources/jhu-imports-values.jq
+
 --::&&.. process / jhu / exports / values / json / script :: ../sources/jhu-exports-values-json.jq
 --::&&.. process / jhu / exports / values / tsv / script :: ../sources/jhu-exports-values-tsv.jq
 
