@@ -31,6 +31,12 @@
 			(. == [null, "Diamond Princess", null]) or
 			(. == ["Canada", "Grand Princess", null]) or
 			(. == ["US", "Grand Princess", null]) or
+			(. == ["Israel", "From Diamond Princess", null]) or
+			(. == ["US", "Travis, CA (From Diamond Princess)", null]) or
+			(. == ["US", "Omaha, NE (From Diamond Princess)", null]) or
+			(. == ["US", "Lackland, TX (From Diamond Princess)", null]) or
+			(. == ["US", "Unassigned Location (From Diamond Princess)", null]) or
+			(. == ["US", "Grand Princess Cruise Ship", null]) or
 			false
 	)) then
 		["Cruise Ship", "Diamond+Grand Princess", null, null, null, .[5]]
