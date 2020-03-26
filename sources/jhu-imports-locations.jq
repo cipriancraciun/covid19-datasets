@@ -19,6 +19,9 @@
 				(. == ["Canada", "Diamond Princess", null]) or
 				(. == ["US", "Diamond Princess", null]) or
 				(. == ["Cruise Ship", "Diamond Princess", null]) or
+				(. == ["Cruise Ship", "Diamond+Grand Princess", null]) or
+				(. == ["Others", "Diamond Princess cruise ship", null]) or
+				(. == ["Others", "Cruise Ship", null]) or
 				(. == ["Diamond Princess", null, null]) or
 				(. == [null, "Diamond Princess", null]) or
 				(. == ["Canada", "Grand Princess", null]) or
@@ -136,6 +139,6 @@
 		| .province = null
 	end
 )
-| sort_by ([.country, .province, .administrative, .key_original])
+| sort_by ([.country, .location_label, .province, .administrative, .key_original])
 | map ({key : .key_original, value : .})
 | from_entries

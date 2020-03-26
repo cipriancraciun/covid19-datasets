@@ -21,8 +21,18 @@ map ({key : .aliases[], value : .code})
 		"cruise_ship" : "XX",
 		"the_bahamas" : "BS",
 		"the_gambia" : "GM",
+		"occupied_palestinian_territory" : "PS",
 		"the_west_bank_and_gaza" : "PS",
 		"west_bank_and_gaza" : "PS",
+		"mainland_china" : "CN",
+		"north_ireland" : "GB",
+		"st_martin" : "MF",
+		"channel_islands" : "XX", # ??
+		"uk" : "GB",
+		"taipei_and_environs" : "TW", # ??
+		"hong_kong_sar" : "HK",
+		"macao_sar" : "MO",
+		"others" : "XX",
 		
 		# NOTE:  From CIA factbook
 		"congo_democratic_republic_of_the" : "CD",
