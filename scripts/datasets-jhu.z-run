@@ -11,7 +11,7 @@
 		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu_plots__all__all__png
 	!!
 	
-	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "continents" "subcontinents" }}
+	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
 	
 	<< plots / view / jhu / plots / {{ $_filter }} / all
 		test "${#}" -eq 0
@@ -99,18 +99,18 @@
 	{{ range $_, $_format := array "pdf" "svg" "png" }}
 	{{ $_all_format_charts := array }}
 	
-	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "continents" "subcontinents" }}
+	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
 	{{ $_all_filter_charts := array }}
 	
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
 	{{ $_all_method_charts := array }}
 	
 	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
-	{{ if or (and (eq $_filter "us") (eq $_method "absolute_pop100k")) (and (eq $_method "relative") (eq $_metric "confirmed")) | not }}
+	{{ if or (and (eq $_filter "us") (or (eq $_method "absolute_pop100k") (eq $_metric "recovered") (eq $_metric "infected"))) (and (eq $_method "relative") (eq $_metric "confirmed")) | not }}
 	
 	
 	{{ $_index := "day_index_100" }}
-	{{ if or (eq $_filter "global") (eq $_filter "europe-major") }}
+	{{ if or (eq $_filter "global") (eq $_filter "us") (eq $_filter "europe-major") }}
 	{{ $_index = "day_index_1k" }}
 	{{ else if or (eq $_filter "continents") (eq $_filter "subcontinents") }}
 	{{ $_index = "day_index_10k" }}

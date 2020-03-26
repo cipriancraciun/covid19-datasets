@@ -104,6 +104,7 @@
 					country : .country,
 					country_code : .country_code,
 					country_latlong : .country_latlong,
+					province : .province,
 					region : .region,
 					subregion : .subregion,
 					administrative : "(total)",

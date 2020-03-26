@@ -96,6 +96,20 @@ elseif _dataset_filter == Symbol("europe-minor")
 			_dataset,
 		)
 	
+elseif _dataset_filter == :us
+	
+	_dataset_location_key = :province
+	_dataset_location_type = "total-province"
+	
+	_dataset = filter(
+			(_data ->
+					(_data[:country] == "United States") &&
+					(_data[:location_type] == _dataset_location_type)),
+			_dataset,
+		)
+	
+	_dataset_locations = unique(_dataset[!, :province])
+	
 elseif _dataset_filter == :romania
 	
 	_dataset_location_key = :country
@@ -135,7 +149,7 @@ elseif _dataset_filter == :subcontinents
 		]
 	
 else
-	throw(error("[698e83db]"))
+	throw(error(("[698e83db]", _dataset_filter)))
 end
 
 
@@ -297,6 +311,14 @@ _plot_colors = DataFrame([
 		"Micronesia" nothing;
 		"Polynesia" nothing;
 		
+		"California" nothing;
+		"Florida" nothing;
+		"Illinois" nothing;
+		"Michigan" nothing;
+		"New Jersey" nothing;
+		"New York" nothing;
+		"Washington" nothing;
+		
 	])
 
 _plot_colors = filter(
@@ -306,6 +328,8 @@ _plot_colors = filter(
 
 _plot_colors_count = size(_plot_colors)[1]
 _plot_colors[:,2] = circshift(Gadfly.Scale.color_discrete().f(_plot_colors_count), 1)
+
+# println(_dataset_locations)
 
 
 _plot_font_name = "JetBrains Mono"
