@@ -5,13 +5,13 @@
 	| .values.absolute.recovered |= (. // 0)
 	| .values.absolute.deaths |= (. // 0)
 )
-| map (
-	select (
-		(.values.absolute.confirmed != 0)
+#| map (
+#	select (
+#		(.values.absolute.confirmed != 0)
 #		or (.values.absolute.recovered != 0)
 #		or (.values.absolute.deaths != 0)
-	)
-)
+#	)
+#)
 | map (
 	.values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
 )
@@ -125,3 +125,34 @@
 )
 | map (select (.day_index_1 != null))
 | sort_by ([.location.country, .location.label, .location.province, .location.administrative, .location.key, .date.date])
+| map (
+	if ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative")) then
+		. as $data
+		| $data | if (.values.delta.confirmed | ((. != null) and (. < 0))) then
+			["1426c7ed", .location.country, .date.date, .location.province, .values.delta, .] | debug
+		else . end
+		| $data | if (.values.delta.recovered | ((. != null) and (. < 0))) then
+			["b62e8b04", .location.country, .date.date, .location.province, .values.delta, .] | debug
+		else . end
+		| $data | if (.values.delta.deaths | ((. != null) and (. < 0))) then
+			["17a4869f", .location.country, .date.date, .location.province, .values.delta, .] | debug
+		else . end
+		| $data
+	else . end
+)
+| map (
+	.values = (
+		.values
+		| to_entries
+		| map (
+			.value = (
+				.value
+				| to_entries
+				| map (select (.value | ((. != 0) and (. != null))))
+				| from_entries
+			)
+		)
+		| map (select (.value != {}))
+		| from_entries
+	)
+)
