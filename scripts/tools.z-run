@@ -33,11 +33,12 @@
 
 --<< tools / convert / csv-to-json
 	
-	test "${#}" -eq 3
+	test "${#}" -eq 4
 	_input="${1}"
 	_output="${2}"
 	_dataset="${3}"
-	shift -- 3
+	_format="${4}"
+	shift -- 4
 	test "${#}" -eq 0
 	
 	rm -f -- "${_output}.tmp"
@@ -48,6 +49,7 @@
 					"${_input}" \
 					"${_output}.tmp" \
 					"${_dataset}" \
+					"${_format}" \
 	; then
 		rm -f -- "${_output}.tmp"
 		exit -- 1

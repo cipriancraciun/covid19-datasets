@@ -8,7 +8,7 @@ rule fetch-curl
     restat = true
 
 rule csv-to-json
-    command = exec -- z-run ':: tools / convert / csv-to-json' ${in} ${out} ${dataset}
+    command = exec -- z-run ':: tools / convert / csv-to-json' ${in} ${out} ${dataset} ${format}
     description = [csv-to-json]  ${out}
     restat = true
 

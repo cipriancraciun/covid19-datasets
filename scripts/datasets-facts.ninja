@@ -106,3 +106,20 @@ build ./imports/factbook/fields.json : z-run-out-in $
     arguments_pre = ':: process / factbook / imports / fields / script'
     pool = cpu_moderate
 
+
+
+
+build ./imports/facts/raw/us-counties.json : csv-to-json $
+        ./imports/facts/raw/us-counties.tsv $
+        | ./sources/csv-to-json.py ${zrun_library}
+    dataset = confirmed
+    format = tsv
+    pool = cpu_moderate
+
+build ./imports/facts/raw/us-states.json : csv-to-json $
+        ./imports/facts/raw/us-states.tsv $
+        | ./sources/csv-to-json.py ${zrun_library}
+    dataset = confirmed
+    format = tsv
+    pool = cpu_moderate
+

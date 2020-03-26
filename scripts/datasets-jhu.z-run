@@ -75,6 +75,7 @@
 	        ./imports/jhu/daily/raw-csv/{{ $_day }}.csv $
 	        | ./sources/csv-to-json.py ${zrun_library}
 	    dataset = {{ $_day }}
+	    format = csv
 	    pool = cpu_moderate
 	
 	{{ end }}

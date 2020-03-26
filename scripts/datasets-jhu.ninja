@@ -26,18 +26,21 @@ build ./imports/jhu/series/raw-json/confirmed.json : csv-to-json $
         ./imports/jhu/series/raw-csv/confirmed.csv $
         | ./sources/csv-to-json.py ${zrun_library}
     dataset = confirmed
+    format = csv
     pool = cpu_moderate
 
 build ./imports/jhu/series/raw-json/recovered.json : csv-to-json $
         ./imports/jhu/series/raw-csv/recovered.csv $
         | ./sources/csv-to-json.py ${zrun_library}
     dataset = recovered
+    format = csv
     pool = cpu_moderate
 
 build ./imports/jhu/series/raw-json/deaths.json : csv-to-json $
         ./imports/jhu/series/raw-csv/deaths.csv $
         | ./sources/csv-to-json.py ${zrun_library}
     dataset = deaths
+    format = csv
     pool = cpu_moderate
 
 build ./imports/jhu/series/raw-json/merged.json : z-run-out-in $
