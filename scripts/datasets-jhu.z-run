@@ -3,43 +3,41 @@
 
 
 
-<< view / jhu / plots / all
-	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec'
+--<<== view / jhu / plots / generate
+	#! {{}}
+	
+	<< view / jhu / plots / all
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' __jhu_plots__all__all__png
+	!!
+	
+	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "continents" "subcontinents" }}
+	
+	<< view / jhu / plots / {{ $_filter }} / all
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' __jhu_plots__{{ $_filter }}__all__png -path '*/{{ $_filter }}/*'
+	!!
+	
+	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
+	<< view / jhu / plots / {{ $_filter }} / {{ $_method }}
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' __jhu_plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}-*'
+	!!
+	{{ end }}
+	
+	{{ end }}
+	
 !!
 
-<< view / jhu / plots / global
-	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/global/*'
-!!
-
-<< view / jhu / plots / continents
-	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/continents/*'
-!!
-
-<< view / jhu / plots / subcontinents
-	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/subcontinents/*'
-!!
-
-<< view / jhu / plots / europe-major
-	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/europe-major/*'
-!!
-
-<< view / jhu / plots / europe-minor
-	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/europe-minor/*'
-!!
-
-<< view / jhu / plots / romania
-	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' -path '*/romania/*'
-!!
 
 --<< view / jhu / plots / exec
-	"${ZRUN[@]}" ':: ninja'
+	
+	test "${#}" -ge 1
+	_target="${1}"
+	shift -- 1
+	
+	"${ZRUN[@]}" ':: ninja' "${_target}"
+	
 	exec -- sxiv -i \
 		< <(
 			find ./plots/jhu/ \
@@ -96,14 +94,19 @@
 --<<~~.. ninja / script / datasets / jhu / plots
 	#! {{}}
 	
+	
+	{{ range $_, $_format := array "pdf" "svg" "png" }}
+	{{ $_all_format_charts := array }}
+	
 	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "continents" "subcontinents" }}
-	{{ $_filter_all_charts := array }}
+	{{ $_all_filter_charts := array }}
 	
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
-	{{ $_filter_method_charts := array }}
+	{{ $_all_method_charts := array }}
 	
 	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
 	{{ if or (and (eq $_filter "us") (eq $_method "absolute_pop100k")) (and (eq $_method "relative") (eq $_metric "confirmed")) | not }}
+	
 	
 	{{ $_index := "day_index_100" }}
 	{{ if or (eq $_filter "global") (eq $_filter "europe-major") }}
@@ -112,20 +115,17 @@
 	{{ $_index = "day_index_10k" }}
 	{{ end }}
 	
-	build ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf : z-run-in-out $
+	
+	{{ if eq $_format "pdf" }}
+	
+	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out $
 	        ./exports/jhu/v1/values.tsv $
 	        | ./sources/jhu-plot.jl ${zrun_library}
 	    scriptlet = ':: plots / jhu'
-	    arguments = pdf {{ $_filter }} {{ $_index }} {{ $_method }}_{{ $_metric }}
+	    arguments = {{ $_format }} {{ $_filter }} {{ $_index }} {{ $_method }}_{{ $_metric }}
 	    pool = cpu_heavy
 	
-	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.pdf : symlink $
-	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf
-	
-	{{ $_filter_all_charts = append $_filter_all_charts (printf "./plots/jhu/%s/all/%s-%s.pdf" $_filter $_method $_metric) }}
-	{{ $_filter_method_charts = append $_filter_method_charts (printf "./plots/jhu/%s/all/%s-%s.pdf" $_filter $_method $_metric) }}
-	
-	{{ range $_, $_format := array "svg" "png" }}
+	{{ else }}
 	
 	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out $
 	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf $
@@ -134,17 +134,32 @@
 	    arguments = {{ $_format }}
 	    pool = cpu_moderate
 	
+	{{ end }}
+	
+	
 	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.{{ $_format }} : symlink $
 	        ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }}
 	
-	{{ end }}
+	
+	{{ $_chart := (printf "./plots/jhu/%s/all/%s-%s.%s" $_filter $_method $_metric $_format) }}
+	{{ $_all_format_charts = append $_all_format_charts $_chart }}
+	{{ $_all_filter_charts = append $_all_filter_charts $_chart }}
+	{{ $_all_method_charts = append $_all_method_charts $_chart }}
+	
+	
 	{{ end }}
 	{{ end }}
 	
-	build __jhu_plots__{{ $_filter }}__{{ $_method }}__pdf : phony {{ $_filter_method_charts | array_join " " }}
+	build __jhu_plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
+	
 	{{ end }}
 	
-	build __jhu_plots__{{ $_filter }}__all__pdf : phony {{ $_filter_all_charts | array_join " " }}
+	build __jhu_plots__{{ $_filter }}__all__{{ $_format }} : phony {{ $_all_filter_charts | array_join " " }}
+	
+	{{ end }}
+	
+	build __jhu_plots__all__all__{{ $_format }} : phony {{ $_all_format_charts | array_join " " }}
+	
 	{{ end }}
 !!
 

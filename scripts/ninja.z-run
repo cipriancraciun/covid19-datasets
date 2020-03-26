@@ -49,15 +49,25 @@
 	!!
 	
 	{{ if $_target | has_prefix ("__") | not }}
+	{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) }}
 	<< ninja / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
-		{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) }}
 		exec -- less -- {{ $_target | shell_quote }}
-		{{ else if or ($_target | has_suffix (".pdf")) }}
-		exec -- zathura -- {{ $_target | shell_quote }}
-		{{ end }}
 	!!
+	{{ else if or ($_target | has_suffix (".pdf")) }}
+	<< ninja / view / {{ $_target }}
+		test "${#}" -eq 0
+		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+		exec -- zathura -- {{ $_target | shell_quote }}
+	!!
+	{{ else if or ($_target | has_suffix (".png")) }}
+	<< ninja / view / {{ $_target }}
+		test "${#}" -eq 0
+		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+		exec -- sxiv -- {{ $_target | shell_quote }}
+	!!
+	{{ end }}
 	{{ end }}
 	
 	{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) }}

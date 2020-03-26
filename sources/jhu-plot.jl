@@ -154,11 +154,15 @@ _dataset_smoothing = 0.9
 _dataset_min_date = minimum(_dataset[!, :date])
 _dataset_max_date = maximum(_dataset[!, :date])
 _dataset_max_index = maximum(_dataset[!, _dataset_index])
+
 _dataset_min_metric = minimum(_dataset[!, _dataset_metric])
 _dataset_max_metric = maximum(_dataset[!, _dataset_metric])
+_dataset_delta_metric = abs(_dataset_max_metric - _dataset_min_metric)
+
 _dataset_qmin_metric = quantile(_dataset[!, _dataset_metric], 0.01)
 _dataset_qmax_metric = quantile(_dataset[!, _dataset_metric], 0.99)
 _dataset_qdelta_metric = abs(_dataset_qmax_metric - _dataset_qmin_metric)
+
 
 if true
 	if abs(_dataset_min_metric - _dataset_qmin_metric) > (0.25 * _dataset_qdelta_metric)
@@ -172,21 +176,35 @@ else
 	_dataset_max_metric = _dataset_qmax_metric + (0.25 * _dataset_qdelta_metric)
 end
 
+_dataset_delta_metric = abs(_dataset_max_metric - _dataset_min_metric)
+
+
 _dataset_cmin_metric = nothing
 _dataset_cmax_metric = nothing
 
 if _dataset_metric in [:relative_recovered, :relative_deaths, :relative_infected]
-	_dataset_rstep_metric = maximum([floor((_dataset_max_metric - _dataset_min_metric) / 10), 1])
+	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_cmin_metric = 0
 	_dataset_cmax_metric = 100
 	_dataset_rsuf_metric = "%"
 elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_deaths, :deltapct_infected]
-	_dataset_rstep_metric = maximum([floor((_dataset_max_metric - _dataset_min_metric) / 10), 1])
+	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = "%"
 else
-	_dataset_rstep_metric = 10 ^ maximum([floor(log10((_dataset_max_metric - _dataset_min_metric) / 3)), 0])
+	_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_delta_metric / 4)), 0])
 	_dataset_rsuf_metric = ""
 end
+
+while (_dataset_delta_metric / _dataset_rstep_metric) > 10
+	global _dataset_rstep_metric *= 2
+end
+
+if _dataset_rstep_metric != floor(_dataset_rstep_metric)
+	_dataset_rprec_metric = 2
+else
+	_dataset_rprec_metric = 0
+end
+
 
 _dataset_rmin_metric = floor(_dataset_min_metric / _dataset_rstep_metric) * _dataset_rstep_metric
 _dataset_rmax_metric = ceil(_dataset_max_metric / _dataset_rstep_metric) * _dataset_rstep_metric
@@ -321,11 +339,16 @@ _plot = Gadfly.plot(
 		),
 		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
 		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
-		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true) * _dataset_rsuf_metric)),
+		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)),
 		Gadfly.Guide.title(@sprintf("JHU CSSE COVID-19 dataset -- `%s` per `%s` (until %s)", _dataset_metric, _dataset_index, _dataset_max_date)),
 		Gadfly.Guide.xlabel(nothing),
 		Gadfly.Guide.ylabel(nothing),
-		Gadfly.Guide.xticks(ticks = [1; 5 : 5 : _dataset_max_index;]),
+		Gadfly.Guide.xticks(ticks =
+				if (_dataset_max_index > 20)
+					[1; 5 : 5 : _dataset_max_index - 4; _dataset_max_index;]
+				else
+					[1 : _dataset_max_index;]
+				end),
 		Gadfly.Guide.yticks(ticks = [_dataset_rmin_metric : _dataset_rstep_metric : _dataset_rmax_metric;]),
 		Gadfly.Scale.color_discrete_manual(_plot_colors[:,2]..., levels = _plot_colors[:,1]),
 		_plot_style,
