@@ -7,7 +7,6 @@
 
 ## Warnings
 
-* (temporary issue) **due to JHU dataset changen, the values for 2020-03-23 are not yet reliable;**
 * (permanent change) **due to JHU dataset changes, the recovered and infected values starting with 2020-03-23 will not be provided;**
   (values for previous days are still provided;)
 
@@ -37,6 +36,19 @@ As with anything on the Internet these days, I take no responsibility for anythi
 
 
 ## Visualizations
+
+I have created 6 groups of countries / regions, and for each one I've plotted all the available metrics:
+* `global` -- [./plots/jhu/global](./plots/jhu/global)
+  -- contains the most impacted countries (mainly central Europe, China, Korea and US);
+* `europe-major` -- [./plots/jhu/europe-major](./plots/jhu/europe-major)
+  -- contains the most impacted (>15K) countries in Europe (at the moment mostly the same as above) (plus China and Korea for comparisons);
+* `europe-major` -- [./plots/jhu/europe-minor](./plots/jhu/europe-minor)
+  -- contains the "medium" impacted (>2K and <15K) countries in Europe (plus China and Korea for comparisons);
+* `continents` -- [./plots/jhu/continents](./plots/jhu/continents)
+  -- contains statistics grouped by continents (for those with >10K);
+* `subcontinents` -- [./plots/jhu/subcontinents](./plots/jhu/subcontinents)
+  -- contains statistics grouped by continents (for those with >10K);
+* `romania` -- contains Romania, Hungary, Bulgaria (and a few major impacted ones for comparison);
 
 ![absolute-confirmed](./plots/jhu/global/svg/absolute-confirmed.svg)
 ![absolute_pop100k-confirmed](./plots/jhu/global/svg/absolute_pop100k-confirmed.svg)
