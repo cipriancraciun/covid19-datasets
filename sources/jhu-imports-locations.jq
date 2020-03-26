@@ -12,23 +12,27 @@
 	
 	| (. + [[.[0], .[1], .[2]] | crypto_md5])
 	
-	| if (
-			[.[0], .[1], .[2]]
-			| (
-				(. == ["Australia", "From Diamond Princess", null]) or
-				(. == ["Canada", "Diamond Princess", null]) or
-				(. == ["US", "Diamond Princess", null]) or
-				(. == ["Cruise Ship", "Diamond Princess", null]) or
-				(. == ["Cruise Ship", "Diamond+Grand Princess", null]) or
-				(. == ["Others", "Diamond Princess cruise ship", null]) or
-				(. == ["Others", "Cruise Ship", null]) or
-				(. == ["Diamond Princess", null, null]) or
-				(. == [null, "Diamond Princess", null]) or
-				(. == ["Canada", "Grand Princess", null]) or
-				(. == ["US", "Grand Princess", null]) or
-				false
-			)
-	) then
+	| if (.[1] | (
+			(. == "None") or
+			false
+	)) then
+		.[1] = null
+	else . end
+	
+	| if ([.[0], .[1], .[2]] | (
+			(. == ["Australia", "From Diamond Princess", null]) or
+			(. == ["Canada", "Diamond Princess", null]) or
+			(. == ["US", "Diamond Princess", null]) or
+			(. == ["Cruise Ship", "Diamond Princess", null]) or
+			(. == ["Cruise Ship", "Diamond+Grand Princess", null]) or
+			(. == ["Others", "Diamond Princess cruise ship", null]) or
+			(. == ["Others", "Cruise Ship", null]) or
+			(. == ["Diamond Princess", null, null]) or
+			(. == [null, "Diamond Princess", null]) or
+			(. == ["Canada", "Grand Princess", null]) or
+			(. == ["US", "Grand Princess", null]) or
+			false
+	)) then
 		["Cruise Ship", "Diamond+Grand Princess", null, null, null, .[5]]
 	else . end
 	
@@ -73,6 +77,18 @@
 				null
 			end
 		end)
+	
+#	| if (
+#			(.province // "")
+#			| ascii_downcase | gsub ("[^a-z0-9]+"; "_") | gsub ("(^_+)|(_+$)"; "")
+#			| . as $alias
+#			| $countries_by_alias[$alias]
+#			| (. != null)
+#	) then
+#		. as $data
+#		| ["43f5f90b", .province] | debug |
+#		$data
+#	else . end
 	
 	| .country = .country_0.name
 	| .country_code = .country_0.code

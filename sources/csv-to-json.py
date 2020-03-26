@@ -77,6 +77,9 @@ def _normalize_value (_value) :
 	if _value == "" :
 		return None
 	
+	_value = _value.strip (" ")
+	_value = _value.strip ("\t")
+	
 	_value_lower = _value.lower ()
 	
 	if _value_lower == "true" or _value_lower == "yes" :
@@ -95,8 +98,7 @@ def _normalize_value (_value) :
 		pass
 	
 	_value = _value.decode ("utf-8")
-#	_normalized = unidecode.unidecode (_value)
-#	_normalized = _normalized.strip (" ")
+	_normalized = unidecode.unidecode (_value)
 	
 	return _value
 
