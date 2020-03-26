@@ -60,7 +60,7 @@
 			location :
 				.[0].location
 				| {
-					key : ([.country, "total", null] | crypto_md5),
+					key : ([.country, "(total)", null] | crypto_md5),
 					type : .type,
 					label : .country,
 					country : .country,
@@ -68,7 +68,7 @@
 					country_latlong : .country_latlong,
 					region : .region,
 					subregion : .subregion,
-					province : "total",
+					province : "(total)",
 					latlong : .country_latlong,
 				},
 			date : .[0].date,
