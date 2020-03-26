@@ -62,7 +62,9 @@ _dataset = filter(
 
 if _dataset_filter == :global
 	
-	_dataset_countries = [
+	_dataset_location_key = :country
+	_dataset_location_type = "total-country"
+	_dataset_locations = [
 			"China", "South Korea",
 			"Italy", "Spain", "Germany", "France",
 			"United States",
@@ -70,14 +72,18 @@ if _dataset_filter == :global
 	
 elseif _dataset_filter == Symbol("europe-major")
 	
-	_dataset_countries = [
+	_dataset_location_key = :country
+	_dataset_location_type = "total-country"
+	_dataset_locations = [
 			"China", "South Korea",
 			"Italy", "Spain", "Germany", "France",
 		]
 	
 elseif _dataset_filter == Symbol("europe-minor")
 	
-	_dataset_countries = [
+	_dataset_location_key = :country
+	_dataset_location_type = "total-country"
+	_dataset_locations = [
 			"South Korea",
 			"Italy", "Spain", "Germany", "France",
 			"United Kingdom", "Switzerland",
@@ -92,7 +98,9 @@ elseif _dataset_filter == Symbol("europe-minor")
 	
 elseif _dataset_filter == :romania
 	
-	_dataset_countries = [
+	_dataset_location_key = :country
+	_dataset_location_type = "total-country"
+	_dataset_locations = [
 			"Romania", "Hungaria", "Bulgaria",
 			"Italy", "Spain", "Germany", "France",
 			"United Kingdom", "Austria",
@@ -105,7 +113,9 @@ elseif _dataset_filter == :romania
 	
 elseif _dataset_filter == :continents
 	
-	_dataset_countries = [
+	_dataset_location_key = :country
+	_dataset_location_type = "total-region"
+	_dataset_locations = [
 			
 			"Asia", "Europe", "Americas",
 			"Oceania", "Africa",
@@ -114,7 +124,9 @@ elseif _dataset_filter == :continents
 	
 elseif _dataset_filter == :subcontinents
 	
-	_dataset_countries = [
+	_dataset_location_key = :country
+	_dataset_location_type = "total-subregion"
+	_dataset_locations = [
 			"Western Asia", "Central Asia", "Southern Asia", "South-Eastern Asia", "Eastern Asia",
 			"Western Europe", "Northern Europe", "Central Europe", "Southern Europe", "Eastern Europe",
 			"North America", "Central America", "South America",
@@ -130,19 +142,24 @@ end
 
 
 _dataset = filter(
-		(_data -> _data[:country] in _dataset_countries),
+		(_data -> _data[:location_type] == _dataset_location_type),
 		_dataset,
 	)
 
-_dataset_countries = unique(_dataset[!, :country])
+_dataset = filter(
+		(_data -> _data[_dataset_location_key] in _dataset_locations),
+		_dataset,
+	)
 
-_dataset_countries = filter(
-		(_country -> size(filter((_data -> _data[:country] == _country), _dataset)[!, _dataset_metric])[1] >= 4),
-		_dataset_countries,
+_dataset_locations = unique(_dataset[!, _dataset_location_key])
+
+_dataset_locations = filter(
+		(_location -> size(filter((_data -> _data[_dataset_location_key] == _location), _dataset)[!, _dataset_metric])[1] >= 4),
+		_dataset_locations,
 	)
 
 _dataset = filter(
-		(_data -> _data[:country] in _dataset_countries),
+		(_data -> _data[_dataset_location_key] in _dataset_locations),
 		_dataset,
 	)
 
@@ -283,7 +300,7 @@ _plot_colors = DataFrame([
 	])
 
 _plot_colors = filter(
-		(_color -> _color[1] in _dataset_countries),
+		(_color -> _color[1] in _dataset_locations),
 		_plot_colors,
 	)
 
@@ -322,7 +339,7 @@ _plot = Gadfly.plot(
 			_dataset,
 			x = _dataset_index,
 			y = _dataset_metric,
-			color = :country,
+			color = _dataset_location_key,
 			Gadfly.Geom.point,
 			Gadfly.style(discrete_highlight_color = (_ -> "black")),
 		),
@@ -330,7 +347,7 @@ _plot = Gadfly.plot(
 			_dataset,
 			x = _dataset_index,
 			y = _dataset_metric,
-			color = :country,
+			color = _dataset_location_key,
 			if _dataset_smoothing !== nothing
 				Gadfly.Geom.smooth(method = :loess, smoothing = _dataset_smoothing)
 			else

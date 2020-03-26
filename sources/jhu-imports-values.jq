@@ -58,16 +58,16 @@
 					label : .country,
 				})
 		)
-#		+ map (
-#			select ((.location.type == "province") or (.location.type == "administrative"))
-#			| .location = (.location | {
-#					country, country_code, country_latlong,
-#					province, province_latlong,
-#					region, subregion,
-#					type : "total-province",
-#					label : (.country + " / " + .province),
-#				})
-#		)
+		+ map (
+			select ((.location.type == "province") or (.location.type == "administrative"))
+			| .location = (.location | {
+					country, country_code, country_latlong,
+					province, province_latlong,
+					region, subregion,
+					type : "total-province",
+					label : (.country + " / " + .province),
+				})
+		)
 		+ map (
 			select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
 			| select (.location.country != null)
