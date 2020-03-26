@@ -58,11 +58,12 @@
 			location : (
 				.[0].location
 				| .key = ([.country, "total", null] | crypto_md5)
+				| .label = .country
+				| .latlong = .country_latlong
 				| .province = "total"
 				| .province_latlong = null
 				| .administrative = null
 				| .administrative_latlong = null
-				| .label = .country
 				| .key_original = null
 				| .country_original = null
 				| .province_original = null
