@@ -60,6 +60,44 @@
 	!!
 	{{ end }}
 	
+	{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) }}
+	<< ninja / diff-lines / {{ $_target }}
+		test "${#}" -eq 0
+		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+		exec -- git diff \
+				--inter-hunk-context=20 \
+				--minimal \
+				--no-prefix \
+				--ignore-cr-at-eol \
+				--ignore-space-at-eol \
+				--ignore-space-change \
+				--ignore-all-space \
+				--ignore-blank-lines \
+				--color-moved=plain \
+				-- \
+				{{ $_target | shell_quote }} \
+		#
+	!!
+	<< ninja / diff-words / {{ $_target }}
+		test "${#}" -eq 0
+		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+		exec -- git diff \
+				--inter-hunk-context=20 \
+				--minimal \
+				--no-prefix \
+				--ignore-cr-at-eol \
+				--ignore-space-at-eol \
+				--ignore-space-change \
+				--ignore-all-space \
+				--ignore-blank-lines \
+				--word-diff-regex '[a-zA-Z0-9_-]+|.' \
+				--color-moved=plain \
+				-- \
+				{{ $_target | shell_quote }} \
+		#
+	!!
+	{{ end }}
+	
 	{{ end }}
 !!
 

@@ -8,6 +8,7 @@
 		"country_code",
 		"country",
 		"province",
+		"administrative",
 		"location_lat",
 		"location_long",
 		
@@ -50,7 +51,8 @@
 		
 		"location_key_original",
 		"country_original",
-		"province_original"
+		"province_original",
+		"administrative_original"
 		
 	]
 	| join ("\t")
@@ -58,7 +60,6 @@
 ) , (
 	
 	.[]
-	| .location.latlong = (.location.province_latlong // .location.country_latlong)
 	| (
 		[
 		
@@ -68,6 +69,7 @@
 			.location.country_code,
 			.location.country,
 			.location.province,
+			.location.administrative,
 			.location.latlong[0],
 			.location.latlong[1],
 			
@@ -93,7 +95,8 @@
 			
 			.location.key_original,
 			.location.country_original,
-			.location.province_original
+			.location.province_original,
+			.location.administrative_original
 			
 		]
 	)

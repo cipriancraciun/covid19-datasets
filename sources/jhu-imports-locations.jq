@@ -36,7 +36,8 @@
 		country : .[0],
 		province : .[1],
 		administrative : .[2],
-		province_latlong : (if ((.[3] != null) and (.[4] != null)) then [.[3], .[4]] else null end),
+		province_latlong : (if ((.[3] != null) and (.[4] != null) and (.[2] == null)) then [.[3], .[4]] else null end),
+		administrative_latlong : (if ((.[3] != null) and (.[4] != null) and (.[2] != null)) then [.[3], .[4]] else null end),
 		key_original : .[5],
 	}
 	
@@ -112,7 +113,9 @@
 		map (
 			.
 			| .province = null
+			| .province_latlong = null
 			| .administrative = null
+			| .administrative_latlong = null
 			| .label = .country
 		)
 	else . end
@@ -126,17 +129,24 @@
 		if (.province != null) then
 			if (.administrative != null) then
 				.type = "administrative"
+				| .latlong = (.administrative_latlong // .province_latlong // .country_latlong)
 			else
 				.type = "province"
+				| .latlong = (.province_latlong // .country_latlong)
 			end
 		else
 			.type = "country"
+			| .latlong = .country_latlong
 		end
 	else
 		.
-		| .type = "unknown"
 		| .label = ([.country_original, .province_original, .administrative_original] | map (select (. != null)) | join (" / "))
+		| .type = "unknown"
+		| .latlong = null
 		| .province = null
+		| .province_latlong = null
+		| .administrative = null
+		| .administrative_latlong = null
 	end
 )
 | sort_by ([.country, .location_label, .province, .administrative, .key_original])

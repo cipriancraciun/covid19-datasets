@@ -26,6 +26,8 @@
 	province_state : .[0].province_state,
 	admin2 : .[0].admin2,
 	date : .[0].date,
+	latitude : .[0].latitude,
+	longitude : .[0].longitude,
 	values :
 		map (.values | to_entries | .[])
 		| group_by (.key)
