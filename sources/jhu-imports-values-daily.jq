@@ -12,6 +12,7 @@
 		date : $record.dataset,
 		latitude : ($record.lat // $record.latitude),
 		longitude : ($record.long // $record.longitude),
+		fips : $record.fips__normalized,
 		values : {
 			confirmed : .confirmed,
 			recovered : .recovered,
@@ -20,11 +21,12 @@
 	}
 )
 
-| group_by ([.country_region, .province_state, .admin2, .date])
+| group_by ([.country_region, .province_state, .admin2, .fips, .date])
 | map ({
 	country_region : .[0].country_region,
 	province_state : .[0].province_state,
 	admin2 : .[0].admin2,
+	fips : .[0].fips,
 	date : .[0].date,
 	latitude : .[0].latitude,
 	longitude : .[0].longitude,
@@ -50,4 +52,4 @@
 	)
 )
 
-| sort_by ([.country_region, .province_state, .admin2, .date])
+| sort_by ([.country_region, .province_state, .admin2, .fips, .date])

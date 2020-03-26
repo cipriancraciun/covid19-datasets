@@ -5,7 +5,8 @@
 			[
 				(.country_region | if (. != "") then . else null end),
 				(.province_state | if (. != "") then . else null end),
-				(.admin2 | if (. != "") then . else null end)
+				(.admin2 | if (. != "") then . else null end),
+				(.fips | if (. != "") then . else null end)
 			]
 			| crypto_md5
 			| $locations[.])

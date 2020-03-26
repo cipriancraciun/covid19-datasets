@@ -34,12 +34,61 @@ build ./imports/facts/countries.json : z-run-in-out $
     arguments_pre = ':: process / facts / imports / countries / script'
     pool = cpu_moderate
 
-
 build ./imports/facts/countries-by-alias.json : z-run-in-out $
         ./imports/facts/countries.json $
         | ./sources/facts-imports-countries-by-alias.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / facts / imports / countries-by-alias / script'
+    pool = cpu_moderate
+
+
+
+
+build ./imports/facts/raw/us-counties.json : csv-to-json $
+        ./imports/facts/raw/us-counties.tsv $
+        | ./sources/csv-to-json.py ${zrun_library}
+    dataset = confirmed
+    format = tsv
+    pool = cpu_moderate
+
+build ./imports/facts/raw/us-states.json : csv-to-json $
+        ./imports/facts/raw/us-states.tsv $
+        | ./sources/csv-to-json.py ${zrun_library}
+    dataset = confirmed
+    format = tsv
+    pool = cpu_moderate
+
+
+build ./imports/facts/us-states-by-alias.json : z-run-in-out $
+        ./imports/facts/us-states.json $
+        | ./sources/facts-imports-us-states-by-alias.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / facts / imports / us-states-by-alias / script'
+    pool = cpu_moderate
+
+build ./imports/facts/us-counties-by-alias.json : z-run-in-out $
+        ./imports/facts/us-counties.json $
+        | ./sources/facts-imports-us-counties-by-alias.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / facts / imports / us-counties-by-alias / script'
+    pool = cpu_moderate
+
+
+
+
+build ./imports/facts/us-states.json : z-run-in-out $
+        ./imports/facts/raw/us-states.json $
+        | ./sources/facts-imports-us-states.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / facts / imports / us-states / script'
+    pool = cpu_moderate
+
+
+build ./imports/facts/us-counties.json : z-run-in-out $
+        ./imports/facts/raw/us-counties.json $
+        | ./sources/facts-imports-us-counties.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / facts / imports / us-counties / script'
     pool = cpu_moderate
 
 
@@ -104,22 +153,5 @@ build ./imports/factbook/fields.json : z-run-out-in $
         | ./sources/factbook-imports-fields.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter / multi'
     arguments_pre = ':: process / factbook / imports / fields / script'
-    pool = cpu_moderate
-
-
-
-
-build ./imports/facts/raw/us-counties.json : csv-to-json $
-        ./imports/facts/raw/us-counties.tsv $
-        | ./sources/csv-to-json.py ${zrun_library}
-    dataset = confirmed
-    format = tsv
-    pool = cpu_moderate
-
-build ./imports/facts/raw/us-states.json : csv-to-json $
-        ./imports/facts/raw/us-states.tsv $
-        | ./sources/csv-to-json.py ${zrun_library}
-    dataset = confirmed
-    format = tsv
     pool = cpu_moderate
 

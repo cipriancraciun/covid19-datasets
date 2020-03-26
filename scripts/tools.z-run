@@ -192,3 +192,31 @@
 	mv -T -- "${_output}.tmp" "${_output}"
 !!
 
+
+
+
+--<< tools / columns
+	
+	test "${#}" -ge 2
+	_input="${1}"
+	_output="${2}"
+	shift -- 2
+	
+	rm -f -- "${_output}.tmp"
+	
+	column \
+			--table \
+			--separator $'\t' \
+			--output-separator '  |  ' \
+		< "${_input}" \
+		>| "${_output}.tmp" \
+	#
+	
+	if cmp -s -- "${_output}.tmp" "${_output}" ; then
+		rm -- "${_output}.tmp"
+		exit -- 0
+	fi
+	
+	mv -T -- "${_output}.tmp" "${_output}"
+!!
+

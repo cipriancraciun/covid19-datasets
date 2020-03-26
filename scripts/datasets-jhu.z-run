@@ -3,25 +3,25 @@
 
 
 
---<<== view / jhu / plots / generate
+--<<== plots / view / jhu / generate
 	#! {{}}
 	
-	<< view / jhu / plots / all
+	<< plots / view / jhu / all
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' __jhu_plots__all__all__png
+		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu_plots__all__all__png
 	!!
 	
 	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "continents" "subcontinents" }}
 	
-	<< view / jhu / plots / {{ $_filter }} / all
+	<< plots / view / jhu / plots / {{ $_filter }} / all
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' __jhu_plots__{{ $_filter }}__all__png -path '*/{{ $_filter }}/*'
+		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu_plots__{{ $_filter }}__all__png -path '*/{{ $_filter }}/*'
 	!!
 	
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
-	<< view / jhu / plots / {{ $_filter }} / {{ $_method }}
+	<< plots / view / jhu / plots / {{ $_filter }} / {{ $_method }}
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: view / jhu / plots / exec' __jhu_plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}-*'
+		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu_plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}-*'
 	!!
 	{{ end }}
 	
@@ -30,7 +30,7 @@
 !!
 
 
---<< view / jhu / plots / exec
+--<< plots / view / jhu / exec
 	
 	test "${#}" -ge 1
 	_target="${1}"

@@ -49,7 +49,7 @@
 	!!
 	
 	{{ if $_target | has_prefix ("__") | not }}
-	{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) }}
+	{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) ($_target | has_suffix (".txt")) }}
 	<< ninja / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}

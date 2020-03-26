@@ -4,7 +4,7 @@ map ({key : .aliases[], value : .code})
 	if ((. | length) == 1) then
 		.[0]
 	else
-		# ["783ec68b", .] | debug |
+#		["783ec68b", .] | debug |
 		empty
 	end)
 | (. + (
@@ -27,9 +27,9 @@ map ({key : .aliases[], value : .code})
 		"mainland_china" : "CN",
 		"north_ireland" : "GB",
 		"st_martin" : "MF",
-		"channel_islands" : "XX", # ??
+		"channel_islands" : "XX", # ???
 		"uk" : "GB",
-		"taipei_and_environs" : "TW", # ??
+		"taipei_and_environs" : "TW", # ???
 		"hong_kong_sar" : "HK",
 		"macao_sar" : "MO",
 		"others" : "XX",

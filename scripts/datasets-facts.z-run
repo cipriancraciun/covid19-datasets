@@ -6,6 +6,12 @@
 --::&&.. process / facts / imports / countries / script :: ../sources/facts-imports-countries.jq
 --::&&.. process / facts / imports / countries-by-alias / script :: ../sources/facts-imports-countries-by-alias.jq
 
+--::&&.. process / facts / imports / us-states / script :: ../sources/facts-imports-us-states.jq
+--::&&.. process / facts / imports / us-states-by-alias / script :: ../sources/facts-imports-us-states-by-alias.jq
+
+--::&&.. process / facts / imports / us-counties / script :: ../sources/facts-imports-us-counties.jq
+--::&&.. process / facts / imports / us-counties-by-alias / script :: ../sources/facts-imports-us-counties-by-alias.jq
+
 --::&&.. process / factbook / imports / table / script :: ../sources/factbook-imports-table.jq
 --::&&.. process / factbook / imports / fields / script :: ../sources/factbook-imports-fields.jq
 

@@ -22,7 +22,7 @@
 	| if (.country_code != null) then
 		.
 	else
-		# ["ac086fdc", .] | debug |
+#		["ac086fdc", .] | debug |
 		empty
 	end
 )
@@ -31,7 +31,7 @@
 	if ((. | length) == 1) then
 		.[0]
 	else
-		# ["3e27456e", .] | debug |
+#		["3e27456e", .] | debug |
 		empty
 	end
 )
