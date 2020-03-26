@@ -47,40 +47,67 @@
 )
 
 | (. + (
-	map (select (.location.type != "unknown"))
-	| (
+	(
 		[]
 		+ map (
 			select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
-			| .location = (.location | {country, country_code, country_latlong, region, subregion, type : "country"})
+			| .location = (.location | {
+					country, country_code, country_latlong,
+					region, subregion,
+					type : "total-country",
+					label : .country,
+				})
+		)
+#		+ map (
+#			select ((.location.type == "province") or (.location.type == "administrative"))
+#			| .location = (.location | {
+#					country, country_code, country_latlong,
+#					province, province_latlong,
+#					region, subregion,
+#					type : "total-province",
+#					label : (.country + " / " + .province),
+#				})
+#		)
+		+ map (
+			select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
+			| select (.location.country != null)
+			| .location = (.location | {
+					country : .region,
+					region,
+					type : "total-region",
+					label : .region,
+				})
 		)
 		+ map (
-			select (.location.country != null)
-			| .location = (.location | {country : .region, type : "region"})
-		)
-		+ map (
-			select (.location.country != null)
-			| .location = (.location | {country : .subregion, type : "subregion"})
+			select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
+			| select (.location.country != null)
+			| .location = (.location | {
+					country : .subregion,
+					region, subregion,
+					type : "total-subregion",
+					label : .subregion,
+				})
 		)
 	)
-	| (
-		group_by ([.location.type, .location.country, .date])
+	| map (
+		.location.key = ([.location.type, .location.country, .location.province, "(total)"] | crypto_md5)
 	)
+	| group_by ([.location.key, .date.date])
 	| map (
 		{
 			location :
 				.[0].location
 				| {
-					key : ([.country, "(total)", null] | crypto_md5),
+					key : .key,
 					type : .type,
-					label : .country,
+					label : .label,
 					country : .country,
 					country_code : .country_code,
 					country_latlong : .country_latlong,
 					region : .region,
 					subregion : .subregion,
-					province : "(total)",
-					latlong : .country_latlong,
+					administrative : "(total)",
+					latlong : (.province_latlong // .country_latlong),
 				},
 			date : .[0].date,
 			values :
@@ -96,7 +123,7 @@
 ))
 
 | map (
-	if (.location.type == "country") then
+	if (.location.type | ((. == "country") or (. == "total-country"))) then
 		.factbook = $factbook[.location.country_code]
 		| if (.factbook != null) then
 			.factbook = (
@@ -106,15 +133,15 @@
 				| from_entries
 			)
 		else . end
-	else if ((.location.type == "region") or (.location.type == "subregion")) then
+	else if (.location.type | ((. == "region") or (. == "subregion") or (. == "total-region") or (. == "total-subregion"))) then
 		. as $data
 		| .location.country as $name
 		| $data.factbook = (
 			$countries
 			| map (
 				select (
-					(($data.location.type == "region") and (.region == $name)) or
-					(($data.location.type == "subregion") and (.subregion == $name)) or
+					(($data.location.type | ((. == "region") or (. == "total-region"))) and (.region == $name)) or
+					(($data.location.type | ((. == "subregion") or (. == "total-subregion"))) and (.subregion == $name)) or
 					false
 				)
 				| .code
