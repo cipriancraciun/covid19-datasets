@@ -45,35 +45,6 @@
 	| .province_original = .province
 	| .administrative_original = .administrative
 	
-	| .province = (
-		if ((.country == .province) or (.province == null)) then
-			"mainland"
-		else if ((.country == "US") and (.administrative == null)) then
-			.province
-			| split (", ")
-			| if ((. | length) == 2) then
-				.[1] + " / " + .[0]
-			else
-				.[0]
-			end
-		else
-			.province
-		end end)
-	
-	| . as $data
-	
-	| if (.country != null) then
-		if ((.province == null) and (.administrative != null)) then
-			["6f99bfb1", .] | debug |
-			$data
-		else . end
-	else
-		if ((.province != null) or (.administrative != null)) then
-			["396e159b", .] | debug |
-			$data
-		else . end
-	end
-	
 	| .country_0 = (
 		(.country // "")
 		| ascii_downcase | gsub ("[^a-z0-9]+"; "_") | gsub ("(^_+)|(_+$)"; "")
@@ -99,6 +70,37 @@
 	| .subregion = .country_0.subregion
 	| del (.country_0)
 	
+	| .province = (
+		if ((.country_code != null) and ((.country == .province) or (.country_original == .province) or (.province == null))) then
+			"mainland"
+		else if ((.country_code == "US") and (.administrative == null)) then
+			.province
+			| split (", ")
+			| if ((. | length) == 2) then
+				.[1] + " / " + .[0]
+			else
+				.[0]
+			end
+		else if (.country_code != null) then
+			.province
+		else
+			null
+		end end end)
+	
+	| . as $data
+	
+	| if (.country != null) then
+		if ((.province == null) and (.administrative != null)) then
+			["6f99bfb1", .] | debug |
+			$data
+		else . end
+	else
+		if ((.province != null) or (.administrative != null)) then
+			["396e159b", .] | debug |
+			$data
+		else . end
+	end
+	
 	| .label = ([.country, .province, .administrative] | map (select (. != null)) | join (" / "))
 	
 )
@@ -122,7 +124,11 @@
 	| .[]
 )
 | map (
-	.key = ([.country, .province, .administrative] | crypto_md5)
+	.key = if (.country != null) then
+		([.country, .province, .administrative] | crypto_md5)
+	else
+		([.country_original, .province_original, .administrative_original] | crypto_md5)
+	end
 )
 | map (
 	if (.country != null) then
