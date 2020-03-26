@@ -98,7 +98,7 @@ def _normalize_value (_value) :
 		pass
 	
 	_value = _value.decode ("utf-8")
-	_normalized = unidecode.unidecode (_value)
+	_value = unidecode.unidecode (_value)
 	
 	return _value
 
