@@ -22,6 +22,7 @@ map ({key : .aliases[], value : .code})
 		"the_bahamas" : "BS",
 		"the_gambia" : "GM",
 		"the_west_bank_and_gaza" : "PS",
+		"west_bank_and_gaza" : "PS",
 		
 		# NOTE:  From CIA factbook
 		"congo_democratic_republic_of_the" : "CD",
