@@ -177,8 +177,8 @@ build ./exports/jhu/v1/daily/values.tsv : z-run-in-out $
     pool = cpu_heavy
 
 
-build ./exports/jhu/v1/values.json : symlink ./exports/jhu/v1/series/values.json
-build ./exports/jhu/v1/values.tsv : symlink ./exports/jhu/v1/series/values.tsv
+build ./exports/jhu/v1/values.json : copy ./exports/jhu/v1/series/values.json
+build ./exports/jhu/v1/values.tsv : copy ./exports/jhu/v1/series/values.tsv
 
 
 
@@ -189,6 +189,8 @@ build __jhu_imports : phony $
         ||
 
 build __jhu_exports : phony $
+        ./exports/jhu/v1/values.json $
+        ./exports/jhu/v1/values.tsv $
         ./exports/jhu/v1/series/values.json $
         ./exports/jhu/v1/series/values.tsv $
         ./exports/jhu/v1/daily/values.json $

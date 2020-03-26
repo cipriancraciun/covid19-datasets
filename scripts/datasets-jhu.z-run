@@ -103,12 +103,10 @@
 	{{ $_filter_method_charts := array }}
 	
 	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
-	{{ if and (eq $_method "relative") (eq $_metric "confirmed") | not }}
+	{{ if or (and (eq $_filter "us") (eq $_method "absolute_pop100k")) (and (eq $_method "relative") (eq $_metric "confirmed")) | not }}
 	
 	{{ $_index := "day_index_100" }}
-	{{ if or (eq $_filter "global") }}
-	{{ $_index = "day_index_1k" }}
-	{{ else if or (eq $_filter "europe-major") }}
+	{{ if or (eq $_filter "global") (eq $_filter "europe-major") }}
 	{{ $_index = "day_index_1k" }}
 	{{ else if or (eq $_filter "continents") (eq $_filter "subcontinents") }}
 	{{ $_index = "day_index_10k" }}
@@ -164,6 +162,10 @@
 	_metric="${6}"
 	shift -- 6
 	test "${#}" -eq 0
+	
+	if false test -e "${_output}" ; then
+		exit -- 0
+	fi
 	
 	export -- \
 			FONTCONFIG_PATH=/etc/fonts \

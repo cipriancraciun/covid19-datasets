@@ -49,26 +49,28 @@
 	map (select (.location.type != "unknown"))
 	| (
 		map (.location.type = "country")
-		+ map (.location = {country : .location.region, type : "region"})
-		+ map (.location = {country : .location.subregion, type : "subregion"})
+		+ map (select (.location.country != null) | .location = {country : .location.region, type : "region"})
+		+ map (select (.location.country != null) | .location = {country : .location.subregion, type : "subregion"})
 	)
-	| group_by ([.location.type, .location.country, .date])
+	| (
+		group_by ([.location.type, .location.country, .date])
+	)
 	| map (
 		{
-			location : (
+			location :
 				.[0].location
-				| .key = ([.country, "total", null] | crypto_md5)
-				| .label = .country
-				| .latlong = .country_latlong
-				| .province = "total"
-				| .province_latlong = null
-				| .administrative = null
-				| .administrative_latlong = null
-				| .key_original = null
-				| .country_original = null
-				| .province_original = null
-				| .administrative_original = null
-			),
+				| {
+					key : ([.country, "total", null] | crypto_md5),
+					type : .type,
+					label : .country,
+					country : .country,
+					country_code : .country_code,
+					country_latlong : .country_latlong,
+					region : .region,
+					subregion : .subregion,
+					province : "total",
+					latlong : .country_latlong,
+				},
 			date : .[0].date,
 			values :
 				map (.values | to_entries | .[])
@@ -77,7 +79,7 @@
 					key : .[0].key,
 					value : map (.value) | add,
 				})
-				| from_entries
+				| from_entries,
 		}
 	)
 ))
