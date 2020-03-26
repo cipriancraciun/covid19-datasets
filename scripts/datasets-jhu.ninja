@@ -53,7 +53,7 @@ build ./imports/jhu/series/raw-json/merged.json : z-run-out-in $
 
 
 build ./imports/jhu/series/locations.json : z-run-in-out $
-        ./imports/jhu/series/raw-json/merged.json $
+        ./imports/jhu/series/raw-json/values.json $
         | ./imports/facts/countries.json $
           ./imports/facts/countries-by-alias.json $
           ./sources/jhu-imports-locations.jq ${zrun_library}
@@ -65,7 +65,7 @@ build ./imports/jhu/series/locations.json : z-run-in-out $
     pool = cpu_moderate
 
 build ./imports/jhu/series/dates.json : z-run-in-out $
-        ./imports/jhu/series/raw-json/merged.json $
+        ./imports/jhu/series/raw-json/values.json $
         | ./sources/jhu-imports-dates.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / imports / dates / script'
@@ -97,19 +97,86 @@ build ./imports/jhu/series/values.json : z-run-in-out $
 
 
 
-build ./exports/jhu/v1/values.json : z-run-in-out $
+build ./imports/jhu/daily/locations.json : z-run-in-out $
+        ./imports/jhu/daily/raw-json/values.json $
+        | ./imports/facts/countries.json $
+          ./imports/facts/countries-by-alias.json $
+          ./sources/jhu-imports-locations.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / imports / locations / script'
+    arguments = $
+        --argfile countries ./imports/facts/countries.json $
+        --argfile countries_by_alias ./imports/facts/countries-by-alias.json
+    pool = cpu_moderate
+
+build ./imports/jhu/daily/dates.json : z-run-in-out $
+        ./imports/jhu/daily/raw-json/values.json $
+        | ./sources/jhu-imports-dates.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / imports / dates / script'
+    pool = cpu_moderate
+
+
+build ./imports/jhu/daily/raw-json/values.json : z-run-in-out $
+        ./imports/jhu/daily/raw-json/merged.json $
+        | ./sources/jhu-imports-values-daily.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / imports / values / daily / script'
+    pool = cpu_heavy
+
+build ./imports/jhu/daily/values.json : z-run-in-out $
+        ./imports/jhu/daily/raw-json/values.json $
+        | ./imports/jhu/daily/locations.json $
+          ./imports/jhu/daily/dates.json $
+          ./imports/facts/countries.json $
+          ./imports/factbook/fields.json $
+          ./sources/jhu-imports-values.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / imports / values / script'
+    arguments = $
+        --argfile dates ./imports/jhu/daily/dates.json $
+        --argfile locations ./imports/jhu/daily/locations.json $
+        --argfile countries ./imports/facts/countries.json $
+        --argfile factbook ./imports/factbook/fields.json
+    pool = cpu_heavy
+
+
+
+
+build ./exports/jhu/v1/series/values.json : z-run-in-out $
         ./imports/jhu/series/values.json $
         | ./sources/jhu-exports-values-json.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / exports / values / json / script'
     pool = cpu_heavy
 
-build ./exports/jhu/v1/values.tsv : z-run-in-out $
-        ./exports/jhu/v1/values.json $
+build ./exports/jhu/v1/series/values.tsv : z-run-in-out $
+        ./exports/jhu/v1/series/values.json $
         | ./sources/jhu-exports-values-tsv.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / exports / values / tsv / script'
     arguments = $
         --raw-output
     pool = cpu_heavy
+
+
+build ./exports/jhu/v1/daily/values.json : z-run-in-out $
+        ./imports/jhu/daily/values.json $
+        | ./sources/jhu-exports-values-json.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / exports / values / json / script'
+    pool = cpu_heavy
+
+build ./exports/jhu/v1/daily/values.tsv : z-run-in-out $
+        ./exports/jhu/v1/daily/values.json $
+        | ./sources/jhu-exports-values-tsv.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / exports / values / tsv / script'
+    arguments = $
+        --raw-output
+    pool = cpu_heavy
+
+
+build ./exports/jhu/v1/values.json : symlink ./exports/jhu/v1/series/values.json
+build ./exports/jhu/v1/values.tsv : symlink ./exports/jhu/v1/series/values.tsv
 

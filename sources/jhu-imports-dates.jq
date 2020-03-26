@@ -1,21 +1,15 @@
 .
-| .keys
-| to_entries
-| map (select (.key | startswith ("_")))
+| map (.date)
+| unique
 | map (
-	{
-		key : .key,
-		original : .value[0],
+	. as $key
+	| split ("-")
+	| {
+		key : $key,
+		year : .[2] | tonumber,
+		month : .[0] | tonumber,
+		day : .[1] | tonumber,
 	}
-	| (. + (
-		.original
-		| split ("/")
-		| {
-			year : (2000 + (.[2] | tonumber)),
-			month : .[0] | tonumber,
-			day : .[1] | tonumber,
-		}
-	))
 	| .date = (
 		[.year, .month, .day]
 		| map (tostring)

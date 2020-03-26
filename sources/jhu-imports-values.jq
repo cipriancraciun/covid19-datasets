@@ -14,6 +14,11 @@
 		.
 	else . end
 )
+| map (
+	.
+	| del (.latitude)
+	| del (.longitude)
+)
 
 | map (
 	.date = $dates[.date]

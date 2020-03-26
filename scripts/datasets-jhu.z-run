@@ -199,6 +199,7 @@
 --::&&.. process / jhu / imports / merge / script :: ../sources/jhu-imports-merge.jq
 --::&&.. process / jhu / imports / locations / script :: ../sources/jhu-imports-locations.jq
 --::&&.. process / jhu / imports / dates / script :: ../sources/jhu-imports-dates.jq
+--::&&.. process / jhu / imports / values / daily / script :: ../sources/jhu-imports-values-daily.jq
 --::&&.. process / jhu / imports / values / series / script :: ../sources/jhu-imports-values-series.jq
 --::&&.. process / jhu / imports / values / script :: ../sources/jhu-imports-values.jq
 

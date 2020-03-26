@@ -1,11 +1,10 @@
 .
-| .records
 | map ([
 		(.country_region | if (. != "") then . else null end),
 		(.province_state | if (. != "") then . else null end),
 		(.admin2 | if (. != "") then . else null end),
-		(.lat | if (. != 0) then . else null end),
-		(.long | if (. != 0) then . else null end)
+		(.latitude | if (. != 0) then . else null end),
+		(.longitude | if (. != 0) then . else null end)
 	])
 | group_by ([.[0], .[1], .[2]])
 | map (
