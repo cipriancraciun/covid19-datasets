@@ -1,0 +1,595 @@
+{
+  "dataset" : "confirmed",
+  "keys" : {
+    "area" : [
+      "area"
+    ],
+    "code" : [
+      "code"
+    ],
+    "name" : [
+      "name"
+    ],
+    "population" : [
+      "population"
+    ]
+  },
+  "keys_normalized" : {
+    "area" : "area",
+    "code" : "code",
+    "name" : "name",
+    "population" : "population"
+  },
+  "records" : [
+    {
+      "area" : 135767,
+      "area__normalized" : "135767",
+      "code" : "AL",
+      "code__normalized" : "al",
+      "name" : "Alabama",
+      "name__normalized" : "alabama",
+      "population" : 4903185,
+      "population__normalized" : "4903185"
+    },
+    {
+      "area" : 1723337,
+      "area__normalized" : "1723337",
+      "code" : "AK",
+      "code__normalized" : "ak",
+      "name" : "Alaska",
+      "name__normalized" : "alaska",
+      "population" : 731545,
+      "population__normalized" : "731545"
+    },
+    {
+      "area" : 113594,
+      "area__normalized" : "113594",
+      "code" : "AZ",
+      "code__normalized" : "az",
+      "name" : "Arizona",
+      "name__normalized" : "arizona",
+      "population" : 113990,
+      "population__normalized" : "113990"
+    },
+    {
+      "area" : 52035,
+      "area__normalized" : "52035",
+      "code" : "AR",
+      "code__normalized" : "ar",
+      "name" : "Arkansas",
+      "name__normalized" : "arkansas",
+      "population" : 53179,
+      "population__normalized" : "53179"
+    },
+    {
+      "area" : 423967,
+      "area__normalized" : "423967",
+      "code" : "CA",
+      "code__normalized" : "ca",
+      "name" : "California",
+      "name__normalized" : "california",
+      "population" : 39512223,
+      "population__normalized" : "39512223"
+    },
+    {
+      "area" : 103642,
+      "area__normalized" : "103642",
+      "code" : "CO",
+      "code__normalized" : "co",
+      "name" : "Colorado",
+      "name__normalized" : "colorado",
+      "population" : 104094,
+      "population__normalized" : "104094"
+    },
+    {
+      "area" : 14357,
+      "area__normalized" : "14357",
+      "code" : "CT",
+      "code__normalized" : "ct",
+      "name" : "Connecticut",
+      "name__normalized" : "connecticut",
+      "population" : 3565278,
+      "population__normalized" : "3565278"
+    },
+    {
+      "area" : 6446,
+      "area__normalized" : "6446",
+      "code" : "DE",
+      "code__normalized" : "de",
+      "name" : "Delaware",
+      "name__normalized" : "delaware",
+      "population" : 973764,
+      "population__normalized" : "973764"
+    },
+    {
+      "area" : 170312,
+      "area__normalized" : "170312",
+      "code" : "FL",
+      "code__normalized" : "fl",
+      "name" : "Florida",
+      "name__normalized" : "florida",
+      "population" : 21477737,
+      "population__normalized" : "21477737"
+    },
+    {
+      "area" : 57513,
+      "area__normalized" : "57513",
+      "code" : "GA",
+      "code__normalized" : "ga",
+      "name" : "Georgia",
+      "name__normalized" : "georgia",
+      "population" : 59425,
+      "population__normalized" : "59425"
+    },
+    {
+      "area" : 6423,
+      "area__normalized" : "6423",
+      "code" : "HI",
+      "code__normalized" : "hi",
+      "name" : "Hawaii",
+      "name__normalized" : "hawaii",
+      "population" : 10932,
+      "population__normalized" : "10932"
+    },
+    {
+      "area" : 82643,
+      "area__normalized" : "82643",
+      "code" : "ID",
+      "code__normalized" : "id",
+      "name" : "Idaho",
+      "name__normalized" : "idaho",
+      "population" : 83569,
+      "population__normalized" : "83569"
+    },
+    {
+      "area" : 149995,
+      "area__normalized" : "149995",
+      "code" : "IL",
+      "code__normalized" : "il",
+      "name" : "Illinois",
+      "name__normalized" : "illinois",
+      "population" : 12671821,
+      "population__normalized" : "12671821"
+    },
+    {
+      "area" : 35826,
+      "area__normalized" : "35826",
+      "code" : "IN",
+      "code__normalized" : "in",
+      "name" : "Indiana",
+      "name__normalized" : "indiana",
+      "population" : 36420,
+      "population__normalized" : "36420"
+    },
+    {
+      "area" : 55857,
+      "area__normalized" : "55857",
+      "code" : "IA",
+      "code__normalized" : "ia",
+      "name" : "Iowa",
+      "name__normalized" : "iowa",
+      "population" : 56273,
+      "population__normalized" : "56273"
+    },
+    {
+      "area" : 213100,
+      "area__normalized" : "213100",
+      "code" : "KS",
+      "code__normalized" : "ks",
+      "name" : "Kansas",
+      "name__normalized" : "kansas",
+      "population" : 2913314,
+      "population__normalized" : "2913314"
+    },
+    {
+      "area" : 104656,
+      "area__normalized" : "104656",
+      "code" : "KY",
+      "code__normalized" : "ky",
+      "name" : "Kentucky",
+      "name__normalized" : "kentucky",
+      "population" : 4467673,
+      "population__normalized" : "4467673"
+    },
+    {
+      "area" : 135659,
+      "area__normalized" : "135659",
+      "code" : "LA",
+      "code__normalized" : "la",
+      "name" : "Louisiana",
+      "name__normalized" : "louisiana",
+      "population" : 4648794,
+      "population__normalized" : "4648794"
+    },
+    {
+      "area" : 91633,
+      "area__normalized" : "91633",
+      "code" : "ME",
+      "code__normalized" : "me",
+      "name" : "Maine",
+      "name__normalized" : "maine",
+      "population" : 1344212,
+      "population__normalized" : "1344212"
+    },
+    {
+      "area" : 32131,
+      "area__normalized" : "32131",
+      "code" : "MD",
+      "code__normalized" : "md",
+      "name" : "Maryland",
+      "name__normalized" : "maryland",
+      "population" : 6045680,
+      "population__normalized" : "6045680"
+    },
+    {
+      "area" : 7800,
+      "area__normalized" : "7800",
+      "code" : "MA",
+      "code__normalized" : "ma",
+      "name" : "Massachusetts",
+      "name__normalized" : "massachusetts",
+      "population" : 10554,
+      "population__normalized" : "10554"
+    },
+    {
+      "area" : 250487,
+      "area__normalized" : "250487",
+      "code" : "MI",
+      "code__normalized" : "mi",
+      "name" : "Michigan",
+      "name__normalized" : "michigan",
+      "population" : 9986857,
+      "population__normalized" : "9986857"
+    },
+    {
+      "area" : 225163,
+      "area__normalized" : "225163",
+      "code" : "MN",
+      "code__normalized" : "mn",
+      "name" : "Minnesota",
+      "name__normalized" : "minnesota",
+      "population" : 5639632,
+      "population__normalized" : "5639632"
+    },
+    {
+      "area" : 46923,
+      "area__normalized" : "46923",
+      "code" : "MS",
+      "code__normalized" : "ms",
+      "name" : "Mississippi",
+      "name__normalized" : "mississippi",
+      "population" : 48432,
+      "population__normalized" : "48432"
+    },
+    {
+      "area" : 180540,
+      "area__normalized" : "180540",
+      "code" : "MO",
+      "code__normalized" : "mo",
+      "name" : "Missouri",
+      "name__normalized" : "missouri",
+      "population" : 6137428,
+      "population__normalized" : "6137428"
+    },
+    {
+      "area" : 380831,
+      "area__normalized" : "380831",
+      "code" : "MT",
+      "code__normalized" : "mt",
+      "name" : "Montana",
+      "name__normalized" : "montana",
+      "population" : 1068778,
+      "population__normalized" : "1068778"
+    },
+    {
+      "area" : 200330,
+      "area__normalized" : "200330",
+      "code" : "NE",
+      "code__normalized" : "ne",
+      "name" : "Nebraska",
+      "name__normalized" : "nebraska",
+      "population" : 1934408,
+      "population__normalized" : "1934408"
+    },
+    {
+      "area" : 286380,
+      "area__normalized" : "286380",
+      "code" : "NV",
+      "code__normalized" : "nv",
+      "name" : "Nevada",
+      "name__normalized" : "nevada",
+      "population" : 3080156,
+      "population__normalized" : "3080156"
+    },
+    {
+      "area" : 24214,
+      "area__normalized" : "24214",
+      "code" : "NH",
+      "code__normalized" : "nh",
+      "name" : "New Hampshire",
+      "name__normalized" : "new_hampshire",
+      "population" : 1359711,
+      "population__normalized" : "1359711"
+    },
+    {
+      "area" : 22591,
+      "area__normalized" : "22591",
+      "code" : "NJ",
+      "code__normalized" : "nj",
+      "name" : "New Jersey",
+      "name__normalized" : "new_jersey",
+      "population" : 8882190,
+      "population__normalized" : "8882190"
+    },
+    {
+      "area" : 314917,
+      "area__normalized" : "314917",
+      "code" : "NM",
+      "code__normalized" : "nm",
+      "name" : "New Mexico",
+      "name__normalized" : "new_mexico",
+      "population" : 2096829,
+      "population__normalized" : "2096829"
+    },
+    {
+      "area" : 141297,
+      "area__normalized" : "141297",
+      "code" : "NY",
+      "code__normalized" : "ny",
+      "name" : "New York",
+      "name__normalized" : "new_york",
+      "population" : 19453561,
+      "population__normalized" : "19453561"
+    },
+    {
+      "area" : 139391,
+      "area__normalized" : "139391",
+      "code" : "NC",
+      "code__normalized" : "nc",
+      "name" : "North Carolina",
+      "name__normalized" : "north_carolina",
+      "population" : 10488084,
+      "population__normalized" : "10488084"
+    },
+    {
+      "area" : 183108,
+      "area__normalized" : "183108",
+      "code" : "ND",
+      "code__normalized" : "nd",
+      "name" : "North Dakota",
+      "name__normalized" : "north_dakota",
+      "population" : 762062,
+      "population__normalized" : "762062"
+    },
+    {
+      "area" : 40861,
+      "area__normalized" : "40861",
+      "code" : "OH",
+      "code__normalized" : "oh",
+      "name" : "Ohio",
+      "name__normalized" : "ohio",
+      "population" : 44826,
+      "population__normalized" : "44826"
+    },
+    {
+      "area" : 68595,
+      "area__normalized" : "68595",
+      "code" : "OK",
+      "code__normalized" : "ok",
+      "name" : "Oklahoma",
+      "name__normalized" : "oklahoma",
+      "population" : 69899,
+      "population__normalized" : "69899"
+    },
+    {
+      "area" : 254799,
+      "area__normalized" : "254799",
+      "code" : "OR",
+      "code__normalized" : "or",
+      "name" : "Oregon",
+      "name__normalized" : "oregon",
+      "population" : 4217737,
+      "population__normalized" : "4217737"
+    },
+    {
+      "area" : 119280,
+      "area__normalized" : "119280",
+      "code" : "PA",
+      "code__normalized" : "pa",
+      "name" : "Pennsylvania",
+      "name__normalized" : "pennsylvania",
+      "population" : 12801989,
+      "population__normalized" : "12801989"
+    },
+    {
+      "area" : 1034,
+      "area__normalized" : "1034",
+      "code" : "RI",
+      "code__normalized" : "ri",
+      "name" : "Rhode Island",
+      "name__normalized" : "rhode_island",
+      "population" : 1545,
+      "population__normalized" : "1545"
+    },
+    {
+      "area" : 82933,
+      "area__normalized" : "82933",
+      "code" : "SC",
+      "code__normalized" : "sc",
+      "name" : "South Carolina",
+      "name__normalized" : "south_carolina",
+      "population" : 5148714,
+      "population__normalized" : "5148714"
+    },
+    {
+      "area" : 199729,
+      "area__normalized" : "199729",
+      "code" : "SD",
+      "code__normalized" : "sd",
+      "name" : "South Dakota",
+      "name__normalized" : "south_dakota",
+      "population" : 884659,
+      "population__normalized" : "884659"
+    },
+    {
+      "area" : 41235,
+      "area__normalized" : "41235",
+      "code" : "TN",
+      "code__normalized" : "tn",
+      "name" : "Tennessee",
+      "name__normalized" : "tennessee",
+      "population" : 42144,
+      "population__normalized" : "42144"
+    },
+    {
+      "area" : 695662,
+      "area__normalized" : "695662",
+      "code" : "TX",
+      "code__normalized" : "tx",
+      "name" : "Texas",
+      "name__normalized" : "texas",
+      "population" : 28995881,
+      "population__normalized" : "28995881"
+    },
+    {
+      "area" : 82170,
+      "area__normalized" : "82170",
+      "code" : "UT",
+      "code__normalized" : "ut",
+      "name" : "Utah",
+      "name__normalized" : "utah",
+      "population" : 84897,
+      "population__normalized" : "84897"
+    },
+    {
+      "area" : 24906,
+      "area__normalized" : "24906",
+      "code" : "VT",
+      "code__normalized" : "vt",
+      "name" : "Vermont",
+      "name__normalized" : "vermont",
+      "population" : 623989,
+      "population__normalized" : "623989"
+    },
+    {
+      "area" : 110787,
+      "area__normalized" : "110787",
+      "code" : "VA",
+      "code__normalized" : "va",
+      "name" : "Virginia",
+      "name__normalized" : "virginia",
+      "population" : 8535519,
+      "population__normalized" : "8535519"
+    },
+    {
+      "area" : 184661,
+      "area__normalized" : "184661",
+      "code" : "WA",
+      "code__normalized" : "wa",
+      "name" : "Washington",
+      "name__normalized" : "washington",
+      "population" : 7614893,
+      "population__normalized" : "7614893"
+    },
+    {
+      "area" : 24038,
+      "area__normalized" : "24038",
+      "code" : "WV",
+      "code__normalized" : "wv",
+      "name" : "West Virginia",
+      "name__normalized" : "west_virginia",
+      "population" : 24230,
+      "population__normalized" : "24230"
+    },
+    {
+      "area" : 169635,
+      "area__normalized" : "169635",
+      "code" : "WI",
+      "code__normalized" : "wi",
+      "name" : "Wisconsin",
+      "name__normalized" : "wisconsin",
+      "population" : 5822434,
+      "population__normalized" : "5822434"
+    },
+    {
+      "area" : 97093,
+      "area__normalized" : "97093",
+      "code" : "WY",
+      "code__normalized" : "wy",
+      "name" : "Wyoming",
+      "name__normalized" : "wyoming",
+      "population" : 97813,
+      "population__normalized" : "97813"
+    },
+    {
+      "area" : 176,
+      "area__normalized" : "176",
+      "code" : "DC",
+      "code__normalized" : "dc",
+      "name" : "District of Columbia",
+      "name__normalized" : "district_of_columbia",
+      "population" : 705749,
+      "population__normalized" : "705749"
+    },
+    {
+      "area" : 1505,
+      "area__normalized" : "1505",
+      "code" : "AS",
+      "code__normalized" : "as",
+      "name" : "American Samoa",
+      "name__normalized" : "american_samoa",
+      "population" : 57400,
+      "population__normalized" : "57400"
+    },
+    {
+      "area" : 1478,
+      "area__normalized" : "1478",
+      "code" : "GU",
+      "code__normalized" : "gu",
+      "name" : "Guam",
+      "name__normalized" : "guam",
+      "population" : 161700,
+      "population__normalized" : "161700"
+    },
+    {
+      "area" : 5117,
+      "area__normalized" : "5117",
+      "code" : "MP",
+      "code__normalized" : "mp",
+      "name" : "Northern Mariana Islands",
+      "name__normalized" : "northern_mariana_islands",
+      "population" : 52300,
+      "population__normalized" : "52300"
+    },
+    {
+      "area" : 13791,
+      "area__normalized" : "13791",
+      "code" : "PR",
+      "code__normalized" : "pr",
+      "name" : "Puerto Rico",
+      "name__normalized" : "puerto_rico",
+      "population" : 3193694,
+      "population__normalized" : "3193694"
+    },
+    {
+      "area" : 1898,
+      "area__normalized" : "1898",
+      "code" : "VI",
+      "code__normalized" : "vi",
+      "name" : "Virgin Islands",
+      "name__normalized" : "virgin_islands",
+      "population" : 103700,
+      "population__normalized" : "103700"
+    },
+    {
+      "area" : null,
+      "area__normalized" : null,
+      "code" : "XX",
+      "code__normalized" : "xx",
+      "name" : "Minor Outlying Islands",
+      "name__normalized" : "minor_outlying_islands",
+      "population" : null,
+      "population__normalized" : null
+    }
+  ]
+}
