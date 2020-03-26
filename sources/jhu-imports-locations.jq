@@ -111,7 +111,7 @@
 	
 	| .province = (
 		if ((.country_code != null) and ((.country == .province) or (.country_original == .province) or (.province == null))) then
-			"mainland"
+			"(mainland)"
 		else if ((.country_code == "US") and (.administrative == null)) then
 			.province
 			| split (", ")
@@ -211,7 +211,7 @@
 			else
 				.type = "province"
 				| .latlong = (.province_latlong // .country_latlong)
-				| if ((.country_code == "US") and (.province != "mainland")) then
+				| if ((.country_code == "US") and (.province != "(mainland)")) then
 					.
 					| .us_state = (
 						.province
