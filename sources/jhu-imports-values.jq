@@ -49,9 +49,19 @@
 | (. + (
 	map (select (.location.type != "unknown"))
 	| (
-		map (.location.type = "country")
-		+ map (select (.location.country != null) | .location = {country : .location.region, type : "region"})
-		+ map (select (.location.country != null) | .location = {country : .location.subregion, type : "subregion"})
+		[]
+		+ map (
+			select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
+			| .location = (.location | {country, country_code, country_latlong, region, subregion, type : "country"})
+		)
+		+ map (
+			select (.location.country != null)
+			| .location = (.location | {country : .region, type : "region"})
+		)
+		+ map (
+			select (.location.country != null)
+			| .location = (.location | {country : .subregion, type : "subregion"})
+		)
 	)
 	| (
 		group_by ([.location.type, .location.country, .date])
