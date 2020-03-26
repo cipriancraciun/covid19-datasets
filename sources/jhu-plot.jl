@@ -158,14 +158,19 @@ _dataset_min_metric = minimum(_dataset[!, _dataset_metric])
 _dataset_max_metric = maximum(_dataset[!, _dataset_metric])
 _dataset_qmin_metric = quantile(_dataset[!, _dataset_metric], 0.01)
 _dataset_qmax_metric = quantile(_dataset[!, _dataset_metric], 0.99)
+_dataset_qdelta_metric = abs(_dataset_qmax_metric - _dataset_qmin_metric)
 
-if (abs(_dataset_min_metric - _dataset_qmin_metric) / _dataset_qmin_metric) > 0.25
-	_dataset_min_metric = _dataset_qmin_metric
+if true
+	if abs(_dataset_min_metric - _dataset_qmin_metric) > (0.25 * _dataset_qdelta_metric)
+		_dataset_min_metric = _dataset_qmin_metric - (0.25 * _dataset_qdelta_metric)
+	end
+	if abs(_dataset_max_metric - _dataset_qmax_metric) > (0.25 * _dataset_qdelta_metric)
+		_dataset_max_metric = _dataset_qmax_metric + (0.25 * _dataset_qdelta_metric)
+	end
+else
+	_dataset_min_metric = _dataset_qmin_metric - (0.25 * _dataset_qdelta_metric)
+	_dataset_max_metric = _dataset_qmax_metric + (0.25 * _dataset_qdelta_metric)
 end
-if (abs(_dataset_max_metric - _dataset_qmax_metric) / _dataset_qmax_metric) > 0.25
-	_dataset_max_metric = _dataset_qmax_metric
-end
-
 
 _dataset_cmin_metric = nothing
 _dataset_cmax_metric = nothing
@@ -179,7 +184,7 @@ elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_d
 	_dataset_rstep_metric = maximum([floor((_dataset_max_metric - _dataset_min_metric) / 10), 1])
 	_dataset_rsuf_metric = "%"
 else
-	_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_max_metric - _dataset_min_metric)), 0])
+	_dataset_rstep_metric = 10 ^ maximum([floor(log10((_dataset_max_metric - _dataset_min_metric) / 3)), 0])
 	_dataset_rsuf_metric = ""
 end
 
