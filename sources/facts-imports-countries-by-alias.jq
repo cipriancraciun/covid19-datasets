@@ -21,6 +21,7 @@ map ({key : .aliases[], value : .code})
 		"cruise_ship" : "XX",
 		"the_bahamas" : "BS",
 		"the_gambia" : "GM",
+		"the_west_bank_and_gaza" : "PS",
 		
 		# NOTE:  From CIA factbook
 		"congo_democratic_republic_of_the" : "CD",
@@ -32,8 +33,8 @@ map ({key : .aliases[], value : .code})
 		"paracel_islands" : "XX",
 		"holy_see_vatican_city" : "VA",
 		"falkland_islands_islas_malvinas" : "FK",
-		"gaza_strip" : "XX",
-		"west_bank" : "XX",
+		"gaza_strip" : "PS",
+		"west_bank" : "PS",
 		
 	}
 	| to_entries

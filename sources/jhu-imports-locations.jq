@@ -22,10 +22,12 @@
 				(. == ["Cruise Ship", "Diamond Princess", null]) or
 				(. == ["Diamond Princess", null, null]) or
 				(. == [null, "Diamond Princess", null]) or
+				(. == ["Canada", "Grand Princess", null]) or
+				(. == ["US", "Grand Princess", null]) or
 				false
 			)
 	) then
-		["Cruise Ship", "Diamond Princess", null, null, null, .[5]]
+		["Cruise Ship", "Diamond+Grand Princess", null, null, null, .[5]]
 	else . end
 	
 	| {
@@ -74,12 +76,17 @@
 		| ascii_downcase | gsub ("[^a-z0-9]+"; "_") | gsub ("(^_+)|(_+$)"; "")
 		| . as $alias
 		| $countries_by_alias[$alias]
+		| . as $country_code
 		| if (. != null) then $countries[.] else null end
 		| if (. != null) then
 			.
 		else
-			["6148536e", $alias] | debug |
-			null
+			if ($country_code != "XX") then
+				["6148536e", $alias] | debug |
+				null
+			else
+				null
+			end
 		end)
 	
 	| .country = .country_0.name
