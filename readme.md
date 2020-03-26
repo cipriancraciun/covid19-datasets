@@ -73,7 +73,85 @@ I have created 6 groups of countries / regions, and for each one I've plotted al
 * I have augmented the country data with area, population, average death rate, and median age (from CIA Factbook);
 * I have added rows for continent and sub-continent levels;
 * the original data is available at [github.com/CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19);
+* the following is an example of such an augmented record;
 
+~~~~
+[
+  ...
+
+  {
+    "location": {
+      "key": "3048f6958aa1d30fa1d7d1abc9420cd6",
+      "type": "country",
+      "label": "Italy",
+      "country": "Italy",
+      "country_code": "IT",
+      "country_latlong": [
+        42.83333333,
+        12.83333333
+      ],
+      "region": "Europe",
+      "subregion": "Southern Europe",
+      "province": "(total)",
+      "latlong": [
+        42.83333333,
+        12.83333333
+      ]
+    },
+    "date": {
+      "year": 2020,
+      "month": 3,
+      "day": 25,
+      "date": "2020-03-25"
+    },
+    "values": {
+      "absolute": {
+        "confirmed": 74386,
+        "deaths": 7503
+      },
+      "absolute_pop1k": {
+        "confirmed": 1.1920325382288597,
+        "deaths": 0.1202352611288567,
+        "infected": 1.071797277100003
+      },
+      "absolute_pop10k": {
+        "confirmed": 11.920325382288597,
+        "deaths": 1.202352611288567,
+        "infected": 10.717972771000031
+      },
+      "absolute_pop100k": {
+        "confirmed": 119.20325382288597,
+        "deaths": 12.02352611288567,
+        "infected": 107.17972771000031
+      },
+      "relative": {
+        "deaths": 10.086575430860647
+      },
+      "delta": {
+        "confirmed": 5210,
+        "deaths": 683
+      },
+      "delta_pct": {
+        "confirmed": 7.531513819821903,
+        "deaths": 10.014662756598241
+      }
+    },
+    "factbook": {
+      "population": 62402659,
+      "median_age": 46.5,
+      "death_rate": 10.7,
+      "area": 301340
+    },
+    "day_index_1": 55,
+    "day_index_10": 34,
+    "day_index_100": 32,
+    "day_index_1k": 26,
+    "day_index_10k": 16
+  }
+
+  ...
+]
+~~~~
 
 
 
