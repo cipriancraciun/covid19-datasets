@@ -32,6 +32,17 @@
 		["Cruise Ship", "Diamond+Grand Princess", null, null, null, .[5]]
 	else . end
 	
+	| if (
+			[.[0], .[1], .[2]]
+			| (
+				(. == ["China", "Hong Kong", null]) or
+				(. == ["China", "Macau", null]) or
+				false
+			)
+	) then
+		[.[1], null, null, null, null, .[5]]
+	else . end
+	
 	| {
 		country : .[0],
 		province : .[1],
