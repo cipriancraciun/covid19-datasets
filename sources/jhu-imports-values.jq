@@ -175,7 +175,24 @@
 				area : map (.area.value) | add,
 			}
 		)
-	else . end end end
+	else if (.location.type | ((. == "province") or (. == "total-province"))) then
+		if ((.location.country_code == "US") and (.location.province != "(mainland)")) then
+			.factbook = (
+				.location.province
+				| . as $alias
+				| if (. != null) then $us_states_by_alias[.] else . end
+				| if (. != null) then $us_states[.] else . end
+				| if (. == null) then ["504a3042", $alias] | debug | null else . end
+				| if (. != null) then ({
+					population : .population,
+					area : .area,
+				}) else {} end
+			)
+		else . end
+	else . end end end end
+	| if (.factbook == {}) then
+		del (.factbook)
+	else . end
 )
 
 | sort_by ([.location.country, .date.date, .location.label, .location.province, .location.key])

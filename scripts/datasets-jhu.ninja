@@ -96,6 +96,8 @@ build ./imports/jhu/series/values.json : z-run-in-out $
           ./imports/jhu/series/dates.json $
           ./imports/facts/countries.json $
           ./imports/factbook/fields.json $
+          ./imports/facts/us-states.json $
+          ./imports/facts/us-states-by-alias.json $
           ./sources/jhu-imports-values.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / imports / values / script'
@@ -103,7 +105,9 @@ build ./imports/jhu/series/values.json : z-run-in-out $
         --argfile dates ./imports/jhu/series/dates.json $
         --argfile locations ./imports/jhu/series/locations.json $
         --argfile countries ./imports/facts/countries.json $
-        --argfile factbook ./imports/factbook/fields.json
+        --argfile factbook ./imports/factbook/fields.json $
+        --argfile us_states ./imports/facts/us-states.json $
+        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json
     pool = cpu_heavy
 
 
@@ -150,6 +154,8 @@ build ./imports/jhu/daily/values.json : z-run-in-out $
           ./imports/jhu/daily/dates.json $
           ./imports/facts/countries.json $
           ./imports/factbook/fields.json $
+          ./imports/facts/us-states.json $
+          ./imports/facts/us-states-by-alias.json $
           ./sources/jhu-imports-values.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / imports / values / script'
@@ -157,7 +163,9 @@ build ./imports/jhu/daily/values.json : z-run-in-out $
         --argfile dates ./imports/jhu/daily/dates.json $
         --argfile locations ./imports/jhu/daily/locations.json $
         --argfile countries ./imports/facts/countries.json $
-        --argfile factbook ./imports/factbook/fields.json
+        --argfile factbook ./imports/factbook/fields.json $
+        --argfile us_states ./imports/facts/us-states.json $
+        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json
     pool = cpu_heavy
 
 

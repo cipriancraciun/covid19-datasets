@@ -106,11 +106,11 @@
 	{{ $_all_method_charts := array }}
 	
 	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
-	{{ if or (and (eq $_filter "us") (or (eq $_method "absolute_pop100k") (eq $_metric "recovered") (eq $_metric "infected"))) (and (eq $_method "relative") (eq $_metric "confirmed")) | not }}
+	{{ if or (and (eq $_filter "us") (or (eq $_metric "recovered") (eq $_metric "infected"))) (and (eq $_method "relative") (eq $_metric "confirmed")) | not }}
 	
 	
 	{{ $_index := "day_index_100" }}
-	{{ if or (eq $_filter "global") (eq $_filter "us") (eq $_filter "europe-major") }}
+	{{ if or (eq $_filter "global") (eq $_filter "europe-major") }}
 	{{ $_index = "day_index_1k" }}
 	{{ else if or (eq $_filter "continents") (eq $_filter "subcontinents") }}
 	{{ $_index = "day_index_10k" }}

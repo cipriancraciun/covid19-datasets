@@ -110,7 +110,13 @@ elseif _dataset_filter == :us
 	_dataset = filter(
 			(_data ->
 					(_data[:country] == "United States") &&
-					(_data[:location_type] == _dataset_location_type)),
+					(_data[:location_type] == _dataset_location_type) &&
+					(_data[:province] != "(mainland)")),
+			_dataset,
+		)
+	
+	_dataset = filter(
+			(_data -> _data[:absolute_confirmed] >= 500),
 			_dataset,
 		)
 	
@@ -184,6 +190,8 @@ _dataset = filter(
 	)
 
 _dataset_smoothing = 0.9
+
+# println(_dataset)
 
 
 
@@ -319,14 +327,33 @@ _plot_colors = DataFrame([
 		"Micronesia" nothing;
 		"Polynesia" nothing;
 		
+		"Arizona" nothing;
 		"California" nothing;
+		"Colorado" nothing;
+		"Connecticut" nothing;
 		"Florida" nothing;
+		"Georgia" nothing;
 		"Illinois" nothing;
+		"Indiana" nothing;
 		"Louisiana" nothing;
+		"Maryland" nothing;
+		"Massachusetts" nothing;
 		"Michigan" nothing;
+		"Minnesota" nothing;
+		"Mississippi" nothing;
+		"Nevada" nothing;
 		"New Jersey" nothing;
 		"New York" nothing;
+		"North Carolina" nothing;
+		"Ohio" nothing;
+		"Pennsylvania" nothing;
+		"South Carolina" nothing;
+		"Tennessee" nothing;
+		"Texas" nothing;
+		"Utah" nothing;
+		"Virginia" nothing;
 		"Washington" nothing;
+		"Wisconsin" nothing;
 		
 	])
 
@@ -338,7 +365,12 @@ _plot_colors = filter(
 _plot_colors_count = size(_plot_colors)[1]
 _plot_colors[:,2] = circshift(Gadfly.Scale.color_discrete().f(_plot_colors_count), 1)
 
-# println(_dataset_locations)
+for _dataset_location in _dataset_locations
+	if ! (_dataset_location in _plot_colors[:,1])
+		println("[99218dd5]", _dataset_location)
+		throw(error(("[99218dd5]", _dataset_location)))
+	end
+end
 
 
 _plot_font_name = "JetBrains Mono"
