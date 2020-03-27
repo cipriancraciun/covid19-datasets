@@ -128,16 +128,18 @@
 | map (
 	if ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative")) then
 		. as $data
-		| $data | if (.values.delta.confirmed | ((. != null) and (. < 0))) then
-			["1426c7ed", .location.country, .date.date, .location.province, .values.delta, .] | debug
+		| if (.values.delta.confirmed | ((. != null) and (. < 0))) then
+#			["1426c7ed", .location.country, .date.date, .location.province, .values.delta, .] | debug |
+			$data
 		else . end
-		| $data | if (.values.delta.recovered | ((. != null) and (. < 0))) then
-			["b62e8b04", .location.country, .date.date, .location.province, .values.delta, .] | debug
+		| if (.values.delta.recovered | ((. != null) and (. < 0))) then
+#			["b62e8b04", .location.country, .date.date, .location.province, .values.delta, .] | debug |
+			$data
 		else . end
-		| $data | if (.values.delta.deaths | ((. != null) and (. < 0))) then
-			["17a4869f", .location.country, .date.date, .location.province, .values.delta, .] | debug
+		| if (.values.delta.deaths | ((. != null) and (. < 0))) then
+#			["17a4869f", .location.country, .date.date, .location.province, .values.delta, .] | debug |
+			$data
 		else . end
-		| $data
 	else . end
 )
 | map (
