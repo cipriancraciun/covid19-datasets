@@ -271,9 +271,9 @@
 
 | map (
 	.
-#	| .country_original = .country_original_0
-#	| .province_original = .province_original_0
-#	| .administrative_original = .administrative_original_0
+	| .country_original = .country_original_0
+	| .province_original = .province_original_0
+	| .administrative_original = .administrative_original_0
 	| del (.country_original_0)
 	| del (.province_original_0)
 	| del (.administrative_original_0)
