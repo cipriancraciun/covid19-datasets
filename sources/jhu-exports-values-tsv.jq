@@ -1,7 +1,8 @@
 (
 	[
 		
-		"location_key",
+		"data_key",
+		
 		"location_type",
 		"location_label",
 		
@@ -49,10 +50,8 @@
 		"factbook_death_rate",
 		"factbook_median_age",
 		
-		"location_key_original",
-		"country_original",
-		"province_original",
-		"administrative_original"
+		"location_key",
+		"location_key_original"
 		
 	]
 	| join ("\t")
@@ -62,8 +61,9 @@
 	.[]
 	| (
 		[
-		
-			.location.key,
+			
+			.data_key[0:12],
+			
 			.location.type,
 			.location.label,
 			.location.country_code,
@@ -93,10 +93,8 @@
 			.factbook.death_rate,
 			.factbook.median_age,
 			
-			.location.key_original,
-			.location.country_original,
-			.location.province_original,
-			.location.administrative_original
+			.location.key[0:12],
+			.location.key_original[0:12]
 			
 		]
 	)

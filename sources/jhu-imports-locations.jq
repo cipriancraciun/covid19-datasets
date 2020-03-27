@@ -13,7 +13,10 @@
 | map (
 	.[0]
 	
-	| (. + [[.[0], .[1], .[2], .[5]] | crypto_md5])
+	| (. + [
+		([.[0], .[1], .[2], .[5]] | crypto_md5),
+		([.[0], .[1], .[2], .[5]])
+	])
 	
 	| if (.[1] | (
 			(. == "None") or
@@ -56,7 +59,7 @@
 			(. == ["US", "Grand Princess Cruise Ship", null]) or
 			false
 	)) then
-		["Cruise Ship", "Diamond+Grand Princess", null, null, null, null, .[6]]
+		["Cruise Ship", "Diamond+Grand Princess", null, null, null, null, .[6], .[7]]
 	else . end
 	
 	| if (
@@ -67,7 +70,7 @@
 				false
 			)
 	) then
-		[.[1], null, null, null, null, null, .[6]]
+		[.[1], null, null, null, null, null, .[6], .[7]]
 	else . end
 	
 	| {
@@ -78,11 +81,13 @@
 		administrative_latlong : (if ((.[3] != null) and (.[4] != null) and (.[2] != null)) then [.[3], .[4]] else null end),
 		administrative_fips : .[5],
 		key_original : .[6],
+		country_original : .[0],
+		province_original : .[1],
+		administrative_original : .[2],
+		country_original_0 : .[7][0],
+		province_original_0 : .[7][1],
+		administrative_original_0 : .[7][2],
 	}
-	
-	| .country_original = .country
-	| .province_original = .province
-	| .administrative_original = .administrative
 	
 	| .country_0 = (
 		(.country // "")
@@ -262,6 +267,16 @@
 	else
 		([.country_original, .province_original, .administrative_original] | crypto_md5)
 	end
+)
+
+| map (
+	.
+#	| .country_original = .country_original_0
+#	| .province_original = .province_original_0
+#	| .administrative_original = .administrative_original_0
+	| del (.country_original_0)
+	| del (.province_original_0)
+	| del (.administrative_original_0)
 )
 
 | sort_by ([.country, .location_label, .province, .administrative, .key_original])

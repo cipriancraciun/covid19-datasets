@@ -44,6 +44,23 @@
 		})
 		| from_entries
 	)
+	| if (($records | length) > 1) then
+		.location = (
+			.location
+			| del (.key_original)
+			| del (.country_original)
+			| del (.province_original)
+			| del (.administrative_original)
+			| .original = (
+				$records
+				| map (.location)
+				| map ({key_original, country_original, province_original, administrative_original})
+				| unique
+				| sort_by ([.country_original, .province_original, .administrative_original, .key_original])
+			)
+			| .key_original = ("**" + (.original | crypto_md5))
+		)
+	else . end
 )
 
 | (. + (
@@ -193,6 +210,10 @@
 	| if (.factbook == {}) then
 		del (.factbook)
 	else . end
+)
+
+| map (
+	.data_key = (. | crypto_md5)
 )
 
 | sort_by ([.location.country, .date.date, .location.label, .location.province, .location.key])
