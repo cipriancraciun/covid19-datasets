@@ -52,7 +52,7 @@ build ./imports/jhu/series/raw-json/merged.json : z-run-out-in $
         | ./sources/csv-to-json-merge.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter / multi'
     arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
-    pool = cpu_heavy
+    pool = cpu_moderate
 
 
 build ./imports/jhu/series/raw-json/values.json : z-run-in-out $
@@ -60,7 +60,7 @@ build ./imports/jhu/series/raw-json/values.json : z-run-in-out $
         | ./sources/jhu-imports-extract-series.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / imports / extract-series / script'
-    pool = cpu_heavy
+    pool = cpu_moderate
 
 
 build ./imports/jhu/series/locations.json : z-run-in-out $
@@ -110,7 +110,7 @@ build ./imports/jhu/series/values.json : z-run-in-out $
         --argfile factbook ./imports/factbook/fields.json $
         --argfile us_states ./imports/facts/us-states.json $
         --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json
-    pool = cpu_heavy
+    pool = cpu_moderate
 
 
 
@@ -120,7 +120,7 @@ build ./imports/jhu/daily/raw-json/values.json : z-run-in-out $
         | ./sources/jhu-imports-extract-daily.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / imports / extract-daily / script'
-    pool = cpu_heavy
+    pool = cpu_moderate
 
 
 build ./imports/jhu/daily/locations.json : z-run-in-out $
@@ -169,7 +169,7 @@ build ./imports/jhu/daily/values.json : z-run-in-out $
         --argfile factbook ./imports/factbook/fields.json $
         --argfile us_states ./imports/facts/us-states.json $
         --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json
-    pool = cpu_heavy
+    pool = cpu_moderate
 
 
 
@@ -179,7 +179,7 @@ build ./exports/jhu/v1/series/values.json : z-run-in-out $
         | ./sources/jhu-exports-values-json.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / exports / values / json / script'
-    pool = cpu_heavy
+    pool = cpu_moderate
 
 build ./exports/jhu/v1/series/values.tsv : z-run-in-out $
         ./exports/jhu/v1/series/values.json $
@@ -204,7 +204,7 @@ build ./exports/jhu/v1/daily/values.json : z-run-in-out $
         | ./sources/jhu-exports-values-json.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / exports / values / json / script'
-    pool = cpu_heavy
+    pool = cpu_moderate
 
 build ./exports/jhu/v1/daily/values.tsv : z-run-in-out $
         ./exports/jhu/v1/daily/values.json $

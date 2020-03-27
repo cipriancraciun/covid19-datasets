@@ -32,10 +32,12 @@ rule marker
 rule copy
     command = if ! cmp -s -- ${in} ${out} ; then exec -- cp -f -T -- ${in} ${out} ; fi
     description = [copy]  ${out}
+    restat = true
 
 rule symlink
     command = exec -- ln -f -s -T -- "$$( exec -- realpath --relative-to "$$( exec -- dirname -- ${out} )" -- ${in} )" ${out}
     description = [symlink]  ${out}
+    restat = true
 
 
 
