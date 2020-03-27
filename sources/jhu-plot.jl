@@ -60,7 +60,13 @@ _dataset = filter(
 
 
 
-if _dataset_filter == :global
+if _dataset_filter == :world
+	
+	_dataset_location_key = :country
+	_dataset_location_type = "total-world"
+	_dataset_locations = ["World"]
+	
+elseif _dataset_filter == :global
 	
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
@@ -255,7 +261,9 @@ Gadfly.push_theme(:dark)
 
 _plot_colors = DataFrame([
 		
-		"China" Colors.parse(Colors.Colorant, "white");
+		"World" Colors.parse(Colors.Colorant, "white");
+		
+		"China" nothing;
 		"South Korea" nothing;
 		"United States" nothing;
 		"Iran" nothing;

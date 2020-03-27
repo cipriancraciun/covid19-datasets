@@ -11,7 +11,7 @@
 		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu_plots__all__all__png
 	!!
 	
-	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
+	{{ range $_, $_filter := array "world" "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
 	
 	<< plots / view / jhu / plots / {{ $_filter }} / all
 		test "${#}" -eq 0
@@ -99,7 +99,7 @@
 	{{ range $_, $_format := array "pdf" "svg" "png" }}
 	{{ $_all_format_charts := array }}
 	
-	{{ range $_, $_filter := array "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
+	{{ range $_, $_filter := array "world" "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
 	{{ $_all_filter_charts := array }}
 	
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
@@ -114,6 +114,8 @@
 	{{ $_index = "day_index_1k" }}
 	{{ else if or (eq $_filter "continents") (eq $_filter "subcontinents") }}
 	{{ $_index = "day_index_10k" }}
+	{{ else if or (eq $_filter "world") }}
+	{{ $_index = "day_index_1" }}
 	{{ end }}
 	
 	

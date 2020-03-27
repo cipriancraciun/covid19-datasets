@@ -88,6 +88,14 @@
 					label : .subregion,
 				})
 		)
+		+ map (
+			.
+			| .location = (.location | {
+					country : "World",
+					type : "total-world",
+					label : "World",
+				})
+		)
 	)
 	| map (
 		.location.key = ([.location.type, .location.country, .location.province, "(total)"] | crypto_md5)
@@ -156,7 +164,18 @@
 				area : map (.area.value) | add,
 			}
 		)
-	else . end end
+	else if (.location.type | (. == "total-world")) then
+		.factbook = (
+			$factbook
+			| to_entries
+			| map (.value)
+			| map (.fields)
+			| {
+				population : map (.population.value) | add,
+				area : map (.area.value) | add,
+			}
+		)
+	else . end end end
 )
 
 | sort_by ([.location.country, .date.date, .location.label, .location.province, .location.key])
