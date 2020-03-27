@@ -115,7 +115,7 @@ elseif _dataset_filter == :romania
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
 	_dataset_locations = [
-			"Romania", "Hungaria", "Bulgaria",
+			"Romania", "Hungary", "Bulgaria",
 			"Italy", "Spain", "Germany", "France",
 			"United Kingdom", "Austria",
 		]
@@ -274,7 +274,7 @@ _plot_colors = DataFrame([
 		"Denmark" nothing;
 		
 		"Romania" nothing;
-		"Hungaria" nothing;
+		"Hungary" nothing;
 		"Bulgaria" nothing;
 		
 		"Asia" nothing;
