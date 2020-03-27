@@ -115,11 +115,6 @@ elseif _dataset_filter == :us
 			_dataset,
 		)
 	
-	_dataset = filter(
-			(_data -> _data[:absolute_confirmed] >= 500),
-			_dataset,
-		)
-	
 	_dataset_locations = unique(_dataset[!, :province])
 	
 elseif _dataset_filter == :romania

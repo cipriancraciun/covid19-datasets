@@ -110,7 +110,7 @@
 	
 	
 	{{ $_index := "day_index_100" }}
-	{{ if or (eq $_filter "global") (eq $_filter "europe-major") }}
+	{{ if or (eq $_filter "global") (eq $_filter "europe-major") (eq $_filter "us") }}
 	{{ $_index = "day_index_1k" }}
 	{{ else if or (eq $_filter "continents") (eq $_filter "subcontinents") }}
 	{{ $_index = "day_index_10k" }}
