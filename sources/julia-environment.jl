@@ -6,9 +6,11 @@ _packages = [
 		:CSV,
 		:Gadfly,
 		:Cairo,
+		:Colors,
 		:Fontconfig,
 		:Formatting,
 		:Printf,
+		:Dates,
 	]
 
 _packages_nocompile = [

@@ -12,6 +12,7 @@ begin
 	using Statistics
 	using Formatting
 	using Printf
+	using Dates
 	
 end
 
@@ -259,114 +260,81 @@ end
 
 
 
-Gadfly.push_theme(:dark)
+_dataset_locations_allowed = [
+		
+		"World",
+		
+		"China", "South Korea", "United States", "Iran",
+		"Italy", "Spain", "Germany", "France",
+		"United Kingdom", "Switzerland", "Netherlands", "Austria", "Belgium", "Portugal", "Sweden", "Denmark",
+		"Romania", "Hungary", "Bulgaria",
+		
+		"Asia", "Europe", "Americas", "Oceania", "Africa",
+		"Western Asia", "Central Asia", "Southern Asia", "South-Eastern Asia", "Eastern Asia",
+		"Western Europe", "Northern Europe", "Central Europe", "Southern Europe", "Eastern Europe",
+		"North America", "Central America", "South America",
+		"Western Africa", "Northern Africa", "Middle Africa", "Southern Africa", "Eastern Africa",
+		"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
+		
+		"Arizona", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Illinois", "Indiana",
+		"Louisiana", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Nevada",
+		"New Jersey", "New York", "North Carolina", "Ohio", "Pennsylvania", "South Carolina", "Tennessee",
+		"Texas", "Utah", "Virginia", "Washington", "Wisconsin",
+		
+	]
 
-
-_plot_colors = DataFrame([
-		
-		"World" Colors.parse(Colors.Colorant, "white");
-		
-		"China" nothing;
-		"South Korea" nothing;
-		"United States" nothing;
-		"Iran" nothing;
-		
-		"Italy" nothing;
-		"Spain" nothing;
-		"Germany" nothing;
-		"France" nothing;
-		"United Kingdom" nothing;
-		"Switzerland" nothing;
-		"Netherlands" nothing;
-		"Austria" nothing;
-		"Belgium" nothing;
-		"Portugal" nothing;
-		"Sweden" nothing;
-		"Denmark" nothing;
-		
-		"Romania" nothing;
-		"Hungary" nothing;
-		"Bulgaria" nothing;
-		
-		"Asia" nothing;
-		"Europe" nothing;
-		"Americas" nothing;
-		"Oceania" nothing;
-		"Africa" nothing;
-		
-		"Western Asia" nothing;
-		"Central Asia" nothing;
-		"Southern Asia" nothing;
-		"South-Eastern Asia" nothing;
-		"Eastern Asia" nothing;
-		
-		"Western Europe" nothing;
-		"Northern Europe" nothing;
-		"Central Europe" nothing;
-		"Southern Europe" nothing;
-		"Eastern Europe" nothing;
-		
-		"North America" nothing;
-		"Central America" nothing;
-		"South America" nothing;
-		
-		"Western Africa" nothing;
-		"Northern Africa" nothing;
-		"Middle Africa" nothing;
-		"Southern Africa" nothing;
-		"Eastern Africa" nothing;
-		
-		"Australia and New Zealand" nothing;
-		"Caribbean" nothing;
-		"Melanesia" nothing;
-		"Micronesia" nothing;
-		"Polynesia" nothing;
-		
-		"Arizona" nothing;
-		"California" nothing;
-		"Colorado" nothing;
-		"Connecticut" nothing;
-		"Florida" nothing;
-		"Georgia" nothing;
-		"Illinois" nothing;
-		"Indiana" nothing;
-		"Louisiana" nothing;
-		"Maryland" nothing;
-		"Massachusetts" nothing;
-		"Michigan" nothing;
-		"Minnesota" nothing;
-		"Mississippi" nothing;
-		"Nevada" nothing;
-		"New Jersey" nothing;
-		"New York" nothing;
-		"North Carolina" nothing;
-		"Ohio" nothing;
-		"Pennsylvania" nothing;
-		"South Carolina" nothing;
-		"Tennessee" nothing;
-		"Texas" nothing;
-		"Utah" nothing;
-		"Virginia" nothing;
-		"Washington" nothing;
-		"Wisconsin" nothing;
-		
-	])
-
-_plot_colors = filter(
-		(_color -> _color[1] in _dataset_locations),
-		_plot_colors,
+_dataset_locations_allowed = filter(
+		(_location -> _location in _dataset_locations),
+		_dataset_locations_allowed,
 	)
 
-_plot_colors_count = size(_plot_colors)[1]
-_plot_colors[:,2] = circshift(Gadfly.Scale.color_discrete().f(_plot_colors_count), 1)
-
 for _dataset_location in _dataset_locations
-	if ! (_dataset_location in _plot_colors[:,1])
+	if ! (_dataset_location in _dataset_locations_allowed)
 		println("[99218dd5]", _dataset_location)
 		throw(error(("[99218dd5]", _dataset_location)))
 	end
 end
 
+
+
+
+_dataset_locations_meta = DataFrame(
+		location = String[],
+		label = String[],
+		color = Colors.Colorant[],
+		day_index_max = Int[],
+		day_metric_max = Number[],
+		day_date_max = Date[],
+	)
+
+for _dataset_location in _dataset_locations_allowed
+	_dataset_0 = filter((_data -> _data[_dataset_location_key] == _dataset_location), _dataset)
+	_dataset_max_index =  findmax(_dataset_0[:, _dataset_index])
+	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])
+	_dataset_max_date = findmax(_dataset_0[:, :date])
+	_dataset_label = (
+			_dataset_location * "\n" *
+			(format(_dataset_max_metric[1], commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)
+		)
+	_dataset_location_meta = (
+			_dataset_location,
+			_dataset_label,
+			Colors.parse(Colors.Colorant, "white"),
+			_dataset_max_index[1],
+			_dataset_max_metric[1],
+			_dataset_max_date[1],
+		)
+	push!(_dataset_locations_meta, _dataset_location_meta)
+end
+
+# println(_dataset_locations_meta)
+
+_dataset_locations_count = size(_dataset_locations_meta)[1]
+
+
+
+
+Gadfly.push_theme(:dark)
 
 _plot_font_name = "JetBrains Mono"
 _plot_font_size = 12px
@@ -374,27 +342,51 @@ _plot_font_size = 12px
 _plot_style = Gadfly.style(
 		point_size = 4px,
 		line_width = 2px,
-		grid_line_width = 1px,
 		highlight_width = 1px,
+		grid_line_width = 1px,
+		grid_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 25%)"),
 		major_label_font = _plot_font_name,
-		major_label_font_size = _plot_font_size,
+		major_label_font_size = _plot_font_size * 1.0,
+		major_label_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 75%)"),
 		minor_label_font = _plot_font_name,
-		minor_label_font_size = _plot_font_size,
-		point_label_font = _plot_font_name,
-		point_label_font_size = _plot_font_size,
+		minor_label_font_size = _plot_font_size * 0.8,
+		minor_label_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 75%)"),
+		point_label_font = _plot_font_name * " Bold",
+		point_label_font_size = _plot_font_size * 0.6,
+		point_label_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 100%)"),
 		key_title_font = _plot_font_name,
-		key_title_font_size = _plot_font_size * 0,
+		key_title_font_size = 0px,
+		key_title_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 75%)"),
 		key_label_font = _plot_font_name,
-		key_label_font_size = _plot_font_size,
+		key_label_font_size = _plot_font_size * 0.8,
+		key_label_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 75%)"),
 		key_position = :right,
 		key_max_columns = 16,
 		colorkey_swatch_shape = :circle,
 		discrete_highlight_color = (_ -> nothing),
+		panel_fill = nothing,
+		panel_stroke = nothing,
 		plot_padding = [16px],
+		background_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 5%)"),
+		default_color = Colors.parse(Colors.Colorant, "hsl(0, 100%, 100%)"),
 	)
+
+_dataset_locations_meta[:, :color] = circshift(Gadfly.Scale.color_discrete().f(_dataset_locations_count), 1)
+
+
 
 
 _plot = Gadfly.plot(
+		
+#		Gadfly.layer(
+#			_dataset_locations_meta,
+#			x = :day_index_max,
+#			y = :day_metric_max,
+#			label = :label,
+#			color = :location,
+#			Gadfly.Geom.label(position = :dynamic, hide_overlaps = true),
+#		),
+		
 		Gadfly.layer(
 			_dataset,
 			x = _dataset_index,
@@ -403,6 +395,7 @@ _plot = Gadfly.plot(
 			Gadfly.Geom.point,
 			Gadfly.style(discrete_highlight_color = (_ -> "black")),
 		),
+		
 		Gadfly.layer(
 			_dataset,
 			x = _dataset_index,
@@ -414,20 +407,24 @@ _plot = Gadfly.plot(
 				Gadfly.Geom.line
 			end,
 		),
-		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
+		
+		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index + 2, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
 		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
 		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)),
+		
 		Gadfly.Guide.title(@sprintf("JHU CSSE COVID-19 dataset -- `%s` per `%s` (until %s)", _dataset_metric, _dataset_index, _dataset_max_date)),
 		Gadfly.Guide.xlabel(nothing),
 		Gadfly.Guide.ylabel(nothing),
+		
 		Gadfly.Guide.xticks(ticks =
 				if (_dataset_max_index > 20)
-					[1; 5 : 5 : _dataset_max_index - 4; _dataset_max_index;]
+					[1; 5 : 5 : _dataset_max_index;]
 				else
 					[1 : _dataset_max_index;]
 				end),
 		Gadfly.Guide.yticks(ticks = [_dataset_rmin_metric : _dataset_rstep_metric : _dataset_rmax_metric;]),
-		Gadfly.Scale.color_discrete_manual(_plot_colors[:,2]..., levels = _plot_colors[:,1]),
+		
+		Gadfly.Scale.color_discrete_manual(_dataset_locations_meta[:, :color]..., levels = _dataset_locations_meta[:, :location]),
 		_plot_style,
 	)
 
