@@ -314,6 +314,7 @@ _plot_colors = DataFrame([
 		"California" nothing;
 		"Florida" nothing;
 		"Illinois" nothing;
+		"Louisiana" nothing;
 		"Michigan" nothing;
 		"New Jersey" nothing;
 		"New York" nothing;

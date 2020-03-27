@@ -179,7 +179,7 @@
 	shift -- 6
 	test "${#}" -eq 0
 	
-	if false test -e "${_output}" ; then
+	if test "${_NINJA_DRY:-false}" == true -a -e "${_output}" ; then
 		exit -- 0
 	fi
 	
