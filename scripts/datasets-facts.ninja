@@ -7,6 +7,14 @@ build ./imports/facts/raw/countries.json : fetch-curl $
     url = 'https://github.com/mledoze/countries/raw/master/dist/countries.json'
 
 
+build ./imports/facts/raw/us-states.tsv : copy $
+        ./sources/facts-files/us-states.tsv $
+        | ${ninja_force}
+
+build ./imports/facts/raw/us-counties.tsv : copy $
+        ./sources/facts-files/us-counties.tsv $
+        | ${ninja_force}
+
 
 build ./imports/factbook/raw/population.txt : fetch-curl $
         | ${ninja_force}
