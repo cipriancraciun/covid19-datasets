@@ -82,9 +82,9 @@
 	
 	build ./imports/jhu/daily/raw-json/merged.json : z-run-out-in $
 	        {{ range $_, $_day := $_days }} ./imports/jhu/daily/raw-json/{{ $_day }}.json {{ end }} $
-	        | ./sources/jhu-imports-merge.jq ${zrun_library}
+	        | ./sources/csv-to-json-merge.jq ${zrun_library}
 	    scriptlet = ':: tools / jq / filter / multi'
-	    arguments_pre = ':: process / jhu / imports / merge / script'
+	    arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
 	    pool = cpu_moderate
 	
 !!
@@ -216,12 +216,11 @@
 
 
 
---::&&.. process / jhu / imports / merge / script :: ../sources/jhu-imports-merge.jq
---::&&.. process / jhu / imports / locations / script :: ../sources/jhu-imports-locations.jq
---::&&.. process / jhu / imports / dates / script :: ../sources/jhu-imports-dates.jq
---::&&.. process / jhu / imports / values / daily / script :: ../sources/jhu-imports-values-daily.jq
---::&&.. process / jhu / imports / values / series / script :: ../sources/jhu-imports-values-series.jq
 --::&&.. process / jhu / imports / values / script :: ../sources/jhu-imports-values.jq
+--::&&.. process / jhu / imports / parse-locations / script :: ../sources/jhu-imports-parse-locations.jq
+--::&&.. process / jhu / imports / parse-dates / script :: ../sources/jhu-imports-parse-dates.jq
+--::&&.. process / jhu / imports / extract-daily / script :: ../sources/jhu-imports-extract-daily.jq
+--::&&.. process / jhu / imports / extract-series / script :: ../sources/jhu-imports-extract-series.jq
 
 --::&&.. process / jhu / exports / values / json / script :: ../sources/jhu-exports-values-json.jq
 --::&&.. process / jhu / exports / values / tsv / script :: ../sources/jhu-exports-values-tsv.jq
