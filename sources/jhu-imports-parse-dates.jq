@@ -4,11 +4,12 @@
 | map (
 	. as $key
 	| split ("-")
+	| map (tonumber)
 	| {
 		key : $key,
-		year : .[2] | tonumber,
-		month : .[0] | tonumber,
-		day : .[1] | tonumber,
+		year : .[0],
+		month : .[1],
+		day : .[2],
 	}
 	| .date = (
 		[.year, .month, .day]

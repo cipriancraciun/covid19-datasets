@@ -25,6 +25,7 @@
 		| map (select (. != ""))
 		| map (tonumber)
 		| if (.[2] < 100) then .[2] += 2000 else . end
+		| [.[2], .[0], .[1]]
 		| map (tostring)
 		| join ("-")
 	)
