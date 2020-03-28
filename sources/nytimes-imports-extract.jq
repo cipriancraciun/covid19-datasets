@@ -2,9 +2,9 @@
 | .records
 
 | map (
-	. as $record
-	| if ((.dataset == "us-states") or (.dataset == "us-counties")) then
+	if ((.dataset == "us-states") or (.dataset == "us-counties")) then
 		{
+			dataset : ("nytimes/" + .dataset),
 			country_region : "United States",
 			province_state : .state | (if ((. != null) and (. != "")) then . else null end),
 			admin2 :
@@ -27,4 +27,4 @@
 	end
 )
 
-| sort_by ([.country_region, .province_state, .admin2, .fips, .date])
+| sort_by ([.dataset, .country_region, .province_state, .admin2, .fips, .date])

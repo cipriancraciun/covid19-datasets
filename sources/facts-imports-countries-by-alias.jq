@@ -34,6 +34,11 @@ map ({key : .aliases[], value : .code})
 		"macao_sar" : "MO",
 		"others" : "XX",
 		
+		# NOTE:  From ECDC dataset.
+		"curaao" : "CW",
+		"cote_divoire" : "CI",
+		"cases_on_an_international_conveyance_japan" : "JP",
+		
 		# NOTE:  From CIA factbook.
 		"congo_democratic_republic_of_the" : "CD",
 		"congo_republic_of_the" : "CG",

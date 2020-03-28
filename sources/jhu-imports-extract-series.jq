@@ -25,6 +25,7 @@
 
 | group_by ([.country_region, .province_state, .admin2, .fips, .date])
 | map ({
+	dataset : "jhu/series",
 	country_region : .[0].country_region,
 	province_state : .[0].province_state,
 	admin2 : .[0].admin2,
@@ -55,4 +56,4 @@
 	)
 )
 
-| sort_by ([.country_region, .province_state, .admin2, .fips, .date])
+| sort_by ([.dataset, .country_region, .province_state, .admin2, .fips, .date])

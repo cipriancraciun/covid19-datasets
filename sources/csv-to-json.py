@@ -73,7 +73,7 @@ _normalize_key_cache = dict ()
 
 def _normalize_key_0 (_key, _is_key) :
 	
-	_key = _key.decode ("utf-8")
+	_key = _key.decode ("utf-8", "replace")
 	
 	_normalized = unidecode.unidecode (_key)
 	_normalized = _normalized.lower ()
@@ -99,7 +99,7 @@ def _normalize_value (_value) :
 	if _value == "" :
 		return None
 	
-	_value = _value.decode ("utf-8")
+	_value = _value.decode ("utf-8", "replace")
 	
 	_value = _value.strip (" ")
 	_value = _value.strip ("\t")

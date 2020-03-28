@@ -3,6 +3,7 @@
 
 | map (
 	{
+		dataset : "jhu/daily",
 		country_region : .country_region | (if ((. != null) and (. != "")) then . else null end),
 		province_state : .province_state | (if ((. != null) and (. != "")) then . else null end),
 		admin2 : .admin2 | (if ((. != null) and (. != "")) then . else null end),
@@ -31,4 +32,4 @@
 	)
 )
 
-| sort_by ([.country_region, .province_state, .admin2, .fips, .date])
+| sort_by ([.dataset, .country_region, .province_state, .admin2, .fips, .date])

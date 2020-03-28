@@ -16,6 +16,7 @@
 	else . end
 )
 | map ({
+	dataset,
 	location,
 	date,
 	values,
@@ -30,7 +31,7 @@
 	else . end
 )
 
-| group_by ([.location.key, .date.date])
+| group_by ([.dataset, .location.key, .date.date])
 | map (
 	. as $records
 	| .[0]
@@ -67,7 +68,8 @@
 	(
 		[]
 		+ map (
-			select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
+			.
+			| select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
 			| .location = (.location | {
 					country, country_code, country_latlong,
 					region, subregion,
@@ -76,7 +78,8 @@
 				})
 		)
 		+ map (
-			select ((.location.type == "province") or (.location.type == "administrative"))
+			.
+			| select ((.location.type == "province") or (.location.type == "administrative"))
 			| .location = (.location | {
 					country, country_code, country_latlong,
 					province, province_latlong,
@@ -86,7 +89,8 @@
 				})
 		)
 		+ map (
-			select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
+			.
+			| select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
 			| select (.location.country != null)
 			| .location = (.location | {
 					country : .region,
@@ -96,7 +100,8 @@
 				})
 		)
 		+ map (
-			select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
+			.
+			| select ((.location.type == "country") or (.location.type == "province") or (.location.type == "administrative"))
 			| select (.location.country != null)
 			| .location = (.location | {
 					country : .subregion,
@@ -117,9 +122,10 @@
 	| map (
 		.location.key = ([.location.type, .location.country, .location.province, "(total)"] | crypto_md5)
 	)
-	| group_by ([.location.key, .date.date])
+	| group_by ([.dataset, .location.key, .date.date])
 	| map (
 		{
+			dataset : .[0].dataset,
 			location :
 				.[0].location
 				| {
@@ -216,4 +222,4 @@
 	.data_key = (. | crypto_md5)
 )
 
-| sort_by ([.location.country, .date.date, .location.label, .location.province, .location.key])
+| sort_by ([.dataset, .location.country, .date.date, .location.label, .location.province, .location.key])
