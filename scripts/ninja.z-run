@@ -36,13 +36,15 @@
 	{{ ZRUN ":: ninja / script / datasets / nytimes / us-states" }}
 	{{ ZRUN ":: ninja / script / datasets / nytimes / us-counties" }}
 	
+	{{ ZRUN ":: ninja / script / datasets / generic" }}
+	
 	{{ ZRUN ":: ninja / script / datasets / facts" }}
 	
 	build ${zrun_library} : marker
 	build ${ninja_force} : marker
 	
 	build __all__imports : phony __jhu__imports __ecdc__imports __nytimes__imports
-	build __all__exports : phony __jhu__exports __ecdc__exports __nytimes__exports
+	build __all__exports : phony __jhu__exports __ecdc__exports __nytimes__exports ./exports/combined/v1/values.json ./exports/combined/v1/values.tsv
 	build __all__data : phony __all__imports __all__exports
 	build __all__plots : phony __jhu__plots
 	build __all : phony __all__data __all__plots
@@ -56,6 +58,7 @@
 --::&&.. ninja / script / datasets / nytimes :: ./datasets-nytimes.ninja
 --::&&.. ninja / script / datasets / nytimes / us-states :: ./datasets-nytimes-us-states.ninja
 --::&&.. ninja / script / datasets / nytimes / us-counties :: ./datasets-nytimes-us-counties.ninja
+--::&&.. ninja / script / datasets / generic :: ./datasets-generic.ninja
 --::&&.. ninja / script / datasets / facts :: ./datasets-facts.ninja
 
 

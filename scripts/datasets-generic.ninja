@@ -1,0 +1,24 @@
+
+
+
+
+build ./exports/combined/v1/values.json : z-run-out-in $
+        ./exports/jhu/v1/series/values.json $
+        ./exports/jhu/v1/daily/values.json $
+        ./exports/ecdc/v1/worldwide/values.json $
+        ./exports/nytimes/v1/us-states/values.json $
+        ./exports/nytimes/v1/us-counties/values.json $
+        | ./sources/generic-exports-combine.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter / multi'
+    arguments_pre = ':: process / generic / exports / combine / script'
+    pool = cpu_heavy
+
+build ./exports/combined/v1/values.tsv : z-run-in-out $
+        ./exports/combined/v1/values.json $
+        | ./sources/generic-exports-values-tsv.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / exports / values / tsv / script'
+    arguments = $
+        --raw-output
+    pool = cpu_moderate
+
