@@ -4,4 +4,6 @@
 
 
 --::&&.. process / generic / imports / csv-to-json-merge / script :: ../sources/csv-to-json-merge.jq
+--::&&.. process / generic / imports / parse-locations / script :: ../sources/generic-imports-parse-locations.jq
+--::&&.. process / generic / imports / parse-dates / script :: ../sources/generic-imports-parse-dates.jq
 

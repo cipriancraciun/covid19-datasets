@@ -237,8 +237,6 @@
 
 
 --::&&.. process / jhu / imports / values / script :: ../sources/jhu-imports-values.jq
---::&&.. process / jhu / imports / parse-locations / script :: ../sources/jhu-imports-parse-locations.jq
---::&&.. process / jhu / imports / parse-dates / script :: ../sources/jhu-imports-parse-dates.jq
 --::&&.. process / jhu / imports / extract-daily / script :: ../sources/jhu-imports-extract-daily.jq
 --::&&.. process / jhu / imports / extract-series / script :: ../sources/jhu-imports-extract-series.jq
 

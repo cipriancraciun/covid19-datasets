@@ -71,9 +71,9 @@ build ./imports/jhu/series/locations.json : z-run-in-out $
           ./imports/facts/us-states-by-alias.json $
           ./imports/facts/us-counties.json $
           ./imports/facts/us-counties-by-alias.json $
-          ./sources/jhu-imports-parse-locations.jq ${zrun_library}
+          ./sources/generic-imports-parse-locations.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
-    arguments_pre = ':: process / jhu / imports / parse-locations / script'
+    arguments_pre = ':: process / generic / imports / parse-locations / script'
     arguments = $
         --argfile countries ./imports/facts/countries.json $
         --argfile countries_by_alias ./imports/facts/countries-by-alias.json $
@@ -86,9 +86,9 @@ build ./imports/jhu/series/locations.json : z-run-in-out $
 
 build ./imports/jhu/series/dates.json : z-run-in-out $
         ./imports/jhu/series/raw-json/values.json $
-        | ./sources/jhu-imports-parse-dates.jq ${zrun_library}
+        | ./sources/generic-imports-parse-dates.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
-    arguments_pre = ':: process / jhu / imports / parse-dates / script'
+    arguments_pre = ':: process / generic / imports / parse-dates / script'
     pool = cpu_moderate
 
 
@@ -131,9 +131,9 @@ build ./imports/jhu/daily/locations.json : z-run-in-out $
           ./imports/facts/us-states-by-alias.json $
           ./imports/facts/us-counties.json $
           ./imports/facts/us-counties-by-alias.json $
-          ./sources/jhu-imports-parse-locations.jq ${zrun_library}
+          ./sources/generic-imports-parse-locations.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
-    arguments_pre = ':: process / jhu / imports / parse-locations / script'
+    arguments_pre = ':: process / generic / imports / parse-locations / script'
     arguments = $
         --argfile countries ./imports/facts/countries.json $
         --argfile countries_by_alias ./imports/facts/countries-by-alias.json $
@@ -145,9 +145,9 @@ build ./imports/jhu/daily/locations.json : z-run-in-out $
 
 build ./imports/jhu/daily/dates.json : z-run-in-out $
         ./imports/jhu/daily/raw-json/values.json $
-        | ./sources/jhu-imports-parse-dates.jq ${zrun_library}
+        | ./sources/generic-imports-parse-dates.jq ${zrun_library}
     scriptlet = ':: tools / jq / filter'
-    arguments_pre = ':: process / jhu / imports / parse-dates / script'
+    arguments_pre = ':: process / generic / imports / parse-dates / script'
     pool = cpu_moderate
 
 
