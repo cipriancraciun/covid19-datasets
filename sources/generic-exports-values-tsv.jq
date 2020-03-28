@@ -4,6 +4,7 @@
 		"dataset",
 		"data_key",
 		
+		"location_key",
 		"location_type",
 		"location_label",
 		
@@ -49,10 +50,7 @@
 		"factbook_area",
 		"factbook_population",
 		"factbook_death_rate",
-		"factbook_median_age",
-		
-		"location_key",
-		"location_key_original"
+		"factbook_median_age"
 		
 	]
 	| join ("\t")
@@ -66,6 +64,7 @@
 			.dataset,
 			.data_key[0:12],
 			
+			.location.key[0:12],
 			.location.type,
 			.location.label,
 			.location.country_code,
@@ -93,10 +92,7 @@
 			.factbook.area,
 			.factbook.population,
 			.factbook.death_rate,
-			.factbook.median_age,
-			
-			.location.key[0:12],
-			.location.key_original[0:12]
+			.factbook.median_age
 			
 		]
 	)
