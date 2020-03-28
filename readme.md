@@ -30,17 +30,28 @@ As with anything on the Internet these days, I take no responsibility for anythi
 ## Visualizations
 
 I have created 6 groups of countries / regions, and for each one I've plotted all the available metrics:
-* `global` -- [./plots/jhu/global](./plots/jhu/global)
+
+* `global`
+  -- [./plots/jhu/global](./plots/jhu/global)
   -- contains the most impacted countries (mainly central Europe, China, Korea and US);
-* `europe-major` -- [./plots/jhu/europe-major](./plots/jhu/europe-major)
+* `europe-major`
+  -- [./plots/jhu/europe-major](./plots/jhu/europe-major)
   -- contains the most impacted (>15K) countries in Europe (at the moment mostly the same as above) (plus China and Korea for comparisons);
-* `europe-major` -- [./plots/jhu/europe-minor](./plots/jhu/europe-minor)
+* `europe-major`
+  -- [./plots/jhu/europe-minor](./plots/jhu/europe-minor)
   -- contains the "medium" impacted (>2K and <15K) countries in Europe (plus China and Korea for comparisons);
-* `continents` -- [./plots/jhu/continents](./plots/jhu/continents)
+* `us`
+  -- [./plots/jhu/us](./plots/jhu/us)
+  -- contains all US states with more than 1K cases;
+* `continents`
+  -- [./plots/jhu/continents](./plots/jhu/continents)
   -- contains statistics grouped by continents (for those with >10K);
-* `subcontinents` -- [./plots/jhu/subcontinents](./plots/jhu/subcontinents)
+* `subcontinents`
+  -- [./plots/jhu/subcontinents](./plots/jhu/subcontinents)
   -- contains statistics grouped by continents (for those with >10K);
-* `romania` -- contains Romania, Hungary, Bulgaria (and a few major impacted ones for comparison);
+* `romania`
+  -- [./plots/jhu/romania](./plots/jhu/romania)
+  -- contains Romania, Hungary, Bulgaria (and a few major impacted ones for comparison);
 
 ![absolute-confirmed](./plots/jhu/global/svg/absolute-confirmed.svg)
 ![absolute_pop100k-confirmed](./plots/jhu/global/svg/absolute_pop100k-confirmed.svg)
