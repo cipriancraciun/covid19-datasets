@@ -34,6 +34,9 @@
 	
 	build __all__imports : phony __jhu__imports __nytimes__imports
 	build __all__exports : phony __jhu__exports __nytimes__exports
+	build __all__data : phony __all__imports __all__exports
+	build __all__plots : phony __jhu__plots
+	build __all : phony __all__data __all__plots
 !!
 
 --::&&.. ninja / script / tools :: ./tools.ninja
