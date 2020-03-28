@@ -5,14 +5,6 @@
 
 
 
-## Warnings
-
-* (permanent change) **due to JHU dataset changes, the recovered and infected values starting with 2020-03-23 will not be provided;**
-  (values for previous days are still provided;)
-
-
-
-
 ## About
 
 This repository contains various datasets related to COVID-19:
