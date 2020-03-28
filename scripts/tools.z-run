@@ -43,7 +43,8 @@
 	
 	rm -f -- "${_output}.tmp"
 	
-	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	if ! \
 			nice -n 19 -- \
 			"${ZRUN[@]}" ':: tools / convert / csv-to-json / exec' \
 					"${_input}" \
@@ -87,7 +88,8 @@
 	
 	rm -f -- "${_output}.tmp"
 	
-	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	if ! \
 			nice -n 19 -- \
 			jqe "${_flags[@]}" \
 					-f <( exec -- "${ZRUN[@]}" "${_script}" ) \
@@ -151,7 +153,8 @@
 	
 	rm -f -- "${_output}.tmp"
 	
-	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	if ! \
 			nice -n 19 -- \
 			inkscape \
 					"${_export_flag}" "${_output}.tmp" \
@@ -161,6 +164,8 @@
 					--export-background '#ffffff' \
 					--export-background-opacity 0.0 \
 					--file "${_input}" \
+				> /dev/null \
+				2> /dev/null \
 	; then
 		rm -f -- "${_output}.tmp"
 		exit -- 1

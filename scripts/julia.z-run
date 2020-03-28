@@ -22,7 +22,8 @@
 	
 	rm -f -- "${_compile}/${_marker}.tmp"
 	
-	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	if ! \
 			nodaemon \
 			nice -n 19 -- \
 			julia \
@@ -77,7 +78,8 @@
 	
 	rm -f -- "${_sysimage}.tmp"
 	
-	if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	if ! \
 			nodaemon \
 			nice -n 19 -- \
 			julia \
