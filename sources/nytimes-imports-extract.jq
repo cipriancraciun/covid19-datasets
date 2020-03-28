@@ -9,7 +9,7 @@
 			province_state : .state | (if ((. != null) and (. != "")) then . else null end),
 			admin2 :
 				(if (.dataset == "us-counties") then
-					.fips__normalized | (if ((. != null) and (. != "")) then . else null end)
+					.county | (if ((. != null) and (. != "")) then . else null end)
 				else null end),
 			fips :
 				(if (.dataset == "us-counties") then
