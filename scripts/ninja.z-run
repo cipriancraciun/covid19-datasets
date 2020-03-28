@@ -23,10 +23,17 @@
 	ninja_force = ${builddir}/markers/ninja.force
 	
 	{{ ZRUN ":: ninja / script / tools" }}
+	
 	{{ ZRUN ":: ninja / script / datasets / jhu" }}
 	{{ ZRUN ":: ninja / script / datasets / jhu / daily" }}
+	{{ ZRUN ":: ninja / script / datasets / jhu / series" }}
+	{{ ZRUN ":: ninja / script / datasets / jhu / generated" }}
 	{{ ZRUN ":: ninja / script / datasets / jhu / plots" }}
+	
 	{{ ZRUN ":: ninja / script / datasets / nytimes" }}
+	{{ ZRUN ":: ninja / script / datasets / nytimes / us-states" }}
+	{{ ZRUN ":: ninja / script / datasets / nytimes / us-counties" }}
+	
 	{{ ZRUN ":: ninja / script / datasets / facts" }}
 	
 	build ${zrun_library} : marker
@@ -41,7 +48,11 @@
 
 --::&&.. ninja / script / tools :: ./tools.ninja
 --::&&.. ninja / script / datasets / jhu :: ./datasets-jhu.ninja
+--::&&.. ninja / script / datasets / jhu / daily :: ./datasets-jhu-daily.ninja
+--::&&.. ninja / script / datasets / jhu / series :: ./datasets-jhu-series.ninja
 --::&&.. ninja / script / datasets / nytimes :: ./datasets-nytimes.ninja
+--::&&.. ninja / script / datasets / nytimes / us-states :: ./datasets-nytimes-us-states.ninja
+--::&&.. ninja / script / datasets / nytimes / us-counties :: ./datasets-nytimes-us-counties.ninja
 --::&&.. ninja / script / datasets / facts :: ./datasets-facts.ninja
 
 

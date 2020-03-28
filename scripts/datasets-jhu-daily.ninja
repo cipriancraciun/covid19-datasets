@@ -1,0 +1,89 @@
+
+
+
+
+build ./imports/jhu/daily/raw-json/extracted.json : z-run-in-out $
+        ./imports/jhu/daily/raw-json/merged.json $
+        | ./sources/jhu-imports-extract-daily.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / jhu / imports / extract-daily / script'
+    pool = cpu_moderate
+
+
+
+
+build ./imports/jhu/daily/locations.json : z-run-in-out $
+        ./imports/jhu/daily/raw-json/extracted.json $
+        | ./imports/facts/countries.json $
+          ./imports/facts/countries-by-alias.json $
+          ./imports/facts/us-states.json $
+          ./imports/facts/us-states-by-alias.json $
+          ./imports/facts/us-counties.json $
+          ./imports/facts/us-counties-by-alias.json $
+          ./sources/generic-imports-parse-locations.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / imports / parse-locations / script'
+    arguments = $
+        --argfile countries ./imports/facts/countries.json $
+        --argfile countries_by_alias ./imports/facts/countries-by-alias.json $
+        --argfile us_states ./imports/facts/us-states.json $
+        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json $
+        --argfile us_counties ./imports/facts/us-counties.json $
+        --argfile us_counties_by_alias ./imports/facts/us-counties-by-alias.json
+    pool = cpu_moderate
+
+build ./imports/jhu/daily/dates.json : z-run-in-out $
+        ./imports/jhu/daily/raw-json/extracted.json $
+        | ./sources/generic-imports-parse-dates.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / imports / parse-dates / script'
+    pool = cpu_moderate
+
+
+
+
+build ./imports/jhu/daily/values.json : z-run-in-out $
+        ./imports/jhu/daily/raw-json/extracted.json $
+        | ./imports/jhu/daily/locations.json $
+          ./imports/jhu/daily/dates.json $
+          ./imports/facts/countries.json $
+          ./imports/factbook/fields.json $
+          ./imports/facts/us-states.json $
+          ./imports/facts/us-states-by-alias.json $
+          ./sources/generic-imports-values.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / imports / values / script'
+    arguments = $
+        --argfile dates ./imports/jhu/daily/dates.json $
+        --argfile locations ./imports/jhu/daily/locations.json $
+        --argfile countries ./imports/facts/countries.json $
+        --argfile factbook ./imports/factbook/fields.json $
+        --argfile us_states ./imports/facts/us-states.json $
+        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json
+    pool = cpu_moderate
+
+
+
+
+build ./exports/jhu/v1/daily/values.json : z-run-in-out $
+        ./imports/jhu/daily/values.json $
+        | ./sources/generic-exports-values-json.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / exports / values / json / script'
+    pool = cpu_heavy
+
+build ./exports/jhu/v1/daily/values.tsv : z-run-in-out $
+        ./exports/jhu/v1/daily/values.json $
+        | ./sources/generic-exports-values-tsv.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / exports / values / tsv / script'
+    arguments = $
+        --raw-output
+    pool = cpu_moderate
+
+build ./exports/jhu/v1/daily/values.txt : z-run-in-out $
+        ./exports/jhu/v1/daily/values.tsv $
+        | ${zrun_library}
+    scriptlet = ':: tools / columns'
+    pool = cpu_moderate
+
