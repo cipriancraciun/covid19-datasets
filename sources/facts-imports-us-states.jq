@@ -4,7 +4,7 @@
 		
 		code : .code,
 		name : .name,
-		name__normalized : .name__normalized,
+		name_normalized : .name__normalized,
 		
 		population : .population,
 		area : .area,

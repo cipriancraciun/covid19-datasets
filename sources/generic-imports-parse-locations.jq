@@ -192,6 +192,7 @@
 						| ascii_downcase | gsub ("[^a-z0-9]+"; "_") | gsub ("(^_+)|(_+$)"; "")
 						| if (. != null) then $us_states_by_alias[.] else . end
 						| if (. != null) then $us_states[.] else . end
+						| del (.name_normalized)
 						| del (.aliases)
 						| if (. == null) then ["a8ee874c", $alias] | debug | null else . end
 					)
@@ -207,6 +208,7 @@
 						| . as $alias
 						| if (. != null) then $us_counties_by_alias[.] else . end
 						| if (. != null) then $us_counties[.] else . end
+						| del (.name_normalized)
 						| del (.state_name)
 						| del (.state_code)
 						| del (.aliases)
@@ -226,6 +228,7 @@
 						| . as $alias
 						| if (. != null) then $us_states_by_alias[.] else . end
 						| if (. != null) then $us_states[.] else . end
+						| del (.name_normalized)
 						| del (.aliases)
 						| if (. == null) then ["349f7064", $alias] | debug | null else . end
 					)
@@ -240,7 +243,7 @@
 		else
 			del (.us_state)
 		end
-		| if (.us_county == null) then
+		| if (.us_county != null) then
 			.
 			| .administrative = .us_county.name
 			| .administrative_fips = .us_county.fips
