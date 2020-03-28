@@ -43,35 +43,27 @@
 	#! {{}}
 	{{ range $_, $_target := ZRUN ":: ninja / targets" | split_lines }}
 	
-	<< ninja / build / {{ $_target }}
+	{{ if $_target | has_prefix ("__") }}
+	
+	<< ninja / {{ $_target | replace_first "__" "" | replace_all "__" " / " }}
 		test "${#}" -eq 0
 		exec -- "${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
 	!!
 	
-	{{ if $_target | has_prefix ("__") | not }}
-	{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) ($_target | has_suffix (".txt")) }}
-	<< ninja / view / {{ $_target }}
+	{{ else if or ($_target | has_suffix (".json")) ($_target | has_suffix (".csv")) ($_target | has_suffix (".tsv")) ($_target | has_suffix (".txt")) }}
+	
+	<< ninja / files / build / {{ $_target }}
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+	!!
+	
+	<< ninja / files / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
 		exec -- less -- {{ $_target | shell_quote }}
 	!!
-	{{ else if or ($_target | has_suffix (".pdf")) }}
-	<< ninja / view / {{ $_target }}
-		test "${#}" -eq 0
-		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
-		exec -- zathura -- {{ $_target | shell_quote }}
-	!!
-	{{ else if or ($_target | has_suffix (".png")) }}
-	<< ninja / view / {{ $_target }}
-		test "${#}" -eq 0
-		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
-		exec -- sxiv -- {{ $_target | shell_quote }}
-	!!
-	{{ end }}
-	{{ end }}
 	
-	{{ if or ($_target | has_suffix (".json")) ($_target | has_suffix (".tsv")) ($_target | has_suffix (".txt")) }}
-	<< ninja / diff-lines / {{ $_target }}
+	<< ninja / files / diff-lines / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
 		exec -- git diff \
@@ -88,7 +80,8 @@
 				{{ $_target | shell_quote }} \
 		#
 	!!
-	<< ninja / diff-words / {{ $_target }}
+	
+	<< ninja / files / diff-words / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
 		exec -- git diff \
@@ -106,8 +99,24 @@
 				{{ $_target | shell_quote }} \
 		#
 	!!
-	{{ end }}
 	
+	{{ else if or ($_target | has_suffix (".pdf")) }}
+	
+	<< ninja / files / view / {{ $_target }}
+		test "${#}" -eq 0
+		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+		exec -- zathura -- {{ $_target | shell_quote }}
+	!!
+	
+	{{ else if or ($_target | has_suffix (".png")) }}
+	
+	<< ninja / files / view / {{ $_target }}
+		test "${#}" -eq 0
+		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+		exec -- sxiv -- {{ $_target | shell_quote }}
+	!!
+	
+	{{ end }}
 	{{ end }}
 !!
 
