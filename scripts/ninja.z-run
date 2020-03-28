@@ -31,6 +31,9 @@
 	
 	build ${zrun_library} : marker
 	build ${ninja_force} : marker
+	
+	build __all__imports : phony __jhu__imports __nytimes__imports
+	build __all__exports : phony __jhu__exports __nytimes__exports
 !!
 
 --::&&.. ninja / script / tools :: ./tools.ninja

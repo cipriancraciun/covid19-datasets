@@ -8,20 +8,20 @@
 	
 	<< plots / view / jhu / all
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu_plots__all__all__png
+		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__all__all__png
 	!!
 	
 	{{ range $_, $_filter := array "world" "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
 	
 	<< plots / view / jhu / plots / {{ $_filter }} / all
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu_plots__{{ $_filter }}__all__png -path '*/{{ $_filter }}/*'
+		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__{{ $_filter }}__all__png -path '*/{{ $_filter }}/*'
 	!!
 	
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
 	<< plots / view / jhu / plots / {{ $_filter }} / {{ $_method }}
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu_plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}-*'
+		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}-*'
 	!!
 	{{ end }}
 	
@@ -161,28 +161,28 @@
 	{{ end }}
 	{{ end }}
 	
-	build __jhu_plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__jhu_plots__%s__%s__%s" $_filter $_method $_format) }}
+	build __jhu__plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__jhu__plots__%s__%s__%s" $_filter $_method $_format) }}
 	
 	{{ end }}
 	
-	build __jhu_plots__{{ $_filter }}__all__{{ $_format }} : phony {{ $_all_filter_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__jhu_plots__%s__all__%s" $_filter $_format ) }}
+	build __jhu__plots__{{ $_filter }}__all__{{ $_format }} : phony {{ $_all_filter_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__jhu__plots__%s__all__%s" $_filter $_format ) }}
 	
 	{{ end }}
 	
-	build __jhu_plots__all__all__{{ $_format }} : phony {{ $_all_format_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__jhu_plots__all__all__%s" $_format ) }}
+	build __jhu__plots__all__all__{{ $_format }} : phony {{ $_all_format_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__jhu__plots__all__all__%s" $_format ) }}
 	
 	{{ end }}
 	
 	
 	{{ range $_, $_filter := $_filters }}
-	build __jhu_plots__{{ $_filter }}__all__all : phony {{ range $_, $_format := $_formats }}  __jhu_plots__{{ $_filter }}__all__{{ $_format }} {{ end }}
+	build __jhu__plots__{{ $_filter }}__all__all : phony {{ range $_, $_format := $_formats }}  __jhu__plots__{{ $_filter }}__all__{{ $_format }} {{ end }}
 	{{ end }}
 	
 	
-	build __jhu_plots : phony {{ $_all_phony | array_join " " }}
+	build __jhu__plots : phony {{ $_all_phony | array_join " " }}
 	
 !!
 

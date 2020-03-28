@@ -121,11 +121,11 @@ build ./exports/nytimes/v1/values.txt : z-run-in-out $
 
 
 
-build __nytimes_imports : phony $
+build __nytimes__imports : phony $
         ./imports/nytimes/values.json $
         ||
 
-build __nytimes_exports : phony $
+build __nytimes__exports : phony $
         ./exports/nytimes/v1/values.json $
         ./exports/nytimes/v1/values.tsv $
         ./exports/nytimes/v1/values.txt $

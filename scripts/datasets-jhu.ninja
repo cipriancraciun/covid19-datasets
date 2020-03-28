@@ -231,12 +231,12 @@ build ./exports/jhu/v1/values.txt : copy ./exports/jhu/v1/daily/values.txt
 
 
 
-build __jhu_imports : phony $
+build __jhu__imports : phony $
         ./imports/jhu/series/values.json $
         ./imports/jhu/daily/values.json $
         ||
 
-build __jhu_exports : phony $
+build __jhu__exports : phony $
         ./exports/jhu/v1/values.json $
         ./exports/jhu/v1/values.tsv $
         ./exports/jhu/v1/values.txt $
