@@ -34,7 +34,7 @@ map ({key : .aliases[], value : .code})
 		"macao_sar" : "MO",
 		"others" : "XX",
 		
-		# NOTE:  From CIA factbook
+		# NOTE:  From CIA factbook.
 		"congo_democratic_republic_of_the" : "CD",
 		"congo_republic_of_the" : "CG",
 		"korea_north" : "KP",
