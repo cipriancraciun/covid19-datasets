@@ -16,10 +16,10 @@
 		province_state : $record.province_state,
 		admin2 : $record.admin2,
 		fips : $record.fips__normalized,
-		latitude : ($record.lat // $record.latitude),
-		longitude : ($record.long // $record.longitude),
 		date : .,
 		value : $record[.],
+		latitude : ($record.lat // $record.latitude),
+		longitude : ($record.long // $record.longitude),
 	}
 )
 

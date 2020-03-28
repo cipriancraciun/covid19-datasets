@@ -44,7 +44,7 @@
 		})
 		| from_entries
 	)
-	| if (($records | length) > 1) then
+	| if (($records | map (.location.key_original) | unique | length) > 1) then
 		.location = (
 			.location
 			| del (.key_original)
