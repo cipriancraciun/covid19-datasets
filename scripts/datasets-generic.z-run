@@ -6,4 +6,8 @@
 --::&&.. process / generic / imports / csv-to-json-merge / script :: ../sources/csv-to-json-merge.jq
 --::&&.. process / generic / imports / parse-locations / script :: ../sources/generic-imports-parse-locations.jq
 --::&&.. process / generic / imports / parse-dates / script :: ../sources/generic-imports-parse-dates.jq
+--::&&.. process / generic / imports / values / script :: ../sources/generic-imports-values.jq
+
+--::&&.. process / generic / exports / values / json / script :: ../sources/generic-exports-values-json.jq
+--::&&.. process / generic / exports / values / tsv / script :: ../sources/generic-exports-values-tsv.jq
 

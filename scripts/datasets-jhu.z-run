@@ -236,10 +236,6 @@
 
 
 
---::&&.. process / jhu / imports / values / script :: ../sources/jhu-imports-values.jq
 --::&&.. process / jhu / imports / extract-daily / script :: ../sources/jhu-imports-extract-daily.jq
 --::&&.. process / jhu / imports / extract-series / script :: ../sources/jhu-imports-extract-series.jq
-
---::&&.. process / jhu / exports / values / json / script :: ../sources/jhu-exports-values-json.jq
---::&&.. process / jhu / exports / values / tsv / script :: ../sources/jhu-exports-values-tsv.jq
 
