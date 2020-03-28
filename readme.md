@@ -149,10 +149,11 @@ I have created 6 groups of countries / regions, and for each one I've plotted al
 
 ## Licensing
 
-* the graphs are licensed under the *Creative Commons Attribution-ShareAlike 2.0 (CC BY-SA 2.0)* license;
-* the data files are licensed under the *Creative Commons Attribution-ShareAlike 2.0 (CC BY-SA 2.0)* license;
+* the graphs are licensed under the *Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)* license;
+* the data files are licensed under the *Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)* license;
 * however the original JHU CSSE COVID-19 data is copyrighted by the *Johns Hopkins University*,
   and *provided to the public strictly for educational and academic research purposes*;
-  therefore I don't know if I am actually able to license my derived files as *CC BY-SA 2.0*;
+  therefore I don't know if I am actually able to license my derived files as *CC BY-SA 4.0*;
   although given the global situation, I'll let the lawyers decide later...
+* the sources and scripts are licensed under the *Affero General Public License v3 (AGPLv3)* license;
 
