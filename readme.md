@@ -1,12 +1,12 @@
 
 
-# COVID-19 derived datasets (JHU, NY Times)
+# COVID-19 derived datasets (JHU, NY Times, ECDC)
 
 
 > Table of contents:
 > * [About](#about)
 > * [Visualizations](#visualizations)
-> * Datasets: **[JHU](#jhu-csse-covid-19-dataset)**, **[NY Times](#ny-times-covid-19-dataset)**, [example](#dataset-example)
+> * Datasets: **[JHU](#jhu-csse-covid-19-dataset)**, **[NY Times](#ny-times-covid-19-dataset)**, **[ECDC](#ecdc-covid-19-dataset)**, [example](#dataset-example)
 > * [Licensing](#licensing)
 
 
@@ -14,7 +14,7 @@
 
 ## About
 
-This repository contains various datasets related to COVID-19 (JHU CSSE, NY Times):
+This repository contains various datasets related to COVID-19 (JHU CSSE, NY Times, ECDC):
 * the data files are available inside the [./exports](./exports) folder;
 * the original and intermediary data files are available inside the [./imports](./imports) folder;
 
@@ -77,6 +77,7 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 * I have re-formatted the original JHU dataset in a one-data-point-per-row format (thus more "relational" and SQL friendly):
   * in JSON format: [values.json](./exports/jhu/v1/values.json);
   * in TSV format: [values.tsv](./exports/jhu/v1/values.tsv);
+  * (these are based on the `daily_reports` dataset;  JHU also provides `time_series` dataset, which is also available under the [exports](./exports/jhu/v1) folder);
 * I have also augmented the original JHU dataset with the following:
   * `day_index_*` means how many days have passed for that country since there were at least that many confirmed cases;
   * `absolute_pop100k` means the absolute metric per 100k people in that country / region;
@@ -95,10 +96,22 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 ### NY Times COVID-19 dataset
 
 * although the original NY dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
-  * in JSON format: [values.json](./exports/nytimes/v1/values.json);
-  * in TSV format: [values.tsv](./exports/nytimes/v1/values.tsv);
+  * in JSON format: [values.json](./exports/nytimes/v1/us-counties/values.json);
+  * in TSV format: [values.tsv](./exports/nytimes/v1/us-counties/values.tsv);
+  * (these are based on the `us-counties` dataset;  NY Times also provides `us-states` dataset, which is also available under the [exports](./exports/nytimes/v1) folder);
 * all the transformations and augmentations described for the JHU one were applied also to the NY one;
 * the original data is available at [github.com/nytimes/covid-19-data](https://github.com/nytimes/covid-19-data);
+
+
+
+
+### ECDC COVID-19 dataset
+
+* although the original ECDC dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
+  * in JSON format: [values.json](./exports/ecdc/v1/worldwide/values.json);
+  * in TSV format: [values.tsv](./exports/ecdc/v1/worldwide/values.tsv);
+* all the transformations and augmentations described for the JHU one were applied also to the ECDC one;
+* the original data is available at [ecdc.europa.eu](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide);
 
 
 
@@ -200,5 +213,7 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 * also, the original NY COVID-19 data is copyrighted by *The New York Times*,
   and *made publicly available for broad, non-commercial public use*;
   therefore I don't know if I am actually able to license my derived files data as *CC BY-SA 4.0*;
+* also, the original ECDC COVID-19 data is copyrighted by (I assume) the ECDC,
+  and *users must comply with data use restrictions to ensure that the information will be used solely for statistical analysis or reporting purposes*;
 * although given the global situation, I'll let the lawyers decide later...
 
