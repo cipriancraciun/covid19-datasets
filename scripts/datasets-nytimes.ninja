@@ -1,0 +1,102 @@
+
+
+
+
+build ./imports/nytimes/raw-csv/us-states.csv : fetch-curl $
+        | ${ninja_force}
+    url = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
+
+build ./imports/nytimes/raw-csv/us-counties.csv : fetch-curl $
+        | ${ninja_force}
+    url = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'
+
+
+
+
+build ./imports/nytimes/raw-json/us-states.json : csv-to-json $
+        ./imports/nytimes/raw-csv/us-states.csv $
+        | ./sources/csv-to-json.py ${zrun_library}
+    dataset = us-states
+    format = csv
+    pool = cpu_moderate
+
+build ./imports/nytimes/raw-json/us-counties.json : csv-to-json $
+        ./imports/nytimes/raw-csv/us-counties.csv $
+        | ./sources/csv-to-json.py ${zrun_library}
+    dataset = us-counties
+    format = csv
+    pool = cpu_moderate
+
+build ./imports/nytimes/raw-json/merged.json : z-run-out-in $
+        ./imports/nytimes/raw-json/us-states.json $
+        ./imports/nytimes/raw-json/us-counties.json $
+        | ./sources/csv-to-json-merge.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter / multi'
+    arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
+    pool = cpu_moderate
+
+build ./imports/nytimes/raw-json/values.json : z-run-in-out $
+        ./imports/nytimes/raw-json/merged.json $
+        | ./sources/nytimes-imports-extract.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / nytimes / imports / extract / script'
+    pool = cpu_moderate
+
+
+
+
+build ./imports/nytimes/locations.json : z-run-in-out $
+        ./imports/nytimes/raw-json/values.json $
+        | ./imports/facts/countries.json $
+          ./imports/facts/countries-by-alias.json $
+          ./imports/facts/us-states.json $
+          ./imports/facts/us-states-by-alias.json $
+          ./imports/facts/us-counties.json $
+          ./imports/facts/us-counties-by-alias.json $
+          ./sources/generic-imports-parse-locations.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / imports / parse-locations / script'
+    arguments = $
+        --argfile countries ./imports/facts/countries.json $
+        --argfile countries_by_alias ./imports/facts/countries-by-alias.json $
+        --argfile us_states ./imports/facts/us-states.json $
+        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json $
+        --argfile us_counties ./imports/facts/us-counties.json $
+        --argfile us_counties_by_alias ./imports/facts/us-counties-by-alias.json
+    pool = cpu_moderate
+
+build ./imports/nytimes/dates.json : z-run-in-out $
+        ./imports/nytimes/raw-json/values.json $
+        | ./sources/generic-imports-parse-dates.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / imports / parse-dates / script'
+    pool = cpu_moderate
+
+
+build ./imports/nytimes/values.json : z-run-in-out $
+        ./imports/nytimes/raw-json/values.json $
+        | ./imports/nytimes/locations.json $
+          ./imports/nytimes/dates.json $
+          ./imports/facts/countries.json $
+          ./imports/factbook/fields.json $
+          ./imports/facts/us-states.json $
+          ./imports/facts/us-states-by-alias.json $
+          ./sources/nytimes-imports-values.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / nytimes / imports / values / script'
+    arguments = $
+        --argfile dates ./imports/nytimes/dates.json $
+        --argfile locations ./imports/nytimes/locations.json $
+        --argfile countries ./imports/facts/countries.json $
+        --argfile factbook ./imports/factbook/fields.json $
+        --argfile us_states ./imports/facts/us-states.json $
+        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json
+    pool = cpu_heavy
+
+
+
+
+build __nytimes_imports : phony $
+        ./imports/nytimes/values.json $
+        ||
+

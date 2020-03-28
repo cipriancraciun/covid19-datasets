@@ -20,6 +20,7 @@
 && ./julia.z-run
 
 && ./datasets-jhu.z-run
+&& ./datasets-nytimes.z-run
 && ./datasets-generic.z-run
 && ./datasets-facts.z-run
 
