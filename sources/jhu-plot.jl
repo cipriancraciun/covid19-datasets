@@ -52,9 +52,7 @@ _dataset = filter(
 		(_data ->
 			(_data[_dataset_index] !== missing) &&
 			(_data[_dataset_metric] !== missing) &&
-			(_data[_dataset_metric] != 0) &&
-			(_data[:administrative] !== missing) &&
-			(_data[:administrative] == "(total)")),
+			(_data[_dataset_metric] != 0)),
 		_dataset,
 	)
 

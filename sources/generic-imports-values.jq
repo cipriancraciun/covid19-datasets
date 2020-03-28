@@ -138,7 +138,7 @@
 					province : .province,
 					region : .region,
 					subregion : .subregion,
-					administrative : "(total)",
+					administrative : null,
 					latlong : (.province_latlong // .country_latlong),
 				},
 			date : .[0].date,
