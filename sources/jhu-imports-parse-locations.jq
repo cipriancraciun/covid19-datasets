@@ -1,12 +1,12 @@
 .
 
 | map ([
-		(.country_region | if (. != "") then . else null end),
-		(.province_state | if (. != "") then . else null end),
-		(.admin2 | if (. != "") then . else null end),
-		(.latitude | if (. != 0) then . else null end),
-		(.longitude | if (. != 0) then . else null end),
-		(.fips | if (. != "") then . else null end)
+		.country_region,
+		.province_state,
+		.admin2,
+		.latitude,
+		.longitude,
+		.fips
 	])
 
 | group_by ([.[0], .[1], .[2], .[5]])

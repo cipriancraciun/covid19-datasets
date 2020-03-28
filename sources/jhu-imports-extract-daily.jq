@@ -3,18 +3,18 @@
 
 | map (
 	{
-		country_region : .country_region,
-		province_state : .province_state,
-		admin2 : .admin2,
-		fips : .fips__normalized,
-		date : .dataset,
+		country_region : .country_region | (if ((. != null) and (. != "")) then . else null end),
+		province_state : .province_state | (if ((. != null) and (. != "")) then . else null end),
+		admin2 : .admin2 | (if ((. != null) and (. != "")) then . else null end),
+		fips : .fips__normalized | (if ((. != null) and (. != "")) then . else null end),
+		date : .dataset | (if ((. != null) and (. != "")) then . else null end),
 		values : {
-			confirmed : .confirmed,
-			recovered : .recovered,
-			deaths : .deaths,
+			confirmed : .confirmed | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
+			recovered : .recovered | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
+			deaths : .deaths | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
 		},
-		latitude : (.lat // .latitude),
-		longitude : (.long // .longitude),
+		latitude : (.lat // .latitude) | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
+		longitude : (.long // .longitude) | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
 	}
 )
 

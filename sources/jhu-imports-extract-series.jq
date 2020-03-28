@@ -11,15 +11,15 @@
 	| .key
 	| select (. | startswith ("_"))
 	| {
-		dataset : $record.dataset,
-		country_region : $record.country_region,
-		province_state : $record.province_state,
-		admin2 : $record.admin2,
-		fips : $record.fips__normalized,
-		date : .,
-		value : $record[.],
-		latitude : ($record.lat // $record.latitude),
-		longitude : ($record.long // $record.longitude),
+		dataset : $record.dataset | (if ((. != null) and (. != "")) then . else null end),
+		country_region : $record.country_region | (if ((. != null) and (. != "")) then . else null end),
+		province_state : $record.province_state | (if ((. != null) and (. != "")) then . else null end),
+		admin2 : $record.admin2 | (if ((. != null) and (. != "")) then . else null end),
+		fips : $record.fips__normalized | (if ((. != null) and (. != "")) then . else null end),
+		date : . | (if ((. != null) and (. != "")) then . else null end),
+		value : $record[.] | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
+		latitude : ($record.lat // $record.latitude) | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
+		longitude : ($record.long // $record.longitude) | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
 	}
 )
 
