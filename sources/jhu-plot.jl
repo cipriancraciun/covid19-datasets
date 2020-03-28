@@ -374,6 +374,12 @@ _plot_style = Gadfly.style(
 _dataset_locations_meta[:, :color] = circshift(Gadfly.Scale.color_discrete().f(_dataset_locations_count), 1)
 
 
+_plot_line_filter = (
+		startswith("deltapct_", String(_dataset_metric)) ||
+		false
+	)
+
+
 
 
 _plot = Gadfly.plot(
@@ -397,7 +403,7 @@ _plot = Gadfly.plot(
 		),
 		
 		Gadfly.layer(
-			_dataset,
+			filter((_data -> !_plot_line_filter || (_data[_dataset_metric] >= _dataset_qmin_metric) && (_data[_dataset_metric] <= _dataset_qmax_metric)), _dataset),
 			x = _dataset_index,
 			y = _dataset_metric,
 			color = _dataset_location_key,
@@ -408,7 +414,7 @@ _plot = Gadfly.plot(
 			end,
 		),
 		
-		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index + 2, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
+		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
 		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
 		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)),
 		

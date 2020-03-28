@@ -96,16 +96,24 @@
 	#! {{}}
 	
 	
-	{{ range $_, $_format := array "pdf" "svg" "png" }}
+	{{ $_filters := array "world" "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
+	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
+	{{ $_metrics := array "confirmed" "deaths" "infected" "recovered" }}
+	{{ $_formats := array "pdf" "svg" "png" }}
+	
+	
+	{{ $_all_phony := array }}
+	
+	{{ range $_, $_format := $_formats }}
 	{{ $_all_format_charts := array }}
 	
-	{{ range $_, $_filter := array "world" "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
+	{{ range $_, $_filter := $_filters }}
 	{{ $_all_filter_charts := array }}
 	
-	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
+	{{ range $_, $_method := $_methods }}
 	{{ $_all_method_charts := array }}
 	
-	{{ range $_, $_metric := array "confirmed" "deaths" "infected" "recovered" }}
+	{{ range $_, $_metric := $_metrics }}
 	{{ if or (and (eq $_filter "us") (or (eq $_metric "recovered") (eq $_metric "infected"))) (and (eq $_method "relative") (eq $_metric "confirmed")) | not }}
 	
 	
@@ -154,16 +162,28 @@
 	{{ end }}
 	
 	build __jhu_plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__jhu_plots__%s__%s__%s" $_filter $_method $_format) }}
 	
 	{{ end }}
 	
 	build __jhu_plots__{{ $_filter }}__all__{{ $_format }} : phony {{ $_all_filter_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__jhu_plots__%s__all__%s" $_filter $_format ) }}
 	
 	{{ end }}
 	
 	build __jhu_plots__all__all__{{ $_format }} : phony {{ $_all_format_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__jhu_plots__all__all__%s" $_format ) }}
 	
 	{{ end }}
+	
+	
+	{{ range $_, $_filter := $_filters }}
+	build __jhu_plots__{{ $_filter }}__all__all : phony {{ range $_, $_format := $_formats }}  __jhu_plots__{{ $_filter }}__all__{{ $_format }} {{ end }}
+	{{ end }}
+	
+	
+	build __jhu_plots : phony {{ $_all_phony | array_join " " }}
+	
 !!
 
 
