@@ -19,22 +19,30 @@
 		| (if (($previous != null) and ($previous.dataset == $current.dataset) and ($previous.location.key == $current.location.key)) then $previous else null end) as $previous
 		| $current
 		
+		| if ((.dataset == "ecdc/worldwide") and ($previous != null)) then
+			.
+			| .values.absolute = {
+				confirmed : (.values.absolute.confirmed + $previous.values.absolute.confirmed),
+				recovered : (.values.absolute.recovered + $previous.values.absolute.recovered),
+				deaths : (.values.absolute.deaths + $previous.values.absolute.deaths),
+			}
+		else . end
+		
 		| .values.absolute.infected = (.values.absolute.confirmed - .values.absolute.recovered - .values.absolute.deaths)
-		| . as $current
 		
 		| if ($previous != null) then
 			.
 			| .values.delta = {
-				confirmed : ($current.values.absolute.confirmed - $previous.values.absolute.confirmed) | (if (. != 0) then . else null end),
-				recovered : ($current.values.absolute.recovered - $previous.values.absolute.recovered) | (if (. != 0) then . else null end),
-				deaths : ($current.values.absolute.deaths - $previous.values.absolute.deaths) | (if (. != 0) then . else null end),
-				infected : ($current.values.absolute.infected - $previous.values.absolute.infected) | (if (. != 0) then . else null end),
+				confirmed : (.values.absolute.confirmed - $previous.values.absolute.confirmed),
+				recovered : (.values.absolute.recovered - $previous.values.absolute.recovered),
+				deaths : (.values.absolute.deaths - $previous.values.absolute.deaths),
+				infected : (.values.absolute.infected - $previous.values.absolute.infected),
 			}
 			| .values.delta_pct = {
-				confirmed : (try (.values.delta.confirmed * 100.0 / $previous.values.absolute.confirmed) catch null) | (if (. != 0) then . else null end),
-				recovered : (try (.values.delta.recovered * 100.0 / $previous.values.absolute.recovered) catch null) | (if (. != 0) then . else null end),
-				infected : (try (.values.delta.infected * 100.0 / $previous.values.absolute.infected) catch null) | (if (. != 0) then . else null end),
-				deaths : (try (.values.delta.deaths * 100.0 / $previous.values.absolute.deaths) catch null) | (if (. != 0) then . else null end),
+				confirmed : (try (.values.delta.confirmed * 100.0 / $previous.values.absolute.confirmed) catch 0),
+				recovered : (try (.values.delta.recovered * 100.0 / $previous.values.absolute.recovered) catch 0),
+				infected : (try (.values.delta.infected * 100.0 / $previous.values.absolute.infected) catch 0),
+				deaths : (try (.values.delta.deaths * 100.0 / $previous.values.absolute.deaths) catch 0),
 			}
 		else
 			.
