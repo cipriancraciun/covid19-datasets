@@ -57,9 +57,20 @@
 			(. == ["US", "Lackland, TX (From Diamond Princess)", null]) or
 			(. == ["US", "Unassigned Location (From Diamond Princess)", null]) or
 			(. == ["US", "Grand Princess Cruise Ship", null]) or
+			(. == ["MS Zaandam", null, null]) or
 			false
 	)) then
-		["Cruise Ship", "Diamond+Grand Princess", null, null, null, null, .[6], .[7]]
+		["Cruise Ship", null, null, null, null, null, .[6], .[7]]
+	else . end
+	
+	| if (
+			[.[0], .[1], .[2]]
+			| (
+				(. == ["Channel Islands", null, null]) or
+				false
+			)
+	) then
+		["United Kingdom", .[0], null, null, null, null, .[6], .[7]]
 	else . end
 	
 	| if (
