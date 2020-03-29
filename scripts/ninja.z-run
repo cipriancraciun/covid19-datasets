@@ -171,3 +171,11 @@
 	fi
 !!
 
+<< ninja / all / data / force
+	test "${#}" -eq 0
+	if test -e ./.outputs/ninja/markers/ninja.force ; then
+		rm -- ./.outputs/ninja/markers/ninja.force
+	fi
+	exec -- "${ZRUN[@]}" ':: ninja / all / data'
+!!
+
