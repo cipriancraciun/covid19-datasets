@@ -22,3 +22,38 @@ build ./exports/combined/v1/values.tsv : z-run-in-out $
         --raw-output
     pool = cpu_moderate
 
+
+
+
+build ./exports/combined/v1/locations-diff.json : z-run-out-in $
+        ./imports/jhu/series/locations.json $
+        ./imports/jhu/daily/locations.json $
+        ./imports/ecdc/worldwide/locations.json $
+        ./imports/nytimes/us-states/locations.json $
+        ./imports/nytimes/us-counties/locations.json $
+        | ./sources/generic-exports-locations-diff-json.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter / multi'
+    arguments_pre = ':: process / generic / exports / locations-diff / json / script'
+    pool = cpu_moderate
+
+build ./exports/combined/v1/locations-diff.tsv : z-run-in-out $
+        ./exports/combined/v1/locations-diff.json $
+        | ./sources/generic-exports-locations-diff-tsv.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / exports / locations-diff / tsv / script'
+    arguments = $
+        --raw-output
+    pool = cpu_moderate
+
+
+
+
+build __combined__exports : phony $
+        $
+        ./exports/combined/v1/values.json $
+        ./exports/combined/v1/values.tsv $
+        $
+        ./exports/combined/v1/locations-diff.json $
+        ./exports/combined/v1/locations-diff.tsv $
+        ||
+

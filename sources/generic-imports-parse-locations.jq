@@ -6,16 +6,18 @@
 		.admin2,
 		.latitude,
 		.longitude,
-		.fips
+		.fips,
+		.dataset
 	])
 
-| group_by ([.[0], .[1], .[2], .[5]])
+| group_by ([.[0], .[1], .[2], .[5], .[6]])
 | map (
 	.[0]
 	
-	| (. + [
+	| (.[0:6] + [
 		([.[0], .[1], .[2], .[5]] | crypto_md5),
-		([.[0], .[1], .[2], .[5]])
+		([.[0], .[1], .[2], .[5]]),
+		.[6]
 	])
 	
 	| if (.[1] | (
@@ -60,7 +62,7 @@
 			(. == ["MS Zaandam", null, null]) or
 			false
 	)) then
-		["Cruise Ship", null, null, null, null, null, .[6], .[7]]
+		["Cruise Ship", null, null, null, null, null, .[6], .[7], .[8]]
 	else . end
 	
 	| if (
@@ -70,7 +72,7 @@
 				false
 			)
 	) then
-		["United Kingdom", .[0], null, null, null, null, .[6], .[7]]
+		["United Kingdom", .[0], null, null, null, null, .[6], .[7], .[8]]
 	else . end
 	
 	| if (
@@ -83,10 +85,11 @@
 				false
 			)
 	) then
-		[.[1], null, null, null, null, null, .[6], .[7]]
+		[.[1], null, null, null, null, null, .[6], .[7], .[8]]
 	else . end
 	
 	| {
+		dataset : .[8],
 		country : .[0],
 		province : .[1],
 		administrative : .[2],

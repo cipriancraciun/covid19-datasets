@@ -9,7 +9,9 @@
 				(.fips | if (. != "") then . else null end)
 			]
 			| crypto_md5
-			| $locations[.])
+			| $locations[.]
+			| del (.dataset)
+		)
 	| if (.location == null) then
 		["1cc7c3fa", .] | debug |
 		.
