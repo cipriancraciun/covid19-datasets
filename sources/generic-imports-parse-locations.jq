@@ -78,6 +78,8 @@
 			| (
 				(. == ["China", "Hong Kong", null]) or
 				(. == ["China", "Macau", null]) or
+				(. == ["Netherlands", "Aruba", null]) or
+				(. == ["France", "Saint Barthelemy", null]) or
 				false
 			)
 	) then
