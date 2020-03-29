@@ -82,7 +82,10 @@
 	_input="${2}"
 	_output="${3}"
 	shift -- 3
-	_flags=( --ascii-output "${@}" )
+	_flags=(
+		#	--ascii-output
+			"${@}"
+		)
 	shift -- "${#}"
 	test "${#}" -eq 0
 	
