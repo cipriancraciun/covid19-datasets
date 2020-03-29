@@ -1,14 +1,14 @@
 .
 | map (to_entries | .[] | .value)
 
-| map (
-	select (
-		(.country != .country_original) or
-		(.province != .province_original) or
-		(.administrative != .administrative_original) or
-		false
-	)
-)
+#| map (
+#	select (
+#		(.country != .country_original) or
+#		(.province != .province_original) or
+#		(.administrative != .administrative_original) or
+#		false
+#	)
+#)
 
 | group_by ([.key, .key_original])
 | map (
