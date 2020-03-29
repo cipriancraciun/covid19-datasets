@@ -20,6 +20,7 @@
 		.[6]
 	])
 	
+	# NOTE:  Drop false `administrative` values.
 	| if (.[1] | (
 			(. == "None") or
 			(. == "Recovered") or
@@ -29,6 +30,7 @@
 		.[1] = null
 	else . end
 	
+	# NOTE:  Drop false `provinnce` values.
 	| if (.[2] | (
 			(. == "Unassigned") or
 			(. == "Unknown") or
@@ -41,6 +43,7 @@
 		.[2] = null
 	else . end
 	
+	# NOTE:  Merge cruise ships under one item.
 	| if ([.[0], .[1], .[2]] | (
 			(. == ["Australia", "From Diamond Princess", null]) or
 			(. == ["Canada", "Diamond Princess", null]) or
@@ -65,27 +68,63 @@
 		["Cruise Ship", null, null, null, null, null, .[6], .[7], .[8]]
 	else . end
 	
-	| if (
-			[.[0], .[1], .[2]]
-			| (
-				(. == ["Channel Islands", null, null]) or
-				false
-			)
-	) then
-		["United Kingdom", .[0], null, null, null, null, .[6], .[7], .[8]]
-	else . end
-	
+	# NOTE:  Re-map some provinces an countries.
 	| if (
 			[.[0], .[1], .[2]]
 			| (
 				(. == ["China", "Hong Kong", null]) or
 				(. == ["China", "Macau", null]) or
 				(. == ["Netherlands", "Aruba", null]) or
+				(. == ["Netherlands", "Curacao", null]) or
+				(. == ["Netherlands", "Sint Maarten", null]) or
+				(. == ["Denmark", "Faroe Islands", null]) or
+				(. == ["Denmark", "Greenland", null]) or
 				(. == ["France", "Saint Barthelemy", null]) or
+				(. == ["France", "Fench Guiana", null]) or
+				(. == ["France", "French Guiana", null]) or
+				(. == ["France", "French Polynesia", null]) or
+				(. == ["France", "Guadeloupe", null]) or
+				(. == ["France", "Martinique", null]) or
+				(. == ["France", "Mayotte", null]) or
+				(. == ["France", "New Caledonia", null]) or
+				(. == ["France", "Reunion", null]) or
+				(. == ["France", "St Martin", null]) or
+				(. == ["United Kingdom", "Anguilla", null]) or
+				(. == ["United Kingdom", "Bermuda", null]) or
+				(. == ["United Kingdom", "British Virgin Islands", null]) or
+				(. == ["United Kingdom", "Cayman Islands", null]) or
+				(. == ["United Kingdom", "Gibraltar", null]) or
+				(. == ["United Kingdom", "Isle of Man", null]) or
+				(. == ["United Kingdom", "Montserrat", null]) or
+				(. == ["United Kingdom", "Turks and Caicos Islands", null]) or
 				false
 			)
 	) then
 		[.[1], null, null, null, null, null, .[6], .[7], .[8]]
+	else . end
+	
+	# NOTE:  Drop some "singleton" provinces.
+	| if (
+			[.[0], .[1], .[2]]
+			| (
+				(. == ["Germany", "Bavaria", null]) or
+				false
+			)
+	) then
+		[.[0], null, null, null, null, null, .[6], .[7], .[8]]
+	else . end
+	
+	# NOTE:  Re-group some teritories under UK.
+	| if (
+			[.[0], .[1], .[2]]
+			| (
+				(. == ["United Kingdom", "UK", null]) or
+				(. == ["United Kingdom", "Channel Islands", null]) or
+				(. == ["Channel Islands", null, null]) or
+				false
+			)
+	) then
+		["United Kingdom", null, null, null, null, null, .[6], .[7], .[8]]
 	else . end
 	
 	| {

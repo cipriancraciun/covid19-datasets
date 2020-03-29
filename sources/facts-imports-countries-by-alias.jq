@@ -33,6 +33,7 @@ map ({key : .aliases[], value : .code})
 		"hong_kong_sar" : "HK",
 		"macao_sar" : "MO",
 		"others" : "XX",
+		"fench_guiana" : "GF",
 		
 		# NOTE:  From ECDC dataset.
 		"curaao" : "CW",
