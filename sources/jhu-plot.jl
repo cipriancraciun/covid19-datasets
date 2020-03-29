@@ -97,7 +97,7 @@ elseif _dataset_filter == Symbol("europe-minor")
 		]
 	
 	_dataset = filter(
-			(_data -> _data[_dataset_index] <= 25),
+			(_data -> _data[_dataset_index] <= 30),
 			_dataset,
 		)
 	
@@ -127,7 +127,7 @@ elseif _dataset_filter == :romania
 		]
 	
 	_dataset = filter(
-			(_data -> _data[_dataset_index] <= 15),
+			(_data -> _data[_dataset_index] <= 20),
 			_dataset,
 		)
 	
