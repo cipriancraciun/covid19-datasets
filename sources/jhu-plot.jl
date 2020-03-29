@@ -185,8 +185,6 @@ _dataset = filter(
 
 _dataset_smoothing = 0.9
 
-# println(_dataset)
-
 
 
 
@@ -288,7 +286,7 @@ _dataset_locations_allowed = filter(
 
 for _dataset_location in _dataset_locations
 	if ! (_dataset_location in _dataset_locations_allowed)
-		println("[99218dd5]", _dataset_location)
+		println(("[99218dd5]", _dataset_location))
 		throw(error(("[99218dd5]", _dataset_location)))
 	end
 end
@@ -305,7 +303,22 @@ _dataset_locations_meta = DataFrame(
 		day_date_max = Date[],
 	)
 
-for _dataset_location in _dataset_locations_allowed
+_dataset_locations_count = size(_dataset_locations_allowed)[1]
+
+if false
+	_dataset_colors_increment = 15
+	_dataset_colors_delta = _dataset_colors_increment
+	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_locations_count) < 360
+		global _dataset_colors_delta += _dataset_colors_increment
+	end
+	if (_dataset_colors_delta * _dataset_locations_count) >= 360
+		println(("[28e552a2]", _dataset_colors_delta, _dataset_locations_count))
+	end
+else
+	_dataset_colors_delta = floor(360 / _dataset_locations_count)
+end
+
+for (_index, _dataset_location) in enumerate(_dataset_locations_allowed)
 	_dataset_0 = filter((_data -> _data[_dataset_location_key] == _dataset_location), _dataset)
 	_dataset_max_index =  findmax(_dataset_0[:, _dataset_index])
 	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])
@@ -314,20 +327,23 @@ for _dataset_location in _dataset_locations_allowed
 			_dataset_location * "\n" *
 			(format(_dataset_max_metric[1], commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)
 		)
+	
+	_dataset_color = Colors.HSL(
+			(_index - 1) * _dataset_colors_delta,
+			1,
+			0.5,
+		)
+	
 	_dataset_location_meta = (
 			_dataset_location,
 			_dataset_label,
-			Colors.parse(Colors.Colorant, "white"),
+			_dataset_color,
 			_dataset_max_index[1],
 			_dataset_max_metric[1],
 			_dataset_max_date[1],
 		)
 	push!(_dataset_locations_meta, _dataset_location_meta)
 end
-
-# println(_dataset_locations_meta)
-
-_dataset_locations_count = size(_dataset_locations_meta)[1]
 
 
 
@@ -338,7 +354,7 @@ _plot_font_name = "JetBrains Mono"
 _plot_font_size = 12px
 
 _plot_style = Gadfly.style(
-		point_size = 4px,
+		point_size = 2px,
 		line_width = 2px,
 		highlight_width = 1px,
 		grid_line_width = 1px,
@@ -350,7 +366,7 @@ _plot_style = Gadfly.style(
 		minor_label_font_size = _plot_font_size * 0.8,
 		minor_label_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 75%)"),
 		point_label_font = _plot_font_name * " Bold",
-		point_label_font_size = _plot_font_size * 0.6,
+		point_label_font_size = _plot_font_size * 0.8,
 		point_label_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 100%)"),
 		key_title_font = _plot_font_name,
 		key_title_font_size = 0px,
@@ -368,8 +384,6 @@ _plot_style = Gadfly.style(
 		background_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 5%)"),
 		default_color = Colors.parse(Colors.Colorant, "hsl(0, 100%, 100%)"),
 	)
-
-_dataset_locations_meta[:, :color] = circshift(Gadfly.Scale.color_discrete().f(_dataset_locations_count), 1)
 
 
 _plot_line_filter = (
@@ -397,7 +411,6 @@ _plot = Gadfly.plot(
 			y = _dataset_metric,
 			color = _dataset_location_key,
 			Gadfly.Geom.point,
-			Gadfly.style(discrete_highlight_color = (_ -> "black")),
 		),
 		
 		Gadfly.layer(
@@ -438,7 +451,7 @@ _plot = Gadfly.plot(
 if _plot_format == :pdf
 	_plot_output = Gadfly.PDF(_plot_path, 800px, 400px)
 else
-	throw(error("[14de0af5]"))
+	throw(error(("[14de0af5]", _plot_format)))
 end
 
 Gadfly.draw(_plot_output, _plot)
