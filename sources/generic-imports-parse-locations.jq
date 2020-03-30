@@ -20,6 +20,11 @@
 		.[6]
 	])
 	
+	# NOTE:  Re-map some country names.
+	| if (.[0] == "US") then
+		.[0] = "United States"
+	else . end
+	
 	# NOTE:  Drop false `administrative` values.
 	| if (.[1] | (
 			(. == "None") or
@@ -47,7 +52,7 @@
 	| if ([.[0], .[1], .[2]] | (
 			(. == ["Australia", "From Diamond Princess", null]) or
 			(. == ["Canada", "Diamond Princess", null]) or
-			(. == ["US", "Diamond Princess", null]) or
+			(. == ["United States", "Diamond Princess", null]) or
 			(. == ["Cruise Ship", "Diamond Princess", null]) or
 			(. == ["Cruise Ship", "Diamond+Grand Princess", null]) or
 			(. == ["Others", "Diamond Princess cruise ship", null]) or
@@ -55,13 +60,13 @@
 			(. == ["Diamond Princess", null, null]) or
 			(. == [null, "Diamond Princess", null]) or
 			(. == ["Canada", "Grand Princess", null]) or
-			(. == ["US", "Grand Princess", null]) or
+			(. == ["United States", "Grand Princess", null]) or
 			(. == ["Israel", "From Diamond Princess", null]) or
-			(. == ["US", "Travis, CA (From Diamond Princess)", null]) or
-			(. == ["US", "Omaha, NE (From Diamond Princess)", null]) or
-			(. == ["US", "Lackland, TX (From Diamond Princess)", null]) or
-			(. == ["US", "Unassigned Location (From Diamond Princess)", null]) or
-			(. == ["US", "Grand Princess Cruise Ship", null]) or
+			(. == ["United States", "Travis, CA (From Diamond Princess)", null]) or
+			(. == ["United States", "Omaha, NE (From Diamond Princess)", null]) or
+			(. == ["United States", "Lackland, TX (From Diamond Princess)", null]) or
+			(. == ["United States", "Unassigned Location (From Diamond Princess)", null]) or
+			(. == ["United States", "Grand Princess Cruise Ship", null]) or
 			(. == ["MS Zaandam", null, null]) or
 			false
 	)) then
@@ -98,8 +103,13 @@
 				(. == ["United Kingdom", "Montserrat", null]) or
 				(. == ["United Kingdom", "Turks and Caicos Islands", null]) or
 				(. == ["United Kingdom", "Guernsey", null]) or
-				(. == ["US", "United States Virgin Islands", null]) or
-				(. == ["US", "Puerto Rico", null]) or
+				(. == ["United States", "United States Virgin Islands", null]) or
+				(. == ["United States", "Virgin Islands", null]) or
+				(. == ["United States", "Virgin Islands, U.S.", null]) or
+				(. == ["United States", "Puerto Rico", null]) or
+				(. == ["United States", "American Samoa", null]) or
+				(. == ["United States", "Guam", null]) or
+				(. == ["United States", "Northern Mariana Islands", null]) or
 				false
 			)
 	) then
@@ -111,6 +121,7 @@
 			[.[0], .[1], .[2]]
 			| (
 				(. == ["Germany", "Bavaria", null]) or
+				(. == ["United States", "US", null]) or
 				false
 			)
 	) then
@@ -175,24 +186,30 @@
 	| .province = (
 		if ((.country_code != null) and ((.country == .province) or (.country_original == .province) or (.province == null))) then
 			"(mainland)"
-		else if ((.country_code == "US") and (.administrative == null)) then
-			.province
-			| split (", ")
-			| reverse
-			| map (select (. != ""))
-			| if (.[0] == "D.C.") then .[0] = "DC"
-			else if (.[0] == "U.S.") then .[0] = null
-			else . end end
-			| map (select (. != null))
-			| if ((.[0] == "United States Virgin Islands") or (.[0] == "Virgin Islands")) then .[0] = "VI"
-			else . end
-			| map (select (. != null))
-			| join (" / ")
-		else if (.country_code != null) then
-			.province
 		else
-			null
-		end end end)
+			if ((.province != null) and (.province != "Georgia") and ($countries_by_alias[.province] != null)) then
+				. as $data
+				| ["12c87205", $data.country, $data.province, $countries_by_alias[.province]] | debug |
+				$data
+			else . end
+			| if ((.country_code == "US") and (.administrative == null)) then
+				.province
+				| split (", ")
+				| reverse
+				| map (select (. != ""))
+				| .[0] |= (
+					{
+						"D.C." : "DC",
+					}[.] // .
+				)
+				| map (select (. != null))
+				| join (" / ")
+			else if (.country_code != null) then
+				.province
+			else
+				null
+			end end
+		end)
 	
 	| . as $data
 	
