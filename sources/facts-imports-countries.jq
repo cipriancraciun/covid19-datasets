@@ -4,7 +4,17 @@
 	| {
 		
 		code : .cca2,
-		name : .name.common,
+		name : (
+			({
+				"Åland Islands" : "Aland Islands",
+				"Saint Barthélemy" : "Saint Barthelemy",
+				"Cocos (Keeling) Islands" : "Cocos Islands",
+				"Curaçao" : "Curacao",
+				"Réunion" : "Reunion",
+				"São Tomé and Príncipe" : "Sao Tome and Principe",
+			}[.name.common])
+			//
+			.name.common),
 		
 		region : .region,
 		subregion : .subregion,
