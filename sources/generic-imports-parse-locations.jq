@@ -97,6 +97,9 @@
 				(. == ["United Kingdom", "Isle of Man", null]) or
 				(. == ["United Kingdom", "Montserrat", null]) or
 				(. == ["United Kingdom", "Turks and Caicos Islands", null]) or
+				(. == ["United Kingdom", "Guernsey", null]) or
+				(. == ["US", "United States Virgin Islands", null]) or
+				(. == ["US", "Puerto Rico", null]) or
 				false
 			)
 	) then
