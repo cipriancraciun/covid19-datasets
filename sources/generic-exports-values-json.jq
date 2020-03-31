@@ -49,19 +49,19 @@
 		end
 		
 		| if ((.values.absolute.confirmed >= 1) or ($previous.day_index_1 != null)) then
-			.day_index_1 = (($previous.day_index_1 // 0) + 1)
+			.day_index_1 = (if ($previous.day_index_1 != null) then $previous.day_index_1 + .date.index - $previous.date.index else 1 end)
 		else . end
 		| if ((.values.absolute.confirmed >= 10) or ($previous.day_index_10 != null)) then
-			.day_index_10 = (($previous.day_index_10 // 0) + 1)
+			.day_index_10 = (if ($previous.day_index_10 != null) then $previous.day_index_10 + .date.index - $previous.date.index else 1 end)
 		else . end
 		| if ((.values.absolute.confirmed >= 100) or ($previous.day_index_100 != null)) then
-			.day_index_100 = (($previous.day_index_100 // 0) + 1)
+			.day_index_100 = (if ($previous.day_index_100 != null) then $previous.day_index_100 + .date.index - $previous.date.index else 1 end)
 		else . end
 		| if ((.values.absolute.confirmed >= 1000) or ($previous.day_index_1k != null)) then
-			.day_index_1k = (($previous.day_index_1k // 0) + 1)
+			.day_index_1k = (if ($previous.day_index_1k != null) then $previous.day_index_1k + .date.index - $previous.date.index else 1 end)
 		else . end
 		| if ((.values.absolute.confirmed >= 10000) or ($previous.day_index_10k != null)) then
-			.day_index_10k = (($previous.day_index_10k // 0) + 1)
+			.day_index_10k = (if ($previous.day_index_10k != null) then $previous.day_index_10k + .date.index - $previous.date.index else 1 end)
 		else . end
 		
 		| if (
@@ -76,7 +76,7 @@
 			}
 		else
 			{
-				previous : .,
+				previous : $previous,
 				records : $records,
 			}
 		end

@@ -16,6 +16,7 @@
 		"location_long",
 		
 		"date",
+		"day_index_0",
 		"day_index_1",
 		"day_index_10",
 		"day_index_100",
@@ -75,6 +76,7 @@
 			.location.latlong[1],
 			
 			.date.date,
+			.date.index,
 			.day_index_1,
 			.day_index_10,
 			.day_index_100,
