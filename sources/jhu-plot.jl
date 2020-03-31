@@ -228,12 +228,41 @@ elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_d
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = "%"
 else
-	_dataset_rstep_metric = 10 ^ maximum([floor(log10(_dataset_delta_metric / 4)), 0])
+	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = ""
 end
 
-while (_dataset_delta_metric / _dataset_rstep_metric) > 10
+while (_dataset_delta_metric / _dataset_rstep_metric) >= 12
 	global _dataset_rstep_metric *= 2
+	if (_dataset_rstep_metric >= 20000) && (_dataset_rstep_metric < 25000)
+		_dataset_rstep_metric = 25000
+	elseif (_dataset_rstep_metric > 10000) && (_dataset_rstep_metric < 20000)
+		_dataset_rstep_metric = 10000
+	elseif (_dataset_rstep_metric >= 2000) && (_dataset_rstep_metric < 2500)
+		_dataset_rstep_metric = 2500
+	elseif (_dataset_rstep_metric > 1000) && (_dataset_rstep_metric < 2000)
+		_dataset_rstep_metric = 1000
+	elseif (_dataset_rstep_metric >= 200) && (_dataset_rstep_metric < 250)
+		_dataset_rstep_metric = 250
+	elseif (_dataset_rstep_metric > 100) && (_dataset_rstep_metric < 200)
+		_dataset_rstep_metric = 100
+	elseif (_dataset_rstep_metric >= 20) && (_dataset_rstep_metric < 25)
+		_dataset_rstep_metric = 25
+	elseif (_dataset_rstep_metric > 10) && (_dataset_rstep_metric < 20)
+		_dataset_rstep_metric = 10
+	elseif (_dataset_rstep_metric >= 2.0) && (_dataset_rstep_metric < 2.5)
+		_dataset_rstep_metric = 2.5
+	elseif (_dataset_rstep_metric > 1.0) && (_dataset_rstep_metric < 2.0)
+		_dataset_rstep_metric = 1.0
+	elseif (_dataset_rstep_metric >= 0.20) && (_dataset_rstep_metric < 0.25)
+		_dataset_rstep_metric = 0.25
+	elseif (_dataset_rstep_metric > 0.10) && (_dataset_rstep_metric < 0.20)
+		_dataset_rstep_metric = 0.10
+	elseif (_dataset_rstep_metric >= 0.020) && (_dataset_rstep_metric < 0.025)
+		_dataset_rstep_metric = 0.025
+	elseif (_dataset_rstep_metric > 0.010) && (_dataset_rstep_metric < 0.020)
+		_dataset_rstep_metric = 0.010
+	end
 end
 
 if _dataset_rstep_metric != floor(_dataset_rstep_metric)
