@@ -70,6 +70,7 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 ![absolute-confirmed](./plots/jhu/global/svg/absolute-confirmed.svg)
 ![absolute_pop100k-confirmed](./plots/jhu/global/svg/absolute_pop100k-confirmed.svg)
 ![absolute-deaths](./plots/jhu/global/svg/absolute-deaths.svg)
+![peak-confirmed](./plots/jhu/global/svg/peakpct-confirmed.svg)
 
 
 
