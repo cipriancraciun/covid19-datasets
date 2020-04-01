@@ -101,7 +101,6 @@
 						$records
 						| map (select (.values.delta[$metric] != null))
 						| map (select (.values.delta[$metric] > 0))
-						| unique_by (.values.delta[$metric])
 						| sort_by ([.values.delta[$metric], .date.index])
 						| reverse
 						| .[1:6]
