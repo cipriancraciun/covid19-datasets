@@ -160,7 +160,11 @@ end
 
 if startswith(String(_dataset_metric), "peakpct_")
 	_dataset_index = :day_index_peak
-	_dataset_index_at_least = 0 - _dataset_index_at_most
+	if _dataset_index_at_most !== nothing
+		_dataset_index_at_least = 0 - _dataset_index_at_most
+	else
+		_dataset_index_at_least = nothing
+	end
 end
 
 _dataset = filter(
@@ -499,7 +503,7 @@ _plot = Gadfly.plot(
 					if (_dataset_min_index > 0)
 						[1; 5 : 5 : (ceil(_dataset_max_index / 5) * 5);]
 					else
-						[(floor(_dataset_min_index / 5) * 5) : 5 : (ceil(_dataset_max_index / 5) * 5);]
+						[(ceil(_dataset_min_index / 5) * 5) : 5 : (ceil(_dataset_max_index / 5) * 5);]
 					end
 				else
 					[_dataset_min_index : _dataset_max_index;]
