@@ -3,10 +3,20 @@
 
 
 
-<<~~ ninja
+--<<~~ ninja / exec
 	#! {{}}
 	#! <ninja>
 	{{ ZRUN ":: ninja / script" }}
+!!
+
+
+<< ninja
+	exec -- \
+			cgexec -g "cpu:${USER}--covid19-datasets" -- \
+			nice -n 19 -- \
+	"${ZRUN[@]}" ':: ninja / exec' \
+			"${@}" \
+	#
 !!
 
 
@@ -150,7 +160,7 @@
 
 <<~~.. ninja / targets
 	test "${#}" -eq 0
-	"${ZRUN[@]}" ':: ninja' -t targets all \
+	"${ZRUN[@]}" ':: ninja / exec' -t targets all \
 	| sed -r \
 			-e '\#^([^:]+): marker$# d' \
 			-e 's#^([^:]+): .*$#\1#' \
@@ -158,7 +168,7 @@
 !!
 
 <<~~.. ninja / commands
-	"${ZRUN[@]}" ':: ninja' -t commands
+	"${ZRUN[@]}" ':: ninja / exec' -t commands
 !!
 
 
@@ -177,5 +187,35 @@
 		rm -- ./.outputs/ninja/markers/ninja.force
 	fi
 	exec -- "${ZRUN[@]}" ':: ninja / all / data'
+!!
+
+
+
+
+<< ninja / cgroup / create
+	test "${#}" -eq 0
+	root-exec cgcreate -a "${USER}:${USER}" -t "${USER}:${USER}" -g "cpu:${USER}--covid19-datasets"
+	cgset -r cpu.shares=128 -- "${USER}--covid19-datasets"
+	cgset -r cpu.cfs_period_us=1000000 -- "${USER}--covid19-datasets"
+!!
+
+<< ninja / cgroup / set / 10%
+	test "${#}" -eq 0
+	cgset -r cpu.cfs_quota_us=100000 -- "${USER}--covid19-datasets"
+!!
+
+<< ninja / cgroup / set / 50%
+	test "${#}" -eq 0
+	cgset -r cpu.cfs_quota_us=500000 -- "${USER}--covid19-datasets"
+!!
+
+<< ninja / cgroup / set / 100%
+	test "${#}" -eq 0
+	cgset -r cpu.cfs_quota_us=1000000 -- "${USER}--covid19-datasets"
+!!
+
+<< ninja / cgroup / set / 200%
+	test "${#}" -eq 0
+	cgset -r cpu.cfs_quota_us=2000000 -- "${USER}--covid19-datasets"
 !!
 
