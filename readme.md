@@ -4,10 +4,10 @@
 
 
 > Table of contents:
-> * [About](#about)
+> * [About](#about), [Used by](#used-by)
 > * [Visualizations](#visualizations)
 > * Datasets: **[JHU](#jhu-csse-covid-19-dataset)**, **[NY Times](#ny-times-covid-19-dataset)**, **[ECDC](#ecdc-covid-19-dataset)**, [example](#dataset-example)
-> * [Licensing](#licensing)
+> * [Attribution](#attribution), [Licensing](#licensing)
 
 
 
@@ -23,6 +23,13 @@ Also some visualizations based on the derived datasets are available at:
 * or inside the [./plots](./plots) folder of this repository;
 
 None of these datasets were collected by me, however I have re-processed, re-formatted and augmented them for easier manipulation.
+
+
+
+
+## Used by
+
+* [covid19.geo-spatial.org](https://covid19.geo-spatial.org/dashboard/statistici/situatie-europa);
 
 
 
@@ -197,6 +204,30 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 
   ...
 ]
+~~~~
+
+
+
+
+## Attribution
+
+If you use any of these derived datasets, please attribute both the original dataset and my derived dataset.
+
+Choose (and adapt if necessary) one (or more) of the following snippets depending on which derived dataset you are using:
+
+~~~~
+based on original data from JHU CSSE (https://github.com/CSSEGISandData/COVID-19),
+as processed and augmented at https://github.com/cipriancraciun/covid19-datasets
+~~~~
+
+~~~~
+based on original data from ECDC (https://www.ecdc.europa.eu/),
+as processed and augmented at https://github.com/cipriancraciun/covid19-datasets
+~~~~
+
+~~~~
+based on original data from "The New York Times" (https://github.com/nytimes/covid-19-data),
+as processed and augmented at https://github.com/cipriancraciun/covid19-datasets
 ~~~~
 
 
