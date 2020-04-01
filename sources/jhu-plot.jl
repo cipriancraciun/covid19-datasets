@@ -450,13 +450,6 @@ _plot_style = Gadfly.style(
 	)
 
 
-_plot_line_filter = (
-		startswith(String(_dataset_metric), "deltapct_") ||
-		startswith(String(_dataset_metric), "peakpct_") ||
-		false
-	)
-
-
 
 
 _plot = Gadfly.plot(
@@ -479,7 +472,7 @@ _plot = Gadfly.plot(
 		),
 		
 		Gadfly.layer(
-			filter((_data -> !_plot_line_filter || (_data[_dataset_metric] >= _dataset_qmin_metric) && (_data[_dataset_metric] <= _dataset_qmax_metric)), _dataset),
+			_dataset,
 			x = _dataset_index,
 			y = _dataset_metric,
 			color = _dataset_location_key,
