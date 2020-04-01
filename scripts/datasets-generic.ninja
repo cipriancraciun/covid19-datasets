@@ -23,6 +23,13 @@ build ./exports/combined/v1/values.tsv : z-run-in-out $
     pool = cpu_moderate
 
 
+build ./exports/combined/v1/values.json.gz : gzip ./exports/combined/v1/values.json
+    pool = cpu_moderate
+
+build ./exports/combined/v1/values.tsv.gz : gzip ./exports/combined/v1/values.tsv
+    pool = cpu_moderate
+
+
 
 
 build ./exports/combined/v1/locations-diff.json : z-run-out-in $
@@ -52,6 +59,9 @@ build __combined__exports : phony $
         $
         ./exports/combined/v1/values.json $
         ./exports/combined/v1/values.tsv $
+        $
+        ./exports/combined/v1/values.json.gz $
+        ./exports/combined/v1/values.tsv.gz $
         $
         ./exports/combined/v1/locations-diff.json $
         ./exports/combined/v1/locations-diff.tsv $
