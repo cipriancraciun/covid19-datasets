@@ -22,6 +22,9 @@
 		"day_index_100",
 		"day_index_1k",
 		"day_index_10k",
+		"day_index_peak",
+		"day_index_peak_confirmed",
+		"day_index_peak_deaths",
 		
 		"absolute_confirmed",
 		"absolute_deaths",
@@ -47,6 +50,11 @@
 		"deltapct_deaths",
 		"deltapct_recovered",
 		"deltapct_infected",
+		
+		"peakpct_confirmed",
+		"peakpct_deaths",
+		"peakpct_recovered",
+		"peakpct_infected",
 		
 		"factbook_area",
 		"factbook_population",
@@ -81,12 +89,15 @@
 			.day_index_10,
 			.day_index_100,
 			.day_index_1k,
-			.day_index_10k
+			.day_index_10k,
+			.day_index_peak,
+			.day_index_peak_confirmed,
+			.day_index_peak_deaths
 			
 		] + [
 			
 			.values
-			| (.absolute, .absolute_pop100k, .relative, .delta, .delta_pct)
+			| (.absolute, .absolute_pop100k, .relative, .delta, .delta_pct, .peak_pct)
 			| (.confirmed, .deaths, .recovered, .infected)
 			
 		] + [

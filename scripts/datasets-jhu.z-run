@@ -18,7 +18,7 @@
 		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__{{ $_filter }}__all__png -path '*/{{ $_filter }}/*'
 	!!
 	
-	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
+	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
 	<< plots / view / jhu / plots / {{ $_filter }} / {{ $_method }}
 		test "${#}" -eq 0
 		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}-*'
@@ -97,7 +97,7 @@
 	
 	
 	{{ $_filters := array "world" "global" "europe-major" "europe-minor" "romania" "us" "continents" "subcontinents" }}
-	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" }}
+	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
 	{{ $_metrics := array "confirmed" "deaths" "infected" "recovered" }}
 	{{ $_formats := array "pdf" "svg" "png" }}
 	

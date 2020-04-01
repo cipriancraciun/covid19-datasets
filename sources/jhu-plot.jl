@@ -56,6 +56,9 @@ _dataset = filter(
 		_dataset,
 	)
 
+_dataset_index_at_least = nothing
+_dataset_index_at_most = nothing
+
 
 
 
@@ -96,10 +99,7 @@ elseif _dataset_filter == Symbol("europe-minor")
 		#	"Portugal", "Sweden", "Denmark",
 		]
 	
-	_dataset = filter(
-			(_data -> _data[_dataset_index] <= 30),
-			_dataset,
-		)
+	_dataset_index_at_most = 30
 	
 elseif _dataset_filter == :us
 	
@@ -126,10 +126,7 @@ elseif _dataset_filter == :romania
 			"United Kingdom", "Austria",
 		]
 	
-	_dataset = filter(
-			(_data -> _data[_dataset_index] <= 20),
-			_dataset,
-		)
+	_dataset_index_at_most = 20
 	
 elseif _dataset_filter == :continents
 	
@@ -156,6 +153,36 @@ elseif _dataset_filter == :subcontinents
 	
 else
 	throw(error(("[698e83db]", _dataset_filter)))
+end
+
+
+
+
+if startswith(String(_dataset_metric), "peakpct_")
+	_dataset_index = :day_index_peak
+	_dataset_index_at_least = 0 - _dataset_index_at_most
+end
+
+_dataset = filter(
+		(_data ->
+			(_data[_dataset_index] !== missing) &&
+			(_data[_dataset_metric] !== missing) &&
+			(_data[_dataset_metric] != 0)),
+		_dataset,
+	)
+
+if _dataset_index_at_most !== nothing
+	_dataset = filter(
+			(_data -> _data[_dataset_index] <= _dataset_index_at_most),
+			_dataset,
+		)
+end
+
+if _dataset_index_at_least !== nothing
+	_dataset = filter(
+			(_data -> _data[_dataset_index] >= _dataset_index_at_least),
+			_dataset,
+		)
 end
 
 
@@ -190,6 +217,7 @@ _dataset_smoothing = 0.9
 
 _dataset_min_date = minimum(_dataset[!, :date])
 _dataset_max_date = maximum(_dataset[!, :date])
+_dataset_min_index = minimum(_dataset[!, _dataset_index])
 _dataset_max_index = maximum(_dataset[!, _dataset_index])
 
 _dataset_min_metric = minimum(_dataset[!, _dataset_metric])
@@ -224,7 +252,10 @@ if _dataset_metric in [:relative_recovered, :relative_deaths, :relative_infected
 	_dataset_cmin_metric = 0
 	_dataset_cmax_metric = 100
 	_dataset_rsuf_metric = "%"
-elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_deaths, :deltapct_infected]
+elseif _dataset_metric in [
+			:deltapct_confirmed, :deltapct_recovered, :deltapct_deaths, :deltapct_infected,
+			:peakpct_confirmed, :peakpct_recovered, :peakpct_deaths, :peakpct_infected,
+		]
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = "%"
 else
@@ -416,7 +447,8 @@ _plot_style = Gadfly.style(
 
 
 _plot_line_filter = (
-		startswith("deltapct_", String(_dataset_metric)) ||
+		startswith(String(_dataset_metric), "deltapct_") ||
+		startswith(String(_dataset_metric), "peakpct_") ||
 		false
 	)
 
@@ -454,7 +486,7 @@ _plot = Gadfly.plot(
 			end,
 		),
 		
-		Gadfly.Coord.cartesian(xmin = 1, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
+		Gadfly.Coord.cartesian(xmin = _dataset_min_index, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
 		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
 		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)),
 		
@@ -463,10 +495,14 @@ _plot = Gadfly.plot(
 		Gadfly.Guide.ylabel(nothing),
 		
 		Gadfly.Guide.xticks(ticks =
-				if (_dataset_max_index > 20)
-					[1; 5 : 5 : _dataset_max_index;]
+				if ((_dataset_max_index - _dataset_min_index) > 20)
+					if (_dataset_min_index > 0)
+						[1; 5 : 5 : (ceil(_dataset_max_index / 5) * 5);]
+					else
+						[(floor(_dataset_min_index / 5) * 5) : 5 : (ceil(_dataset_max_index / 5) * 5);]
+					end
 				else
-					[1 : _dataset_max_index;]
+					[_dataset_min_index : _dataset_max_index;]
 				end),
 		Gadfly.Guide.yticks(ticks = [_dataset_rmin_metric : _dataset_rstep_metric : _dataset_rmax_metric;]),
 		

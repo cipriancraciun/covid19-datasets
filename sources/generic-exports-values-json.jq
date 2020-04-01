@@ -46,6 +46,7 @@
 			}
 		else
 			.
+			| .values.delta = .values.absolute
 		end
 		
 		| if ((.values.absolute.confirmed >= 1) or ($previous.day_index_1 != null)) then
@@ -82,6 +83,84 @@
 		end
 	)
 | .records
+
+| (
+	group_by (.dataset)
+	| map (
+		.[0].dataset as $records_dataset
+		| group_by (.location.key)
+		| map (
+			.[0].location.key as $records_location_key
+			| . as $records
+			| ["confirmed", "recovered", "deaths", "infected"]
+			| map (
+				. as $metric
+				| {
+					key : $metric,
+					value : (
+						$records
+						| map (select (.values.delta[$metric] != null))
+						| map (select (.values.delta[$metric] > 0))
+						| unique_by (.values.delta[$metric])
+						| sort_by ([.values.delta[$metric], .date.index])
+						| reverse
+						| .[1:6]
+						| (. | length) as $length
+						| if ($length >= 1) then
+							{
+								date_index : map (.date.index) | add | (. / $length) | trunc,
+								value : map (.values.delta[$metric]) | add | (. / $length),
+							}
+						else null end
+					)
+				}
+			)
+			| map (select (.value.value != null))
+			| from_entries
+			| [$records_location_key, .]
+		)
+		| map ({
+			key : .[0],
+			value : .[1],
+		})
+		| sort_by (.key)
+		| from_entries
+		| [$records_dataset, .]
+	)
+	| map ({
+		key : .[0],
+		value : .[1],
+	})
+	| sort_by (.key)
+	| from_entries
+) as $peak_values
+
+| map (
+	$peak_values[.dataset][.location.key] as $peak_values
+	| .values.peak_pct = (
+			.values.delta
+			| to_entries
+			| map (
+				.value = (
+					if ($peak_values[.key] != null) then
+						((.value / $peak_values[.key].value) * 100)
+					else null end)
+			)
+			| map (select (.value != null))
+			| from_entries
+		)
+	| .day_index_peak_confirmed = (if ($peak_values.confirmed.date_index != null)
+			then (.date.index - $peak_values.confirmed.date_index) else null end)
+	| .day_index_peak_deaths = (if ($peak_values.deaths.date_index != null)
+			then (.date.index - $peak_values.deaths.date_index) else null end)
+	| .day_index_peak = (
+			[.day_index_peak_confirmed, .day_index_peak_deaths]
+			| map (select (. != null))
+			| if (. != []) then
+				((. | add) / (. | length)) | trunc
+			else null end
+		)
+)
 
 | map (
 	if (.values.absolute.confirmed != 0) then
