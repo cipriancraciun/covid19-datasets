@@ -18,6 +18,7 @@ map ({key : .aliases[], value : .fips})
 		"ak_soldotna" : "02122",
 		"ak_sterling" : "02122",
 		"ma_dukes_and_nantucket" : "25007",
+		"nh_manchester" : "33011",
 		
 		# NOTE:  From NY Times dataset.
 		"ny_new_york_city" : "36061",

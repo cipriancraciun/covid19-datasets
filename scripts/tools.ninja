@@ -41,6 +41,8 @@ rule symlink
 
 rule gzip
     command = gzip --best --rsyncable < ${in} >| ${out}.tmp ; mv -T -- ${out}.tmp ${out}
+    description = [gzip]  ${out}
+    restat = true
 
 
 
