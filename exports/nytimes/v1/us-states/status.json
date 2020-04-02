@@ -1,0 +1,3337 @@
+{
+  "country": {
+    "British Virgin Islands": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "British Virgin Islands",
+        "type": "country",
+        "country_code": "VG",
+        "country": "British Virgin Islands",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          18.431383,
+          -64.62305
+        ]
+      },
+      "date": "2020-03-30",
+      "day_index": {
+        "confirmed_1": 17,
+        "confirmed_10": 9,
+        "peak": 6,
+        "peak_confirmed": 6
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 30,
+          "infected": 30
+        },
+        "absolute_pop100k": null,
+        "delta": {
+          "confirmed": 7,
+          "infected": 7
+        },
+        "relative": {
+          "infected": 100
+        },
+        "peak_pct": {
+          "confirmed": 205.8823529411765,
+          "infected": 205.8823529411765
+        }
+      },
+      "factbook": null
+    },
+    "Guam": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "Guam",
+        "type": "country",
+        "country_code": "GU",
+        "country": "Guam",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          13.46666666,
+          144.78333333
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 17,
+        "confirmed_10": 13,
+        "confirmed_100": 1,
+        "peak": 8,
+        "peak_confirmed": 7,
+        "peak_deaths": 9
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 139,
+          "deaths": 2,
+          "infected": 137
+        },
+        "absolute_pop100k": {
+          "confirmed": 82.49992580941922,
+          "deaths": 1.1870492922218594,
+          "infected": 81.31287651719738
+        },
+        "delta": {
+          "confirmed": 79,
+          "deaths": 1,
+          "infected": 78
+        },
+        "relative": {
+          "deaths": 1.4388489208633095,
+          "infected": 98.56115107913669
+        },
+        "peak_pct": {
+          "confirmed": 940.4761904761905,
+          "deaths": 100,
+          "infected": 951.2195121951221
+        }
+      },
+      "factbook": {
+        "population": 168485,
+        "median_age": 29.4,
+        "death_rate": 6,
+        "area": 544
+      }
+    },
+    "Northern Mariana Islands": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "Northern Mariana Islands",
+        "type": "country",
+        "country_code": "MP",
+        "country": "Northern Mariana Islands",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          15.2,
+          145.75
+        ]
+      },
+      "date": "2020-03-28",
+      "day_index": {
+        "confirmed_1": 1
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 2,
+          "infected": 2
+        },
+        "absolute_pop100k": {
+          "confirmed": 3.8885540411797868,
+          "infected": 3.8885540411797868
+        },
+        "delta": {
+          "confirmed": 2,
+          "infected": 2
+        },
+        "relative": {
+          "infected": 100
+        },
+        "peak_pct": null
+      },
+      "factbook": {
+        "population": 51433,
+        "median_age": 32.8,
+        "death_rate": 5.3,
+        "area": 464
+      }
+    },
+    "Puerto Rico": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "Puerto Rico",
+        "type": "country",
+        "country_code": "PR",
+        "country": "Puerto Rico",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          18.25,
+          -66.5
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 19,
+        "confirmed_10": 12,
+        "confirmed_100": 4,
+        "peak": 4,
+        "peak_confirmed": 3,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 239,
+          "deaths": 8,
+          "infected": 231
+        },
+        "absolute_pop100k": {
+          "confirmed": 7.494352582008286,
+          "deaths": 0.25085699019274593,
+          "infected": 7.243495591815539
+        },
+        "delta": {
+          "confirmed": 65,
+          "deaths": 2,
+          "infected": 63
+        },
+        "relative": {
+          "deaths": 3.3472803347280333,
+          "infected": 96.65271966527197
+        },
+        "peak_pct": {
+          "confirmed": 264.2276422764227,
+          "deaths": 166.66666666666669,
+          "infected": 264.70588235294116
+        }
+      },
+      "factbook": {
+        "population": 3189068,
+        "median_age": 43.6,
+        "death_rate": 9.5,
+        "area": 9104
+      }
+    },
+    "United States": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States",
+        "type": "country",
+        "country_code": "US",
+        "country": "United States",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 71,
+        "confirmed_10": 59,
+        "confirmed_100": 30,
+        "confirmed_1k": 22,
+        "confirmed_10k": 13,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 187424,
+          "deaths": 3900,
+          "infected": 183524
+        },
+        "absolute_pop100k": {
+          "confirmed": 56.34454845299576,
+          "deaths": 1.172441837580478,
+          "infected": 55.17210661541528
+        },
+        "delta": {
+          "confirmed": 23894,
+          "deaths": 834,
+          "infected": 23060
+        },
+        "relative": {
+          "deaths": 2.0808434352057366,
+          "infected": 97.91915656479426
+        },
+        "peak_pct": {
+          "confirmed": 125.60584555538033,
+          "deaths": 200.57720057720059,
+          "infected": 123.93052151855196
+        }
+      },
+      "factbook": {
+        "population": 332639102,
+        "median_age": 38.5,
+        "death_rate": 8.3,
+        "area": 9833517
+      }
+    }
+  },
+  "province": {
+    "United States / Alabama": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Alabama",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Alabama",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 19,
+        "confirmed_10": 18,
+        "confirmed_100": 12,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 999,
+          "deaths": 13,
+          "infected": 986
+        },
+        "absolute_pop100k": {
+          "confirmed": 20.374511669455668,
+          "deaths": 0.2651337854884121,
+          "infected": 20.109377883967255
+        },
+        "delta": {
+          "confirmed": 52,
+          "deaths": 2,
+          "infected": 50
+        },
+        "relative": {
+          "deaths": 1.3013013013013013,
+          "infected": 98.69869869869869
+        },
+        "peak_pct": {
+          "confirmed": 47.016274864376136,
+          "deaths": 142.85714285714286,
+          "infected": 45.95588235294118
+        }
+      },
+      "factbook": {
+        "population": 4903185,
+        "area": 135767
+      }
+    },
+    "United States / Alaska": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Alaska",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Alaska",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 20,
+        "confirmed_10": 13,
+        "confirmed_100": 4,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 133,
+          "deaths": 2,
+          "infected": 131
+        },
+        "absolute_pop100k": {
+          "confirmed": 18.180699751894963,
+          "deaths": 0.2733939812315032,
+          "infected": 17.90730577066346
+        },
+        "delta": {
+          "confirmed": 14,
+          "infected": 14
+        },
+        "relative": {
+          "deaths": 1.5037593984962405,
+          "infected": 98.49624060150376
+        },
+        "peak_pct": {
+          "confirmed": 95.89041095890411,
+          "infected": 97.22222222222221
+        }
+      },
+      "factbook": {
+        "population": 731545,
+        "area": 1723337
+      }
+    },
+    "United States / Arizona": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Arizona",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Arizona",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 66,
+        "confirmed_10": 18,
+        "confirmed_100": 11,
+        "confirmed_1k": 2,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1298,
+          "deaths": 24,
+          "infected": 1274
+        },
+        "absolute_pop100k": {
+          "confirmed": 17.83281311802616,
+          "deaths": 0.3297284397786039,
+          "infected": 17.503084678247554
+        },
+        "delta": {
+          "confirmed": 129,
+          "deaths": 4,
+          "infected": 125
+        },
+        "relative": {
+          "deaths": 1.848998459167951,
+          "infected": 98.15100154083206
+        },
+        "peak_pct": {
+          "confirmed": 98.32317073170732,
+          "deaths": 133.33333333333331,
+          "infected": 97.65625
+        }
+      },
+      "factbook": {
+        "population": 7278717,
+        "area": 295234
+      }
+    },
+    "United States / Arkansas": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Arkansas",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Arkansas",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 21,
+        "confirmed_10": 17,
+        "confirmed_100": 12,
+        "peak": 3,
+        "peak_confirmed": 4,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 564,
+          "deaths": 8,
+          "infected": 556
+        },
+        "absolute_pop100k": {
+          "confirmed": 18.68908650131022,
+          "deaths": 0.26509342555049964,
+          "infected": 18.42399307575972
+        },
+        "delta": {
+          "confirmed": 56,
+          "deaths": 1,
+          "infected": 55
+        },
+        "relative": {
+          "deaths": 1.4184397163120568,
+          "infected": 98.58156028368793
+        },
+        "peak_pct": {
+          "confirmed": 114.28571428571428,
+          "deaths": 83.33333333333334,
+          "infected": 114.10788381742738
+        }
+      },
+      "factbook": {
+        "population": 3017804,
+        "area": 137732
+      }
+    },
+    "United States / California": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / California",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "California",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 67,
+        "confirmed_10": 37,
+        "confirmed_100": 25,
+        "confirmed_1k": 13,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 8582,
+          "deaths": 183,
+          "infected": 8399
+        },
+        "absolute_pop100k": {
+          "confirmed": 21.719861218641128,
+          "deaths": 0.4631478213716298,
+          "infected": 21.2567133972695
+        },
+        "delta": {
+          "confirmed": 1161,
+          "deaths": 37,
+          "infected": 1124
+        },
+        "relative": {
+          "deaths": 2.1323700769051506,
+          "infected": 97.86762992309484
+        },
+        "peak_pct": {
+          "confirmed": 136.97498820198206,
+          "deaths": 217.6470588235294,
+          "infected": 135.61776061776064
+        }
+      },
+      "factbook": {
+        "population": 39512223,
+        "area": 423967
+      }
+    },
+    "United States / Colorado": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Colorado",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Colorado",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 27,
+        "confirmed_10": 23,
+        "confirmed_100": 18,
+        "confirmed_1k": 7,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 2990,
+          "deaths": 69,
+          "infected": 2921
+        },
+        "absolute_pop100k": {
+          "confirmed": 51.92111602268275,
+          "deaths": 1.1981796005234482,
+          "infected": 50.72293642215931
+        },
+        "delta": {
+          "confirmed": 362,
+          "deaths": 18,
+          "infected": 344
+        },
+        "relative": {
+          "deaths": 2.307692307692308,
+          "infected": 97.6923076923077
+        },
+        "peak_pct": {
+          "confirmed": 117.38002594033723,
+          "deaths": 243.24324324324326,
+          "infected": 113.90728476821192
+        }
+      },
+      "factbook": {
+        "population": 5758736,
+        "area": 269601
+      }
+    },
+    "United States / Connecticut": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Connecticut",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Connecticut",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 24,
+        "confirmed_10": 19,
+        "confirmed_100": 13,
+        "confirmed_1k": 6,
+        "peak": 5,
+        "peak_confirmed": 3,
+        "peak_deaths": 7
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 3128,
+          "deaths": 69,
+          "infected": 3059
+        },
+        "absolute_pop100k": {
+          "confirmed": 87.73509386925788,
+          "deaths": 1.9353329529983359,
+          "infected": 85.79976091625954
+        },
+        "delta": {
+          "confirmed": 557,
+          "deaths": 33,
+          "infected": 524
+        },
+        "relative": {
+          "deaths": 2.2058823529411766,
+          "infected": 97.79411764705883
+        },
+        "peak_pct": {
+          "confirmed": 155.15320334261838,
+          "deaths": 660,
+          "infected": 150.40183696900115
+        }
+      },
+      "factbook": {
+        "population": 3565278,
+        "area": 14357
+      }
+    },
+    "United States / Delaware": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Delaware",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Delaware",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 21,
+        "confirmed_10": 15,
+        "confirmed_100": 8,
+        "peak": 4,
+        "peak_confirmed": 5,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 319,
+          "deaths": 10,
+          "infected": 309
+        },
+        "absolute_pop100k": {
+          "confirmed": 32.75947765577696,
+          "deaths": 1.0269428732218484,
+          "infected": 31.732534782555117
+        },
+        "delta": {
+          "confirmed": 55,
+          "deaths": 3,
+          "infected": 52
+        },
+        "relative": {
+          "deaths": 3.1347962382445136,
+          "infected": 96.86520376175548
+        },
+        "peak_pct": {
+          "confirmed": 174.0506329113924,
+          "deaths": 214.28571428571428,
+          "infected": 171.05263157894737
+        }
+      },
+      "factbook": {
+        "population": 973764,
+        "area": 6446
+      }
+    },
+    "United States / District of Columbia": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / District of Columbia",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "District of Columbia",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-30",
+      "day_index": {
+        "confirmed_1": 24,
+        "confirmed_10": 20,
+        "confirmed_100": 9,
+        "peak": 5,
+        "peak_confirmed": 4,
+        "peak_deaths": 7
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 495,
+          "deaths": 9,
+          "infected": 486
+        },
+        "absolute_pop100k": {
+          "confirmed": 70.13825028444957,
+          "deaths": 1.2752409142627195,
+          "infected": 68.86300937018684
+        },
+        "delta": {
+          "confirmed": 153,
+          "deaths": 5,
+          "infected": 148
+        },
+        "relative": {
+          "deaths": 1.8181818181818181,
+          "infected": 98.18181818181819
+        },
+        "peak_pct": {
+          "confirmed": 375.00000000000006,
+          "deaths": 500,
+          "infected": 366.33663366336634
+        }
+      },
+      "factbook": {
+        "population": 705749,
+        "area": 176
+      }
+    },
+    "United States / Florida": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Florida",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Florida",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 31,
+        "confirmed_10": 25,
+        "confirmed_100": 17,
+        "confirmed_1k": 10,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 6741,
+          "deaths": 85,
+          "infected": 6656
+        },
+        "absolute_pop100k": {
+          "confirmed": 31.385988197918614,
+          "deaths": 0.3957586406798817,
+          "infected": 30.990229557238735
+        },
+        "delta": {
+          "confirmed": 1047,
+          "deaths": 14,
+          "infected": 1033
+        },
+        "relative": {
+          "deaths": 1.260940513276962,
+          "infected": 98.73905948672304
+        },
+        "peak_pct": {
+          "confirmed": 140.38616251005632,
+          "deaths": 148.93617021276594,
+          "infected": 140.31513175767455
+        }
+      },
+      "factbook": {
+        "population": 21477737,
+        "area": 170312
+      }
+    },
+    "United States / Georgia": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Georgia",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Georgia",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 30,
+        "confirmed_10": 24,
+        "confirmed_100": 16,
+        "confirmed_1k": 8,
+        "peak": 5,
+        "peak_confirmed": 5,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 4117,
+          "deaths": 125,
+          "infected": 3992
+        },
+        "absolute_pop100k": {
+          "confirmed": 38.77588751997542,
+          "deaths": 1.1773101627391127,
+          "infected": 37.59857735723631
+        },
+        "delta": {
+          "confirmed": 1085,
+          "deaths": 23,
+          "infected": 1062
+        },
+        "relative": {
+          "deaths": 3.036191401505951,
+          "infected": 96.96380859849405
+        },
+        "peak_pct": {
+          "confirmed": 310.5323411562679,
+          "deaths": 176.9230769230769,
+          "infected": 314.38721136767316
+        }
+      },
+      "factbook": {
+        "population": 10617423,
+        "area": 153910
+      }
+    },
+    "United States / Hawaii": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Hawaii",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Hawaii",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 26,
+        "confirmed_10": 16,
+        "confirmed_100": 6,
+        "peak": 3,
+        "peak_confirmed": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 224,
+          "deaths": 1,
+          "infected": 223
+        },
+        "absolute_pop100k": {
+          "confirmed": 15.820639153821814,
+          "deaths": 0.07062785336527595,
+          "infected": 15.750011300456537
+        },
+        "delta": {
+          "confirmed": 20,
+          "deaths": 1,
+          "infected": 19
+        },
+        "relative": {
+          "deaths": 0.4464285714285714,
+          "infected": 99.55357142857143
+        },
+        "peak_pct": {
+          "confirmed": 92.59259259259258,
+          "infected": 88.78504672897198
+        }
+      },
+      "factbook": {
+        "population": 1415872,
+        "area": 28313
+      }
+    },
+    "United States / Idaho": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Idaho",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Idaho",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 19,
+        "confirmed_10": 14,
+        "confirmed_100": 7,
+        "peak": 3,
+        "peak_confirmed": 4,
+        "peak_deaths": 2
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 526,
+          "deaths": 9,
+          "infected": 517
+        },
+        "absolute_pop100k": {
+          "confirmed": 29.433736321846155,
+          "deaths": 0.5036190625410939,
+          "infected": 28.93011725930506
+        },
+        "delta": {
+          "confirmed": 111,
+          "deaths": 2,
+          "infected": 109
+        },
+        "relative": {
+          "deaths": 1.7110266159695817,
+          "infected": 98.28897338403041
+        },
+        "peak_pct": {
+          "confirmed": 177.8846153846154,
+          "deaths": 166.66666666666669,
+          "infected": 178.1045751633987
+        }
+      },
+      "factbook": {
+        "population": 1787065,
+        "area": 216443
+      }
+    },
+    "United States / Illinois": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Illinois",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Illinois",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 68,
+        "confirmed_10": 23,
+        "confirmed_100": 16,
+        "confirmed_1k": 10,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 5994,
+          "deaths": 107,
+          "infected": 5887
+        },
+        "absolute_pop100k": {
+          "confirmed": 47.301804531487626,
+          "deaths": 0.8443932407189149,
+          "infected": 46.45741129076871
+        },
+        "delta": {
+          "confirmed": 924,
+          "deaths": 23,
+          "infected": 901
+        },
+        "relative": {
+          "deaths": 1.7851184517851184,
+          "infected": 98.21488154821488
+        },
+        "peak_pct": {
+          "confirmed": 151.32656403537504,
+          "deaths": 182.53968253968253,
+          "infected": 150.82022095748243
+        }
+      },
+      "factbook": {
+        "population": 12671821,
+        "area": 149995
+      }
+    },
+    "United States / Indiana": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Indiana",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Indiana",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 26,
+        "confirmed_10": 21,
+        "confirmed_100": 11,
+        "confirmed_1k": 4,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 2159,
+          "deaths": 50,
+          "infected": 2109
+        },
+        "absolute_pop100k": {
+          "confirmed": 32.06966380624279,
+          "deaths": 0.7426971701306805,
+          "infected": 31.326966636112104
+        },
+        "delta": {
+          "confirmed": 371,
+          "deaths": 15,
+          "infected": 356
+        },
+        "relative": {
+          "deaths": 2.3158869847151458,
+          "infected": 97.68411301528485
+        },
+        "peak_pct": {
+          "confirmed": 141.71122994652404,
+          "deaths": 300,
+          "infected": 138.19875776397515
+        }
+      },
+      "factbook": {
+        "population": 6732219,
+        "area": 94326
+      }
+    },
+    "United States / Iowa": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Iowa",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Iowa",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 24,
+        "confirmed_10": 22,
+        "confirmed_100": 9,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 498,
+          "deaths": 7,
+          "infected": 491
+        },
+        "absolute_pop100k": {
+          "confirmed": 15.784118894350996,
+          "deaths": 0.22186512502099792,
+          "infected": 15.562253769329997
+        },
+        "delta": {
+          "confirmed": 74,
+          "deaths": 1,
+          "infected": 73
+        },
+        "relative": {
+          "deaths": 1.4056224899598393,
+          "infected": 98.59437751004016
+        },
+        "peak_pct": {
+          "confirmed": 139.62264150943395,
+          "deaths": 80,
+          "infected": 139.84674329501917
+        }
+      },
+      "factbook": {
+        "population": 3155070,
+        "area": 145746
+      }
+    },
+    "United States / Kansas": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Kansas",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Kansas",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 25,
+        "confirmed_10": 16,
+        "confirmed_100": 7,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 434,
+          "deaths": 10,
+          "infected": 424
+        },
+        "absolute_pop100k": {
+          "confirmed": 14.897124031257874,
+          "deaths": 0.34325170578935194,
+          "infected": 14.553872325468523
+        },
+        "delta": {
+          "confirmed": 61,
+          "deaths": 1,
+          "infected": 60
+        },
+        "relative": {
+          "deaths": 2.3041474654377883,
+          "infected": 97.6958525345622
+        },
+        "peak_pct": {
+          "confirmed": 126.55601659751036,
+          "deaths": 83.33333333333334,
+          "infected": 127.65957446808511
+        }
+      },
+      "factbook": {
+        "population": 2913314,
+        "area": 213100
+      }
+    },
+    "United States / Kentucky": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Kentucky",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Kentucky",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 26,
+        "confirmed_10": 20,
+        "confirmed_100": 10,
+        "peak": 4,
+        "peak_confirmed": 3,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 590,
+          "deaths": 18,
+          "infected": 572
+        },
+        "absolute_pop100k": {
+          "confirmed": 13.205979936311365,
+          "deaths": 0.4028943031417026,
+          "infected": 12.803085633169662
+        },
+        "delta": {
+          "confirmed": 110,
+          "deaths": 7,
+          "infected": 103
+        },
+        "relative": {
+          "deaths": 3.050847457627119,
+          "infected": 96.94915254237289
+        },
+        "peak_pct": {
+          "confirmed": 195.03546099290782,
+          "deaths": 388.88888888888886,
+          "infected": 186.59420289855072
+        }
+      },
+      "factbook": {
+        "population": 4467673,
+        "area": 104656
+      }
+    },
+    "United States / Louisiana": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Louisiana",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Louisiana",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 23,
+        "confirmed_10": 21,
+        "confirmed_100": 17,
+        "confirmed_1k": 9,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 5237,
+          "deaths": 240,
+          "infected": 4997
+        },
+        "absolute_pop100k": {
+          "confirmed": 112.65287298168086,
+          "deaths": 5.162629275463701,
+          "infected": 107.49024370621714
+        },
+        "delta": {
+          "confirmed": 1212,
+          "deaths": 54,
+          "infected": 1158
+        },
+        "relative": {
+          "deaths": 4.582776398701547,
+          "infected": 95.41722360129845
+        },
+        "peak_pct": {
+          "confirmed": 251.24378109452738,
+          "deaths": 216,
+          "infected": 253.1700918233494
+        }
+      },
+      "factbook": {
+        "population": 4648794,
+        "area": 135659
+      }
+    },
+    "United States / Maine": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Maine",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Maine",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 20,
+        "confirmed_10": 17,
+        "confirmed_100": 9,
+        "peak": 3,
+        "peak_confirmed": 4,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 303,
+          "deaths": 5,
+          "infected": 298
+        },
+        "absolute_pop100k": {
+          "confirmed": 22.541087268972454,
+          "deaths": 0.37196513645169066,
+          "infected": 22.169122132520762
+        },
+        "delta": {
+          "confirmed": 28,
+          "deaths": 2,
+          "infected": 26
+        },
+        "relative": {
+          "deaths": 1.65016501650165,
+          "infected": 98.34983498349835
+        },
+        "peak_pct": {
+          "confirmed": 103.7037037037037,
+          "deaths": 133.33333333333331,
+          "infected": 99.23664122137404
+        }
+      },
+      "factbook": {
+        "population": 1344212,
+        "area": 91633
+      }
+    },
+    "United States / Maryland": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Maryland",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Maryland",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 27,
+        "confirmed_10": 21,
+        "confirmed_100": 13,
+        "confirmed_1k": 4,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1662,
+          "deaths": 18,
+          "infected": 1644
+        },
+        "absolute_pop100k": {
+          "confirmed": 27.49070410607243,
+          "deaths": 0.29773325746648843,
+          "infected": 27.192970848605945
+        },
+        "delta": {
+          "confirmed": 248,
+          "deaths": 3,
+          "infected": 245
+        },
+        "relative": {
+          "deaths": 1.083032490974729,
+          "infected": 98.91696750902527
+        },
+        "peak_pct": {
+          "confirmed": 130.8016877637131,
+          "deaths": 150,
+          "infected": 130.45793397231097
+        }
+      },
+      "factbook": {
+        "population": 6045680,
+        "area": 32131
+      }
+    },
+    "United States / Massachusetts": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Massachusetts",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Massachusetts",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 60,
+        "confirmed_10": 25,
+        "confirmed_100": 20,
+        "confirmed_1k": 8,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 6620,
+          "deaths": 89,
+          "infected": 6531
+        },
+        "absolute_pop100k": {
+          "confirmed": 96.04638547128671,
+          "deaths": 1.2912580524085373,
+          "infected": 94.75512741887817
+        },
+        "delta": {
+          "confirmed": 868,
+          "deaths": 28,
+          "infected": 840
+        },
+        "relative": {
+          "deaths": 1.3444108761329305,
+          "infected": 98.65558912386707
+        },
+        "peak_pct": {
+          "confirmed": 112.28978007761967,
+          "deaths": 291.6666666666667,
+          "infected": 110.35207566999475
+        }
+      },
+      "factbook": {
+        "population": 6892503,
+        "area": 27336
+      }
+    },
+    "United States / Michigan": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Michigan",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Michigan",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 22,
+        "confirmed_10": 20,
+        "confirmed_100": 13,
+        "confirmed_1k": 10,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 7630,
+          "deaths": 264,
+          "infected": 7366
+        },
+        "absolute_pop100k": {
+          "confirmed": 76.40041306288855,
+          "deaths": 2.643474318296537,
+          "infected": 73.75693874459202
+        },
+        "delta": {
+          "confirmed": 1122,
+          "deaths": 67,
+          "infected": 1055
+        },
+        "relative": {
+          "deaths": 3.4600262123197902,
+          "infected": 96.53997378768021
+        },
+        "peak_pct": {
+          "confirmed": 133.1276696725202,
+          "deaths": 216.1290322580645,
+          "infected": 129.92610837438423
+        }
+      },
+      "factbook": {
+        "population": 9986857,
+        "area": 250487
+      }
+    },
+    "United States / Minnesota": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Minnesota",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Minnesota",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 26,
+        "confirmed_10": 19,
+        "confirmed_100": 12,
+        "peak": 3,
+        "peak_confirmed": 4,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 629,
+          "deaths": 12,
+          "infected": 617
+        },
+        "absolute_pop100k": {
+          "confirmed": 11.153209996680635,
+          "deaths": 0.21277984095416155,
+          "infected": 10.940430155726474
+        },
+        "delta": {
+          "confirmed": 53,
+          "deaths": 2,
+          "infected": 51
+        },
+        "relative": {
+          "deaths": 1.9077901430842605,
+          "infected": 98.09220985691573
+        },
+        "peak_pct": {
+          "confirmed": 91.06529209621993,
+          "deaths": 142.85714285714286,
+          "infected": 90.42553191489363
+        }
+      },
+      "factbook": {
+        "population": 5639632,
+        "area": 225163
+      }
+    },
+    "United States / Mississippi": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Mississippi",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Mississippi",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 21,
+        "confirmed_10": 17,
+        "confirmed_100": 11,
+        "peak": 2,
+        "peak_confirmed": 2,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 937,
+          "deaths": 20,
+          "infected": 917
+        },
+        "absolute_pop100k": {
+          "confirmed": 31.483638755989706,
+          "deaths": 0.6720093651225124,
+          "infected": 30.81162939086719
+        },
+        "delta": {
+          "confirmed": 89,
+          "deaths": 4,
+          "infected": 85
+        },
+        "relative": {
+          "deaths": 2.134471718249733,
+          "infected": 97.86552828175027
+        },
+        "peak_pct": {
+          "confirmed": 98.88888888888889,
+          "deaths": 153.84615384615384,
+          "infected": 97.47706422018348
+        }
+      },
+      "factbook": {
+        "population": 2976149,
+        "area": 125438
+      }
+    },
+    "United States / Missouri": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Missouri",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Missouri",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 25,
+        "confirmed_10": 15,
+        "confirmed_100": 10,
+        "confirmed_1k": 2,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1351,
+          "deaths": 15,
+          "infected": 1336
+        },
+        "absolute_pop100k": {
+          "confirmed": 22.012478191190183,
+          "deaths": 0.2444020524558496,
+          "infected": 21.768076138734337
+        },
+        "delta": {
+          "confirmed": 301,
+          "deaths": 2,
+          "infected": 299
+        },
+        "relative": {
+          "deaths": 1.1102886750555145,
+          "infected": 98.88971132494449
+        },
+        "peak_pct": {
+          "confirmed": 206.16438356164383,
+          "deaths": 125,
+          "infected": 206.49171270718233
+        }
+      },
+      "factbook": {
+        "population": 6137428,
+        "area": 180540
+      }
+    },
+    "United States / Montana": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Montana",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Montana",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 19,
+        "confirmed_10": 14,
+        "confirmed_100": 5,
+        "peak": 2,
+        "peak_confirmed": 3,
+        "peak_deaths": 2
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 198,
+          "deaths": 5,
+          "infected": 193
+        },
+        "absolute_pop100k": {
+          "confirmed": 18.52583043438394,
+          "deaths": 0.46782400086828135,
+          "infected": 18.05800643351566
+        },
+        "delta": {
+          "confirmed": 21,
+          "deaths": 1,
+          "infected": 20
+        },
+        "relative": {
+          "deaths": 2.525252525252525,
+          "infected": 97.47474747474747
+        },
+        "peak_pct": {
+          "confirmed": 102.94117647058825,
+          "deaths": 100,
+          "infected": 101.01010101010101
+        }
+      },
+      "factbook": {
+        "population": 1068778,
+        "area": 380831
+      }
+    },
+    "United States / Nebraska": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Nebraska",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Nebraska",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 44,
+        "confirmed_10": 44,
+        "confirmed_100": 5,
+        "peak": 6,
+        "peak_confirmed": 12,
+        "peak_deaths": 1
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 193,
+          "deaths": 4,
+          "infected": 189
+        },
+        "absolute_pop100k": {
+          "confirmed": 9.977212666614282,
+          "deaths": 0.20678160967076234,
+          "infected": 9.77043105694352
+        },
+        "delta": {
+          "confirmed": 8,
+          "deaths": 1,
+          "infected": 7
+        },
+        "relative": {
+          "deaths": 2.072538860103627,
+          "infected": 97.92746113989638
+        },
+        "peak_pct": {
+          "confirmed": 60.60606060606061,
+          "deaths": 100,
+          "infected": 53.03030303030303
+        }
+      },
+      "factbook": {
+        "population": 1934408,
+        "area": 200330
+      }
+    },
+    "United States / Nevada": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Nevada",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Nevada",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 27,
+        "confirmed_10": 20,
+        "confirmed_100": 12,
+        "confirmed_1k": 2,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1113,
+          "deaths": 26,
+          "infected": 1087
+        },
+        "absolute_pop100k": {
+          "confirmed": 36.13453344570859,
+          "deaths": 0.844113090375942,
+          "infected": 35.29042035533265
+        },
+        "delta": {
+          "confirmed": 69,
+          "deaths": 8,
+          "infected": 61
+        },
+        "relative": {
+          "deaths": 2.336028751123091,
+          "infected": 97.66397124887692
+        },
+        "peak_pct": {
+          "confirmed": 63.07129798903107,
+          "deaths": 266.66666666666663,
+          "infected": 56.90298507462687
+        }
+      },
+      "factbook": {
+        "population": 3080156,
+        "area": 286380
+      }
+    },
+    "United States / New Hampshire": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / New Hampshire",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "New Hampshire",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 30,
+        "confirmed_10": 17,
+        "confirmed_100": 9,
+        "peak": 4,
+        "peak_confirmed": 3,
+        "peak_deaths": 6
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 367,
+          "deaths": 3,
+          "infected": 364
+        },
+        "absolute_pop100k": {
+          "confirmed": 26.991029711460747,
+          "deaths": 0.2206351202571723,
+          "infected": 26.770394591203573
+        },
+        "delta": {
+          "confirmed": 53,
+          "infected": 53
+        },
+        "relative": {
+          "deaths": 0.8174386920980926,
+          "infected": 99.1825613079019
+        },
+        "peak_pct": {
+          "confirmed": 145.60439560439562,
+          "infected": 147.22222222222223
+        }
+      },
+      "factbook": {
+        "population": 1359711,
+        "area": 24214
+      }
+    },
+    "United States / New Jersey": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / New Jersey",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "New Jersey",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 28,
+        "confirmed_10": 23,
+        "confirmed_100": 16,
+        "confirmed_1k": 11,
+        "confirmed_10k": 4,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 18696,
+          "deaths": 267,
+          "infected": 18429
+        },
+        "absolute_pop100k": {
+          "confirmed": 210.48862949340196,
+          "deaths": 3.006015408362127,
+          "infected": 207.48261408503984
+        },
+        "delta": {
+          "confirmed": 2060,
+          "deaths": 68,
+          "infected": 1992
+        },
+        "relative": {
+          "deaths": 1.4281129653401798,
+          "infected": 98.57188703465982
+        },
+        "peak_pct": {
+          "confirmed": 93.2633103947845,
+          "deaths": 248.17518248175185,
+          "infected": 91.56936655327755
+        }
+      },
+      "factbook": {
+        "population": 8882190,
+        "area": 22591
+      }
+    },
+    "United States / New Mexico": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / New Mexico",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "New Mexico",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 21,
+        "confirmed_10": 19,
+        "confirmed_100": 8,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 315,
+          "deaths": 4,
+          "infected": 311
+        },
+        "absolute_pop100k": {
+          "confirmed": 15.022684253222366,
+          "deaths": 0.19076424448536336,
+          "infected": 14.831920008737
+        },
+        "delta": {
+          "confirmed": 34,
+          "infected": 34
+        },
+        "relative": {
+          "deaths": 1.2698412698412698,
+          "infected": 98.73015873015873
+        },
+        "peak_pct": {
+          "confirmed": 114.09395973154362,
+          "infected": 115.64625850340136
+        }
+      },
+      "factbook": {
+        "population": 2096829,
+        "area": 314917
+      }
+    },
+    "United States / New York": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / New York",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "New York",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 31,
+        "confirmed_10": 28,
+        "confirmed_100": 24,
+        "confirmed_1k": 15,
+        "confirmed_10k": 11,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 75832,
+          "deaths": 1550,
+          "infected": 74282
+        },
+        "absolute_pop100k": {
+          "confirmed": 389.8103797037467,
+          "deaths": 7.967692907226599,
+          "infected": 381.8426867965202
+        },
+        "delta": {
+          "confirmed": 8658,
+          "deaths": 326,
+          "infected": 8332
+        },
+        "relative": {
+          "deaths": 2.0439919822766113,
+          "infected": 97.95600801772338
+        },
+        "peak_pct": {
+          "confirmed": 120.95219468581486,
+          "deaths": 180.50941306755263,
+          "infected": 119.68169151656181
+        }
+      },
+      "factbook": {
+        "population": 19453561,
+        "area": 141297
+      }
+    },
+    "United States / North Carolina": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / North Carolina",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "North Carolina",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 29,
+        "confirmed_10": 20,
+        "confirmed_100": 13,
+        "confirmed_1k": 3,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1528,
+          "deaths": 10,
+          "infected": 1518
+        },
+        "absolute_pop100k": {
+          "confirmed": 14.568914589166143,
+          "deaths": 0.09534629966731768,
+          "infected": 14.473568289498825
+        },
+        "delta": {
+          "confirmed": 224,
+          "deaths": 4,
+          "infected": 220
+        },
+        "relative": {
+          "deaths": 0.6544502617801047,
+          "infected": 99.3455497382199
+        },
+        "peak_pct": {
+          "confirmed": 134.93975903614458,
+          "deaths": 333.33333333333337,
+          "infected": 133.33333333333331
+        }
+      },
+      "factbook": {
+        "population": 10488084,
+        "area": 139391
+      }
+    },
+    "United States / North Dakota": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / North Dakota",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "North Dakota",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 21,
+        "confirmed_10": 13,
+        "confirmed_100": 2,
+        "peak": 4,
+        "peak_confirmed": 5,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 126,
+          "deaths": 3,
+          "infected": 123
+        },
+        "absolute_pop100k": {
+          "confirmed": 16.53408777763489,
+          "deaths": 0.39366875661035455,
+          "infected": 16.140419021024535
+        },
+        "delta": {
+          "confirmed": 17,
+          "infected": 17
+        },
+        "relative": {
+          "deaths": 2.380952380952381,
+          "infected": 97.61904761904762
+        },
+        "peak_pct": {
+          "confirmed": 134.92063492063494,
+          "infected": 141.66666666666669
+        }
+      },
+      "factbook": {
+        "population": 762062,
+        "area": 183108
+      }
+    },
+    "United States / Ohio": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Ohio",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Ohio",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 23,
+        "confirmed_10": 19,
+        "confirmed_100": 13,
+        "confirmed_1k": 5,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 2199,
+          "deaths": 55,
+          "infected": 2144
+        },
+        "absolute_pop100k": {
+          "confirmed": 18.812397874943322,
+          "deaths": 0.47052382133782755,
+          "infected": 18.341874053605494
+        },
+        "delta": {
+          "confirmed": 266,
+          "deaths": 15,
+          "infected": 251
+        },
+        "relative": {
+          "deaths": 2.501136880400182,
+          "infected": 97.49886311959982
+        },
+        "peak_pct": {
+          "confirmed": 109.375,
+          "deaths": 258.62068965517244,
+          "infected": 106.44614079728582
+        }
+      },
+      "factbook": {
+        "population": 11689100,
+        "area": 116098
+      }
+    },
+    "United States / Oklahoma": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Oklahoma",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Oklahoma",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 26,
+        "confirmed_10": 16,
+        "confirmed_100": 8,
+        "peak": 3,
+        "peak_confirmed": 4,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 566,
+          "deaths": 23,
+          "infected": 543
+        },
+        "absolute_pop100k": {
+          "confirmed": 14.303870308880201,
+          "deaths": 0.5812526803961919,
+          "infected": 13.72261762848401
+        },
+        "delta": {
+          "confirmed": 85,
+          "deaths": 6,
+          "infected": 79
+        },
+        "relative": {
+          "deaths": 4.063604240282685,
+          "infected": 95.93639575971731
+        },
+        "peak_pct": {
+          "confirmed": 131.57894736842107,
+          "deaths": 250,
+          "infected": 127.41935483870968
+        }
+      },
+      "factbook": {
+        "population": 3956971,
+        "area": 181037
+      }
+    },
+    "United States / Oregon": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Oregon",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Oregon",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 33,
+        "confirmed_10": 24,
+        "confirmed_100": 12,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 690,
+          "deaths": 18,
+          "infected": 672
+        },
+        "absolute_pop100k": {
+          "confirmed": 16.35948377056227,
+          "deaths": 0.4267691418407549,
+          "infected": 15.932714628721515
+        },
+        "delta": {
+          "confirmed": 84,
+          "deaths": 2,
+          "infected": 82
+        },
+        "relative": {
+          "deaths": 2.608695652173913,
+          "infected": 97.3913043478261
+        },
+        "peak_pct": {
+          "confirmed": 126.12612612612615,
+          "deaths": 111.11111111111111,
+          "infected": 126.15384615384615
+        }
+      },
+      "factbook": {
+        "population": 4217737,
+        "area": 254799
+      }
+    },
+    "United States / Pennsylvania": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Pennsylvania",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Pennsylvania",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 26,
+        "confirmed_10": 23,
+        "confirmed_100": 15,
+        "confirmed_1k": 7,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 4997,
+          "deaths": 72,
+          "infected": 4925
+        },
+        "absolute_pop100k": {
+          "confirmed": 39.03299713817908,
+          "deaths": 0.5624126063535908,
+          "infected": 38.47058453182549
+        },
+        "delta": {
+          "confirmed": 841,
+          "deaths": 24,
+          "infected": 817
+        },
+        "relative": {
+          "deaths": 1.4408645187112268,
+          "infected": 98.55913548128878
+        },
+        "peak_pct": {
+          "confirmed": 139.9334442595674,
+          "deaths": 324.3243243243243,
+          "infected": 137.63477088948787
+        }
+      },
+      "factbook": {
+        "population": 12801989,
+        "area": 119280
+      }
+    },
+    "United States / Rhode Island": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Rhode Island",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Rhode Island",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 31,
+        "confirmed_10": 19,
+        "confirmed_100": 9,
+        "peak": 2,
+        "peak_confirmed": 3,
+        "peak_deaths": 2
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 488,
+          "deaths": 8,
+          "infected": 480
+        },
+        "absolute_pop100k": {
+          "confirmed": 46.06550552644471,
+          "deaths": 0.7551722217449952,
+          "infected": 45.31033330469972
+        },
+        "delta": {
+          "confirmed": 80,
+          "deaths": 4,
+          "infected": 76
+        },
+        "relative": {
+          "deaths": 1.639344262295082,
+          "infected": 98.36065573770492
+        },
+        "peak_pct": {
+          "confirmed": 165.28925619834712,
+          "deaths": 300,
+          "infected": 161.70212765957444
+        }
+      },
+      "factbook": {
+        "population": 1059361,
+        "area": 4001
+      }
+    },
+    "United States / South Carolina": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / South Carolina",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "South Carolina",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 26,
+        "confirmed_10": 21,
+        "confirmed_100": 12,
+        "confirmed_1k": 1,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1083,
+          "deaths": 22,
+          "infected": 1061
+        },
+        "absolute_pop100k": {
+          "confirmed": 21.034378681744606,
+          "deaths": 0.42729116435676945,
+          "infected": 20.607087517387836
+        },
+        "delta": {
+          "confirmed": 158,
+          "deaths": 4,
+          "infected": 154
+        },
+        "relative": {
+          "deaths": 2.0313942751615883,
+          "infected": 97.96860572483841
+        },
+        "peak_pct": {
+          "confirmed": 137.63066202090593,
+          "deaths": 166.66666666666669,
+          "infected": 136.04240282685512
+        }
+      },
+      "factbook": {
+        "population": 5148714,
+        "area": 82933
+      }
+    },
+    "United States / South Dakota": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / South Dakota",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "South Dakota",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 22,
+        "confirmed_10": 16,
+        "confirmed_100": 2,
+        "peak": 3,
+        "peak_confirmed": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 108,
+          "deaths": 1,
+          "infected": 107
+        },
+        "absolute_pop100k": {
+          "confirmed": 12.20809374007386,
+          "deaths": 0.11303790500068389,
+          "infected": 12.095055835073175
+        },
+        "delta": {
+          "confirmed": 7,
+          "infected": 7
+        },
+        "relative": {
+          "deaths": 0.9259259259259258,
+          "infected": 99.07407407407408
+        },
+        "peak_pct": {
+          "confirmed": 68.62745098039215,
+          "infected": 68.62745098039215
+        }
+      },
+      "factbook": {
+        "population": 884659,
+        "area": 199729
+      }
+    },
+    "United States / Tennessee": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Tennessee",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Tennessee",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-30",
+      "day_index": {
+        "confirmed_1": 26,
+        "confirmed_10": 19,
+        "confirmed_100": 12,
+        "confirmed_1k": 4,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1834,
+          "deaths": 13,
+          "infected": 1821
+        },
+        "absolute_pop100k": {
+          "confirmed": 26.855370795941063,
+          "deaths": 0.1903597711816978,
+          "infected": 26.665011024759362
+        },
+        "delta": {
+          "confirmed": 297,
+          "deaths": 6,
+          "infected": 291
+        },
+        "relative": {
+          "deaths": 0.7088331515812432,
+          "infected": 99.29116684841875
+        },
+        "peak_pct": {
+          "confirmed": 160.19417475728156,
+          "deaths": 342.85714285714283,
+          "infected": 158.15217391304347
+        }
+      },
+      "factbook": {
+        "population": 6829174,
+        "area": 109153
+      }
+    },
+    "United States / Texas": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Texas",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Texas",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 49,
+        "confirmed_10": 37,
+        "confirmed_100": 15,
+        "confirmed_1k": 7,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 3576,
+          "deaths": 57,
+          "infected": 3519
+        },
+        "absolute_pop100k": {
+          "confirmed": 12.332786163662348,
+          "deaths": 0.1965796452261616,
+          "infected": 12.136206518436186
+        },
+        "delta": {
+          "confirmed": 533,
+          "deaths": 11,
+          "infected": 522
+        },
+        "relative": {
+          "deaths": 1.5939597315436242,
+          "infected": 98.40604026845638
+        },
+        "peak_pct": {
+          "confirmed": 136.73678809645972,
+          "deaths": 152.77777777777777,
+          "infected": 136.2924281984334
+        }
+      },
+      "factbook": {
+        "population": 28995881,
+        "area": 695662
+      }
+    },
+    "United States / Utah": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Utah",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Utah",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 36,
+        "confirmed_10": 18,
+        "confirmed_100": 12,
+        "peak": 4,
+        "peak_confirmed": 3,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 887,
+          "deaths": 5,
+          "infected": 882
+        },
+        "absolute_pop100k": {
+          "confirmed": 27.667237062993337,
+          "deaths": 0.15595962267752728,
+          "infected": 27.511277440315812
+        },
+        "delta": {
+          "confirmed": 81,
+          "deaths": 1,
+          "infected": 80
+        },
+        "relative": {
+          "deaths": 0.5636978579481398,
+          "infected": 99.43630214205186
+        },
+        "peak_pct": {
+          "confirmed": 93.74999999999999,
+          "deaths": 100,
+          "infected": 93.45794392523365
+        }
+      },
+      "factbook": {
+        "population": 3205958,
+        "area": 219882
+      }
+    },
+    "United States / Vermont": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Vermont",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Vermont",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 25,
+        "confirmed_10": 16,
+        "confirmed_100": 7,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 293,
+          "deaths": 13,
+          "infected": 280
+        },
+        "absolute_pop100k": {
+          "confirmed": 46.95595595435176,
+          "deaths": 2.0833700594080984,
+          "infected": 44.872585894943654
+        },
+        "delta": {
+          "confirmed": 37,
+          "deaths": 1,
+          "infected": 36
+        },
+        "relative": {
+          "deaths": 4.436860068259386,
+          "infected": 95.56313993174061
+        },
+        "peak_pct": {
+          "confirmed": 132.14285714285714,
+          "deaths": 71.42857142857143,
+          "infected": 133.33333333333331
+        }
+      },
+      "factbook": {
+        "population": 623989,
+        "area": 24906
+      }
+    },
+    "United States / Virginia": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Virginia",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Virginia",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 25,
+        "confirmed_10": 21,
+        "confirmed_100": 12,
+        "confirmed_1k": 2,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1250,
+          "deaths": 27,
+          "infected": 1223
+        },
+        "absolute_pop100k": {
+          "confirmed": 14.644686515254667,
+          "deaths": 0.3163252287295008,
+          "infected": 14.328361286525165
+        },
+        "delta": {
+          "confirmed": 229,
+          "deaths": 1,
+          "infected": 228
+        },
+        "relative": {
+          "deaths": 2.16,
+          "infected": 97.84
+        },
+        "peak_pct": {
+          "confirmed": 157.06447187928666,
+          "deaths": 29.411764705882355,
+          "infected": 160.56338028169014
+        }
+      },
+      "factbook": {
+        "population": 8535519,
+        "area": 110787
+      }
+    },
+    "United States / Washington": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Washington",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Washington",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 71,
+        "confirmed_10": 32,
+        "confirmed_100": 25,
+        "confirmed_1k": 14,
+        "peak": 4,
+        "peak_confirmed": 4,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 5292,
+          "deaths": 226,
+          "infected": 5066
+        },
+        "absolute_pop100k": {
+          "confirmed": 69.495395404768,
+          "deaths": 2.9678683600675675,
+          "infected": 66.52752704470043
+        },
+        "delta": {
+          "confirmed": 113,
+          "deaths": 5,
+          "infected": 108
+        },
+        "relative": {
+          "deaths": 4.270597127739985,
+          "infected": 95.72940287226001
+        },
+        "peak_pct": {
+          "confirmed": 24.155622060709707,
+          "deaths": 31.645569620253163,
+          "infected": 23.93617021276596
+        }
+      },
+      "factbook": {
+        "population": 7614893,
+        "area": 184661
+      }
+    },
+    "United States / West Virginia": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / West Virginia",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "West Virginia",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 15,
+        "confirmed_10": 11,
+        "confirmed_100": 4,
+        "peak": 3,
+        "peak_confirmed": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 162,
+          "deaths": 1,
+          "infected": 161
+        },
+        "absolute_pop100k": {
+          "confirmed": 9.039437055107644,
+          "deaths": 0.05579899416733114,
+          "infected": 8.983638060940313
+        },
+        "delta": {
+          "confirmed": 17,
+          "infected": 17
+        },
+        "relative": {
+          "deaths": 0.6172839506172839,
+          "infected": 99.38271604938271
+        },
+        "peak_pct": {
+          "confirmed": 86.73469387755102,
+          "infected": 86.73469387755102
+        }
+      },
+      "factbook": {
+        "population": 1792147,
+        "area": 62756
+      }
+    },
+    "United States / Wisconsin": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Wisconsin",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Wisconsin",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 56,
+        "confirmed_10": 19,
+        "confirmed_100": 14,
+        "confirmed_1k": 4,
+        "peak": 5,
+        "peak_confirmed": 5,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1351,
+          "deaths": 25,
+          "infected": 1326
+        },
+        "absolute_pop100k": {
+          "confirmed": 23.20335447340408,
+          "deaths": 0.4293736949186543,
+          "infected": 22.773980778485424
+        },
+        "delta": {
+          "confirmed": 84,
+          "deaths": 5,
+          "infected": 79
+        },
+        "relative": {
+          "deaths": 1.8504811250925242,
+          "infected": 98.14951887490747
+        },
+        "peak_pct": {
+          "confirmed": 66.35071090047394,
+          "deaths": 166.66666666666669,
+          "infected": 63.30128205128205
+        }
+      },
+      "factbook": {
+        "population": 5822434,
+        "area": 169635
+      }
+    },
+    "United States / Wyoming": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "United States / Wyoming",
+        "type": "province",
+        "country_code": "US",
+        "country": "United States",
+        "province": "Wyoming",
+        "administrative": null,
+        "latlong": [
+          38,
+          -97
+        ]
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 21,
+        "confirmed_10": 16,
+        "confirmed_100": 1,
+        "peak": 5,
+        "peak_confirmed": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 120,
+          "infected": 120
+        },
+        "absolute_pop100k": {
+          "confirmed": 20.73401882303342,
+          "infected": 20.73401882303342
+        },
+        "delta": {
+          "confirmed": 25,
+          "infected": 25
+        },
+        "relative": {
+          "infected": 100
+        },
+        "peak_pct": {
+          "confirmed": 219.29824561403507,
+          "infected": 219.29824561403507
+        }
+      },
+      "factbook": {
+        "population": 578759,
+        "area": 97093
+      }
+    }
+  },
+  "region": {
+    "Americas": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "Americas",
+        "type": "region",
+        "country_code": null,
+        "country": "Americas",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 71,
+        "confirmed_10": 59,
+        "confirmed_100": 30,
+        "confirmed_1k": 22,
+        "confirmed_10k": 13,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 187693,
+          "deaths": 3908,
+          "infected": 183785
+        },
+        "absolute_pop100k": {
+          "confirmed": 18.498049522286365,
+          "deaths": 0.3851522301476087,
+          "infected": 18.112897292138754
+        },
+        "delta": {
+          "confirmed": 23959,
+          "deaths": 836,
+          "infected": 23123
+        },
+        "relative": {
+          "deaths": 2.0821234675773734,
+          "infected": 97.91787653242262
+        },
+        "peak_pct": {
+          "confirmed": 125.76770847550156,
+          "deaths": 200.67210753720593,
+          "infected": 124.09303623561738
+        }
+      },
+      "factbook": {
+        "population": 1014663734,
+        "area": 42447098
+      }
+    },
+    "Oceania": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "Oceania",
+        "type": "region",
+        "country_code": null,
+        "country": "Oceania",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 17,
+        "confirmed_10": 13,
+        "confirmed_100": 1,
+        "peak": 8,
+        "peak_confirmed": 7,
+        "peak_deaths": 9
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 141,
+          "deaths": 2,
+          "infected": 139
+        },
+        "absolute_pop100k": {
+          "confirmed": 0.3430323082911639,
+          "deaths": 0.004865706500583884,
+          "infected": 0.33816660179058
+        },
+        "delta": {
+          "confirmed": 79,
+          "deaths": 1,
+          "infected": 78
+        },
+        "relative": {
+          "deaths": 1.4184397163120568,
+          "infected": 98.58156028368793
+        },
+        "peak_pct": {
+          "confirmed": 897.7272727272726,
+          "deaths": 100,
+          "infected": 906.9767441860465
+        }
+      },
+      "factbook": {
+        "population": 41104000,
+        "area": 8562891
+      }
+    }
+  },
+  "subregion": {
+    "Caribbean": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "Caribbean",
+        "type": "subregion",
+        "country_code": null,
+        "country": "Caribbean",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 19,
+        "confirmed_10": 12,
+        "confirmed_100": 4,
+        "peak": 4,
+        "peak_confirmed": 3,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 269,
+          "deaths": 8,
+          "infected": 261
+        },
+        "absolute_pop100k": {
+          "confirmed": 0.6471308683132225,
+          "deaths": 0.019245527682177625,
+          "infected": 0.627885340631045
+        },
+        "delta": {
+          "confirmed": 65,
+          "deaths": 2,
+          "infected": 63
+        },
+        "relative": {
+          "deaths": 2.973977695167286,
+          "infected": 97.02602230483272
+        },
+        "peak_pct": {
+          "confirmed": 238.97058823529412,
+          "deaths": 166.66666666666669,
+          "infected": 238.63636363636368
+        }
+      },
+      "factbook": {
+        "population": 41568099,
+        "area": 231759
+      }
+    },
+    "Micronesia": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "Micronesia",
+        "type": "subregion",
+        "country_code": null,
+        "country": "Micronesia",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 17,
+        "confirmed_10": 13,
+        "confirmed_100": 1,
+        "peak": 8,
+        "peak_confirmed": 7,
+        "peak_deaths": 9
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 141,
+          "deaths": 2,
+          "infected": 139
+        },
+        "absolute_pop100k": {
+          "confirmed": 25.883337739007846,
+          "deaths": 0.36713954239727437,
+          "infected": 25.516198196610567
+        },
+        "delta": {
+          "confirmed": 79,
+          "deaths": 1,
+          "infected": 78
+        },
+        "relative": {
+          "deaths": 1.4184397163120568,
+          "infected": 98.58156028368793
+        },
+        "peak_pct": {
+          "confirmed": 897.7272727272726,
+          "deaths": 100,
+          "infected": 906.9767441860465
+        }
+      },
+      "factbook": {
+        "population": 544752,
+        "area": 3182
+      }
+    },
+    "North America": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "North America",
+        "type": "subregion",
+        "country_code": null,
+        "country": "North America",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 71,
+        "confirmed_10": 59,
+        "confirmed_100": 30,
+        "confirmed_1k": 22,
+        "confirmed_10k": 13,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 187424,
+          "deaths": 3900,
+          "infected": 183524
+        },
+        "absolute_pop100k": {
+          "confirmed": 37.551080285279134,
+          "deaths": 0.7813791889650666,
+          "infected": 36.769701096314066
+        },
+        "delta": {
+          "confirmed": 23894,
+          "deaths": 834,
+          "infected": 23060
+        },
+        "relative": {
+          "deaths": 2.0808434352057366,
+          "infected": 97.91915656479426
+        },
+        "peak_pct": {
+          "confirmed": 125.60584555538033,
+          "deaths": 200.57720057720059,
+          "infected": 123.93052151855196
+        }
+      },
+      "factbook": {
+        "population": 499117465,
+        "area": 23948944
+      }
+    }
+  },
+  "world": {
+    "World": {
+      "dataset": "nytimes/us-states",
+      "location": {
+        "label": "World",
+        "type": "world",
+        "country_code": null,
+        "country": "World",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2020-03-31",
+      "day_index": {
+        "confirmed_1": 71,
+        "confirmed_10": 59,
+        "confirmed_100": 30,
+        "confirmed_1k": 22,
+        "confirmed_10k": 13,
+        "peak": 3,
+        "peak_confirmed": 3,
+        "peak_deaths": 3
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 187834,
+          "deaths": 3910,
+          "infected": 183924
+        },
+        "absolute_pop100k": {
+          "confirmed": 2.445931937425676,
+          "deaths": 0.050915137170769904,
+          "infected": 2.3950168002549064
+        },
+        "delta": {
+          "confirmed": 24038,
+          "deaths": 837,
+          "infected": 23201
+        },
+        "relative": {
+          "deaths": 2.0816252648615268,
+          "infected": 97.91837473513847
+        },
+        "peak_pct": {
+          "confirmed": 126.14267272593696,
+          "deaths": 200.91214594335094,
+          "infected": 124.47155518358764
+        }
+      },
+      "factbook": {
+        "population": 7679445087,
+        "area": 150584194.09
+      }
+    }
+  }
+}
