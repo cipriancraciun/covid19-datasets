@@ -85,6 +85,7 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 * I have re-formatted the original JHU dataset in a one-data-point-per-row format (thus more "relational" and SQL friendly):
   * in JSON format: [values.json](./exports/jhu/v1/values.json);
   * in TSV format: [values.tsv](./exports/jhu/v1/values.tsv);
+  * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/jhu/v1/status.json);
   * (these are based on the `daily_reports` dataset;  JHU also provides `time_series` dataset, which is also available under the [exports](./exports/jhu/v1) folder);
 * I have also augmented the original JHU dataset with the following:
   * `day_index_*` means how many days have passed for that country since there were at least that many confirmed cases;
@@ -106,6 +107,7 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 * although the original NY dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
   * in JSON format: [values.json](./exports/nytimes/v1/us-counties/values.json);
   * in TSV format: [values.tsv](./exports/nytimes/v1/us-counties/values.tsv);
+  * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/nytimes/v1/us-counties/status.json);
   * (these are based on the `us-counties` dataset;  NY Times also provides `us-states` dataset, which is also available under the [exports](./exports/nytimes/v1) folder);
 * all the transformations and augmentations described for the JHU one were applied also to the NY one;
 * the original data is available at [github.com/nytimes/covid-19-data](https://github.com/nytimes/covid-19-data);
@@ -118,6 +120,7 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 * although the original ECDC dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
   * in JSON format: [values.json](./exports/ecdc/v1/worldwide/values.json);
   * in TSV format: [values.tsv](./exports/ecdc/v1/worldwide/values.tsv);
+  * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/ecdc/v1/worldwide/status.json);
 * all the transformations and augmentations described for the JHU one were applied also to the ECDC one;
 * the original data is available at [ecdc.europa.eu](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide);
 
@@ -127,16 +130,20 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 ### Dataset example
 
 * both derived JHU and NY datasets use exactly the same schema, thus can be used interchangeably;
-* the following is an example of such an augmented record (valid for both JHU and NY datasets):
+* the following is an example of such an augmented record (valid for both JHU and NY datasets) (from the `values.json` file);
+* also, after this there is an example of a status record (i.e. the latest values) (from the `status.json` file);
 
+
+#### `values.json` example extract
 ~~~~
 [
   ...
 
   {
+    "dataset": "jhu/daily",
     "location": {
-      "key": "3048f6958aa1d30fa1d7d1abc9420cd6",
-      "type": "country",
+      "key": "fb583ceb1834efe5f595d1d7ac84a7f1",
+      "type": "total-country",
       "label": "Italy",
       "country": "Italy",
       "country_code": "IT",
@@ -144,9 +151,10 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
         42.83333333,
         12.83333333
       ],
+      "province": null,
       "region": "Europe",
       "subregion": "Southern Europe",
-      "province": "(total)",
+      "administrative": null,
       "latlong": [
         42.83333333,
         12.83333333
@@ -154,40 +162,59 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
     },
     "date": {
       "year": 2020,
-      "month": 3,
-      "day": 25,
-      "date": "2020-03-25"
+      "month": 4,
+      "day": 1,
+      "date": "2020-04-01",
+      "timestamp": 1585702800,
+      "index": 71
     },
     "values": {
       "absolute": {
-        "confirmed": 74386,
-        "deaths": 7503
-      },
-      "absolute_pop1k": {
-        "confirmed": 1.1920325382288597,
-        "deaths": 0.1202352611288567,
-        "infected": 1.071797277100003
-      },
-      "absolute_pop10k": {
-        "confirmed": 11.920325382288597,
-        "deaths": 1.202352611288567,
-        "infected": 10.717972771000031
-      },
-      "absolute_pop100k": {
-        "confirmed": 119.20325382288597,
-        "deaths": 12.02352611288567,
-        "infected": 107.17972771000031
-      },
-      "relative": {
-        "deaths": 10.086575430860647
+        "confirmed": 110574,
+        "deaths": 13155,
+        "recovered": 16847,
+        "infected": 80572
       },
       "delta": {
-        "confirmed": 5210,
-        "deaths": 683
+        "confirmed": 4782,
+        "recovered": 1118,
+        "deaths": 727,
+        "infected": 2937
       },
       "delta_pct": {
-        "confirmed": 7.531513819821903,
-        "deaths": 10.014662756598241
+        "confirmed": 4.52019056261343,
+        "recovered": 7.107889884925933,
+        "infected": 3.7830875249565272,
+        "deaths": 5.8496942388155775
+      },
+      "peak_pct": {
+        "confirmed": 80.68979481641469,
+        "recovered": 88.23993685872139,
+        "deaths": 88.9405431857108,
+        "infected": 67.14677640603567
+      },
+      "relative": {
+        "deaths": 11.897010147050842,
+        "recovered": 15.23595058512851,
+        "infected": 72.86703926782064
+      },
+      "absolute_pop1k": {
+        "confirmed": 1.771943724385206,
+        "recovered": 0.26997247024361576,
+        "deaths": 0.2108083246901386,
+        "infected": 1.2911629294514517
+      },
+      "absolute_pop10k": {
+        "confirmed": 17.71943724385206,
+        "recovered": 2.6997247024361575,
+        "deaths": 2.108083246901386,
+        "infected": 12.911629294514517
+      },
+      "absolute_pop100k": {
+        "confirmed": 177.19437243852062,
+        "recovered": 26.997247024361577,
+        "deaths": 21.08083246901386,
+        "infected": 129.11629294514518
       }
     },
     "factbook": {
@@ -196,17 +223,98 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
       "death_rate": 10.7,
       "area": 301340
     },
-    "day_index_1": 55,
-    "day_index_10": 34,
-    "day_index_100": 32,
-    "day_index_1k": 26,
-    "day_index_10k": 16
+    "data_key": "fc397cfe886db71b40d2baf78a4827c5",
+    "day_index_1": 62,
+    "day_index_10": 41,
+    "day_index_100": 39,
+    "day_index_1k": 33,
+    "day_index_10k": 23,
+    "day_index_peak_confirmed": 8,
+    "day_index_peak_deaths": 5,
+    "day_index_peak": 6
   }
 
   ...
 ]
 ~~~~
 
+
+#### `status.json` example extract
+~~~~
+{
+  ...
+  "countries": {
+    ...
+
+    "Italy": {
+      "dataset": "jhu/daily",
+      "location": {
+        "label": "Italy",
+        "type": "total-country",
+        "country_code": "IT",
+        "country": "Italy",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          42.83333333,
+          12.83333333
+        ]
+      },
+      "date": "2020-04-01",
+      "day_index": {
+        "confirmed_1": 62,
+        "confirmed_10": 41,
+        "confirmed_100": 39,
+        "confirmed_1k": 33,
+        "confirmed_10k": 23,
+        "peak": 6,
+        "peak_confirmed": 8,
+        "peak_deaths": 5
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 110574,
+          "deaths": 13155,
+          "recovered": 16847,
+          "infected": 80572
+        },
+        "absolute_pop100k": {
+          "confirmed": 177.19437243852062,
+          "recovered": 26.997247024361577,
+          "deaths": 21.08083246901386,
+          "infected": 129.11629294514518
+        },
+        "delta": {
+          "confirmed": 4782,
+          "recovered": 1118,
+          "deaths": 727,
+          "infected": 2937
+        },
+        "relative": {
+          "deaths": 11.897010147050842,
+          "recovered": 15.23595058512851,
+          "infected": 72.86703926782064
+        },
+        "peak_pct": {
+          "confirmed": 80.68979481641469,
+          "recovered": 88.23993685872139,
+          "deaths": 88.9405431857108,
+          "infected": 67.14677640603567
+        }
+      },
+      "factbook": {
+        "population": 62402659,
+        "median_age": 46.5,
+        "death_rate": 10.7,
+        "area": 301340
+      }
+    }
+
+    ...
+  }
+  ...
+}
+~~~~
 
 
 
