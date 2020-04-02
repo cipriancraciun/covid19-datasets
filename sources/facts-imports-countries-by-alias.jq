@@ -40,6 +40,7 @@ map ({key : .aliases[], value : .code})
 		"cote_divoire" : "CI",
 		"cases_on_an_international_conveyance_japan" : "JP",
 		"bonaire" : "BQ",
+		"bonaire_saint_eustatius_and_saba" : "BQ",
 		
 		# NOTE:  From CIA factbook.
 		"congo_democratic_republic_of_the" : "CD",
