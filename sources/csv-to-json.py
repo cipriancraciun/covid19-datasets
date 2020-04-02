@@ -26,6 +26,9 @@ def convert (_input, _output, _dataset, _format) :
 	_keys_reverse = {}
 	for _record in _reader :
 		for _key in _record.iterkeys () :
+			if _key is None :
+				# FIXME:  Why does this happen?
+				continue
 			_key_normalized = _normalize_key (_key)
 			if _key_normalized not in _keys :
 				if _key_normalized not in _keys :
@@ -34,6 +37,8 @@ def convert (_input, _output, _dataset, _format) :
 				_keys_reverse[_key] = _key_normalized
 		_record_0 = {}
 		for _key, _value in _record.iteritems () :
+			if _key is None :
+				continue
 			_record_0[_keys_reverse[_key]] = _normalize_value (_value)
 			_record_0[_keys_reverse[_key] + "__normalized"] = _normalize_key_0 (_value, False)
 		_records.append (_record_0)
