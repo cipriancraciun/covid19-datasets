@@ -12,9 +12,11 @@ build __nytimes__exports : phony $
         ./exports/nytimes/v1/us-states/values.json $
         ./exports/nytimes/v1/us-states/values.tsv $
         ./exports/nytimes/v1/us-states/values.txt $
+        ./exports/nytimes/v1/us-states/status.json $
         $
         ./exports/nytimes/v1/us-counties/values.json $
         ./exports/nytimes/v1/us-counties/values.tsv $
         ./exports/nytimes/v1/us-counties/values.txt $
+        ./exports/nytimes/v1/us-counties/status.json $
         ||
 

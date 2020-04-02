@@ -111,6 +111,16 @@ build ./exports/ecdc/v1/worldwide/values.txt : z-run-in-out $
 
 
 
+build ./exports/ecdc/v1/worldwide/status.json : z-run-in-out $
+        ./exports/ecdc/v1/worldwide/values.json $
+        | ./sources/generic-exports-status-json.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / exports / status / json / script'
+    pool = cpu_moderate
+
+
+
+
 build __ecdc__imports : phony $
         ./imports/ecdc/worldwide/values.json $
         ||
@@ -119,5 +129,6 @@ build __ecdc__exports : phony $
         ./exports/ecdc/v1/worldwide/values.json $
         ./exports/ecdc/v1/worldwide/values.tsv $
         ./exports/ecdc/v1/worldwide/values.txt $
+        ./exports/ecdc/v1/worldwide/status.json $
         ||
 

@@ -11,6 +11,9 @@
 --::&&.. process / generic / exports / values / json / script :: ../sources/generic-exports-values-json.jq
 --::&&.. process / generic / exports / values / tsv / script :: ../sources/generic-exports-values-tsv.jq
 
+--::&&.. process / generic / exports / status / json / script :: ../sources/generic-exports-status-json.jq
+--::&&.. process / generic / exports / status / tsv / script :: ../sources/generic-exports-status-tsv.jq
+
 --::&&.. process / generic / exports / combine / script :: ../sources/generic-exports-combine.jq
 
 --::&&.. process / generic / exports / locations-diff / json / script :: ../sources/generic-exports-locations-diff-json.jq
