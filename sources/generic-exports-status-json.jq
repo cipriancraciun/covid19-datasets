@@ -48,23 +48,25 @@
 )
 
 | map (
-	.location.type |= (
-			{
-				
-				"total-country" : "country",
-				"total-province" : "province",
-				"total-region" : "region",
-				"total-subregion" : "subregion",
+	{
+		key :
+			.location.type
+			| {
+				"total-country" : "countries",
+				"total-province" : "provinces",
+				"total-region" : "regions",
+				"total-subregion" : "subregions",
 				"total-world" : "world",
 				"administrative" : "administrative",
-			}[.]
-		)
-	| select (.location.type != null)
+			}[.],
+		value : .,
+	}
+	| select (.key != null)
 )
-
-| group_by (.location.type)
+| group_by (.key)
 | map (
-	.[0].location.type as $type
+	.[0].key as $key
+	| map (.value)
 	| map ({
 		key : .location.label,
 		value : .,
@@ -72,7 +74,7 @@
 	| sort_by (.key)
 	| from_entries
 	| {
-		key : $type,
+		key : $key,
 		value : .,
 	}
 )

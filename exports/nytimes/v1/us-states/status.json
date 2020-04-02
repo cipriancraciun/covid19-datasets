@@ -1,10 +1,10 @@
 {
-  "country": {
+  "countries": {
     "British Virgin Islands": {
       "dataset": "nytimes/us-states",
       "location": {
         "label": "British Virgin Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VG",
         "country": "British Virgin Islands",
         "province": null,
@@ -45,7 +45,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "Guam",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GU",
         "country": "Guam",
         "province": null,
@@ -101,7 +101,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "Northern Mariana Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MP",
         "country": "Northern Mariana Islands",
         "province": null,
@@ -144,7 +144,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "Puerto Rico",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PR",
         "country": "Puerto Rico",
         "province": null,
@@ -200,7 +200,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States",
-        "type": "country",
+        "type": "total-country",
         "country_code": "US",
         "country": "United States",
         "province": null,
@@ -255,12 +255,12 @@
       }
     }
   },
-  "province": {
+  "provinces": {
     "United States / Alabama": {
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Alabama",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Alabama",
@@ -314,7 +314,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Alaska",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Alaska",
@@ -366,7 +366,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Arizona",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Arizona",
@@ -421,7 +421,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Arkansas",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Arkansas",
@@ -475,7 +475,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / California",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "California",
@@ -530,7 +530,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Colorado",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Colorado",
@@ -585,7 +585,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Connecticut",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Connecticut",
@@ -640,7 +640,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Delaware",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Delaware",
@@ -694,7 +694,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / District of Columbia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "District of Columbia",
@@ -748,7 +748,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Florida",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Florida",
@@ -803,7 +803,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Georgia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Georgia",
@@ -858,7 +858,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Hawaii",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Hawaii",
@@ -910,7 +910,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Idaho",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Idaho",
@@ -964,7 +964,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Illinois",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Illinois",
@@ -1019,7 +1019,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Indiana",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Indiana",
@@ -1074,7 +1074,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Iowa",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Iowa",
@@ -1128,7 +1128,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Kansas",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Kansas",
@@ -1182,7 +1182,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Kentucky",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Kentucky",
@@ -1236,7 +1236,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Louisiana",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Louisiana",
@@ -1291,7 +1291,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Maine",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Maine",
@@ -1345,7 +1345,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Maryland",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Maryland",
@@ -1400,7 +1400,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Massachusetts",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Massachusetts",
@@ -1455,7 +1455,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Michigan",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Michigan",
@@ -1510,7 +1510,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Minnesota",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Minnesota",
@@ -1564,7 +1564,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Mississippi",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Mississippi",
@@ -1618,7 +1618,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Missouri",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Missouri",
@@ -1673,7 +1673,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Montana",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Montana",
@@ -1727,7 +1727,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Nebraska",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Nebraska",
@@ -1781,7 +1781,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Nevada",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Nevada",
@@ -1836,7 +1836,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / New Hampshire",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "New Hampshire",
@@ -1888,7 +1888,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / New Jersey",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "New Jersey",
@@ -1944,7 +1944,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / New Mexico",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "New Mexico",
@@ -1996,7 +1996,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / New York",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "New York",
@@ -2052,7 +2052,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / North Carolina",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "North Carolina",
@@ -2107,7 +2107,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / North Dakota",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "North Dakota",
@@ -2159,7 +2159,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Ohio",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Ohio",
@@ -2214,7 +2214,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Oklahoma",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Oklahoma",
@@ -2268,7 +2268,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Oregon",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Oregon",
@@ -2322,7 +2322,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Pennsylvania",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Pennsylvania",
@@ -2377,7 +2377,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Rhode Island",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Rhode Island",
@@ -2431,7 +2431,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / South Carolina",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "South Carolina",
@@ -2486,7 +2486,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / South Dakota",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "South Dakota",
@@ -2537,7 +2537,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Tennessee",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Tennessee",
@@ -2592,7 +2592,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Texas",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Texas",
@@ -2647,7 +2647,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Utah",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Utah",
@@ -2701,7 +2701,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Vermont",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Vermont",
@@ -2755,7 +2755,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Virginia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Virginia",
@@ -2810,7 +2810,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Washington",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Washington",
@@ -2865,7 +2865,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / West Virginia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "West Virginia",
@@ -2916,7 +2916,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Wisconsin",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Wisconsin",
@@ -2971,7 +2971,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "United States / Wyoming",
-        "type": "province",
+        "type": "total-province",
         "country_code": "US",
         "country": "United States",
         "province": "Wyoming",
@@ -3016,12 +3016,12 @@
       }
     }
   },
-  "region": {
+  "regions": {
     "Americas": {
       "dataset": "nytimes/us-states",
       "location": {
         "label": "Americas",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Americas",
         "province": null,
@@ -3074,7 +3074,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "Oceania",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Oceania",
         "province": null,
@@ -3122,12 +3122,12 @@
       }
     }
   },
-  "subregion": {
+  "subregions": {
     "Caribbean": {
       "dataset": "nytimes/us-states",
       "location": {
         "label": "Caribbean",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Caribbean",
         "province": null,
@@ -3178,7 +3178,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "Micronesia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Micronesia",
         "province": null,
@@ -3229,7 +3229,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "North America",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "North America",
         "province": null,
@@ -3284,7 +3284,7 @@
       "dataset": "nytimes/us-states",
       "location": {
         "label": "World",
-        "type": "world",
+        "type": "total-world",
         "country_code": null,
         "country": "World",
         "province": null,

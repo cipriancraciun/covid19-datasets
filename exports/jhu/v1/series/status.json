@@ -1,10 +1,10 @@
 {
-  "country": {
+  "countries": {
     "Afghanistan": {
       "dataset": "jhu/series",
       "location": {
         "label": "Afghanistan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AF",
         "country": "Afghanistan",
         "province": null,
@@ -61,7 +61,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Albania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AL",
         "country": "Albania",
         "province": null,
@@ -120,7 +120,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Algeria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DZ",
         "country": "Algeria",
         "province": null,
@@ -181,7 +181,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Andorra",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AD",
         "country": "Andorra",
         "province": null,
@@ -240,7 +240,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Angola",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AO",
         "country": "Angola",
         "province": null,
@@ -294,7 +294,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Anguilla",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AI",
         "country": "Anguilla",
         "province": null,
@@ -337,7 +337,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Antigua and Barbuda",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AG",
         "country": "Antigua and Barbuda",
         "province": null,
@@ -385,7 +385,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Argentina",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AR",
         "country": "Argentina",
         "province": null,
@@ -445,7 +445,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Armenia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AM",
         "country": "Armenia",
         "province": null,
@@ -506,7 +506,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Aruba",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AW",
         "country": "Aruba",
         "province": null,
@@ -558,7 +558,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Australia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AU",
         "country": "Australia",
         "province": null,
@@ -620,7 +620,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Austria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AT",
         "country": "Austria",
         "province": null,
@@ -683,7 +683,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Azerbaijan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AZ",
         "country": "Azerbaijan",
         "province": null,
@@ -740,7 +740,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Bahamas",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BS",
         "country": "Bahamas",
         "province": null,
@@ -796,7 +796,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Bahrain",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BH",
         "country": "Bahrain",
         "province": null,
@@ -855,7 +855,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Bangladesh",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BD",
         "country": "Bangladesh",
         "province": null,
@@ -913,7 +913,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Barbados",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BB",
         "country": "Barbados",
         "province": null,
@@ -962,7 +962,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Belarus",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BY",
         "country": "Belarus",
         "province": null,
@@ -1023,7 +1023,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Belgium",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BE",
         "country": "Belgium",
         "province": null,
@@ -1086,7 +1086,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Belize",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BZ",
         "country": "Belize",
         "province": null,
@@ -1134,7 +1134,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Benin",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BJ",
         "country": "Benin",
         "province": null,
@@ -1186,7 +1186,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Bermuda",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BM",
         "country": "Bermuda",
         "province": null,
@@ -1240,7 +1240,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Bhutan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BT",
         "country": "Bhutan",
         "province": null,
@@ -1288,7 +1288,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Bolivia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BO",
         "country": "Bolivia",
         "province": null,
@@ -1348,7 +1348,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Bosnia and Herzegovina",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BA",
         "country": "Bosnia and Herzegovina",
         "province": null,
@@ -1407,7 +1407,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Botswana",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BW",
         "country": "Botswana",
         "province": null,
@@ -1457,7 +1457,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Brazil",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BR",
         "country": "Brazil",
         "province": null,
@@ -1517,7 +1517,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "British Virgin Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VG",
         "country": "British Virgin Islands",
         "province": null,
@@ -1557,7 +1557,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Brunei",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BN",
         "country": "Brunei",
         "province": null,
@@ -1615,7 +1615,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Bulgaria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BG",
         "country": "Bulgaria",
         "province": null,
@@ -1676,7 +1676,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Burkina Faso",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BF",
         "country": "Burkina Faso",
         "province": null,
@@ -1737,7 +1737,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Burundi",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BI",
         "country": "Burundi",
         "province": null,
@@ -1780,7 +1780,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Cambodia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KH",
         "country": "Cambodia",
         "province": null,
@@ -1833,7 +1833,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Cameroon",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CM",
         "country": "Cameroon",
         "province": null,
@@ -1892,7 +1892,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CA",
         "country": "Canada",
         "province": null,
@@ -1954,7 +1954,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Cape Verde",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CV",
         "country": "Cape Verde",
         "province": null,
@@ -2005,7 +2005,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Cayman Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KY",
         "country": "Cayman Islands",
         "province": null,
@@ -2057,7 +2057,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Central African Republic",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CF",
         "country": "Central African Republic",
         "province": null,
@@ -2105,7 +2105,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Chad",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TD",
         "country": "Chad",
         "province": null,
@@ -2153,7 +2153,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Chile",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CL",
         "country": "Chile",
         "province": null,
@@ -2215,7 +2215,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CN",
         "country": "China",
         "province": null,
@@ -2278,7 +2278,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Colombia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CO",
         "country": "Colombia",
         "province": null,
@@ -2340,7 +2340,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Costa Rica",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CR",
         "country": "Costa Rica",
         "province": null,
@@ -2397,7 +2397,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Croatia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HR",
         "country": "Croatia",
         "province": null,
@@ -2456,7 +2456,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Cuba",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CU",
         "country": "Cuba",
         "province": null,
@@ -2515,7 +2515,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Curacao",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CW",
         "country": "Curacao",
         "province": null,
@@ -2570,7 +2570,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Cyprus",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CY",
         "country": "Cyprus",
         "province": null,
@@ -2631,7 +2631,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Czechia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CZ",
         "country": "Czechia",
         "province": null,
@@ -2693,7 +2693,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "DR Congo",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CD",
         "country": "DR Congo",
         "province": null,
@@ -2754,7 +2754,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Denmark",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DK",
         "country": "Denmark",
         "province": null,
@@ -2816,7 +2816,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Djibouti",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DJ",
         "country": "Djibouti",
         "province": null,
@@ -2865,7 +2865,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Dominica",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DM",
         "country": "Dominica",
         "province": null,
@@ -2914,7 +2914,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Dominican Republic",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DO",
         "country": "Dominican Republic",
         "province": null,
@@ -2976,7 +2976,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Ecuador",
-        "type": "country",
+        "type": "total-country",
         "country_code": "EC",
         "country": "Ecuador",
         "province": null,
@@ -3038,7 +3038,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Egypt",
-        "type": "country",
+        "type": "total-country",
         "country_code": "EG",
         "country": "Egypt",
         "province": null,
@@ -3099,7 +3099,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "El Salvador",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SV",
         "country": "El Salvador",
         "province": null,
@@ -3152,7 +3152,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Equatorial Guinea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GQ",
         "country": "Equatorial Guinea",
         "province": null,
@@ -3204,7 +3204,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Eritrea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ER",
         "country": "Eritrea",
         "province": null,
@@ -3253,7 +3253,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Estonia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "EE",
         "country": "Estonia",
         "province": null,
@@ -3314,7 +3314,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Eswatini",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SZ",
         "country": "Eswatini",
         "province": null,
@@ -3362,7 +3362,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Ethiopia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ET",
         "country": "Ethiopia",
         "province": null,
@@ -3414,7 +3414,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Faroe Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "FO",
         "country": "Faroe Islands",
         "province": null,
@@ -3469,7 +3469,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Fiji",
-        "type": "country",
+        "type": "total-country",
         "country_code": "FJ",
         "country": "Fiji",
         "province": null,
@@ -3517,7 +3517,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Finland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "FI",
         "country": "Finland",
         "province": null,
@@ -3575,7 +3575,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "France",
-        "type": "country",
+        "type": "total-country",
         "country_code": "FR",
         "country": "France",
         "province": null,
@@ -3638,7 +3638,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "French Guiana",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GF",
         "country": "French Guiana",
         "province": null,
@@ -3683,7 +3683,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "French Polynesia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PF",
         "country": "French Polynesia",
         "province": null,
@@ -3732,7 +3732,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Gabon",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GA",
         "country": "Gabon",
         "province": null,
@@ -3784,7 +3784,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Gambia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GM",
         "country": "Gambia",
         "province": null,
@@ -3837,7 +3837,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Georgia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GE",
         "country": "Georgia",
         "province": null,
@@ -3892,7 +3892,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Germany",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DE",
         "country": "Germany",
         "province": null,
@@ -3955,7 +3955,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Ghana",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GH",
         "country": "Ghana",
         "province": null,
@@ -4012,7 +4012,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Gibraltar",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GI",
         "country": "Gibraltar",
         "province": null,
@@ -4064,7 +4064,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Greece",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GR",
         "country": "Greece",
         "province": null,
@@ -4124,7 +4124,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Greenland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GL",
         "country": "Greenland",
         "province": null,
@@ -4176,7 +4176,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Grenada",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GD",
         "country": "Grenada",
         "province": null,
@@ -4224,7 +4224,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Guadeloupe",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GP",
         "country": "Guadeloupe",
         "province": null,
@@ -4275,7 +4275,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Guatemala",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GT",
         "country": "Guatemala",
         "province": null,
@@ -4330,7 +4330,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Guinea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GN",
         "country": "Guinea",
         "province": null,
@@ -4379,7 +4379,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Guinea-Bissau",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GW",
         "country": "Guinea-Bissau",
         "province": null,
@@ -4427,7 +4427,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Guyana",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GY",
         "country": "Guyana",
         "province": null,
@@ -4480,7 +4480,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Haiti",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HT",
         "country": "Haiti",
         "province": null,
@@ -4532,7 +4532,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Honduras",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HN",
         "country": "Honduras",
         "province": null,
@@ -4591,7 +4591,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Hong Kong",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HK",
         "country": "Hong Kong",
         "province": null,
@@ -4650,7 +4650,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Hungary",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HU",
         "country": "Hungary",
         "province": null,
@@ -4711,7 +4711,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Iceland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IS",
         "country": "Iceland",
         "province": null,
@@ -4771,7 +4771,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "India",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IN",
         "country": "India",
         "province": null,
@@ -4833,7 +4833,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Indonesia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ID",
         "country": "Indonesia",
         "province": null,
@@ -4895,7 +4895,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Iran",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IR",
         "country": "Iran",
         "province": null,
@@ -4958,7 +4958,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Iraq",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IQ",
         "country": "Iraq",
         "province": null,
@@ -5019,7 +5019,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Ireland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IE",
         "country": "Ireland",
         "province": null,
@@ -5079,7 +5079,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Isle of Man",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IM",
         "country": "Isle of Man",
         "province": null,
@@ -5132,7 +5132,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Israel",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IL",
         "country": "Israel",
         "province": null,
@@ -5194,7 +5194,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Italy",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IT",
         "country": "Italy",
         "province": null,
@@ -5257,7 +5257,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Ivory Coast",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CI",
         "country": "Ivory Coast",
         "province": null,
@@ -5315,7 +5315,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Jamaica",
-        "type": "country",
+        "type": "total-country",
         "country_code": "JM",
         "country": "Jamaica",
         "province": null,
@@ -5373,7 +5373,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Japan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "JP",
         "country": "Japan",
         "province": null,
@@ -5435,7 +5435,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Jordan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "JO",
         "country": "Jordan",
         "province": null,
@@ -5494,7 +5494,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Kazakhstan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KZ",
         "country": "Kazakhstan",
         "province": null,
@@ -5555,7 +5555,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Kenya",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KE",
         "country": "Kenya",
         "province": null,
@@ -5612,7 +5612,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Kosovo",
-        "type": "country",
+        "type": "total-country",
         "country_code": "XK",
         "country": "Kosovo",
         "province": null,
@@ -5670,7 +5670,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Kuwait",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KW",
         "country": "Kuwait",
         "province": null,
@@ -5725,7 +5725,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Kyrgyzstan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KG",
         "country": "Kyrgyzstan",
         "province": null,
@@ -5778,7 +5778,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Laos",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LA",
         "country": "Laos",
         "province": null,
@@ -5827,7 +5827,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Latvia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LV",
         "country": "Latvia",
         "province": null,
@@ -5880,7 +5880,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Lebanon",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LB",
         "country": "Lebanon",
         "province": null,
@@ -5941,7 +5941,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Liberia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LR",
         "country": "Liberia",
         "province": null,
@@ -5989,7 +5989,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Libya",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LY",
         "country": "Libya",
         "province": null,
@@ -6037,7 +6037,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Liechtenstein",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LI",
         "country": "Liechtenstein",
         "province": null,
@@ -6086,7 +6086,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Lithuania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LT",
         "country": "Lithuania",
         "province": null,
@@ -6143,7 +6143,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Luxembourg",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LU",
         "country": "Luxembourg",
         "province": null,
@@ -6203,7 +6203,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Macau",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MO",
         "country": "Macau",
         "province": null,
@@ -6255,7 +6255,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Madagascar",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MG",
         "country": "Madagascar",
         "province": null,
@@ -6304,7 +6304,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Malaysia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MY",
         "country": "Malaysia",
         "province": null,
@@ -6366,7 +6366,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Maldives",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MV",
         "country": "Maldives",
         "province": null,
@@ -6418,7 +6418,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Mali",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ML",
         "country": "Mali",
         "province": null,
@@ -6473,7 +6473,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Malta",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MT",
         "country": "Malta",
         "province": null,
@@ -6526,7 +6526,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Martinique",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MQ",
         "country": "Martinique",
         "province": null,
@@ -6573,7 +6573,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Mauritania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MR",
         "country": "Mauritania",
         "province": null,
@@ -6627,7 +6627,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Mauritius",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MU",
         "country": "Mauritius",
         "province": null,
@@ -6683,7 +6683,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Mayotte",
-        "type": "country",
+        "type": "total-country",
         "country_code": "YT",
         "country": "Mayotte",
         "province": null,
@@ -6729,7 +6729,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Mexico",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MX",
         "country": "Mexico",
         "province": null,
@@ -6789,7 +6789,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Moldova",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MD",
         "country": "Moldova",
         "province": null,
@@ -6850,7 +6850,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Monaco",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MC",
         "country": "Monaco",
         "province": null,
@@ -6905,7 +6905,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Mongolia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MN",
         "country": "Mongolia",
         "province": null,
@@ -6957,7 +6957,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Montenegro",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ME",
         "country": "Montenegro",
         "province": null,
@@ -7011,7 +7011,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Montserrat",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MS",
         "country": "Montserrat",
         "province": null,
@@ -7059,7 +7059,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Morocco",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MA",
         "country": "Morocco",
         "province": null,
@@ -7120,7 +7120,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Mozambique",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MZ",
         "country": "Mozambique",
         "province": null,
@@ -7169,7 +7169,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Myanmar",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MM",
         "country": "Myanmar",
         "province": null,
@@ -7220,7 +7220,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Namibia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NA",
         "country": "Namibia",
         "province": null,
@@ -7272,7 +7272,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Nepal",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NP",
         "country": "Nepal",
         "province": null,
@@ -7323,7 +7323,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Netherlands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NL",
         "country": "Netherlands",
         "province": null,
@@ -7384,7 +7384,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "New Caledonia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NC",
         "country": "New Caledonia",
         "province": null,
@@ -7433,7 +7433,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "New Zealand",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NZ",
         "country": "New Zealand",
         "province": null,
@@ -7491,7 +7491,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Nicaragua",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NI",
         "country": "Nicaragua",
         "province": null,
@@ -7542,7 +7542,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Niger",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NE",
         "country": "Niger",
         "province": null,
@@ -7597,7 +7597,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Nigeria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NG",
         "country": "Nigeria",
         "province": null,
@@ -7656,7 +7656,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "North Macedonia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MK",
         "country": "North Macedonia",
         "province": null,
@@ -7717,7 +7717,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Norway",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NO",
         "country": "Norway",
         "province": null,
@@ -7777,7 +7777,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Oman",
-        "type": "country",
+        "type": "total-country",
         "country_code": "OM",
         "country": "Oman",
         "province": null,
@@ -7833,7 +7833,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Pakistan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PK",
         "country": "Pakistan",
         "province": null,
@@ -7895,7 +7895,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Palestine",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PS",
         "country": "Palestine",
         "province": null,
@@ -7941,7 +7941,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Panama",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PA",
         "country": "Panama",
         "province": null,
@@ -8003,7 +8003,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Papua New Guinea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PG",
         "country": "Papua New Guinea",
         "province": null,
@@ -8046,7 +8046,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Paraguay",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PY",
         "country": "Paraguay",
         "province": null,
@@ -8102,7 +8102,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Peru",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PE",
         "country": "Peru",
         "province": null,
@@ -8162,7 +8162,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Philippines",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PH",
         "country": "Philippines",
         "province": null,
@@ -8224,7 +8224,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Poland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PL",
         "country": "Poland",
         "province": null,
@@ -8286,7 +8286,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Portugal",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PT",
         "country": "Portugal",
         "province": null,
@@ -8346,7 +8346,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Qatar",
-        "type": "country",
+        "type": "total-country",
         "country_code": "QA",
         "country": "Qatar",
         "province": null,
@@ -8405,7 +8405,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Republic of the Congo",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CG",
         "country": "Republic of the Congo",
         "province": null,
@@ -8454,7 +8454,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Reunion",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RE",
         "country": "Reunion",
         "province": null,
@@ -8500,7 +8500,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Romania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RO",
         "country": "Romania",
         "province": null,
@@ -8562,7 +8562,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Russia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RU",
         "country": "Russia",
         "province": null,
@@ -8624,7 +8624,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Rwanda",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RW",
         "country": "Rwanda",
         "province": null,
@@ -8673,7 +8673,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Saint Barthelemy",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BL",
         "country": "Saint Barthelemy",
         "province": null,
@@ -8723,7 +8723,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Saint Kitts and Nevis",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KN",
         "country": "Saint Kitts and Nevis",
         "province": null,
@@ -8771,7 +8771,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Saint Lucia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LC",
         "country": "Saint Lucia",
         "province": null,
@@ -8823,7 +8823,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Saint Martin",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MF",
         "country": "Saint Martin",
         "province": null,
@@ -8880,7 +8880,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Saint Vincent and the Grenadines",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VC",
         "country": "Saint Vincent and the Grenadines",
         "province": null,
@@ -8923,7 +8923,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "San Marino",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SM",
         "country": "San Marino",
         "province": null,
@@ -8982,7 +8982,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Saudi Arabia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SA",
         "country": "Saudi Arabia",
         "province": null,
@@ -9044,7 +9044,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Senegal",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SN",
         "country": "Senegal",
         "province": null,
@@ -9103,7 +9103,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Serbia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RS",
         "country": "Serbia",
         "province": null,
@@ -9160,7 +9160,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Seychelles",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SC",
         "country": "Seychelles",
         "province": null,
@@ -9209,7 +9209,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Sierra Leone",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SL",
         "country": "Sierra Leone",
         "province": null,
@@ -9257,7 +9257,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Singapore",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SG",
         "country": "Singapore",
         "province": null,
@@ -9317,7 +9317,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Sint Maarten",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SX",
         "country": "Sint Maarten",
         "province": null,
@@ -9374,7 +9374,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Slovakia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SK",
         "country": "Slovakia",
         "province": null,
@@ -9433,7 +9433,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Slovenia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SI",
         "country": "Slovenia",
         "province": null,
@@ -9490,7 +9490,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Somalia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SO",
         "country": "Somalia",
         "province": null,
@@ -9542,7 +9542,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "South Africa",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ZA",
         "country": "South Africa",
         "province": null,
@@ -9602,7 +9602,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "South Korea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KR",
         "country": "South Korea",
         "province": null,
@@ -9664,7 +9664,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Spain",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ES",
         "country": "Spain",
         "province": null,
@@ -9727,7 +9727,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Sri Lanka",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LK",
         "country": "Sri Lanka",
         "province": null,
@@ -9788,7 +9788,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Sudan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SD",
         "country": "Sudan",
         "province": null,
@@ -9843,7 +9843,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Suriname",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SR",
         "country": "Suriname",
         "province": null,
@@ -9892,7 +9892,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Sweden",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SE",
         "country": "Sweden",
         "province": null,
@@ -9954,7 +9954,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Switzerland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CH",
         "country": "Switzerland",
         "province": null,
@@ -10017,7 +10017,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Syria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SY",
         "country": "Syria",
         "province": null,
@@ -10070,7 +10070,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Taiwan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TW",
         "country": "Taiwan",
         "province": null,
@@ -10127,7 +10127,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Tanzania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TZ",
         "country": "Tanzania",
         "province": null,
@@ -10182,7 +10182,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Thailand",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TH",
         "country": "Thailand",
         "province": null,
@@ -10244,7 +10244,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Timor-Leste",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TL",
         "country": "Timor-Leste",
         "province": null,
@@ -10287,7 +10287,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Togo",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TG",
         "country": "Togo",
         "province": null,
@@ -10345,7 +10345,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Trinidad and Tobago",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TT",
         "country": "Trinidad and Tobago",
         "province": null,
@@ -10403,7 +10403,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Tunisia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TN",
         "country": "Tunisia",
         "province": null,
@@ -10464,7 +10464,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Turkey",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TR",
         "country": "Turkey",
         "province": null,
@@ -10527,7 +10527,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Turks and Caicos Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TC",
         "country": "Turks and Caicos Islands",
         "province": null,
@@ -10575,7 +10575,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Uganda",
-        "type": "country",
+        "type": "total-country",
         "country_code": "UG",
         "country": "Uganda",
         "province": null,
@@ -10624,7 +10624,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Ukraine",
-        "type": "country",
+        "type": "total-country",
         "country_code": "UA",
         "country": "Ukraine",
         "province": null,
@@ -10685,7 +10685,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "United Arab Emirates",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AE",
         "country": "United Arab Emirates",
         "province": null,
@@ -10744,7 +10744,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "United Kingdom",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GB",
         "country": "United Kingdom",
         "province": null,
@@ -10805,7 +10805,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "United States",
-        "type": "country",
+        "type": "total-country",
         "country_code": "US",
         "country": "United States",
         "province": null,
@@ -10868,7 +10868,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Uruguay",
-        "type": "country",
+        "type": "total-country",
         "country_code": "UY",
         "country": "Uruguay",
         "province": null,
@@ -10925,7 +10925,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Uzbekistan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "UZ",
         "country": "Uzbekistan",
         "province": null,
@@ -10984,7 +10984,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Vatican City",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VA",
         "country": "Vatican City",
         "province": null,
@@ -11030,7 +11030,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Venezuela",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VE",
         "country": "Venezuela",
         "province": null,
@@ -11089,7 +11089,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Vietnam",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VN",
         "country": "Vietnam",
         "province": null,
@@ -11144,7 +11144,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Zambia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ZM",
         "country": "Zambia",
         "province": null,
@@ -11193,7 +11193,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Zimbabwe",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ZW",
         "country": "Zimbabwe",
         "province": null,
@@ -11241,12 +11241,12 @@
       }
     }
   },
-  "province": {
+  "provinces": {
     "Australia / Australian Capital Territory": {
       "dataset": "jhu/series",
       "location": {
         "label": "Australia / Australian Capital Territory",
-        "type": "province",
+        "type": "total-province",
         "country_code": "AU",
         "country": "Australia",
         "province": "Australian Capital Territory",
@@ -11293,7 +11293,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Australia / New South Wales",
-        "type": "province",
+        "type": "total-province",
         "country_code": "AU",
         "country": "Australia",
         "province": "New South Wales",
@@ -11343,7 +11343,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Australia / Northern Territory",
-        "type": "province",
+        "type": "total-province",
         "country_code": "AU",
         "country": "Australia",
         "province": "Northern Territory",
@@ -11384,7 +11384,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Australia / Queensland",
-        "type": "province",
+        "type": "total-province",
         "country_code": "AU",
         "country": "Australia",
         "province": "Queensland",
@@ -11431,7 +11431,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Australia / South Australia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "AU",
         "country": "Australia",
         "province": "South Australia",
@@ -11475,7 +11475,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Australia / Tasmania",
-        "type": "province",
+        "type": "total-province",
         "country_code": "AU",
         "country": "Australia",
         "province": "Tasmania",
@@ -11521,7 +11521,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Australia / Victoria",
-        "type": "province",
+        "type": "total-province",
         "country_code": "AU",
         "country": "Australia",
         "province": "Victoria",
@@ -11570,7 +11570,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Australia / Western Australia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "AU",
         "country": "Australia",
         "province": "Western Australia",
@@ -11619,7 +11619,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Alberta",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Alberta",
@@ -11666,7 +11666,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / British Columbia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "British Columbia",
@@ -11714,7 +11714,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Manitoba",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Manitoba",
@@ -11758,7 +11758,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / New Brunswick",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "New Brunswick",
@@ -11799,7 +11799,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Newfoundland and Labrador",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Newfoundland and Labrador",
@@ -11843,7 +11843,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Northwest Territories",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Northwest Territories",
@@ -11883,7 +11883,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Nova Scotia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Nova Scotia",
@@ -11925,7 +11925,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Ontario",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Ontario",
@@ -11973,7 +11973,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Prince Edward Island",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Prince Edward Island",
@@ -12014,7 +12014,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Quebec",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Quebec",
@@ -12062,7 +12062,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Saskatchewan",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Saskatchewan",
@@ -12109,7 +12109,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Canada / Yukon",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CA",
         "country": "Canada",
         "province": "Yukon",
@@ -12149,7 +12149,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Anhui",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Anhui",
@@ -12194,7 +12194,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Beijing",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Beijing",
@@ -12241,7 +12241,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Chongqing",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Chongqing",
@@ -12288,7 +12288,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Fujian",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Fujian",
@@ -12336,7 +12336,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Gansu",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Gansu",
@@ -12383,7 +12383,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Guangdong",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Guangdong",
@@ -12433,7 +12433,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Guangxi",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Guangxi",
@@ -12480,7 +12480,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Guizhou",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Guizhou",
@@ -12525,7 +12525,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Hainan",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Hainan",
@@ -12572,7 +12572,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Hebei",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Hebei",
@@ -12619,7 +12619,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Heilongjiang",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Heilongjiang",
@@ -12666,7 +12666,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Henan",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Henan",
@@ -12714,7 +12714,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Hubei",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Hubei",
@@ -12767,7 +12767,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Hunan",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Hunan",
@@ -12813,7 +12813,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Inner Mongolia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Inner Mongolia",
@@ -12859,7 +12859,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Jiangsu",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Jiangsu",
@@ -12903,7 +12903,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Jiangxi",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Jiangxi",
@@ -12949,7 +12949,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Jilin",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Jilin",
@@ -12994,7 +12994,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Liaoning",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Liaoning",
@@ -13041,7 +13041,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Ningxia",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Ningxia",
@@ -13082,7 +13082,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Qinghai",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Qinghai",
@@ -13123,7 +13123,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Shaanxi",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Shaanxi",
@@ -13170,7 +13170,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Shandong",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Shandong",
@@ -13217,7 +13217,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Shanghai",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Shanghai",
@@ -13266,7 +13266,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Shanxi",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Shanxi",
@@ -13310,7 +13310,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Sichuan",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Sichuan",
@@ -13359,7 +13359,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Tianjin",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Tianjin",
@@ -13406,7 +13406,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Tibet",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Tibet",
@@ -13441,7 +13441,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Xinjiang",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Xinjiang",
@@ -13485,7 +13485,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Yunnan",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Yunnan",
@@ -13532,7 +13532,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "China / Zhejiang",
-        "type": "province",
+        "type": "total-province",
         "country_code": "CN",
         "country": "China",
         "province": "Zhejiang",
@@ -13578,12 +13578,12 @@
       "factbook": null
     }
   },
-  "region": {
+  "regions": {
     "Africa": {
       "dataset": "jhu/series",
       "location": {
         "label": "Africa",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Africa",
         "province": null,
@@ -13640,7 +13640,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Americas",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Americas",
         "province": null,
@@ -13698,7 +13698,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Asia",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Asia",
         "province": null,
@@ -13756,7 +13756,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Europe",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Europe",
         "province": null,
@@ -13814,7 +13814,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Oceania",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Oceania",
         "province": null,
@@ -13868,12 +13868,12 @@
       }
     }
   },
-  "subregion": {
+  "subregions": {
     "Australia and New Zealand": {
       "dataset": "jhu/series",
       "location": {
         "label": "Australia and New Zealand",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Australia and New Zealand",
         "province": null,
@@ -13930,7 +13930,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Caribbean",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Caribbean",
         "province": null,
@@ -13987,7 +13987,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Central America",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Central America",
         "province": null,
@@ -14042,7 +14042,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Central Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Central Asia",
         "province": null,
@@ -14098,7 +14098,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Central Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Central Europe",
         "province": null,
@@ -14152,7 +14152,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Eastern Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Eastern Africa",
         "province": null,
@@ -14208,7 +14208,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Eastern Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Eastern Asia",
         "province": null,
@@ -14264,7 +14264,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Eastern Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Eastern Europe",
         "province": null,
@@ -14322,7 +14322,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Melanesia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Melanesia",
         "province": null,
@@ -14366,7 +14366,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Middle Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Middle Africa",
         "province": null,
@@ -14422,7 +14422,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "North America",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "North America",
         "province": null,
@@ -14480,7 +14480,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Northern Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Northern Africa",
         "province": null,
@@ -14537,7 +14537,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Northern Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Northern Europe",
         "province": null,
@@ -14595,7 +14595,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Polynesia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Polynesia",
         "province": null,
@@ -14639,7 +14639,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "South America",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "South America",
         "province": null,
@@ -14697,7 +14697,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "South-Eastern Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "South-Eastern Asia",
         "province": null,
@@ -14755,7 +14755,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Southern Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Southern Africa",
         "province": null,
@@ -14810,7 +14810,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Southern Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Southern Asia",
         "province": null,
@@ -14868,7 +14868,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Southern Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Southern Europe",
         "province": null,
@@ -14926,7 +14926,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Western Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Western Africa",
         "province": null,
@@ -14983,7 +14983,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Western Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Western Asia",
         "province": null,
@@ -15041,7 +15041,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "Western Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Western Europe",
         "province": null,
@@ -15101,7 +15101,7 @@
       "dataset": "jhu/series",
       "location": {
         "label": "World",
-        "type": "world",
+        "type": "total-world",
         "country_code": null,
         "country": "World",
         "province": null,

@@ -1,10 +1,10 @@
 {
-  "country": {
+  "countries": {
     "Afghanistan": {
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Afghanistan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AF",
         "country": "Afghanistan",
         "province": null,
@@ -58,7 +58,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Albania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AL",
         "country": "Albania",
         "province": null,
@@ -114,7 +114,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Algeria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DZ",
         "country": "Algeria",
         "province": null,
@@ -170,7 +170,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Andorra",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AD",
         "country": "Andorra",
         "province": null,
@@ -226,7 +226,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Angola",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AO",
         "country": "Angola",
         "province": null,
@@ -278,7 +278,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Anguilla",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AI",
         "country": "Anguilla",
         "province": null,
@@ -321,7 +321,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Antigua and Barbuda",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AG",
         "country": "Antigua and Barbuda",
         "province": null,
@@ -369,7 +369,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Argentina",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AR",
         "country": "Argentina",
         "province": null,
@@ -425,7 +425,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Armenia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AM",
         "country": "Armenia",
         "province": null,
@@ -479,7 +479,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Aruba",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AW",
         "country": "Aruba",
         "province": null,
@@ -528,7 +528,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Australia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AU",
         "country": "Australia",
         "province": null,
@@ -585,7 +585,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Austria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AT",
         "country": "Austria",
         "province": null,
@@ -643,7 +643,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Azerbaijan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AZ",
         "country": "Azerbaijan",
         "province": null,
@@ -699,7 +699,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Bahamas",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BS",
         "country": "Bahamas",
         "province": null,
@@ -748,7 +748,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Bahrain",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BH",
         "country": "Bahrain",
         "province": null,
@@ -802,7 +802,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Bangladesh",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BD",
         "country": "Bangladesh",
         "province": null,
@@ -855,7 +855,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Barbados",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BB",
         "country": "Barbados",
         "province": null,
@@ -904,7 +904,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Belarus",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BY",
         "country": "Belarus",
         "province": null,
@@ -954,7 +954,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Belgium",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BE",
         "country": "Belgium",
         "province": null,
@@ -1012,7 +1012,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Belize",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BZ",
         "country": "Belize",
         "province": null,
@@ -1060,7 +1060,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Benin",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BJ",
         "country": "Benin",
         "province": null,
@@ -1108,7 +1108,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Bermuda",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BM",
         "country": "Bermuda",
         "province": null,
@@ -1157,7 +1157,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Bhutan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BT",
         "country": "Bhutan",
         "province": null,
@@ -1205,7 +1205,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Bolivia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BO",
         "country": "Bolivia",
         "province": null,
@@ -1261,7 +1261,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Bosnia and Herzegovina",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BA",
         "country": "Bosnia and Herzegovina",
         "province": null,
@@ -1317,7 +1317,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Botswana",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BW",
         "country": "Botswana",
         "province": null,
@@ -1360,7 +1360,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Brazil",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BR",
         "country": "Brazil",
         "province": null,
@@ -1417,7 +1417,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "British Virgin Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VG",
         "country": "British Virgin Islands",
         "province": null,
@@ -1457,7 +1457,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Brunei",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BN",
         "country": "Brunei",
         "province": null,
@@ -1510,7 +1510,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Bulgaria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BG",
         "country": "Bulgaria",
         "province": null,
@@ -1564,7 +1564,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Burkina Faso",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BF",
         "country": "Burkina Faso",
         "province": null,
@@ -1618,7 +1618,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Burundi",
-        "type": "country",
+        "type": "total-country",
         "country_code": "BI",
         "country": "Burundi",
         "province": null,
@@ -1661,7 +1661,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Cambodia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KH",
         "country": "Cambodia",
         "province": null,
@@ -1711,7 +1711,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Cameroon",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CM",
         "country": "Cameroon",
         "province": null,
@@ -1767,7 +1767,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Canada",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CA",
         "country": "Canada",
         "province": null,
@@ -1824,7 +1824,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Cape Verde",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CV",
         "country": "Cape Verde",
         "province": null,
@@ -1875,7 +1875,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Cayman Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KY",
         "country": "Cayman Islands",
         "province": null,
@@ -1927,7 +1927,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Central African Republic",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CF",
         "country": "Central African Republic",
         "province": null,
@@ -1975,7 +1975,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Chad",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TD",
         "country": "Chad",
         "province": null,
@@ -2023,7 +2023,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Chile",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CL",
         "country": "Chile",
         "province": null,
@@ -2080,7 +2080,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "China",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CN",
         "country": "China",
         "province": null,
@@ -2138,7 +2138,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Colombia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CO",
         "country": "Colombia",
         "province": null,
@@ -2194,7 +2194,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Costa Rica",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CR",
         "country": "Costa Rica",
         "province": null,
@@ -2248,7 +2248,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Croatia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HR",
         "country": "Croatia",
         "province": null,
@@ -2302,7 +2302,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Cuba",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CU",
         "country": "Cuba",
         "province": null,
@@ -2358,7 +2358,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Curacao",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CW",
         "country": "Curacao",
         "province": null,
@@ -2410,7 +2410,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Cyprus",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CY",
         "country": "Cyprus",
         "province": null,
@@ -2466,7 +2466,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Czechia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CZ",
         "country": "Czechia",
         "province": null,
@@ -2523,7 +2523,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "DR Congo",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CD",
         "country": "DR Congo",
         "province": null,
@@ -2576,7 +2576,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Denmark",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DK",
         "country": "Denmark",
         "province": null,
@@ -2633,7 +2633,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Djibouti",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DJ",
         "country": "Djibouti",
         "province": null,
@@ -2682,7 +2682,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Dominica",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DM",
         "country": "Dominica",
         "province": null,
@@ -2731,7 +2731,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Dominican Republic",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DO",
         "country": "Dominican Republic",
         "province": null,
@@ -2788,7 +2788,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Ecuador",
-        "type": "country",
+        "type": "total-country",
         "country_code": "EC",
         "country": "Ecuador",
         "province": null,
@@ -2845,7 +2845,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Egypt",
-        "type": "country",
+        "type": "total-country",
         "country_code": "EG",
         "country": "Egypt",
         "province": null,
@@ -2901,7 +2901,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "El Salvador",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SV",
         "country": "El Salvador",
         "province": null,
@@ -2952,7 +2952,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Equatorial Guinea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GQ",
         "country": "Equatorial Guinea",
         "province": null,
@@ -3001,7 +3001,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Eritrea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ER",
         "country": "Eritrea",
         "province": null,
@@ -3050,7 +3050,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Estonia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "EE",
         "country": "Estonia",
         "province": null,
@@ -3106,7 +3106,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Eswatini",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SZ",
         "country": "Eswatini",
         "province": null,
@@ -3154,7 +3154,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Ethiopia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ET",
         "country": "Ethiopia",
         "province": null,
@@ -3203,7 +3203,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Faroe Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "FO",
         "country": "Faroe Islands",
         "province": null,
@@ -3253,7 +3253,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Fiji",
-        "type": "country",
+        "type": "total-country",
         "country_code": "FJ",
         "country": "Fiji",
         "province": null,
@@ -3301,7 +3301,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Finland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "FI",
         "country": "Finland",
         "province": null,
@@ -3358,7 +3358,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "France",
-        "type": "country",
+        "type": "total-country",
         "country_code": "FR",
         "country": "France",
         "province": null,
@@ -3416,7 +3416,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "French Polynesia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PF",
         "country": "French Polynesia",
         "province": null,
@@ -3465,7 +3465,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Gabon",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GA",
         "country": "Gabon",
         "province": null,
@@ -3517,7 +3517,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Gambia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GM",
         "country": "Gambia",
         "province": null,
@@ -3568,7 +3568,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Georgia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GE",
         "country": "Georgia",
         "province": null,
@@ -3618,7 +3618,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Germany",
-        "type": "country",
+        "type": "total-country",
         "country_code": "DE",
         "country": "Germany",
         "province": null,
@@ -3676,7 +3676,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Ghana",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GH",
         "country": "Ghana",
         "province": null,
@@ -3730,7 +3730,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Gibraltar",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GI",
         "country": "Gibraltar",
         "province": null,
@@ -3779,7 +3779,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Greece",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GR",
         "country": "Greece",
         "province": null,
@@ -3836,7 +3836,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Greenland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GL",
         "country": "Greenland",
         "province": null,
@@ -3885,7 +3885,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Grenada",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GD",
         "country": "Grenada",
         "province": null,
@@ -3933,7 +3933,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Guam",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GU",
         "country": "Guam",
         "province": null,
@@ -3988,7 +3988,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Guatemala",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GT",
         "country": "Guatemala",
         "province": null,
@@ -4040,7 +4040,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Guernsey",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GG",
         "country": "Guernsey",
         "province": null,
@@ -4089,7 +4089,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Guinea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GN",
         "country": "Guinea",
         "province": null,
@@ -4138,7 +4138,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Guinea-Bissau",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GW",
         "country": "Guinea-Bissau",
         "province": null,
@@ -4186,7 +4186,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Guyana",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GY",
         "country": "Guyana",
         "province": null,
@@ -4241,7 +4241,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Haiti",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HT",
         "country": "Haiti",
         "province": null,
@@ -4290,7 +4290,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Honduras",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HN",
         "country": "Honduras",
         "province": null,
@@ -4346,7 +4346,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Hungary",
-        "type": "country",
+        "type": "total-country",
         "country_code": "HU",
         "country": "Hungary",
         "province": null,
@@ -4402,7 +4402,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Iceland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IS",
         "country": "Iceland",
         "province": null,
@@ -4457,7 +4457,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "India",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IN",
         "country": "India",
         "province": null,
@@ -4514,7 +4514,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Indonesia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ID",
         "country": "Indonesia",
         "province": null,
@@ -4571,7 +4571,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Iran",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IR",
         "country": "Iran",
         "province": null,
@@ -4629,7 +4629,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Iraq",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IQ",
         "country": "Iraq",
         "province": null,
@@ -4685,7 +4685,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Ireland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IE",
         "country": "Ireland",
         "province": null,
@@ -4742,7 +4742,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Isle of Man",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IM",
         "country": "Isle of Man",
         "province": null,
@@ -4791,7 +4791,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Israel",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IL",
         "country": "Israel",
         "province": null,
@@ -4848,7 +4848,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Italy",
-        "type": "country",
+        "type": "total-country",
         "country_code": "IT",
         "country": "Italy",
         "province": null,
@@ -4906,7 +4906,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Ivory Coast",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CI",
         "country": "Ivory Coast",
         "province": null,
@@ -4959,7 +4959,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Jamaica",
-        "type": "country",
+        "type": "total-country",
         "country_code": "JM",
         "country": "Jamaica",
         "province": null,
@@ -5011,7 +5011,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Japan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "JP",
         "country": "Japan",
         "province": null,
@@ -5068,7 +5068,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Jersey",
-        "type": "country",
+        "type": "total-country",
         "country_code": "JE",
         "country": "Jersey",
         "province": null,
@@ -5121,7 +5121,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Jordan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "JO",
         "country": "Jordan",
         "province": null,
@@ -5175,7 +5175,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Kazakhstan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KZ",
         "country": "Kazakhstan",
         "province": null,
@@ -5228,7 +5228,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Kenya",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KE",
         "country": "Kenya",
         "province": null,
@@ -5280,7 +5280,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Kosovo",
-        "type": "country",
+        "type": "total-country",
         "country_code": "XK",
         "country": "Kosovo",
         "province": null,
@@ -5333,7 +5333,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Kuwait",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KW",
         "country": "Kuwait",
         "province": null,
@@ -5383,7 +5383,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Kyrgyzstan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KG",
         "country": "Kyrgyzstan",
         "province": null,
@@ -5433,7 +5433,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Laos",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LA",
         "country": "Laos",
         "province": null,
@@ -5481,7 +5481,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Latvia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LV",
         "country": "Latvia",
         "province": null,
@@ -5531,7 +5531,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Lebanon",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LB",
         "country": "Lebanon",
         "province": null,
@@ -5587,7 +5587,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Liberia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LR",
         "country": "Liberia",
         "province": null,
@@ -5635,7 +5635,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Libya",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LY",
         "country": "Libya",
         "province": null,
@@ -5684,7 +5684,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Liechtenstein",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LI",
         "country": "Liechtenstein",
         "province": null,
@@ -5733,7 +5733,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Lithuania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LT",
         "country": "Lithuania",
         "province": null,
@@ -5787,7 +5787,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Luxembourg",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LU",
         "country": "Luxembourg",
         "province": null,
@@ -5844,7 +5844,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Madagascar",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MG",
         "country": "Madagascar",
         "province": null,
@@ -5893,7 +5893,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Malaysia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MY",
         "country": "Malaysia",
         "province": null,
@@ -5950,7 +5950,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Maldives",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MV",
         "country": "Maldives",
         "province": null,
@@ -5999,7 +5999,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Mali",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ML",
         "country": "Mali",
         "province": null,
@@ -6050,7 +6050,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Malta",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MT",
         "country": "Malta",
         "province": null,
@@ -6100,7 +6100,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Mauritania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MR",
         "country": "Mauritania",
         "province": null,
@@ -6148,7 +6148,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Mauritius",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MU",
         "country": "Mauritius",
         "province": null,
@@ -6202,7 +6202,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Mexico",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MX",
         "country": "Mexico",
         "province": null,
@@ -6259,7 +6259,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Moldova",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MD",
         "country": "Moldova",
         "province": null,
@@ -6315,7 +6315,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Monaco",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MC",
         "country": "Monaco",
         "province": null,
@@ -6364,7 +6364,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Mongolia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MN",
         "country": "Mongolia",
         "province": null,
@@ -6413,7 +6413,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Montenegro",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ME",
         "country": "Montenegro",
         "province": null,
@@ -6466,7 +6466,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Montserrat",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MS",
         "country": "Montserrat",
         "province": null,
@@ -6514,7 +6514,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Morocco",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MA",
         "country": "Morocco",
         "province": null,
@@ -6570,7 +6570,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Mozambique",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MZ",
         "country": "Mozambique",
         "province": null,
@@ -6618,7 +6618,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Myanmar",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MM",
         "country": "Myanmar",
         "province": null,
@@ -6669,7 +6669,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Namibia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NA",
         "country": "Namibia",
         "province": null,
@@ -6718,7 +6718,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Nepal",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NP",
         "country": "Nepal",
         "province": null,
@@ -6766,7 +6766,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Netherlands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NL",
         "country": "Netherlands",
         "province": null,
@@ -6824,7 +6824,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "New Caledonia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NC",
         "country": "New Caledonia",
         "province": null,
@@ -6873,7 +6873,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "New Zealand",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NZ",
         "country": "New Zealand",
         "province": null,
@@ -6926,7 +6926,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Nicaragua",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NI",
         "country": "Nicaragua",
         "province": null,
@@ -6977,7 +6977,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Niger",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NE",
         "country": "Niger",
         "province": null,
@@ -7032,7 +7032,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Nigeria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NG",
         "country": "Nigeria",
         "province": null,
@@ -7088,7 +7088,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "North Macedonia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MK",
         "country": "North Macedonia",
         "province": null,
@@ -7144,7 +7144,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Northern Mariana Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "MP",
         "country": "Northern Mariana Islands",
         "province": null,
@@ -7192,7 +7192,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Norway",
-        "type": "country",
+        "type": "total-country",
         "country_code": "NO",
         "country": "Norway",
         "province": null,
@@ -7249,7 +7249,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Oman",
-        "type": "country",
+        "type": "total-country",
         "country_code": "OM",
         "country": "Oman",
         "province": null,
@@ -7303,7 +7303,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Pakistan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PK",
         "country": "Pakistan",
         "province": null,
@@ -7360,7 +7360,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Palestine",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PS",
         "country": "Palestine",
         "province": null,
@@ -7404,7 +7404,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Panama",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PA",
         "country": "Panama",
         "province": null,
@@ -7461,7 +7461,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Papua New Guinea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PG",
         "country": "Papua New Guinea",
         "province": null,
@@ -7504,7 +7504,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Paraguay",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PY",
         "country": "Paraguay",
         "province": null,
@@ -7557,7 +7557,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Peru",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PE",
         "country": "Peru",
         "province": null,
@@ -7614,7 +7614,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Philippines",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PH",
         "country": "Philippines",
         "province": null,
@@ -7671,7 +7671,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Poland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PL",
         "country": "Poland",
         "province": null,
@@ -7728,7 +7728,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Portugal",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PT",
         "country": "Portugal",
         "province": null,
@@ -7785,7 +7785,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Puerto Rico",
-        "type": "country",
+        "type": "total-country",
         "country_code": "PR",
         "country": "Puerto Rico",
         "province": null,
@@ -7841,7 +7841,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Qatar",
-        "type": "country",
+        "type": "total-country",
         "country_code": "QA",
         "country": "Qatar",
         "province": null,
@@ -7897,7 +7897,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Republic of the Congo",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CG",
         "country": "Republic of the Congo",
         "province": null,
@@ -7950,7 +7950,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Romania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RO",
         "country": "Romania",
         "province": null,
@@ -8007,7 +8007,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Russia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RU",
         "country": "Russia",
         "province": null,
@@ -8064,7 +8064,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Rwanda",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RW",
         "country": "Rwanda",
         "province": null,
@@ -8113,7 +8113,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Saint Kitts and Nevis",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KN",
         "country": "Saint Kitts and Nevis",
         "province": null,
@@ -8161,7 +8161,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Saint Lucia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LC",
         "country": "Saint Lucia",
         "province": null,
@@ -8210,7 +8210,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Saint Vincent and the Grenadines",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VC",
         "country": "Saint Vincent and the Grenadines",
         "province": null,
@@ -8253,7 +8253,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "San Marino",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SM",
         "country": "San Marino",
         "province": null,
@@ -8307,7 +8307,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Saudi Arabia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SA",
         "country": "Saudi Arabia",
         "province": null,
@@ -8364,7 +8364,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Senegal",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SN",
         "country": "Senegal",
         "province": null,
@@ -8414,7 +8414,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Serbia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "RS",
         "country": "Serbia",
         "province": null,
@@ -8470,7 +8470,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Seychelles",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SC",
         "country": "Seychelles",
         "province": null,
@@ -8519,7 +8519,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Sierra Leone",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SL",
         "country": "Sierra Leone",
         "province": null,
@@ -8562,7 +8562,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Singapore",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SG",
         "country": "Singapore",
         "province": null,
@@ -8616,7 +8616,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Sint Maarten",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SX",
         "country": "Sint Maarten",
         "province": null,
@@ -8664,7 +8664,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Slovakia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SK",
         "country": "Slovakia",
         "province": null,
@@ -8714,7 +8714,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Slovenia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SI",
         "country": "Slovenia",
         "province": null,
@@ -8770,7 +8770,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Somalia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SO",
         "country": "Somalia",
         "province": null,
@@ -8818,7 +8818,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "South Africa",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ZA",
         "country": "South Africa",
         "province": null,
@@ -8875,7 +8875,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "South Korea",
-        "type": "country",
+        "type": "total-country",
         "country_code": "KR",
         "country": "South Korea",
         "province": null,
@@ -8932,7 +8932,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "South Sudan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SS",
         "country": "South Sudan",
         "province": null,
@@ -8975,7 +8975,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Spain",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ES",
         "country": "Spain",
         "province": null,
@@ -9033,7 +9033,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Sri Lanka",
-        "type": "country",
+        "type": "total-country",
         "country_code": "LK",
         "country": "Sri Lanka",
         "province": null,
@@ -9089,7 +9089,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Sudan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SD",
         "country": "Sudan",
         "province": null,
@@ -9141,7 +9141,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Suriname",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SR",
         "country": "Suriname",
         "province": null,
@@ -9190,7 +9190,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Sweden",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SE",
         "country": "Sweden",
         "province": null,
@@ -9247,7 +9247,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Switzerland",
-        "type": "country",
+        "type": "total-country",
         "country_code": "CH",
         "country": "Switzerland",
         "province": null,
@@ -9305,7 +9305,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Syria",
-        "type": "country",
+        "type": "total-country",
         "country_code": "SY",
         "country": "Syria",
         "province": null,
@@ -9358,7 +9358,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Taiwan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TW",
         "country": "Taiwan",
         "province": null,
@@ -9412,7 +9412,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Tanzania",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TZ",
         "country": "Tanzania",
         "province": null,
@@ -9464,7 +9464,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Thailand",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TH",
         "country": "Thailand",
         "province": null,
@@ -9521,7 +9521,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Timor-Leste",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TL",
         "country": "Timor-Leste",
         "province": null,
@@ -9564,7 +9564,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Togo",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TG",
         "country": "Togo",
         "province": null,
@@ -9616,7 +9616,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Trinidad and Tobago",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TT",
         "country": "Trinidad and Tobago",
         "province": null,
@@ -9669,7 +9669,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Tunisia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TN",
         "country": "Tunisia",
         "province": null,
@@ -9725,7 +9725,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Turkey",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TR",
         "country": "Turkey",
         "province": null,
@@ -9783,7 +9783,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Turks and Caicos Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "TC",
         "country": "Turks and Caicos Islands",
         "province": null,
@@ -9831,7 +9831,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Uganda",
-        "type": "country",
+        "type": "total-country",
         "country_code": "UG",
         "country": "Uganda",
         "province": null,
@@ -9880,7 +9880,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Ukraine",
-        "type": "country",
+        "type": "total-country",
         "country_code": "UA",
         "country": "Ukraine",
         "province": null,
@@ -9936,7 +9936,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "United Arab Emirates",
-        "type": "country",
+        "type": "total-country",
         "country_code": "AE",
         "country": "United Arab Emirates",
         "province": null,
@@ -9992,7 +9992,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "United Kingdom",
-        "type": "country",
+        "type": "total-country",
         "country_code": "GB",
         "country": "United Kingdom",
         "province": null,
@@ -10050,7 +10050,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "United States",
-        "type": "country",
+        "type": "total-country",
         "country_code": "US",
         "country": "United States",
         "province": null,
@@ -10108,7 +10108,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "United States Virgin Islands",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VI",
         "country": "United States Virgin Islands",
         "province": null,
@@ -10149,7 +10149,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Uruguay",
-        "type": "country",
+        "type": "total-country",
         "country_code": "UY",
         "country": "Uruguay",
         "province": null,
@@ -10202,7 +10202,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Uzbekistan",
-        "type": "country",
+        "type": "total-country",
         "country_code": "UZ",
         "country": "Uzbekistan",
         "province": null,
@@ -10256,7 +10256,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Vatican City",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VA",
         "country": "Vatican City",
         "province": null,
@@ -10302,7 +10302,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Venezuela",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VE",
         "country": "Venezuela",
         "province": null,
@@ -10358,7 +10358,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Vietnam",
-        "type": "country",
+        "type": "total-country",
         "country_code": "VN",
         "country": "Vietnam",
         "province": null,
@@ -10408,7 +10408,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Zambia",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ZM",
         "country": "Zambia",
         "province": null,
@@ -10457,7 +10457,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Zimbabwe",
-        "type": "country",
+        "type": "total-country",
         "country_code": "ZW",
         "country": "Zimbabwe",
         "province": null,
@@ -10505,12 +10505,12 @@
       }
     }
   },
-  "region": {
+  "regions": {
     "Africa": {
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Africa",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Africa",
         "province": null,
@@ -10562,7 +10562,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Americas",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Americas",
         "province": null,
@@ -10615,7 +10615,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Asia",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Asia",
         "province": null,
@@ -10668,7 +10668,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Europe",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Europe",
         "province": null,
@@ -10721,7 +10721,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Oceania",
-        "type": "region",
+        "type": "total-region",
         "country_code": null,
         "country": "Oceania",
         "province": null,
@@ -10770,12 +10770,12 @@
       }
     }
   },
-  "subregion": {
+  "subregions": {
     "Australia and New Zealand": {
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Australia and New Zealand",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Australia and New Zealand",
         "province": null,
@@ -10827,7 +10827,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Caribbean",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Caribbean",
         "province": null,
@@ -10879,7 +10879,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Central America",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Central America",
         "province": null,
@@ -10931,7 +10931,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Central Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Central Asia",
         "province": null,
@@ -10980,7 +10980,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Central Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Central Europe",
         "province": null,
@@ -11025,7 +11025,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Eastern Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Eastern Africa",
         "province": null,
@@ -11074,7 +11074,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Eastern Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Eastern Asia",
         "province": null,
@@ -11127,7 +11127,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Eastern Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Eastern Europe",
         "province": null,
@@ -11180,7 +11180,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Melanesia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Melanesia",
         "province": null,
@@ -11224,7 +11224,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Micronesia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Micronesia",
         "province": null,
@@ -11274,7 +11274,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Middle Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Middle Africa",
         "province": null,
@@ -11325,7 +11325,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "North America",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "North America",
         "province": null,
@@ -11378,7 +11378,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Northern Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Northern Africa",
         "province": null,
@@ -11430,7 +11430,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Northern Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Northern Europe",
         "province": null,
@@ -11483,7 +11483,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Polynesia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Polynesia",
         "province": null,
@@ -11527,7 +11527,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "South America",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "South America",
         "province": null,
@@ -11580,7 +11580,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "South-Eastern Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "South-Eastern Asia",
         "province": null,
@@ -11632,7 +11632,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Southern Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Southern Africa",
         "province": null,
@@ -11684,7 +11684,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Southern Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Southern Asia",
         "province": null,
@@ -11737,7 +11737,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Southern Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Southern Europe",
         "province": null,
@@ -11790,7 +11790,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Western Africa",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Western Africa",
         "province": null,
@@ -11841,7 +11841,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Western Asia",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Western Asia",
         "province": null,
@@ -11894,7 +11894,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "Western Europe",
-        "type": "subregion",
+        "type": "total-subregion",
         "country_code": null,
         "country": "Western Europe",
         "province": null,
@@ -11949,7 +11949,7 @@
       "dataset": "ecdc/worldwide",
       "location": {
         "label": "World",
-        "type": "world",
+        "type": "total-world",
         "country_code": null,
         "country": "World",
         "province": null,
