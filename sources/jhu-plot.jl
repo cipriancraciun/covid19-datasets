@@ -83,7 +83,7 @@ elseif _dataset_filter == Symbol("europe-major")
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
 	_dataset_locations = [
-			"China", "South Korea",
+#			"China", "South Korea",
 			"Italy", "Spain", "Germany", "France",
 		]
 	
@@ -92,14 +92,14 @@ elseif _dataset_filter == Symbol("europe-minor")
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
 	_dataset_locations = [
-			"South Korea",
-			"Italy", "Spain", "Germany", "France",
+#			"China", "South Korea",
+#			"Italy", "Spain", "Germany", "France",
 			"United Kingdom", "Switzerland",
-		#	"Netherlands", "Austria", "Belgium",
-		#	"Portugal", "Sweden", "Denmark",
+			"Belgium", "Netherlands", "Austria",
+#			"Portugal", "Sweden", "Denmark",
 		]
 	
-	_dataset_index_at_most = 30
+#	_dataset_index_at_most = 30
 	
 elseif _dataset_filter == :us
 	
@@ -126,7 +126,7 @@ elseif _dataset_filter == :romania
 			"United Kingdom", "Austria",
 		]
 	
-	_dataset_index_at_most = 20
+	_dataset_index_at_most = 25
 	
 elseif _dataset_filter == :continents
 	
@@ -326,7 +326,7 @@ _dataset_locations_allowed = [
 		
 		"China", "South Korea", "United States", "Iran",
 		"Italy", "Spain", "Germany", "France",
-		"United Kingdom", "Switzerland", "Netherlands", "Austria", "Belgium", "Portugal", "Sweden", "Denmark",
+		"United Kingdom", "Switzerland", "Belgium", "Netherlands", "Austria", "Portugal", "Sweden", "Denmark",
 		"Romania", "Hungary", "Bulgaria",
 		
 		"Asia", "Europe", "Americas", "Oceania", "Africa",

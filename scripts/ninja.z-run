@@ -137,6 +137,11 @@
 	
 	{{ else if or ($_target | has_suffix (".pdf")) }}
 	
+	<< ninja / files / build / {{ $_target }}
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+	!!
+	
 	<< ninja / files / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
