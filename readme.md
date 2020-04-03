@@ -83,10 +83,16 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 ### JHU CSSE COVID-19 dataset
 
 * I have re-formatted the original JHU dataset in a one-data-point-per-row format (thus more "relational" and SQL friendly):
-  * in JSON format: [values.json](./exports/jhu/v1/values.json);
-  * in TSV format: [values.tsv](./exports/jhu/v1/values.tsv);
-  * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/jhu/v1/status.json);
-  * (these are based on the `daily_reports` dataset;  JHU also provides `time_series` dataset, which is also available under the [exports](./exports/jhu/v1) folder);
+  * the `daily` dataset (includes world countries and US counties, plus higher level aggregates):
+    * in JSON format: [values.json](./exports/jhu/v1/daily/values.json);
+    * in TSV format: [values.tsv](./exports/jhu/v1/daily/values.tsv);
+    * in SQL format (for SQLite): [values-sqlite.sql](./exports/jhu/v1/daily/values-sqlite.sql) and [values-sqlite.db](./exports/jhu/v1/daily/values-sqlite.db);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/jhu/v1/daily/status.json);
+  * the `series` dataset (includes world countries and US states, plus higher level aggregates):
+    * in JSON format: [values.json](./exports/jhu/v1/series/values.json);
+    * in TSV format: [values.tsv](./exports/jhu/v1/series/values.tsv);
+    * in SQL format (for SQLite): [values-sqlite.sql](./exports/jhu/v1/series/values-sqlite.sql) and [values-sqlite.db](./exports/jhu/v1/series/values-sqlite.db);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/jhu/v1/series/status.json);
 * I have also augmented the original JHU dataset with the following:
   * `day_index_*` means how many days have passed for that country since there were at least that many confirmed cases;
   * `absolute_pop100k` means the absolute metric per 100k people in that country / region;
@@ -105,10 +111,16 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 ### NY Times COVID-19 dataset
 
 * although the original NY dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
-  * in JSON format: [values.json](./exports/nytimes/v1/us-counties/values.json);
-  * in TSV format: [values.tsv](./exports/nytimes/v1/us-counties/values.tsv);
-  * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/nytimes/v1/us-counties/status.json);
-  * (these are based on the `us-counties` dataset;  NY Times also provides `us-states` dataset, which is also available under the [exports](./exports/nytimes/v1) folder);
+  * the `us-counties` dataset (includes only US counties, plus higher level aggregates):
+    * in JSON format: [values.json](./exports/nytimes/v1/us-counties/values.json);
+    * in TSV format: [values.tsv](./exports/nytimes/v1/us-counties/values.tsv);
+    * in SQL format (for SQLite): [values-sqlite.sql](./exports/nytimes/v1/us-counties/values-sqlite.sql) and [values-sqlite.db](./exports/nytimes/v1/us-counties/values-sqlite.db);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/nytimes/v1/us-counties/status.json);
+  * the `us-states` dataset (includes only US states, plus higher level aggregates):
+    * in JSON format: [values.json](./exports/nytimes/v1/us-states/values.json);
+    * in TSV format: [values.tsv](./exports/nytimes/v1/us-states/values.tsv);
+    * in SQL format (for SQLite): [values-sqlite.sql](./exports/nytimes/v1/us-states/values-sqlite.sql) and [values-sqlite.db](./exports/nytimes/v1/us-states/values-sqlite.db);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/nytimes/v1/us-states/status.json);
 * all the transformations and augmentations described for the JHU one were applied also to the NY one;
 * the original data is available at [github.com/nytimes/covid-19-data](https://github.com/nytimes/covid-19-data);
 
@@ -118,9 +130,11 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 ### ECDC COVID-19 dataset
 
 * although the original ECDC dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
-  * in JSON format: [values.json](./exports/ecdc/v1/worldwide/values.json);
-  * in TSV format: [values.tsv](./exports/ecdc/v1/worldwide/values.tsv);
-  * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/ecdc/v1/worldwide/status.json);
+  * the `worldwide` dataset (includes world countries, plus higher level aggregates):
+    * in JSON format: [values.json](./exports/ecdc/v1/worldwide/values.json);
+    * in TSV format: [values.tsv](./exports/ecdc/v1/worldwide/values.tsv);
+    * in SQL format (for SQLite): [values-sqlite.sql](./exports/ecdc/v1/worldwide/values-sqlite.sql) and [values-sqlite.db](./exports/ecdc/v1/worldwide/values-sqlite.db);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/ecdc/v1/worldwide/status.json);
 * all the transformations and augmentations described for the JHU one were applied also to the ECDC one;
 * the original data is available at [ecdc.europa.eu](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide);
 
@@ -129,9 +143,10 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 
 ### Dataset example
 
-* both derived JHU and NY datasets use exactly the same schema, thus can be used interchangeably;
-* the following is an example of such an augmented record (valid for both JHU and NY datasets) (from the `values.json` file);
-* also, after this there is an example of a status record (i.e. the latest values) (from the `status.json` file);
+* all derived datasets (JHU, NY Times, ECDC) use exactly the same schema, thus can be used interchangeably;
+* the first is an example of such an augmented record (from the `values.json` file);
+* the second is an example of a status record (i.e. the latest values) (from the `status.json` file);
+* also, these datasets are also available in SQL and SQLite database formats;
 
 
 #### `values.json` example extract
