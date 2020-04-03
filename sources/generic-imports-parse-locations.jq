@@ -37,12 +37,13 @@
 	
 	# NOTE:  Drop false `provinnce` values.
 	| if (.[2] | (
-			(. == "Unassigned") or
-			(. == "Unknown") or
+			(. == "Unassigned") or (. == "unassigned") or
+			(. == "Unknown") or (. == "unknown") or
 			(. == "Out of MI") or
 			(. == "Out of TN") or
 			(. == "Out of UT") or
 			(. == "Out of OK") or
+			(. == "Out of CO") or
 			(. == "Out-of-state") or
 			false
 	)) then
@@ -83,6 +84,7 @@
 				(. == ["Netherlands", "Aruba", null]) or
 				(. == ["Netherlands", "Curacao", null]) or
 				(. == ["Netherlands", "Sint Maarten", null]) or
+				(. == ["Netherlands", "Bonaire, Sint Eustatius and Saba", null]) or
 				(. == ["Denmark", "Faroe Islands", null]) or
 				(. == ["Denmark", "Greenland", null]) or
 				(. == ["France", "Saint Barthelemy", null]) or
@@ -212,22 +214,26 @@
 			end end
 		end)
 	
-	| . as $data
+	
 	
 	| if (.country != null) then
 		if ((.province == null) and (.administrative != null)) then
-			["6f99bfb1", .] | debug |
-			$data
+			. as $data
+			| ["6f99bfb1", .] | debug
+			| $data
 		else . end
 	else
 		if ((.province != null) or (.administrative != null)) then
-			["396e159b", .] | debug |
-			$data
+			. as $data
+			| ["396e159b", .] | debug
+			| $data
 		else . end
 	end
 	| if ((.administrative == null) and (.administrative_fips != null)) then
-#		["174ebe53", .] | debug |
-		$data
+		. as $data
+#		| ["174ebe53", .] | debug
+		| $data
+		| .administrative_fips = null
 	else . end
 	
 )
