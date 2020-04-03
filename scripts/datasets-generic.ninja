@@ -32,6 +32,34 @@ build ./exports/combined/v1/values.tsv.gz : gzip ./exports/combined/v1/values.ts
 
 
 
+build ./exports/combined/v1/values.sql-json : z-run-in-out $
+        ./exports/combined/v1/values.json $
+        | ./sources/generic-exports-values-sql.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / exports / values / sql / script'
+    pool = cpu_moderate
+
+build ./exports/combined/v1/values-sqlite.sql : sql-from-json $
+        ./exports/combined/v1/values.sql-json $
+        | ./sources/sql-from-json.py ${zrun_library}
+    format = sqlite
+    pool = cpu_moderate
+
+build ./exports/combined/v1/values-sqlite.db : sqlite-create $
+        ./exports/combined/v1/values-sqlite.sql $
+        | ${zrun_library}
+    pool = cpu_moderate
+
+
+build ./exports/combined/v1/values-sqlite.sql.gz : gzip ./exports/combined/v1/values-sqlite.sql
+    pool = cpu_moderate
+
+build ./exports/combined/v1/values-sqlite.db.gz : gzip ./exports/combined/v1/values-sqlite.db
+    pool = cpu_moderate
+
+
+
+
 build ./exports/combined/v1/locations-diff.json : z-run-out-in $
         ./imports/jhu/series/locations.json $
         ./imports/jhu/daily/locations.json $
@@ -59,9 +87,13 @@ build __combined__exports : phony $
         $
         ./exports/combined/v1/values.json $
         ./exports/combined/v1/values.tsv $
+        ./exports/combined/v1/values-sqlite.sql $
+        ./exports/combined/v1/values-sqlite.db $
         $
         ./exports/combined/v1/values.json.gz $
         ./exports/combined/v1/values.tsv.gz $
+        ./exports/combined/v1/values-sqlite.sql.gz $
+        ./exports/combined/v1/values-sqlite.db.gz $
         $
         ./exports/combined/v1/locations-diff.json $
         ./exports/combined/v1/locations-diff.tsv $

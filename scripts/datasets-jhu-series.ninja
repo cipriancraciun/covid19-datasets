@@ -146,6 +146,27 @@ build ./exports/jhu/v1/series/values.txt : z-run-in-out $
 
 
 
+build ./exports/jhu/v1/series/values.sql-json : z-run-in-out $
+        ./exports/jhu/v1/series/values.json $
+        | ./sources/generic-exports-values-sql.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / exports / values / sql / script'
+    pool = cpu_moderate
+
+build ./exports/jhu/v1/series/values-sqlite.sql : sql-from-json $
+        ./exports/jhu/v1/series/values.sql-json $
+        | ./sources/sql-from-json.py ${zrun_library}
+    format = sqlite
+    pool = cpu_moderate
+
+build ./exports/jhu/v1/series/values-sqlite.db : sqlite-create $
+        ./exports/jhu/v1/series/values-sqlite.sql $
+        | ${zrun_library}
+    pool = cpu_moderate
+
+
+
+
 build ./exports/jhu/v1/series/status.json : z-run-in-out $
         ./exports/jhu/v1/series/values.json $
         | ./sources/generic-exports-status-json.jq ${zrun_library}

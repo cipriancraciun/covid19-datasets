@@ -75,6 +75,81 @@
 
 
 
+--<< tools / convert / sql-from-json
+	
+	test "${#}" -eq 3
+	_input="${1}"
+	_output="${2}"
+	_format="${3}"
+	shift -- 3
+	test "${#}" -eq 0
+	
+	rm -f -- "${_output}.tmp"
+	
+	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	if ! \
+			nice -n 19 -- \
+			"${ZRUN[@]}" ':: tools / convert / sql-from-json / exec' \
+					"${_input}" \
+					"${_output}.tmp" \
+					"${_format}" \
+	; then
+		rm -f -- "${_output}.tmp"
+		exit -- 1
+	fi
+	
+	if cmp -s -- "${_output}.tmp" "${_output}" ; then
+		rm -- "${_output}.tmp"
+		exit -- 0
+	fi
+	
+	mv -T -- "${_output}.tmp" "${_output}"
+!!
+
+--<<~~ tools / convert / sql-from-json / exec
+	#! {{}}
+	#! <python2>
+	{{ ZRUN ":: tools / convert / sql-from-json / script" }}
+!!
+
+--::&&.. tools / convert / sql-from-json / script :: ../sources/sql-from-json.py
+
+
+
+
+--<< tools / convert / sqlite
+	
+	test "${#}" -eq 2
+	_input="${1}"
+	_output="${2}"
+	shift -- 2
+	test "${#}" -eq 0
+	
+	rm -f -- "${_output}.tmp"
+	
+	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
+	if ! \
+			nice -n 19 -- \
+			sqlite3 \
+				-bail -batch \
+				-init "${_input}" \
+				"${_output}.tmp" \
+	; then
+		rm -f -- "${_output}.tmp"
+		exit -- 1
+	fi
+	
+	if cmp -s -- "${_output}.tmp" "${_output}" ; then
+		rm -- "${_output}.tmp"
+		exit -- 0
+	fi
+	
+	mv -T -- "${_output}.tmp" "${_output}"
+!!
+
+
+
+
 --<< tools / jq / filter
 	
 	test "${#}" -ge 3

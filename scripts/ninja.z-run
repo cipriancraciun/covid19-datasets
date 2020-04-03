@@ -85,7 +85,7 @@
 		exec -- "${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
 	!!
 	
-	{{ else if or ($_target | has_suffix (".json")) ($_target | has_suffix (".csv")) ($_target | has_suffix (".tsv")) ($_target | has_suffix (".txt")) }}
+	{{ else if or ($_target | has_suffix (".json")) ($_target | has_suffix (".csv")) ($_target | has_suffix (".tsv")) ($_target | has_suffix (".txt")) ($_target | has_suffix (".sql")) ($_target | has_suffix (".sql-json")) }}
 	
 	<< ninja / files / build / {{ $_target }}
 		test "${#}" -eq 0
@@ -154,6 +154,13 @@
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
 		exec -- sxiv -- {{ $_target | shell_quote }}
+	!!
+	
+	{{ else }}
+	
+	<< ninja / files / build / {{ $_target }}
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
 	!!
 	
 	{{ end }}

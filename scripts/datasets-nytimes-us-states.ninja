@@ -111,6 +111,27 @@ build ./exports/nytimes/v1/us-states/values.txt : z-run-in-out $
 
 
 
+build ./exports/nytimes/v1/us-states/values.sql-json : z-run-in-out $
+        ./exports/nytimes/v1/us-states/values.json $
+        | ./sources/generic-exports-values-sql.jq ${zrun_library}
+    scriptlet = ':: tools / jq / filter'
+    arguments_pre = ':: process / generic / exports / values / sql / script'
+    pool = cpu_moderate
+
+build ./exports/nytimes/v1/us-states/values-sqlite.sql : sql-from-json $
+        ./exports/nytimes/v1/us-states/values.sql-json $
+        | ./sources/sql-from-json.py ${zrun_library}
+    format = sqlite
+    pool = cpu_moderate
+
+build ./exports/nytimes/v1/us-states/values-sqlite.db : sqlite-create $
+        ./exports/nytimes/v1/us-states/values-sqlite.sql $
+        | ${zrun_library}
+    pool = cpu_moderate
+
+
+
+
 build ./exports/nytimes/v1/us-states/status.json : z-run-in-out $
         ./exports/nytimes/v1/us-states/values.json $
         | ./sources/generic-exports-status-json.jq ${zrun_library}

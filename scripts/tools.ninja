@@ -12,6 +12,16 @@ rule csv-to-json
     description = [csv-to-json]  ${out}
     restat = true
 
+rule sql-from-json
+    command = exec -- z-run ':: tools / convert / sql-from-json' ${in} ${out} ${dataset} ${format}
+    description = [sql-from-json]  ${out}
+    restat = true
+
+rule sqlite-create
+    command = exec -- z-run ':: tools / convert / sqlite' ${in} ${out} ${dataset}
+    description = [sqlite-create]  ${out}
+    restat = true
+
 rule z-run-in-out
     command = exec -- z-run ${scriptlet} ${arguments_pre} ${in} ${out} ${arguments}
     description = [z-run]  ${scriptlet}  ${out}
