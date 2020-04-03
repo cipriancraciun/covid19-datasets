@@ -360,15 +360,16 @@ as processed and augmented at https://github.com/cipriancraciun/covid19-datasets
 ## Licensing
 
 * the graphs are licensed under the *Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)* license;
-* the data files are licensed under the *Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)* license;
+* the data files are licensed under the *Creative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0)* license;
 * the sources and scripts are licensed under the *Affero General Public License v3 (AGPLv3)* license;
 * however, the original JHU CSSE COVID-19 data is copyrighted by the *Johns Hopkins University*,
   and *provided to the public strictly for educational and academic research purposes*;
-  therefore I don't know if I am actually able to license my derived files data as *CC BY-SA 4.0*;
+  therefore I don't know if I am actually able to license my derived files data as *CC BY-NC 4.0*;
 * also, the original NY COVID-19 data is copyrighted by *The New York Times*,
   and *made publicly available for broad, non-commercial public use*;
-  therefore I don't know if I am actually able to license my derived files data as *CC BY-SA 4.0*;
+  although they state that "the license is co-extensive with the *CC BY-NC 4.0*";
 * also, the original ECDC COVID-19 data is copyrighted by (I assume) the ECDC,
-  and *users must comply with data use restrictions to ensure that the information will be used solely for statistical analysis or reporting purposes*;
+  and *users must comply with data use restrictions to ensure that the information will be used solely for statistical analysis or reporting purposes*,
+  therefore I don't know if I am actually able to license my derived files data as *CC BY-NC 4.0*;
 * although given the global situation, I'll let the lawyers decide later...
 
