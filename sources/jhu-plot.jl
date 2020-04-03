@@ -337,7 +337,7 @@ _dataset_locations_allowed = [
 		"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
 		
 		"Arizona", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Illinois", "Indiana",
-		"Louisiana", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Nevada",
+		"Louisiana", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Nevada",
 		"New Jersey", "New York", "North Carolina", "Ohio", "Pennsylvania", "South Carolina", "Tennessee",
 		"Texas", "Utah", "Virginia", "Washington", "Wisconsin",
 		
