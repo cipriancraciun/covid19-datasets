@@ -3,6 +3,12 @@
 !.gitignore
 !.z-run
 
+/exports/combined/v1/values.json
+/exports/combined/v1/values.tsv
+/exports/combined/v1/values-sqlite.sql
+/exports/combined/v1/values-sqlite.db
+/exports/**/*.sql-json
+
 *~
 *#
 *.bak
