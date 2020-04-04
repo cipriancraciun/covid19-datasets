@@ -76,10 +76,12 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
   -- [./plots/jhu/romania](./plots/jhu/romania)
   -- Romania, Hungary, Bulgaria and a few other countries for comparison;
 
-![absolute--confirmed](./plots/jhu/global/svg/absolute--confirmed.svg)
-![absolute_pop100k--confirmed](./plots/jhu/global/svg/absolute_pop100k--confirmed.svg)
-![absolute--deaths](./plots/jhu/global/svg/absolute--deaths.svg)
-![peak--confirmed](./plots/jhu/global/svg/peakpct--confirmed.svg)
+![absolute--confirmed](./plots/jhu/global/svg/absolute--confirmed--lines.svg)
+![absolute_pop100k--confirmed](./plots/jhu/global/svg/absolute_pop100k--confirmed--lines.svg)
+![absolute--deaths](./plots/jhu/global/svg/absolute--deaths--lines.svg)
+![peak--confirmed](./plots/jhu/global/svg/peakpct--confirmed--lines.svg)
+![peak--confirmed](./plots/jhu/global/svg/peakpct--confirmed--heatmap.svg)
+![peak--deaths](./plots/jhu/global/svg/peakpct--deaths--heatmap.svg)
 
 
 
