@@ -18,6 +18,7 @@
 			\
 			--exclude '*.tmp' \
 			--exclude '*.tmp.*' \
+			--exclude '*#' \
 			--include '/sources/' \
 			--include '/sources/**' \
 			--include '/imports/' \
@@ -53,6 +54,7 @@
 			\
 			--exclude '*.tmp' \
 			--exclude '*.tmp.*' \
+			--exclude '*#' \
 			--include '/imports/' \
 			--include '/imports/**' \
 			--include '/exports/' \

@@ -28,10 +28,10 @@ end
 	_dataset_metric,
 ) = ARGS
 
-_dataset_filter = Symbol(_dataset_filter)
-_dataset_index = Symbol(_dataset_index)
-_dataset_metric = Symbol(_dataset_metric)
-_plot_format = Symbol(_plot_format)
+_dataset_filter = Symbol(replace(_dataset_filter, "-" => "_"))
+_dataset_index = Symbol(replace(_dataset_index, "-" => "_"))
+_dataset_metric = Symbol(replace(_dataset_metric, "-" => "_"))
+_plot_format = Symbol(replace(_plot_format, "-" => "_"))
 
 
 
@@ -49,12 +49,17 @@ _dataset = CSV.read(
 
 
 _dataset = filter(
-		(_data -> _data[_dataset_index] !== missing),
+		(_data ->
+				(_data[:country] !== missing) &&
+				(_data[_dataset_index] !== missing)),
 		_dataset,
 	)
 
+_dataset_locations = nothing
 _dataset_index_at_least = nothing
 _dataset_index_at_most = nothing
+_dataset_confirmed_at_least = nothing
+_dataset_confirmed_at_most = nothing
 
 
 
@@ -69,34 +74,32 @@ elseif _dataset_filter == :global
 	
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
-	_dataset_locations = [
-			"China", "South Korea",
-			"Italy", "Spain", "Germany", "France",
-			"United States",
-		]
 	
-elseif _dataset_filter == Symbol("europe-major")
+	_dataset_confirmed_at_least = 20000
+	
+elseif _dataset_filter in [:europe, :europe_major, :europe_minor]
 	
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
-	_dataset_locations = [
-#			"China", "South Korea",
-			"Italy", "Spain", "Germany", "France",
-		]
 	
-elseif _dataset_filter == Symbol("europe-minor")
+	_dataset = filter(
+			(_data ->
+					(_data[:region] !== missing) &&
+					(_data[:region] == "Europe") &&
+					(_data[:location_type] == _dataset_location_type)),
+			_dataset,
+		)
 	
-	_dataset_location_key = :country
-	_dataset_location_type = "total-country"
-	_dataset_locations = [
-#			"China", "South Korea",
-#			"Italy", "Spain", "Germany", "France",
-			"United Kingdom", "Switzerland",
-			"Belgium", "Netherlands", "Austria",
-#			"Portugal", "Sweden", "Denmark",
-		]
+	if _dataset_filter == :europe_major
+		_dataset_confirmed_at_least = 20000
+	elseif _dataset_filter == :europe_minor
+		_dataset_confirmed_at_most = 20000
+		_dataset_confirmed_at_least = 5000
+	else
+		_dataset_confirmed_at_least = 5000
+	end
 	
-elseif _dataset_filter == :us
+elseif _dataset_filter in [:us, :us_major, :us_minor]
 	
 	_dataset_location_key = :province
 	_dataset_location_type = "total-province"
@@ -109,7 +112,16 @@ elseif _dataset_filter == :us
 			_dataset,
 		)
 	
-	_dataset_locations = unique(_dataset[!, :province])
+	_dataset_locations = unique(_dataset[:, :province])
+	
+	if _dataset_filter == :us_major
+		_dataset_confirmed_at_least = 10000
+	elseif _dataset_filter == :us_minor
+		_dataset_confirmed_at_most = 10000
+		_dataset_confirmed_at_least = 2500
+	else
+		_dataset_confirmed_at_least = 2500
+	end
 	
 elseif _dataset_filter == :romania
 	
@@ -125,26 +137,13 @@ elseif _dataset_filter == :romania
 	
 elseif _dataset_filter == :continents
 	
-	_dataset_location_key = :country
+	_dataset_location_key = :region
 	_dataset_location_type = "total-region"
-	_dataset_locations = [
-			
-			"Asia", "Europe", "Americas",
-			"Oceania", "Africa",
-			
-		]
 	
 elseif _dataset_filter == :subcontinents
 	
-	_dataset_location_key = :country
+	_dataset_location_key = :subregion
 	_dataset_location_type = "total-subregion"
-	_dataset_locations = [
-			"Western Asia", "Central Asia", "Southern Asia", "South-Eastern Asia", "Eastern Asia",
-			"Western Europe", "Northern Europe", "Central Europe", "Southern Europe", "Eastern Europe",
-			"North America", "Central America", "South America",
-			"Western Africa", "Northern Africa", "Middle Africa", "Southern Africa", "Eastern Africa",
-			"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
-		]
 	
 else
 	throw(error(("[698e83db]", _dataset_filter)))
@@ -154,35 +153,20 @@ end
 
 
 _dataset = filter(
-		(_data -> _data[:location_type] == _dataset_location_type),
+		(_data ->
+				(_data[:location_type] == _dataset_location_type) &&
+				(_data[_dataset_location_key] !== missing)),
 		_dataset,
 	)
 
-_dataset = filter(
-		(_data -> _data[_dataset_location_key] in _dataset_locations),
-		_dataset,
-	)
-
-
-
-
-_dataset_locations = unique(_dataset[!, _dataset_location_key])
-
-_dataset_locations_count = size(_dataset_locations)[1]
-
-
-if false
-	_dataset_colors_increment = 15
-	_dataset_colors_delta = _dataset_colors_increment
-	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_locations_count) < 360
-		global _dataset_colors_delta += _dataset_colors_increment
-	end
-	if (_dataset_colors_delta * _dataset_locations_count) >= 360
-		println(("[28e552a2]", _dataset_colors_delta, _dataset_locations_count))
-	end
-else
-	_dataset_colors_delta = floor(360 / _dataset_locations_count)
+if _dataset_locations !== nothing
+	_dataset = filter(
+			(_data -> _data[_dataset_location_key] in _dataset_locations),
+			_dataset,
+		)
 end
+
+
 
 
 _dataset_locations_meta = DataFrame(
@@ -196,29 +180,34 @@ _dataset_locations_meta = DataFrame(
 		confirmed_max = Number[],
 	)
 
+_dataset_locations = unique(_dataset[:, _dataset_location_key])
+_dataset_locations_count = size(_dataset_locations)[1]
+
 for (_index, _dataset_location) in enumerate(_dataset_locations)
 	
 	_dataset_0 = filter((_data -> _data[_dataset_location_key] == _dataset_location), _dataset)
-	_dataset_0 = filter((_data -> _data[_dataset_index] !== missing), _dataset_0)
-	_dataset_0 = filter((_data -> _data[_dataset_metric] !== missing), _dataset_0)
-	
 	if isempty(_dataset_0)
 		continue
 	end
 	
-	_dataset_max_date = findmax(_dataset_0[:, :date])
-	_dataset_max_index = findmax(_dataset_0[:, _dataset_index])
-	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])
-	_dataset_max_confirmed = findmax(_dataset_0[:, :absolute_confirmed])
-	
-	if (_dataset_max_index === missing) || (_dataset_max_metric === missing) || (_dataset_max_date === missing) || (_dataset_max_confirmed === missing)
+	_dataset_max_confirmed = findmax(_dataset_0[:, :absolute_confirmed])[1]
+	if (_dataset_confirmed_at_least !== nothing) && (_dataset_max_confirmed < _dataset_confirmed_at_least)
+		continue
+	end
+	if (_dataset_confirmed_at_most !== nothing) && (_dataset_max_confirmed > _dataset_confirmed_at_most)
 		continue
 	end
 	
-	_dataset_max_index = _dataset_max_index[1]
-	_dataset_max_metric = _dataset_max_metric[1]
-	_dataset_max_date = _dataset_max_date[1]
-	_dataset_max_confirmed = _dataset_max_confirmed[1]
+	_dataset_0 = filter((_data -> _data[_dataset_metric] !== missing), _dataset)
+	if ! isempty(_dataset_0)
+		_dataset_max_date = findmax(_dataset_0[:, :date])[1]
+		_dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
+		_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])[1]
+	else
+		_dataset_max_date = ""
+		_dataset_max_index = NaN
+		_dataset_max_metric = NaN
+	end
 	
 	_dataset_color_index = _index - 1
 	_dataset_color = Colors.HSL(
@@ -242,6 +231,31 @@ for (_index, _dataset_location) in enumerate(_dataset_locations)
 end
 
 _dataset_locations_meta = sort(_dataset_locations_meta, :confirmed_max, rev = true)
+
+_dataset_locations = _dataset_locations_meta[:, :location]
+_dataset_locations_count = size(_dataset_locations)[1]
+
+_dataset = filter(
+		(_data -> _data[_dataset_location_key] in _dataset_locations),
+		_dataset,
+	)
+
+
+
+
+if false
+	_dataset_colors_increment = 15
+	_dataset_colors_delta = _dataset_colors_increment
+	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_locations_count) < 360
+		global _dataset_colors_delta += _dataset_colors_increment
+	end
+	if (_dataset_colors_delta * _dataset_locations_count) >= 360
+		println(("[28e552a2]", _dataset_colors_delta, _dataset_locations_count))
+	end
+else
+	_dataset_colors_delta = floor(360 / _dataset_locations_count)
+end
+
 
 for (_index, _dataset_location) in enumerate(_dataset_locations_meta[:, :location])
 	
@@ -275,10 +289,7 @@ if startswith(String(_dataset_metric), "peakpct_")
 end
 
 _dataset = filter(
-		(_data ->
-			(_data[_dataset_index] !== missing) &&
-			(_data[_dataset_metric] !== missing) &&
-			(_data[_dataset_metric] != 0)),
+		(_data -> (_data[_dataset_metric] !== missing)),
 		_dataset,
 	)
 
@@ -299,34 +310,10 @@ end
 
 
 
-_dataset_locations_allowed = [
-		
-		"World",
-		
-		"China", "South Korea", "United States", "Iran",
-		"Italy", "Spain", "Germany", "France",
-		"United Kingdom", "Switzerland", "Belgium", "Netherlands", "Austria", "Portugal", "Sweden", "Denmark",
-		"Romania", "Hungary", "Bulgaria",
-		
-		"Asia", "Europe", "Americas", "Oceania", "Africa",
-		"Western Asia", "Central Asia", "Southern Asia", "South-Eastern Asia", "Eastern Asia",
-		"Western Europe", "Northern Europe", "Central Europe", "Southern Europe", "Eastern Europe",
-		"North America", "Central America", "South America",
-		"Western Africa", "Northern Africa", "Middle Africa", "Southern Africa", "Eastern Africa",
-		"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
-		
-		"Arizona", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Illinois", "Indiana",
-		"Louisiana", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Nevada",
-		"New Jersey", "New York", "North Carolina", "Ohio", "Pennsylvania", "South Carolina", "Tennessee",
-		"Texas", "Utah", "Virginia", "Washington", "Wisconsin",
-		
-	]
-
-
-_dataset_locations = unique(_dataset[!, _dataset_location_key])
+_dataset_locations = unique(_dataset[:, _dataset_location_key])
 
 _dataset_locations = filter(
-		(_location -> size(filter((_data -> _data[_dataset_location_key] == _location), _dataset)[!, _dataset_metric])[1] >= 4),
+		(_location -> size(filter((_data -> _data[_dataset_location_key] == _location), _dataset)[:, _dataset_metric])[1] >= 4),
 		_dataset_locations,
 	)
 
@@ -336,32 +323,19 @@ _dataset = filter(
 	)
 
 
-_dataset_locations_allowed = filter(
-		(_location -> _location in _dataset_locations),
-		_dataset_locations_allowed,
-	)
-
-for _dataset_location in _dataset_locations
-	if ! (_dataset_location in _dataset_locations_allowed)
-		println(("[99218dd5]", _dataset_location))
-		throw(error(("[99218dd5]", _dataset_location)))
-	end
-end
 
 
+_dataset_min_date = minimum(_dataset[:, :date])
+_dataset_max_date = maximum(_dataset[:, :date])
+_dataset_min_index = minimum(_dataset[:, _dataset_index])
+_dataset_max_index = maximum(_dataset[:, _dataset_index])
 
-
-_dataset_min_date = minimum(_dataset[!, :date])
-_dataset_max_date = maximum(_dataset[!, :date])
-_dataset_min_index = minimum(_dataset[!, _dataset_index])
-_dataset_max_index = maximum(_dataset[!, _dataset_index])
-
-_dataset_min_metric = minimum(_dataset[!, _dataset_metric])
-_dataset_max_metric = maximum(_dataset[!, _dataset_metric])
+_dataset_min_metric = minimum(_dataset[:, _dataset_metric])
+_dataset_max_metric = maximum(_dataset[:, _dataset_metric])
 _dataset_delta_metric = abs(_dataset_max_metric - _dataset_min_metric)
 
-_dataset_qmin_metric = quantile(_dataset[!, _dataset_metric], 0.01)
-_dataset_qmax_metric = quantile(_dataset[!, _dataset_metric], 0.99)
+_dataset_qmin_metric = quantile(_dataset[:, _dataset_metric], 0.01)
+_dataset_qmax_metric = quantile(_dataset[:, _dataset_metric], 0.99)
 _dataset_qdelta_metric = abs(_dataset_qmax_metric - _dataset_qmin_metric)
 
 

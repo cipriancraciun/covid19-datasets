@@ -14,6 +14,8 @@
 		"administrative",
 		"location_lat",
 		"location_long",
+		"region",
+		"subregion",
 		
 		"date",
 		"day_index_0",
@@ -82,6 +84,8 @@
 			.location.administrative,
 			.location.latlong[0],
 			.location.latlong[1],
+			.location.region,
+			.location.subregion,
 			
 			.date.date,
 			.date.index,
