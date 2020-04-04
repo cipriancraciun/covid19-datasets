@@ -49,14 +49,35 @@
 
 
 
---<< tools / julia / bootstrap
+--<< tools / julia / shell
 	
 	test "${#}" -eq 1
-	_script="${1}"
+	_script_name="${1}"
 	shift -- 1
 	test "${#}" -eq 0
 	
-	_script_name="$( exec -- basename -- "${_script}" .jl )"
+	_sysimage="./.outputs/julia/${_script_name}.so"
+	
+	exec -- \
+		nice -n 19 -- \
+	julia \
+			--project=./.outputs/julia/environment \
+			--sysimage="${_sysimage}" \
+			--startup-file=no \
+			--color=no \
+	#
+!!
+
+
+
+
+--<< tools / julia / bootstrap
+	
+	test "${#}" -eq 1
+	_script_name="${1}"
+	shift -- 1
+	test "${#}" -eq 0
+	
 	_sysimage="./.outputs/julia/${_script_name}.so"
 	_compile="./.outputs/julia/${_script_name}.so.compile"
 	
@@ -103,10 +124,8 @@
 !!
 
 
-<< tools / julia / bootstrap / jhu-plot
-	exec -- "${ZRUN[@]}" ':: tools / julia / bootstrap' \
-			./sources/jhu-plot.jl \
-			"${@}" \
-	#
-!!
+
+
+:: tools / julia / shell / jhu-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / shell' jhu-plot "${@}"
+:: tools / julia / bootstrap / jhu-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / bootstrap' jhu-plot.jl "${@}"
 

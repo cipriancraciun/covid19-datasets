@@ -27,8 +27,13 @@
 		;;
 		( remote )
 			"${ZRUN[@]}" ':: remote / synchronize / push'
-			"${ZRUN[@]}" ':: ninja / exec' "${@}"
+			if "${ZRUN[@]}" ':: remote / ninja' "${@}" ; then
+				_outcome=0
+			else
+				_outcome="${?}"
+			fi
 			"${ZRUN[@]}" ':: remote / synchronize / pull'
+			exit -- "${_outcome}"
 		;;
 		( * )
 			printf -- '[ee]  invalid target: `%s`;  aborting!\n' "${__ninja_processor}" >&2
@@ -171,7 +176,7 @@
 	<< ninja / files / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
-		exec -- daemon zathura -- {{ $_target | shell_quote }}
+		exec -- daemon zathura -- {{ $_target | shell_quote }} < /dev/null > /dev/null 2>&1
 	!!
 	
 	{{ else if or ($_target | has_suffix (".png")) }}
@@ -179,7 +184,7 @@
 	<< ninja / files / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
-		exec -- daemon sxiv -- {{ $_target | shell_quote }}
+		exec -- daemon sxiv -- {{ $_target | shell_quote }} < /dev/null > /dev/null 2>&1
 	!!
 	
 	{{ else }}

@@ -27,7 +27,7 @@
 			--include '/plots/**' \
 			--exclude '**' \
 			\
-			--progress --itemize-changes \
+			--itemize-changes \
 			--protect-args --no-iconv \
 			\
 		-- \
@@ -60,7 +60,7 @@
 			--include '/plots/**' \
 			--exclude '**' \
 			\
-			--progress --itemize-changes \
+			--itemize-changes \
 			--protect-args --no-iconv \
 			\
 		-- \
