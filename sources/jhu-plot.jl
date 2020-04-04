@@ -49,10 +49,7 @@ _dataset = CSV.read(
 
 
 _dataset = filter(
-		(_data ->
-			(_data[_dataset_index] !== missing) &&
-			(_data[_dataset_metric] !== missing) &&
-			(_data[_dataset_metric] != 0)),
+		(_data -> _data[_dataset_index] !== missing),
 		_dataset,
 	)
 
@@ -98,8 +95,6 @@ elseif _dataset_filter == Symbol("europe-minor")
 			"Belgium", "Netherlands", "Austria",
 #			"Portugal", "Sweden", "Denmark",
 		]
-	
-#	_dataset_index_at_most = 30
 	
 elseif _dataset_filter == :us
 	
@@ -158,6 +153,21 @@ end
 
 
 
+_dataset = filter(
+		(_data -> _data[:location_type] == _dataset_location_type),
+		_dataset,
+	)
+
+_dataset = filter(
+		(_data -> _data[_dataset_location_key] in _dataset_locations),
+		_dataset,
+	)
+
+# ...
+
+
+
+
 if startswith(String(_dataset_metric), "peakpct_")
 	if endswith(String(_dataset_metric), "_confirmed")
 		_dataset_index = :day_index_peak_confirmed
@@ -198,15 +208,29 @@ end
 
 
 
-_dataset = filter(
-		(_data -> _data[:location_type] == _dataset_location_type),
-		_dataset,
-	)
+_dataset_locations_allowed = [
+		
+		"World",
+		
+		"China", "South Korea", "United States", "Iran",
+		"Italy", "Spain", "Germany", "France",
+		"United Kingdom", "Switzerland", "Belgium", "Netherlands", "Austria", "Portugal", "Sweden", "Denmark",
+		"Romania", "Hungary", "Bulgaria",
+		
+		"Asia", "Europe", "Americas", "Oceania", "Africa",
+		"Western Asia", "Central Asia", "Southern Asia", "South-Eastern Asia", "Eastern Asia",
+		"Western Europe", "Northern Europe", "Central Europe", "Southern Europe", "Eastern Europe",
+		"North America", "Central America", "South America",
+		"Western Africa", "Northern Africa", "Middle Africa", "Southern Africa", "Eastern Africa",
+		"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
+		
+		"Arizona", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Illinois", "Indiana",
+		"Louisiana", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Nevada",
+		"New Jersey", "New York", "North Carolina", "Ohio", "Pennsylvania", "South Carolina", "Tennessee",
+		"Texas", "Utah", "Virginia", "Washington", "Wisconsin",
+		
+	]
 
-_dataset = filter(
-		(_data -> _data[_dataset_location_key] in _dataset_locations),
-		_dataset,
-	)
 
 _dataset_locations = unique(_dataset[!, _dataset_location_key])
 
@@ -220,7 +244,18 @@ _dataset = filter(
 		_dataset,
 	)
 
-_dataset_smoothing = 0.9
+
+_dataset_locations_allowed = filter(
+		(_location -> _location in _dataset_locations),
+		_dataset_locations_allowed,
+	)
+
+for _dataset_location in _dataset_locations
+	if ! (_dataset_location in _dataset_locations_allowed)
+		println(("[99218dd5]", _dataset_location))
+		throw(error(("[99218dd5]", _dataset_location)))
+	end
+end
 
 
 
@@ -324,42 +359,7 @@ if _dataset_cmax_metric !== nothing
 end
 
 
-
-
-_dataset_locations_allowed = [
-		
-		"World",
-		
-		"China", "South Korea", "United States", "Iran",
-		"Italy", "Spain", "Germany", "France",
-		"United Kingdom", "Switzerland", "Belgium", "Netherlands", "Austria", "Portugal", "Sweden", "Denmark",
-		"Romania", "Hungary", "Bulgaria",
-		
-		"Asia", "Europe", "Americas", "Oceania", "Africa",
-		"Western Asia", "Central Asia", "Southern Asia", "South-Eastern Asia", "Eastern Asia",
-		"Western Europe", "Northern Europe", "Central Europe", "Southern Europe", "Eastern Europe",
-		"North America", "Central America", "South America",
-		"Western Africa", "Northern Africa", "Middle Africa", "Southern Africa", "Eastern Africa",
-		"Australia and New Zealand", "Caribbean", "Melanesia", "Micronesia", "Polynesia",
-		
-		"Arizona", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Illinois", "Indiana",
-		"Louisiana", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Nevada",
-		"New Jersey", "New York", "North Carolina", "Ohio", "Pennsylvania", "South Carolina", "Tennessee",
-		"Texas", "Utah", "Virginia", "Washington", "Wisconsin",
-		
-	]
-
-_dataset_locations_allowed = filter(
-		(_location -> _location in _dataset_locations),
-		_dataset_locations_allowed,
-	)
-
-for _dataset_location in _dataset_locations
-	if ! (_dataset_location in _dataset_locations_allowed)
-		println(("[99218dd5]", _dataset_location))
-		throw(error(("[99218dd5]", _dataset_location)))
-	end
-end
+_dataset_smoothing = 0.9
 
 
 
