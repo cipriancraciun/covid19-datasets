@@ -44,6 +44,7 @@
 			(. == "Out of UT") or
 			(. == "Out of OK") or
 			(. == "Out of CO") or
+			(. == "Out of HI") or
 			(. == "Out-of-state") or
 			false
 	)) then
