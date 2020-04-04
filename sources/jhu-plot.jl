@@ -159,7 +159,13 @@ end
 
 
 if startswith(String(_dataset_metric), "peakpct_")
-	_dataset_index = :day_index_peak
+	if endswith(String(_dataset_metric), "_confirmed")
+		_dataset_index = :day_index_peak_confirmed
+	elseif endswith(String(_dataset_metric), "_deaths")
+		_dataset_index = :day_index_peak_deaths
+	else
+		_dataset_index = :day_index_peak
+	end
 	if _dataset_index_at_most !== nothing
 		_dataset_index_at_least = 0 - _dataset_index_at_most
 	else

@@ -37,7 +37,10 @@
 	shift -- 1
 	
 	"${ZRUN[@]}" ':: ninja' "${_target}"
-	
+	exec -- daemon "${ZRUN[@]}" ':: plots / view / jhu / view' "${@}"
+!!
+
+--<< plots / view / jhu / view
 	exec -- sxiv -i \
 		< <(
 			find ./plots/jhu/ \

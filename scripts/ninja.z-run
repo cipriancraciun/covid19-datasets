@@ -145,7 +145,7 @@
 	<< ninja / files / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
-		exec -- zathura -- {{ $_target | shell_quote }}
+		exec -- daemon zathura -- {{ $_target | shell_quote }}
 	!!
 	
 	{{ else if or ($_target | has_suffix (".png")) }}
@@ -153,7 +153,7 @@
 	<< ninja / files / view / {{ $_target }}
 		test "${#}" -eq 0
 		"${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
-		exec -- sxiv -- {{ $_target | shell_quote }}
+		exec -- daemon sxiv -- {{ $_target | shell_quote }}
 	!!
 	
 	{{ else }}
