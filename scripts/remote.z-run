@@ -26,9 +26,6 @@
 			--include '/exports/**' \
 			--include '/plots/' \
 			--include '/plots/**' \
-			--include '/.outputs/' \
-			--include '/.outputs/ninja.force' \
-			--filter 'P /.outputs/**' \
 			--exclude '**' \
 			\
 			--itemize-changes \
@@ -62,8 +59,6 @@
 			--include '/exports/**' \
 			--include '/plots/' \
 			--include '/plots/**' \
-			--include '/.outputs/' \
-			--include '/.outputs/ninja.force' \
 			--exclude '**' \
 			\
 			--itemize-changes \

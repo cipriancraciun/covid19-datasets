@@ -67,7 +67,7 @@
 	builddir = ./.outputs/ninja
 	ninja_required_version = 1.8
 	
-	ninja_force = ./.outputs/ninja.force
+	ninja_force = ./imports/.force
 	
 	{{ ZRUN ":: ninja / script / tools" }}
 	
@@ -229,7 +229,7 @@
 
 << ninja / force
 	test "${#}" -eq 0
-	touch -- ./.outputs/ninja.force
+	touch -- ./imports/.force
 !!
 
 << ninja / all / data / force
