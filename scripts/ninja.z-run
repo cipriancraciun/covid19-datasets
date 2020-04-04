@@ -3,21 +3,42 @@
 
 
 
---<<~~ ninja / exec
+--<<~~ ninja / script / exec
 	#! {{}}
 	#! <ninja>
 	{{ ZRUN ":: ninja / script" }}
 !!
 
 
-<< ninja
+<< ninja / exec
 	exec -- \
 			cgexec -g "cpu:${USER}--covid19-datasets" -- \
 			nice -n 19 -- \
-	"${ZRUN[@]}" ':: ninja / exec' \
+	"${ZRUN[@]}" ':: ninja / script / exec' \
 			"${@}" \
 	#
 !!
+
+
+<< ninja
+	case "${__ninja_processor:-local}" in
+		( local )
+			exec -- "${ZRUN[@]}" ':: ninja / exec' "${@}"
+		;;
+		( remote )
+			"${ZRUN[@]}" ':: remote / synchronize / push'
+			"${ZRUN[@]}" ':: ninja / exec' "${@}"
+			"${ZRUN[@]}" ':: remote / synchronize / pull'
+		;;
+		( * )
+			printf -- '[ee]  invalid target: `%s`;  aborting!\n' "${__ninja_processor}" >&2
+			exit -- 1
+		;;
+	esac
+!!
+
+:: ninja / processor / local :: export -- __ninja_processor=local
+:: ninja / processor / remote :: export -- __ninja_processor=remote
 
 
 
@@ -26,7 +47,7 @@
 	#! {{}}
 	
 	builddir = ./.outputs/ninja
-	ninja_required_version = 1.10
+	ninja_required_version = 1.8
 	
 	zrun_library = ${builddir}/markers/z-run.library.{{ ZRUN_FINGERPRINT }}
 	zrun_library = ${builddir}/markers/z-run.library.dummy
@@ -83,6 +104,11 @@
 	<< ninja / {{ $_target | replace_first "__" "" | replace_all "__" " / " }}
 		test "${#}" -eq 0
 		exec -- "${ZRUN[@]}" ':: ninja' -- {{ $_target | shell_quote }}
+	!!
+	
+	<< remote / ninja / {{ $_target | replace_first "__" "" | replace_all "__" " / " }}
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: remote / ninja' -- {{ $_target | shell_quote }}
 	!!
 	
 	{{ else if or ($_target | has_suffix (".json")) ($_target | has_suffix (".csv")) ($_target | has_suffix (".tsv")) ($_target | has_suffix (".txt")) ($_target | has_suffix (".sql")) ($_target | has_suffix (".sql-json")) }}
@@ -172,7 +198,7 @@
 
 <<~~.. ninja / targets
 	test "${#}" -eq 0
-	"${ZRUN[@]}" ':: ninja / exec' -t targets all \
+	"${ZRUN[@]}" ':: ninja / script / exec' -t targets all \
 	| sed -r \
 			-e '\#^([^:]+): marker$# d' \
 			-e 's#^([^:]+): .*$#\1#' \
@@ -180,7 +206,7 @@
 !!
 
 <<~~.. ninja / commands
-	"${ZRUN[@]}" ':: ninja / exec' -t commands
+	"${ZRUN[@]}" ':: ninja / script / exec' -t commands
 !!
 
 
@@ -206,28 +232,28 @@
 
 << ninja / cgroup / create
 	test "${#}" -eq 0
-	root-exec cgcreate -a "${USER}:${USER}" -t "${USER}:${USER}" -g "cpu:${USER}--covid19-datasets"
-	cgset -r cpu.shares=128 -- "${USER}--covid19-datasets"
-	cgset -r cpu.cfs_period_us=1000000 -- "${USER}--covid19-datasets"
+	root-exec cgcreate -a root:root -t "${USER}:${USER}" -g "cpu:${USER}--covid19-datasets"
+	root-exec cgset -r cpu.shares=128 -- "${USER}--covid19-datasets"
+	root-exec cgset -r cpu.cfs_period_us=1000000 -- "${USER}--covid19-datasets"
 !!
 
 << ninja / cgroup / set / 10%
 	test "${#}" -eq 0
-	cgset -r cpu.cfs_quota_us=100000 -- "${USER}--covid19-datasets"
+	root-exec cgset -r cpu.cfs_quota_us=100000 -- "${USER}--covid19-datasets"
 !!
 
 << ninja / cgroup / set / 50%
 	test "${#}" -eq 0
-	cgset -r cpu.cfs_quota_us=500000 -- "${USER}--covid19-datasets"
+	root-exec cgset -r cpu.cfs_quota_us=500000 -- "${USER}--covid19-datasets"
 !!
 
 << ninja / cgroup / set / 100%
 	test "${#}" -eq 0
-	cgset -r cpu.cfs_quota_us=1000000 -- "${USER}--covid19-datasets"
+	root-exec cgset -r cpu.cfs_quota_us=1000000 -- "${USER}--covid19-datasets"
 !!
 
 << ninja / cgroup / set / 200%
 	test "${#}" -eq 0
-	cgset -r cpu.cfs_quota_us=2000000 -- "${USER}--covid19-datasets"
+	root-exec cgset -r cpu.cfs_quota_us=2000000 -- "${USER}--covid19-datasets"
 !!
 

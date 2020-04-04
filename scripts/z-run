@@ -17,6 +17,8 @@
 
 ::// ninja / cgroup / ...
 
+::// remote / ...
+
 
 && ./workspace.z-run
 && ./tools.z-run
@@ -29,4 +31,5 @@
 && ./datasets-facts.z-run
 
 && ./ninja.z-run
+&& ./remote.z-run
 

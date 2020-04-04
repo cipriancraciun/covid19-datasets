@@ -29,8 +29,9 @@
 			julia \
 					--project=./.outputs/julia/environment \
 					--sysimage="${_sysimage}" \
-					--startup-file=no \
 					--trace-compile="${_compile}/${_marker}.tmp" \
+					--startup-file=no \
+					--color=no \
 				-- \
 					"${_script}" \
 					"${_arguments[@]}" \
@@ -84,6 +85,7 @@
 			nice -n 19 -- \
 			julia \
 					--startup-file=no \
+					--color=no \
 				-- \
 					./sources/julia-environment.jl \
 					./.outputs/julia/environment \

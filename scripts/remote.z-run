@@ -1,0 +1,96 @@
+#!/dev/null
+
+
+
+
+<< remote / synchronize / push
+	
+	test "${#}" -eq 0
+	
+	exec -- \
+		nice -n 19 -- \
+	rsync \
+			--recursive --one-file-system \
+			--delete \
+			--links \
+			--times --omit-dir-times --omit-link-times \
+			--prune-empty-dirs \
+			\
+			--filter 'P /.outputs/' \
+			--filter 'P /.outputs/**' \
+			--include '**/' \
+			--exclude '*.tmp' \
+			--exclude '*.tmp.*' \
+			--include '/sources/**' \
+			--include '/imports/**' \
+			--include '/exports/**' \
+			--include '/plots/**' \
+			--exclude '**' \
+			\
+			--progress --itemize-changes \
+			--protect-args --no-iconv \
+			\
+		-- \
+			./ \
+			covid19-datasets-processor:./workbench/covid19-datasets/ \
+	#
+!!
+
+
+<< remote / synchronize / pull
+	
+	test "${#}" -eq 0
+	
+	exec -- \
+		nice -n 19 -- \
+	rsync \
+			--recursive --one-file-system \
+			--delete \
+			--links \
+			--times --omit-dir-times --omit-link-times \
+			--prune-empty-dirs \
+			\
+			--exclude '*.tmp' \
+			--exclude '*.tmp.*' \
+			--include '/imports/' \
+			--include '/imports/**' \
+			--include '/exports/' \
+			--include '/exports/**' \
+			--include '/plots/' \
+			--include '/plots/**' \
+			--exclude '**' \
+			\
+			--progress --itemize-changes \
+			--protect-args --no-iconv \
+			\
+		-- \
+			covid19-datasets-processor:./workbench/covid19-datasets/ \
+			./ \
+	#
+!!
+
+
+
+
+--<< remote / execute
+	exec -- "${ZRUN[@]}" \
+			--ssh \
+			--ssh-target=covid19-datasets-processor \
+			--ssh-workspace=./workbench/covid19-datasets/ \
+			"${@}" \
+	#
+!!
+
+<< remote / *
+	test "${#}" -eq 0
+	_scriptlet="$( exec -- "${ZRUN[@]}" select-export-scriptlet-label )"
+	if test -z "${_scriptlet}" ; then
+		exit -- 0
+	fi
+	exec -- "${ZRUN[@]}" ':: remote / execute' ":: ${_scriptlet}"
+!!
+
+<< remote / ninja
+	exec -- "${ZRUN[@]}" ':: remote / execute' ':: ninja / exec' "${@}"
+!!
+
