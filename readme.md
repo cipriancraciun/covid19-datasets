@@ -72,6 +72,9 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 * `subcontinents`
   -- [./plots/jhu/subcontinents](./plots/jhu/subcontinents)
   -- aggregated countries grouped by sub-continents;
+* `countries`
+  -- [./plots/jhu/countries](./plots/jhu/countries)
+  -- all countries with more than 5K confirmed cases;
 * `romania`
   -- [./plots/jhu/romania](./plots/jhu/romania)
   -- Romania, Hungary, Bulgaria and a few other countries for comparison;
