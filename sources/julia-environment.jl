@@ -1,6 +1,7 @@
 
 
 _packages = [
+		
 		:DataFrames,
 		:Statistics,
 		:CSV,
@@ -11,11 +12,20 @@ _packages = [
 		:Formatting,
 		:Printf,
 		:Dates,
+		
 	]
 
+
 _packages_nocompile = [
+		
 		:Fontconfig,
+		
 	]
+
+
+_packages_compile = filter((_package -> ! (_package in _packages_nocompile)), _packages)
+
+
 
 
 (_project_path, _sysimage_path, _precompile_path) = ARGS
@@ -41,7 +51,7 @@ begin
 	import PackageCompiler
 	
 	PackageCompiler.create_sysimage(
-			filter((_package -> ! (_package in _packages_nocompile)), _packages),
+			_packages_compile,
 			project = _project_path,
 			sysimage_path = _sysimage_path,
 			base_sysimage = _baseimage_path,
