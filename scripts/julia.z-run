@@ -127,5 +127,5 @@
 
 
 :: tools / julia / shell / jhu-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / shell' jhu-plot "${@}"
-:: tools / julia / bootstrap / jhu-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / bootstrap' jhu-plot.jl "${@}"
+:: tools / julia / bootstrap / jhu-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / bootstrap' jhu-plot "${@}"
 

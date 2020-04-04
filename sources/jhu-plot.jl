@@ -23,6 +23,7 @@ end
 	_dataset_path,
 	_plot_path,
 	_plot_format,
+	_plot_type,
 	_dataset_filter,
 	_dataset_index,
 	_dataset_metric,
@@ -32,6 +33,7 @@ _dataset_filter = Symbol(replace(_dataset_filter, "-" => "_"))
 _dataset_index = Symbol(replace(_dataset_index, "-" => "_"))
 _dataset_metric = Symbol(replace(_dataset_metric, "-" => "_"))
 _plot_format = Symbol(replace(_plot_format, "-" => "_"))
+_plot_type = Symbol(replace(_plot_type, "-" => "_"))
 
 
 
@@ -359,15 +361,19 @@ _dataset_cmax_metric = nothing
 
 if _dataset_metric in [:relative_recovered, :relative_deaths, :relative_infected]
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
+	_dataset_rsuf_metric = "%"
 	_dataset_cmin_metric = 0
 	_dataset_cmax_metric = 100
-	_dataset_rsuf_metric = "%"
-elseif _dataset_metric in [
-			:deltapct_confirmed, :deltapct_recovered, :deltapct_deaths, :deltapct_infected,
-			:peakpct_confirmed, :peakpct_recovered, :peakpct_deaths, :peakpct_infected,
-		]
+elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_deaths, :deltapct_infected]
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = "%"
+	_dataset_cmin_metric = -150
+	_dataset_cmax_metric = +150
+elseif _dataset_metric in [:peakpct_confirmed, :peakpct_recovered, :peakpct_deaths, :peakpct_infected]
+	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
+	_dataset_rsuf_metric = "%"
+	_dataset_cmin_metric = -150
+	_dataset_cmax_metric = +150
 else
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = ""
@@ -502,40 +508,122 @@ _plot_style = Gadfly.style(
 
 
 
+if _plot_type == :lines
+	
+	_plot_descriptor = [
+			
+#			Gadfly.layer(
+#				_dataset_locations_meta,
+#				x = :day_index_max,
+#				y = :day_metric_max,
+#				label = :label,
+#				color = :location,
+#				Gadfly.Geom.label(position = :dynamic, hide_overlaps = true),
+#			),
+			
+			Gadfly.layer(
+				_dataset,
+				x = _dataset_index,
+				y = _dataset_metric,
+				color = _dataset_location_key,
+				Gadfly.Geom.point,
+			),
+			
+			Gadfly.layer(
+				_dataset,
+				x = _dataset_index,
+				y = _dataset_metric,
+				color = _dataset_location_key,
+				if _dataset_smoothing !== nothing
+					Gadfly.Geom.smooth(method = :loess, smoothing = _dataset_smoothing)
+				else
+					Gadfly.Geom.line
+				end,
+			),
+			
+			Gadfly.Coord.cartesian(xmin = _dataset_min_index, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
+			Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
+			Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)),
+			
+			Gadfly.Guide.yticks(ticks = [_dataset_rmin_metric : _dataset_rstep_metric : _dataset_rmax_metric;]),
+			
+			Gadfly.Scale.color_discrete_manual(_dataset_locations_meta[:, :color]..., levels = _dataset_locations_meta[:, :location]),
+			
+		]
+	
+elseif _plot_type == :heatmap
+	
+	
+	_plot_colormap_hues = [
+			
+			Colors.HSL(270, 0.75, 0.25),
+			Colors.HSL(60, 0.75, 0.5),
+			Colors.HSL(30, 1, 0.5),
+			Colors.HSL(0, 1, 0.5),
+			
+		#	Colors.LCHuv(75, 100, 270),
+		#	Colors.LCHuv(75, 100, 60),
+		#	Colors.LCHuv(75, 100, 30),
+		#	Colors.LCHuv(75, 100, 0),
+			
+		]
+	
+	_plot_colormap_count = size(_plot_colormap_hues)[1]
+	
+	
+	_plot_colormap_1 = Gadfly.Scale.lab_gradient(_plot_colormap_hues...)
+	
+	_plot_colormap_2 = (_value -> begin
+			_index = Int64(floor(_value * _plot_colormap_count) + 1)
+			if (_index > _plot_colormap_count) _index = _plot_colormap_count end
+			_plot_colormap_hues[_index]
+		end)
+	
+	_plot_colormap = _plot_colormap_1
+	
+	
+	_plot_descriptor = [
+			
+			Gadfly.layer(
+				_dataset,
+				x = _dataset_index,
+				y = _dataset_location_key,
+				color = _dataset_metric,
+				Gadfly.Geom.rectbin,
+			),
+			
+			Gadfly.Coord.cartesian(xmin = _dataset_min_index, xmax = _dataset_max_index),
+			
+			Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
+			Gadfly.Scale.y_discrete(levels = reverse(_dataset_locations_meta[:, :location])),
+			
+			Gadfly.Scale.ContinuousColorScale(
+					_plot_colormap,
+					Gadfly.Scale.ContinuousScaleTransform(
+							(_value -> begin
+									if (_value < _dataset_rmin_metric) _value = _dataset_rmin_metric end
+									if (_value > _dataset_rmax_metric) _value = _dataset_rmax_metric end
+									_value
+								end),
+							(_value -> throw(error("[7c38edc6]"))),
+							(_values -> map((_value -> format(_value, commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric), _values)),
+						),
+					_dataset_rmin_metric,
+					_dataset_rmax_metric,
+				),
+		]
+	
+else
+	throw(error(("[14de0af5]", _plot_type)))
+end
+
+
+
+
 _plot = Gadfly.plot(
 		
-#		Gadfly.layer(
-#			_dataset_locations_meta,
-#			x = :day_index_max,
-#			y = :day_metric_max,
-#			label = :label,
-#			color = :location,
-#			Gadfly.Geom.label(position = :dynamic, hide_overlaps = true),
-#		),
-		
-		Gadfly.layer(
-			_dataset,
-			x = _dataset_index,
-			y = _dataset_metric,
-			color = _dataset_location_key,
-			Gadfly.Geom.point,
-		),
-		
-		Gadfly.layer(
-			_dataset,
-			x = _dataset_index,
-			y = _dataset_metric,
-			color = _dataset_location_key,
-			if _dataset_smoothing !== nothing
-				Gadfly.Geom.smooth(method = :loess, smoothing = _dataset_smoothing)
-			else
-				Gadfly.Geom.line
-			end,
-		),
-		
-		Gadfly.Coord.cartesian(xmin = _dataset_min_index, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
-		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
-		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)),
+		_plot_descriptor...,
+		_plot_style,
 		
 		Gadfly.Guide.title(@sprintf("JHU dataset for `%s`: `%s` per `%s` (until %s)", _dataset_filter, _dataset_metric, _dataset_index, _dataset_max_date)),
 		Gadfly.Guide.xlabel(nothing),
@@ -551,10 +639,7 @@ _plot = Gadfly.plot(
 				else
 					[_dataset_min_index : _dataset_max_index;]
 				end),
-		Gadfly.Guide.yticks(ticks = [_dataset_rmin_metric : _dataset_rstep_metric : _dataset_rmax_metric;]),
 		
-		Gadfly.Scale.color_discrete_manual(_dataset_locations_meta[:, :color]..., levels = _dataset_locations_meta[:, :location]),
-		_plot_style,
 	)
 
 
