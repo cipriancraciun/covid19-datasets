@@ -47,30 +47,39 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 
 * `global`
   -- [./plots/jhu/global](./plots/jhu/global)
-  -- contains the most impacted countries (mainly central Europe, China, Korea and US);
+  -- world-wide countries with more than 20K confirmed cases;
 * `europe-major`
   -- [./plots/jhu/europe-major](./plots/jhu/europe-major)
-  -- contains the most impacted (>15K) countries in Europe (at the moment mostly the same as above) (plus China and Korea for comparisons);
-* `europe-major`
+  -- European countries with more than 20K confirmed cases;
+* `europe-minor`
   -- [./plots/jhu/europe-minor](./plots/jhu/europe-minor)
-  -- contains the "medium" impacted (>2K and <15K) countries in Europe (plus China and Korea for comparisons);
+  -- European countries with more than 5K confirmed cases, but less than 20K;
+* `europe`
+  -- [./plots/jhu/europe](./plots/jhu/europe)
+  -- European countries with more than 5K confirmed cases;
+* `us-major`
+  -- [./plots/jhu/us-major](./plots/jhu/us-major)
+  -- US states with more than 10K confirmed cases;
+* `us-minor`
+  -- [./plots/jhu/us-minor](./plots/jhu/us-minor)
+  -- US states with more than 2.5K confirmed cases, but less than 20K;
 * `us`
   -- [./plots/jhu/us](./plots/jhu/us)
-  -- contains all US states with more than 1K cases;
+  -- US states with more than 2.5K confirmed cases;
 * `continents`
   -- [./plots/jhu/continents](./plots/jhu/continents)
-  -- contains statistics grouped by continents (for those with >10K);
+  -- aggregated countries grouped by continents;
 * `subcontinents`
   -- [./plots/jhu/subcontinents](./plots/jhu/subcontinents)
-  -- contains statistics grouped by continents (for those with >10K);
+  -- aggregated countries grouped by sub-continents;
 * `romania`
   -- [./plots/jhu/romania](./plots/jhu/romania)
-  -- contains Romania, Hungary, Bulgaria (and a few major impacted ones for comparison);
+  -- Romania, Hungary, Bulgaria and a few other countries for comparison;
 
-![absolute-confirmed](./plots/jhu/global/svg/absolute-confirmed.svg)
-![absolute_pop100k-confirmed](./plots/jhu/global/svg/absolute_pop100k-confirmed.svg)
-![absolute-deaths](./plots/jhu/global/svg/absolute-deaths.svg)
-![peak-confirmed](./plots/jhu/global/svg/peakpct-confirmed.svg)
+![absolute--confirmed](./plots/jhu/global/svg/absolute--confirmed.svg)
+![absolute_pop100k--confirmed](./plots/jhu/global/svg/absolute_pop100k--confirmed.svg)
+![absolute--deaths](./plots/jhu/global/svg/absolute--deaths.svg)
+![peak--confirmed](./plots/jhu/global/svg/peakpct--confirmed.svg)
 
 
 
