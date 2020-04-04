@@ -163,7 +163,98 @@ _dataset = filter(
 		_dataset,
 	)
 
-# ...
+
+
+
+_dataset_locations = unique(_dataset[!, _dataset_location_key])
+
+_dataset_locations_count = size(_dataset_locations)[1]
+
+
+if false
+	_dataset_colors_increment = 15
+	_dataset_colors_delta = _dataset_colors_increment
+	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_locations_count) < 360
+		global _dataset_colors_delta += _dataset_colors_increment
+	end
+	if (_dataset_colors_delta * _dataset_locations_count) >= 360
+		println(("[28e552a2]", _dataset_colors_delta, _dataset_locations_count))
+	end
+else
+	_dataset_colors_delta = floor(360 / _dataset_locations_count)
+end
+
+
+_dataset_locations_meta = DataFrame(
+		location = String[],
+		label = String[],
+		color = Colors.Colorant[],
+		color_index = Int[],
+		day_date_max = Date[],
+		day_index_max = Int[],
+		day_metric_max = Number[],
+		confirmed_max = Number[],
+	)
+
+for (_index, _dataset_location) in enumerate(_dataset_locations)
+	
+	_dataset_0 = filter((_data -> _data[_dataset_location_key] == _dataset_location), _dataset)
+	_dataset_0 = filter((_data -> _data[_dataset_index] !== missing), _dataset_0)
+	_dataset_0 = filter((_data -> _data[_dataset_metric] !== missing), _dataset_0)
+	
+	if isempty(_dataset_0)
+		continue
+	end
+	
+	_dataset_max_date = findmax(_dataset_0[:, :date])
+	_dataset_max_index = findmax(_dataset_0[:, _dataset_index])
+	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])
+	_dataset_max_confirmed = findmax(_dataset_0[:, :absolute_confirmed])
+	
+	if (_dataset_max_index === missing) || (_dataset_max_metric === missing) || (_dataset_max_date === missing) || (_dataset_max_confirmed === missing)
+		continue
+	end
+	
+	_dataset_max_index = _dataset_max_index[1]
+	_dataset_max_metric = _dataset_max_metric[1]
+	_dataset_max_date = _dataset_max_date[1]
+	_dataset_max_confirmed = _dataset_max_confirmed[1]
+	
+	_dataset_color_index = _index - 1
+	_dataset_color = Colors.HSL(
+			0,
+			0,
+			1.0 - 0.8 * _dataset_color_index / _dataset_locations_count,
+		)
+	
+	_dataset_location_meta = (
+			_dataset_location,
+			_dataset_location,
+			_dataset_color,
+			_dataset_color_index,
+			_dataset_max_date,
+			_dataset_max_index,
+			_dataset_max_metric,
+			_dataset_max_confirmed,
+		)
+	
+	push!(_dataset_locations_meta, _dataset_location_meta)
+end
+
+_dataset_locations_meta = sort(_dataset_locations_meta, :confirmed_max, rev = true)
+
+for (_index, _dataset_location) in enumerate(_dataset_locations_meta[:, :location])
+	
+	_dataset_color_index = _index - 1
+	_dataset_color = Colors.HSL(
+			_dataset_color_index * _dataset_colors_delta,
+			1,
+			0.5,
+		)
+	
+	_dataset_locations_meta[_index, :color] = _dataset_color
+	_dataset_locations_meta[_index, :color_index] = _dataset_color_index
+end
 
 
 
@@ -364,56 +455,35 @@ _dataset_smoothing = 0.9
 
 
 
-_dataset_locations_meta = DataFrame(
-		location = String[],
-		label = String[],
-		color = Colors.Colorant[],
-		day_index_max = Int[],
-		day_metric_max = Number[],
-		day_date_max = Date[],
-	)
-
-_dataset_locations_count = size(_dataset_locations_allowed)[1]
-
-if false
-	_dataset_colors_increment = 15
-	_dataset_colors_delta = _dataset_colors_increment
-	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_locations_count) < 360
-		global _dataset_colors_delta += _dataset_colors_increment
-	end
-	if (_dataset_colors_delta * _dataset_locations_count) >= 360
-		println(("[28e552a2]", _dataset_colors_delta, _dataset_locations_count))
-	end
-else
-	_dataset_colors_delta = floor(360 / _dataset_locations_count)
-end
-
-for (_index, _dataset_location) in enumerate(_dataset_locations_allowed)
+for (_index, _dataset_location) in enumerate(_dataset_locations_meta[:, :location])
+	
 	_dataset_0 = filter((_data -> _data[_dataset_location_key] == _dataset_location), _dataset)
-	_dataset_max_index =  findmax(_dataset_0[:, _dataset_index])
-	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])
-	_dataset_max_date = findmax(_dataset_0[:, :date])
+	
+	if isempty(_dataset_0)
+		_dataset_locations_meta[_index, :color_index] = -1
+		continue
+	end
+	
+	_dataset_max_date = findmax(_dataset_0[:, :date])[1]
+	_dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
+	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])[1]
+	
 	_dataset_label = (
-			_dataset_location * "\n" *
+			_dataset_location
+			* "\n" *
 			(format(_dataset_max_metric[1], commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)
 		)
 	
-	_dataset_color = Colors.HSL(
-			(_index - 1) * _dataset_colors_delta,
-			1,
-			0.5,
-		)
-	
-	_dataset_location_meta = (
-			_dataset_location,
-			_dataset_label,
-			_dataset_color,
-			_dataset_max_index[1],
-			_dataset_max_metric[1],
-			_dataset_max_date[1],
-		)
-	push!(_dataset_locations_meta, _dataset_location_meta)
+	_dataset_locations_meta[_index, :label] = _dataset_label
+	_dataset_locations_meta[_index, :day_date_max] = _dataset_max_date
+	_dataset_locations_meta[_index, :day_index_max] = _dataset_max_index
+	_dataset_locations_meta[_index, :day_metric_max] = _dataset_max_metric
 end
+
+_dataset_locations_meta = filter(
+		(_data -> _data[:color_index] != -1),
+		_dataset_locations_meta,
+	)
 
 
 
@@ -445,7 +515,7 @@ _plot_style = Gadfly.style(
 		key_label_font_size = _plot_font_size * 0.8,
 		key_label_color = Colors.parse(Colors.Colorant, "hsl(0, 0%, 75%)"),
 		key_position = :right,
-		key_max_columns = 16,
+		key_max_columns = 1,
 		colorkey_swatch_shape = :circle,
 		discrete_highlight_color = (_ -> nothing),
 		panel_fill = nothing,
