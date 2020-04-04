@@ -21,7 +21,7 @@
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
 	<< plots / view / jhu / plots / {{ $_filter }} / {{ $_method }}
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}-*'
+		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}--*'
 	!!
 	{{ end }}
 	
@@ -48,7 +48,7 @@
 					-name '*.png' \
 					"${@}" \
 					-print \
-			| sort \
+			| LC_ALL=C sort \
 			#
 		) \
 	#
@@ -134,17 +134,17 @@
 	
 	{{ if eq $_format "pdf" }}
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out $
+	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}.{{ $_format }} : z-run-in-out $
 	        ./exports/jhu/v1/values.tsv $
 	        | ./sources/jhu-plot.jl
 	    scriptlet = ':: plots / jhu'
-	    arguments = {{ $_format }} {{ $_filter }} {{ $_index }} {{ $_method }}_{{ $_metric }}
+	    arguments = {{ $_format }} {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
 	    pool = cpu_heavy
 	
 	{{ else }}
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out $
-	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf
+	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}.{{ $_format }} : z-run-in-out $
+	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}--{{ $_metric }}.pdf
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
 	    pool = cpu_moderate
@@ -152,11 +152,11 @@
 	{{ end }}
 	
 	
-	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}-{{ $_metric }}.{{ $_format }} : symlink $
-	        ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }}
+	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}--{{ $_metric }}.{{ $_format }} : symlink $
+	        ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}.{{ $_format }}
 	
 	
-	{{ $_chart := (printf "./plots/jhu/%s/all/%s-%s.%s" $_filter $_method $_metric $_format) }}
+	{{ $_chart := (printf "./plots/jhu/%s/all/%s--%s.%s" $_filter $_method $_metric $_format) }}
 	{{ $_all_format_charts = append $_all_format_charts $_chart }}
 	{{ $_all_filter_charts = append $_all_filter_charts $_chart }}
 	{{ $_all_method_charts = append $_all_method_charts $_chart }}

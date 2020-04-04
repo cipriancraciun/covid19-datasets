@@ -537,7 +537,7 @@ _plot = Gadfly.plot(
 		Gadfly.Scale.x_continuous(format = :plain, labels = (_value -> @sprintf("%d", _value))),
 		Gadfly.Scale.y_continuous(format = :plain, labels = (_value -> format(_value, commas = true, precision = _dataset_rprec_metric) * _dataset_rsuf_metric)),
 		
-		Gadfly.Guide.title(@sprintf("JHU CSSE COVID-19 dataset -- `%s` per `%s` (until %s)", _dataset_metric, _dataset_index, _dataset_max_date)),
+		Gadfly.Guide.title(@sprintf("JHU dataset for `%s`: `%s` per `%s` (until %s)", _dataset_filter, _dataset_metric, _dataset_index, _dataset_max_date)),
 		Gadfly.Guide.xlabel(nothing),
 		Gadfly.Guide.ylabel(nothing),
 		

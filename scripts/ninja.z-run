@@ -217,7 +217,7 @@
 	| sed -r \
 			-e '\#^([^:]+): marker$# d' \
 			-e 's#^([^:]+): .*$#\1#' \
-	| sort
+	| LC_ALL=C sort
 !!
 
 <<~~.. ninja / commands
