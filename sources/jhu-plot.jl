@@ -79,6 +79,13 @@ elseif _dataset_filter == :global
 	
 	_dataset_confirmed_at_least = 20000
 	
+elseif _dataset_filter == :countries
+	
+	_dataset_location_key = :country
+	_dataset_location_type = "total-country"
+	
+	_dataset_confirmed_at_least = 5000
+	
 elseif _dataset_filter in [:europe, :europe_major, :europe_minor]
 	
 	_dataset_location_key = :country
