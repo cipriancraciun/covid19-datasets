@@ -8,14 +8,14 @@ build ./exports/combined/v1/values.json : z-run-out-in $
         ./exports/ecdc/v1/worldwide/values.json $
         ./exports/nytimes/v1/us-states/values.json $
         ./exports/nytimes/v1/us-counties/values.json $
-        | ./sources/generic-exports-combine.jq ${zrun_library}
+        | ./sources/generic-exports-combine.jq
     scriptlet = ':: tools / jq / filter / multi'
     arguments_pre = ':: process / generic / exports / combine / script'
     pool = cpu_heavy
 
 build ./exports/combined/v1/values.tsv : z-run-in-out $
         ./exports/combined/v1/values.json $
-        | ./sources/generic-exports-values-tsv.jq ${zrun_library}
+        | ./sources/generic-exports-values-tsv.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / tsv / script'
     arguments = $
@@ -34,20 +34,19 @@ build ./exports/combined/v1/values.tsv.gz : gzip ./exports/combined/v1/values.ts
 
 build ./exports/combined/v1/values.sql-json : z-run-in-out $
         ./exports/combined/v1/values.json $
-        | ./sources/generic-exports-values-sql.jq ${zrun_library}
+        | ./sources/generic-exports-values-sql.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / sql / script'
     pool = cpu_moderate
 
 build ./exports/combined/v1/values-sqlite.sql : sql-from-json $
         ./exports/combined/v1/values.sql-json $
-        | ./sources/sql-from-json.py ${zrun_library}
+        | ./sources/sql-from-json.py
     format = sqlite
     pool = cpu_moderate
 
 build ./exports/combined/v1/values-sqlite.db : sqlite-create $
-        ./exports/combined/v1/values-sqlite.sql $
-        | ${zrun_library}
+        ./exports/combined/v1/values-sqlite.sql
     pool = cpu_moderate
 
 
@@ -66,14 +65,14 @@ build ./exports/combined/v1/locations-diff.json : z-run-out-in $
         ./imports/ecdc/worldwide/locations.json $
         ./imports/nytimes/us-states/locations.json $
         ./imports/nytimes/us-counties/locations.json $
-        | ./sources/generic-exports-locations-diff-json.jq ${zrun_library}
+        | ./sources/generic-exports-locations-diff-json.jq
     scriptlet = ':: tools / jq / filter / multi'
     arguments_pre = ':: process / generic / exports / locations-diff / json / script'
     pool = cpu_moderate
 
 build ./exports/combined/v1/locations-diff.tsv : z-run-in-out $
         ./exports/combined/v1/locations-diff.json $
-        | ./sources/generic-exports-locations-diff-tsv.jq ${zrun_library}
+        | ./sources/generic-exports-locations-diff-tsv.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / locations-diff / tsv / script'
     arguments = $

@@ -16,15 +16,19 @@
 			--times --omit-dir-times --omit-link-times \
 			--prune-empty-dirs \
 			\
-			--filter 'P /.outputs/' \
-			--filter 'P /.outputs/**' \
-			--include '**/' \
 			--exclude '*.tmp' \
 			--exclude '*.tmp.*' \
+			--include '/sources/' \
 			--include '/sources/**' \
+			--include '/imports/' \
 			--include '/imports/**' \
+			--include '/exports/' \
 			--include '/exports/**' \
+			--include '/plots/' \
 			--include '/plots/**' \
+			--include '/.outputs/' \
+			--include '/.outputs/ninja.force' \
+			--filter 'P /.outputs/**' \
 			--exclude '**' \
 			\
 			--itemize-changes \
@@ -58,6 +62,8 @@
 			--include '/exports/**' \
 			--include '/plots/' \
 			--include '/plots/**' \
+			--include '/.outputs/' \
+			--include '/.outputs/ninja.force' \
 			--exclude '**' \
 			\
 			--itemize-changes \

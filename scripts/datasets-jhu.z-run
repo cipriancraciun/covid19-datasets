@@ -78,7 +78,7 @@
 	
 	build ./imports/jhu/daily/raw-json/{{ $_day }}.json : csv-to-json $
 	        ./imports/jhu/daily/raw-csv/{{ $_day }}.csv $
-	        | ./sources/csv-to-json.py ${zrun_library}
+	        | ./sources/csv-to-json.py
 	    dataset = {{ $_day }}
 	    format = csv
 	    pool = cpu_moderate
@@ -87,7 +87,7 @@
 	
 	build ./imports/jhu/daily/raw-json/merged.json : z-run-out-in $
 	        {{ range $_, $_day := $_days }} ./imports/jhu/daily/raw-json/{{ $_day }}.json {{ end }} $
-	        | ./sources/csv-to-json-merge.jq ${zrun_library}
+	        | ./sources/csv-to-json-merge.jq
 	    scriptlet = ':: tools / jq / filter / multi'
 	    arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
 	    pool = cpu_moderate
@@ -136,7 +136,7 @@
 	
 	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out $
 	        ./exports/jhu/v1/values.tsv $
-	        | ./sources/jhu-plot.jl ${zrun_library}
+	        | ./sources/jhu-plot.jl
 	    scriptlet = ':: plots / jhu'
 	    arguments = {{ $_format }} {{ $_filter }} {{ $_index }} {{ $_method }}_{{ $_metric }}
 	    pool = cpu_heavy
@@ -144,8 +144,7 @@
 	{{ else }}
 	
 	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}-{{ $_metric }}.{{ $_format }} : z-run-in-out $
-	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf $
-	        | ${zrun_library}
+	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}-{{ $_metric }}.pdf
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
 	    pool = cpu_moderate

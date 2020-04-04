@@ -22,19 +22,32 @@
 
 << ninja
 	case "${__ninja_processor:-local}" in
+		
 		( local )
 			exec -- "${ZRUN[@]}" ':: ninja / exec' "${@}"
 		;;
+		
 		( remote )
+			
+			printf -- '[ii]  remote pushing...\n' >&2
 			"${ZRUN[@]}" ':: remote / synchronize / push'
+			printf -- '[--]\n' >&2
+			
+			printf -- '[ii]  remote executing...\n' >&2
 			if "${ZRUN[@]}" ':: remote / ninja' "${@}" ; then
 				_outcome=0
 			else
 				_outcome="${?}"
 			fi
+			printf -- '[--]\n' >&2
+			
+			printf -- '[ii]  remote pulling...\n' >&2
 			"${ZRUN[@]}" ':: remote / synchronize / pull'
+			printf -- '[--]\n' >&2
+			
 			exit -- "${_outcome}"
 		;;
+		
 		( * )
 			printf -- '[ee]  invalid target: `%s`;  aborting!\n' "${__ninja_processor}" >&2
 			exit -- 1
@@ -54,9 +67,7 @@
 	builddir = ./.outputs/ninja
 	ninja_required_version = 1.8
 	
-	zrun_library = ${builddir}/markers/z-run.library.{{ ZRUN_FINGERPRINT }}
-	zrun_library = ${builddir}/markers/z-run.library.dummy
-	ninja_force = ${builddir}/markers/ninja.force
+	ninja_force = ./.outputs/ninja.force
 	
 	{{ ZRUN ":: ninja / script / tools" }}
 	
@@ -76,7 +87,6 @@
 	
 	{{ ZRUN ":: ninja / script / datasets / facts" }}
 	
-	build ${zrun_library} : marker
 	build ${ninja_force} : marker
 	
 	build __all__imports : phony __jhu__imports __ecdc__imports __nytimes__imports
@@ -219,16 +229,12 @@
 
 << ninja / force
 	test "${#}" -eq 0
-	if test -e ./.outputs/ninja/markers/ninja.force ; then
-		rm -- ./.outputs/ninja/markers/ninja.force
-	fi
+	touch -- ./.outputs/ninja.force
 !!
 
 << ninja / all / data / force
 	test "${#}" -eq 0
-	if test -e ./.outputs/ninja/markers/ninja.force ; then
-		rm -- ./.outputs/ninja/markers/ninja.force
-	fi
+	"${ZRUN[@]}" ':: ninja / force'
 	exec -- "${ZRUN[@]}" ':: ninja / all / data'
 !!
 

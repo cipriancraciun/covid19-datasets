@@ -58,8 +58,8 @@ rule gzip
 
 
 pool cpu_heavy
-    depth = 4
+    depth = 8
 
 pool cpu_moderate
-    depth = 8
+    depth = 16
 

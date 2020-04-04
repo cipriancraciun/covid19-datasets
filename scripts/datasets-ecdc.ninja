@@ -11,7 +11,7 @@ build ./imports/ecdc/worldwide/raw-csv/values.csv : fetch-curl $
 
 build ./imports/ecdc/worldwide/raw-json/values.json : csv-to-json $
         ./imports/ecdc/worldwide/raw-csv/values.csv $
-        | ./sources/csv-to-json.py ${zrun_library}
+        | ./sources/csv-to-json.py
     dataset = worldwide
     format = csv
     pool = cpu_moderate
@@ -19,7 +19,7 @@ build ./imports/ecdc/worldwide/raw-json/values.json : csv-to-json $
 
 build ./imports/ecdc/worldwide/raw-json/merged.json : z-run-out-in $
         ./imports/ecdc/worldwide/raw-json/values.json $
-        | ./sources/csv-to-json-merge.jq ${zrun_library}
+        | ./sources/csv-to-json-merge.jq
     scriptlet = ':: tools / jq / filter / multi'
     arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
     pool = cpu_moderate
@@ -27,7 +27,7 @@ build ./imports/ecdc/worldwide/raw-json/merged.json : z-run-out-in $
 
 build ./imports/ecdc/worldwide/raw-json/extracted.json : z-run-in-out $
         ./imports/ecdc/worldwide/raw-json/merged.json $
-        | ./sources/ecdc-imports-extract.jq ${zrun_library}
+        | ./sources/ecdc-imports-extract.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / ecdc / imports / extract / script'
     pool = cpu_moderate
@@ -43,7 +43,7 @@ build ./imports/ecdc/worldwide/locations.json : z-run-in-out $
           ./imports/facts/us-states-by-alias.json $
           ./imports/facts/us-counties.json $
           ./imports/facts/us-counties-by-alias.json $
-          ./sources/generic-imports-parse-locations.jq ${zrun_library}
+          ./sources/generic-imports-parse-locations.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / imports / parse-locations / script'
     arguments = $
@@ -57,7 +57,7 @@ build ./imports/ecdc/worldwide/locations.json : z-run-in-out $
 
 build ./imports/ecdc/worldwide/dates.json : z-run-in-out $
         ./imports/ecdc/worldwide/raw-json/extracted.json $
-        | ./sources/generic-imports-parse-dates.jq ${zrun_library}
+        | ./sources/generic-imports-parse-dates.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / imports / parse-dates / script'
     pool = cpu_moderate
@@ -71,7 +71,7 @@ build ./imports/ecdc/worldwide/values.json : z-run-in-out $
           ./imports/factbook/fields.json $
           ./imports/facts/us-states.json $
           ./imports/facts/us-states-by-alias.json $
-          ./sources/generic-imports-values.jq ${zrun_library}
+          ./sources/generic-imports-values.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / imports / values / script'
     arguments = $
@@ -88,14 +88,14 @@ build ./imports/ecdc/worldwide/values.json : z-run-in-out $
 
 build ./exports/ecdc/v1/worldwide/values.json : z-run-in-out $
         ./imports/ecdc/worldwide/values.json $
-        | ./sources/generic-exports-values-json.jq ${zrun_library}
+        | ./sources/generic-exports-values-json.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / json / script'
     pool = cpu_heavy
 
 build ./exports/ecdc/v1/worldwide/values.tsv : z-run-in-out $
         ./exports/ecdc/v1/worldwide/values.json $
-        | ./sources/generic-exports-values-tsv.jq ${zrun_library}
+        | ./sources/generic-exports-values-tsv.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / tsv / script'
     arguments = $
@@ -103,8 +103,7 @@ build ./exports/ecdc/v1/worldwide/values.tsv : z-run-in-out $
     pool = cpu_moderate
 
 build ./exports/ecdc/v1/worldwide/values.txt : z-run-in-out $
-        ./exports/ecdc/v1/worldwide/values.tsv $
-        | ${zrun_library}
+        ./exports/ecdc/v1/worldwide/values.tsv
     scriptlet = ':: tools / columns'
     pool = cpu_moderate
 
@@ -113,20 +112,19 @@ build ./exports/ecdc/v1/worldwide/values.txt : z-run-in-out $
 
 build ./exports/ecdc/v1/worldwide/values.sql-json : z-run-in-out $
         ./exports/ecdc/v1/worldwide/values.json $
-        | ./sources/generic-exports-values-sql.jq ${zrun_library}
+        | ./sources/generic-exports-values-sql.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / sql / script'
     pool = cpu_moderate
 
 build ./exports/ecdc/v1/worldwide/values-sqlite.sql : sql-from-json $
         ./exports/ecdc/v1/worldwide/values.sql-json $
-        | ./sources/sql-from-json.py ${zrun_library}
+        | ./sources/sql-from-json.py
     format = sqlite
     pool = cpu_moderate
 
 build ./exports/ecdc/v1/worldwide/values-sqlite.db : sqlite-create $
-        ./exports/ecdc/v1/worldwide/values-sqlite.sql $
-        | ${zrun_library}
+        ./exports/ecdc/v1/worldwide/values-sqlite.sql
     pool = cpu_moderate
 
 
@@ -134,7 +132,7 @@ build ./exports/ecdc/v1/worldwide/values-sqlite.db : sqlite-create $
 
 build ./exports/ecdc/v1/worldwide/status.json : z-run-in-out $
         ./exports/ecdc/v1/worldwide/values.json $
-        | ./sources/generic-exports-status-json.jq ${zrun_library}
+        | ./sources/generic-exports-status-json.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / status / json / script'
     pool = cpu_moderate
