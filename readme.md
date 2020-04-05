@@ -46,45 +46,45 @@ As with anything on the Internet these days, I take no responsibility for anythi
 I have created 6 groups of countries / regions, based on the JHU CSSE dataset, and for each one I've plotted all the available metrics:
 
 * `global`
-  -- [./plots/jhu/global](./plots/jhu/global)
+  -- [JHU](./plots/jhu/global) or [ECDC](./plots/ecdc/global)
   -- world-wide countries with more than 20K confirmed cases;
 * `europe-major`
-  -- [./plots/jhu/europe-major](./plots/jhu/europe-major)
+  -- [JHU](./plots/jhu/europe-major) or [ECDC](./plots/ecdc/europe-major)
   -- European countries with more than 20K confirmed cases;
 * `europe-minor`
-  -- [./plots/jhu/europe-minor](./plots/jhu/europe-minor)
+  -- [JHU](./plots/jhu/europe-minor) or [ECDC](./plots/ecdc/europe-minor)
   -- European countries with more than 5K confirmed cases, but less than 20K;
 * `europe`
-  -- [./plots/jhu/europe](./plots/jhu/europe)
+  -- [JHU](./plots/jhu/europe) or [ECDC](./plots/ecdc/europe)
   -- European countries with more than 5K confirmed cases;
 * `us-major`
-  -- [./plots/jhu/us-major](./plots/jhu/us-major)
+  -- [JHU](./plots/jhu/us-major) only
   -- US states with more than 10K confirmed cases;
 * `us-minor`
-  -- [./plots/jhu/us-minor](./plots/jhu/us-minor)
+  -- [JHU](./plots/jhu/us-minor) only
   -- US states with more than 2.5K confirmed cases, but less than 20K;
 * `us`
-  -- [./plots/jhu/us](./plots/jhu/us)
+  -- [JHU](./plots/jhu/us) only
   -- US states with more than 2.5K confirmed cases;
 * `continents`
-  -- [./plots/jhu/continents](./plots/jhu/continents)
+  -- [JHU](./plots/jhu/continents) or [ECDC](./plots/ecdc/continents)
   -- aggregated countries grouped by continents;
 * `subcontinents`
-  -- [./plots/jhu/subcontinents](./plots/jhu/subcontinents)
+  -- [JHU](./plots/jhu/subcontinents) or [ECDC](./plots/ecdc/subcontinents)
   -- aggregated countries grouped by sub-continents;
 * `countries`
-  -- [./plots/jhu/countries](./plots/jhu/countries)
+  -- [JHU](./plots/jhu/countries) or [ECDC](./plots/ecdc/countries)
   -- all countries with more than 5K confirmed cases;
 * `romania`
-  -- [./plots/jhu/romania](./plots/jhu/romania)
+  -- [JHU](./plots/jhu/romania) or [ECDC](./plots/ecdc/romania)
   -- Romania, Hungary, Bulgaria and a few other countries for comparison;
 
-![absolute--confirmed](./plots/jhu/global/svg/absolute--confirmed--lines.svg)
-![absolute_pop100k--confirmed](./plots/jhu/global/svg/absolute_pop100k--confirmed--lines.svg)
-![absolute--deaths](./plots/jhu/global/svg/absolute--deaths--lines.svg)
-![peak--confirmed](./plots/jhu/global/svg/peakpct--confirmed--lines.svg)
-![peak--confirmed](./plots/jhu/global/svg/peakpct--confirmed--heatmap.svg)
-![peak--deaths](./plots/jhu/global/svg/peakpct--deaths--heatmap.svg)
+![absolute--confirmed](./plots/ecdc/global/svg/absolute--confirmed--lines.svg)
+![absolute_pop100k--confirmed](./plots/ecdc/global/svg/absolute_pop100k--confirmed--lines.svg)
+![absolute--deaths](./plots/ecdc/global/svg/absolute--deaths--lines.svg)
+![peak--confirmed](./plots/ecdc/global/svg/peakpct--confirmed--lines.svg)
+![peak--confirmed](./plots/ecdc/global/svg/peakpct--confirmed--heatmap.svg)
+![peak--deaths](./plots/ecdc/global/svg/peakpct--deaths--heatmap.svg)
 
 
 
