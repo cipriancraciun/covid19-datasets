@@ -3,110 +3,6 @@
 
 
 
---<<== plots / view / jhu / generate
-	#! {{}}
-	
-	<< plots / view / jhu / all
-		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__all__all__png
-	!!
-	
-	{{ range $_, $_filter := array "global" "europe" "europe-major" "europe-minor" "us" "us-major" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
-	
-	<< plots / view / jhu / plots / {{ $_filter }} / all
-		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__{{ $_filter }}__all__png -path '*/{{ $_filter }}/*'
-	!!
-	
-	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
-	<< plots / view / jhu / plots / {{ $_filter }} / {{ $_method }}
-		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / jhu / exec' __jhu__plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_filter }}/png/{{ $_method }}--*'
-	!!
-	{{ end }}
-	
-	{{ end }}
-	
-!!
-
-
---<< plots / view / jhu / exec
-	
-	test "${#}" -ge 1
-	_target="${1}"
-	shift -- 1
-	
-	"${ZRUN[@]}" ':: ninja' "${_target}"
-	exec -- daemon "${ZRUN[@]}" ':: plots / view / jhu / view' "${@}"
-!!
-
---<< plots / view / jhu / view
-	exec -- sxiv -i \
-		< <(
-			find ./plots/jhu/ \
-					-type f \
-					-name '*.png' \
-					"${@}" \
-					-print \
-			| LC_ALL=C sort \
-			#
-		) \
-	#
-!!
-
-
-<< plots / clean / jhu
-	test "${#}" -eq 0
-	exec -- find ./plots/jhu/ \
-		\( -type f -o -type l \) \
-		\( -name '*.pdf' -o -name '*.png' -o -name '*.svg' \) \
-		-delete \
-	#
-!!
-
-
-
-
---<<~~.. ninja / script / datasets / jhu / generated
-	#! {{}}
-	
-	{{ $_days := array }}
-	{{ range $_, $_day := array "01-22-2020" "01-23-2020" "01-24-2020" "01-25-2020" "01-26-2020" "01-27-2020" "01-28-2020" "01-29-2020" "01-30-2020" "01-31-2020" }}
-	{{ $_days = append $_days $_day }} {{ end }}
-	{{ range $_, $_day := array "02-01-2020" "02-02-2020" "02-03-2020" "02-04-2020" "02-05-2020" "02-06-2020" "02-07-2020" "02-08-2020" "02-09-2020" "02-10-2020" "02-11-2020" "02-12-2020" "02-13-2020" "02-14-2020" "02-15-2020" "02-16-2020" "02-17-2020" "02-18-2020" "02-19-2020" "02-20-2020" "02-21-2020" "02-22-2020" "02-23-2020" "02-24-2020" "02-25-2020" "02-26-2020" "02-27-2020" "02-28-2020" "02-29-2020" }}
-	{{ $_days = append $_days $_day }} {{ end }}
-	{{ range $_, $_day := array "03-01-2020" "03-02-2020" "03-03-2020" "03-04-2020" "03-05-2020" "03-06-2020" "03-07-2020" "03-08-2020" "03-09-2020" "03-10-2020" "03-11-2020" "03-12-2020" "03-13-2020" "03-14-2020" "03-15-2020" "03-16-2020" "03-17-2020" "03-18-2020" "03-19-2020" "03-20-2020" "03-21-2020" "03-22-2020" "03-23-2020" "03-24-2020" "03-25-2020" "03-26-2020" "03-27-2020" "03-28-2020" "03-29-2020" "03-30-2020" "03-31-2020" }}
-	{{ $_days = append $_days $_day }} {{ end }}
-	{{ range $_, $_day := array "04-01-2020" "04-02-2020" "04-03-2020" "04-04-2020" }}
-	{{ $_days = append $_days $_day }} {{ end }}
-	
-	{{ range $_, $_day := $_days }}
-	
-	build ./imports/jhu/daily/raw-csv/{{ $_day }}.csv : fetch-curl $
-	        | ${ninja_force}
-	    url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/{{ $_day }}.csv'
-	
-	build ./imports/jhu/daily/raw-json/{{ $_day }}.json : csv-to-json $
-	        ./imports/jhu/daily/raw-csv/{{ $_day }}.csv $
-	        | ./sources/csv-to-json.py
-	    dataset = {{ $_day }}
-	    format = csv
-	    pool = cpu_moderate
-	
-	{{ end }}
-	
-	build ./imports/jhu/daily/raw-json/merged.json : z-run-out-in $
-	        {{ range $_, $_day := $_days }} ./imports/jhu/daily/raw-json/{{ $_day }}.json {{ end }} $
-	        | ./sources/csv-to-json-merge.jq
-	    scriptlet = ':: tools / jq / filter / multi'
-	    arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
-	    pool = cpu_moderate
-	
-!!
-
-
-
-
 --<<~~.. ninja / script / datasets / jhu / plots
 	#! {{}}
 	
@@ -146,16 +42,16 @@
 	
 	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }} : z-run-in-out $
 	        ./exports/jhu/v1/values.tsv $
-	        | ./sources/jhu-plot.jl
-	    scriptlet = ':: plots / jhu'
-	    arguments = {{ $_format }} lines {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
+	        | ./sources/generic-plot.jl
+	    scriptlet = ':: process / generic / plot'
+	    arguments = jhu {{ $_format }} lines {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
 	    pool = cpu_heavy
 	
 	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : z-run-in-out $
 	        ./exports/jhu/v1/values.tsv $
-	        | ./sources/jhu-plot.jl
-	    scriptlet = ':: plots / jhu'
-	    arguments = {{ $_format }} heatmap {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
+	        | ./sources/generic-plot.jl
+	    scriptlet = ':: process / generic / plot'
+	    arguments = jhu {{ $_format }} heatmap {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
 	    pool = cpu_heavy
 	
 	{{ else }}
@@ -224,46 +120,76 @@
 
 
 
---<< plots / jhu
+--<<== plots / view / jhu / generate
+	#! {{}}
 	
-	test "${#}" -eq 7
-	_dataset="${1}"
-	_output="${2}"
-	_format="${3}"
-	_type="${4}"
-	_filter="${5}"
-	_index="${6}"
-	_metric="${7}"
-	shift -- 7
+	<< plots / view / jhu / all
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __jhu__plots__all__all__png
+	!!
+	
+	{{ range $_, $_filter := array "global" "europe" "europe-major" "europe-minor" "us" "us-major" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
+	
+	<< plots / view / jhu / {{ $_filter }} / all
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __jhu__plots__{{ $_filter }}__all__png -path '*/jhu/*' -path '*/{{ $_filter }}/*'
+	!!
+	
+	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
+	<< plots / view / jhu / {{ $_filter }} / {{ $_method }}
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __jhu__plots__{{ $_filter }}__{{ $_method }}__png -path '*/jhu/*' -path '*/{{ $_filter }}/png/{{ $_method }}--*'
+	!!
+	{{ end }}
+	
+	{{ end }}
+	
+!!
+
+
+<< plots / clean / jhu
 	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: plots / clean / exec' -path '*/jhu/*'
+!!
+
+
+
+
+--<<~~.. ninja / script / datasets / jhu / generated
+	#! {{}}
 	
-	export -- \
-			FONTCONFIG_PATH=/etc/fonts \
-	#
+	{{ $_days := array }}
+	{{ range $_, $_day := array "01-22-2020" "01-23-2020" "01-24-2020" "01-25-2020" "01-26-2020" "01-27-2020" "01-28-2020" "01-29-2020" "01-30-2020" "01-31-2020" }}
+	{{ $_days = append $_days $_day }} {{ end }}
+	{{ range $_, $_day := array "02-01-2020" "02-02-2020" "02-03-2020" "02-04-2020" "02-05-2020" "02-06-2020" "02-07-2020" "02-08-2020" "02-09-2020" "02-10-2020" "02-11-2020" "02-12-2020" "02-13-2020" "02-14-2020" "02-15-2020" "02-16-2020" "02-17-2020" "02-18-2020" "02-19-2020" "02-20-2020" "02-21-2020" "02-22-2020" "02-23-2020" "02-24-2020" "02-25-2020" "02-26-2020" "02-27-2020" "02-28-2020" "02-29-2020" }}
+	{{ $_days = append $_days $_day }} {{ end }}
+	{{ range $_, $_day := array "03-01-2020" "03-02-2020" "03-03-2020" "03-04-2020" "03-05-2020" "03-06-2020" "03-07-2020" "03-08-2020" "03-09-2020" "03-10-2020" "03-11-2020" "03-12-2020" "03-13-2020" "03-14-2020" "03-15-2020" "03-16-2020" "03-17-2020" "03-18-2020" "03-19-2020" "03-20-2020" "03-21-2020" "03-22-2020" "03-23-2020" "03-24-2020" "03-25-2020" "03-26-2020" "03-27-2020" "03-28-2020" "03-29-2020" "03-30-2020" "03-31-2020" }}
+	{{ $_days = append $_days $_day }} {{ end }}
+	{{ range $_, $_day := array "04-01-2020" "04-02-2020" "04-03-2020" "04-04-2020" }}
+	{{ $_days = append $_days $_day }} {{ end }}
 	
-	rm -f -- "${_output}.tmp.pdf"
+	{{ range $_, $_day := $_days }}
 	
-	if ! "${ZRUN[@]}" ':: tools / julia / exec' \
-			./sources/jhu-plot.jl \
-			"${_dataset}" \
-			"${_output}.tmp.pdf" \
-			pdf \
-			"${_type}" \
-			"${_filter}" \
-			"${_index}" \
-			"${_metric}" \
-	; then
-		rm -f -- "${_output}.tmp.pdf"
-		exit -- 1
-	fi
+	build ./imports/jhu/daily/raw-csv/{{ $_day }}.csv : fetch-curl $
+	        | ${ninja_force}
+	    url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/{{ $_day }}.csv'
 	
-	"${ZRUN[@]}" ':: tools / inkscape / convert' \
-			"${_output}.tmp.pdf" \
-			"${_output}" \
-			"${_format}" \
-	#
+	build ./imports/jhu/daily/raw-json/{{ $_day }}.json : csv-to-json $
+	        ./imports/jhu/daily/raw-csv/{{ $_day }}.csv $
+	        | ./sources/csv-to-json.py
+	    dataset = {{ $_day }}
+	    format = csv
+	    pool = cpu_moderate
 	
-	rm -- "${_output}.tmp.pdf"
+	{{ end }}
+	
+	build ./imports/jhu/daily/raw-json/merged.json : z-run-out-in $
+	        {{ range $_, $_day := $_days }} ./imports/jhu/daily/raw-json/{{ $_day }}.json {{ end }} $
+	        | ./sources/csv-to-json-merge.jq
+	    scriptlet = ':: tools / jq / filter / multi'
+	    arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
+	    pool = cpu_moderate
+	
 !!
 
 

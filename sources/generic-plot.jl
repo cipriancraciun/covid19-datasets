@@ -21,6 +21,7 @@ end
 
 (
 	_dataset_path,
+	_dataset_id,
 	_plot_path,
 	_plot_format,
 	_plot_type,
@@ -29,6 +30,7 @@ end
 	_dataset_metric,
 ) = ARGS
 
+_dataset_id = Symbol(replace(_dataset_id, "-" => "_"))
 _dataset_filter = Symbol(replace(_dataset_filter, "-" => "_"))
 _dataset_index = Symbol(replace(_dataset_index, "-" => "_"))
 _dataset_metric = Symbol(replace(_dataset_metric, "-" => "_"))
@@ -56,6 +58,22 @@ _dataset = filter(
 				(_data[_dataset_index] !== missing)),
 		_dataset,
 	)
+
+
+
+
+if _dataset_id == :jhu
+	_dataset_title = "JHU"
+	_dataset = filter(
+			(_data -> _data[:dataset] == "jhu/daily"),
+			_dataset,
+		)
+else
+	throw(error(("[0cfe0ed4]", _dataset_id)))
+end
+
+
+
 
 _dataset_locations = nothing
 _dataset_index_at_least = nothing
@@ -667,7 +685,7 @@ _plot = Gadfly.plot(
 		_plot_descriptor...,
 		_plot_style,
 		
-		Gadfly.Guide.title(@sprintf("JHU dataset for `%s`: `%s` per `%s` (until %s)", _dataset_filter, _dataset_metric, _dataset_index, _dataset_max_date)),
+		Gadfly.Guide.title(@sprintf("%s dataset for `%s`: `%s` per `%s` (until %s)", _dataset_title, _dataset_filter, _dataset_metric, _dataset_index, _dataset_max_date)),
 		Gadfly.Guide.xlabel(nothing),
 		Gadfly.Guide.ylabel(nothing),
 		

@@ -3,6 +3,94 @@
 
 
 
+--<< plots / view / build + exec
+	
+	test "${#}" -ge 1
+	_target="${1}"
+	shift -- 1
+	
+	"${ZRUN[@]}" ':: ninja' "${_target}"
+	
+	exec -- daemon "${ZRUN[@]}" ':: plots / view / exec' "${@}"
+!!
+
+
+--<< plots / view / exec
+	test "${#}" -ge 1
+	exec -- sxiv -i \
+		< <(
+			find ./plots/jhu/ \
+					-type f \
+					-name '*.png' \
+					"${@}" \
+					-print \
+			| LC_ALL=C sort \
+			#
+		) \
+	#
+!!
+
+
+--<< plots / clean / exec
+	test "${#}" -ge 1
+	exec -- find ./plots/jhu/ \
+			\( -type f -o -type l \) \
+			\( -name '*.pdf' -o -name '*.png' -o -name '*.svg' \) \
+			"${@}" \
+			-delete \
+	#
+!!
+
+
+
+
+--<< process / generic / plot
+	
+	test "${#}" -eq 8
+	_input="${1}"
+	_output="${2}"
+	_dataset="${3}"
+	_format="${4}"
+	_type="${5}"
+	_filter="${6}"
+	_index="${7}"
+	_metric="${8}"
+	shift -- 8
+	test "${#}" -eq 0
+	
+	export -- \
+			FONTCONFIG_PATH=/etc/fonts \
+	#
+	
+	rm -f -- "${_output}.tmp.pdf"
+	
+	if ! "${ZRUN[@]}" ':: tools / julia / exec' \
+			./sources/generic-plot.jl \
+			"${_input}" \
+			"${_dataset}" \
+			"${_output}.tmp.pdf" \
+			pdf \
+			"${_type}" \
+			"${_filter}" \
+			"${_index}" \
+			"${_metric}" \
+	; then
+		rm -f -- "${_output}.tmp.pdf"
+		exit -- 1
+	fi
+	
+	"${ZRUN[@]}" ':: tools / inkscape / convert' \
+			"${_output}.tmp.pdf" \
+			"${_output}" \
+			"${_format}" \
+	#
+	
+	rm -- "${_output}.tmp.pdf"
+!!
+
+
+
+
 --::&&.. process / generic / imports / csv-to-json-merge / script :: ../sources/csv-to-json-merge.jq
 --::&&.. process / generic / imports / parse-locations / script :: ../sources/generic-imports-parse-locations.jq
 --::&&.. process / generic / imports / parse-dates / script :: ../sources/generic-imports-parse-dates.jq

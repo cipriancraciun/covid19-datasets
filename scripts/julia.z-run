@@ -126,6 +126,6 @@
 
 
 
-:: tools / julia / shell / jhu-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / shell' jhu-plot "${@}"
-:: tools / julia / bootstrap / jhu-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / bootstrap' jhu-plot "${@}"
+:: tools / julia / shell / generic-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / shell' generic-plot "${@}"
+:: tools / julia / bootstrap / generic-plot :: exec -- "${ZRUN[@]}" ':: tools / julia / bootstrap' generic-plot "${@}"
 
