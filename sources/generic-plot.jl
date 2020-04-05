@@ -68,6 +68,12 @@ if _dataset_id == :jhu
 			(_data -> _data[:dataset] == "jhu/daily"),
 			_dataset,
 		)
+elseif _dataset_id == :ecdc
+	_dataset_title = "ECDC"
+	_dataset = filter(
+			(_data -> _data[:dataset] == "ecdc/worldwide"),
+			_dataset,
+		)
 else
 	throw(error(("[0cfe0ed4]", _dataset_id)))
 end
@@ -231,7 +237,7 @@ for (_index, _dataset_location) in enumerate(_dataset_locations)
 		_dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
 		_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])[1]
 	else
-		_dataset_max_date = ""
+		_dataset_max_date = missing
 		_dataset_max_index = NaN
 		_dataset_max_metric = NaN
 	end

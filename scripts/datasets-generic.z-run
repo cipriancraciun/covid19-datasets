@@ -19,7 +19,7 @@
 	test "${#}" -ge 1
 	exec -- sxiv -i \
 		< <(
-			find ./plots/jhu/ \
+			find ./plots/ \
 					-type f \
 					-name '*.png' \
 					"${@}" \
@@ -33,7 +33,7 @@
 
 --<< plots / clean / exec
 	test "${#}" -ge 1
-	exec -- find ./plots/jhu/ \
+	exec -- find ./plots/ \
 			\( -type f -o -type l \) \
 			\( -name '*.pdf' -o -name '*.png' -o -name '*.svg' \) \
 			"${@}" \

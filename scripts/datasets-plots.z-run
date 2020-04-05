@@ -7,12 +7,14 @@
 	#! {{}}
 	
 	
+	{{ $_datasets := array "jhu" "ecdc" }}
 	{{ $_filters := array "global" "europe" "europe-major" "europe-minor" "us" "us-major" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
 	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
 	{{ $_metrics := array "confirmed" "deaths" "infected" "recovered" }}
 	{{ $_formats := array "pdf" "svg" "png" }}
 	
 	
+	{{ range $_, $_dataset := $_datasets }}
 	{{ $_all_phony := array }}
 	
 	{{ range $_, $_format := $_formats }}
@@ -25,7 +27,16 @@
 	{{ $_all_method_charts := array }}
 	
 	{{ range $_, $_metric := $_metrics }}
-	{{ if or (and (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor")) (or (eq $_metric "recovered") (eq $_metric "infected"))) (and (eq $_method "relative") (eq $_metric "confirmed")) | not }}
+	
+	
+	{{ $_should_skip := false }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (eq $_filter "us")) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (eq $_filter "us-major")) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (eq $_filter "us-minor")) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
+	{{ $_should_skip = or (and (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor")) (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_method "relative") (eq $_metric "confirmed")) $_should_skip }}
+	{{ if $_should_skip | not }}
 	
 	
 	{{ $_index := "day_index_1k" }}
@@ -40,30 +51,37 @@
 	
 	{{ if eq $_format "pdf" }}
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }} : z-run-in-out $
-	        ./exports/jhu/v1/values.tsv $
+	{{ $_source := "/dev/null/does-not-exist" }}
+	{{ if eq $_dataset "jhu" }}
+	{{ $_source = "./exports/jhu/v1/daily/values.tsv" }}
+	{{ else if eq $_dataset "ecdc" }}
+	{{ $_source = "./exports/ecdc/v1/worldwide/values.tsv" }}
+	{{ end }}
+	
+	build ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }} : z-run-in-out $
+	        {{ $_source }} $
 	        | ./sources/generic-plot.jl
 	    scriptlet = ':: process / generic / plot'
-	    arguments = jhu {{ $_format }} lines {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
+	    arguments = {{ $_dataset }} {{ $_format }} lines {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
 	    pool = cpu_heavy
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : z-run-in-out $
-	        ./exports/jhu/v1/values.tsv $
+	build ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : z-run-in-out $
+	        {{ $_source }} $
 	        | ./sources/generic-plot.jl
 	    scriptlet = ':: process / generic / plot'
-	    arguments = jhu {{ $_format }} heatmap {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
+	    arguments = {{ $_dataset }} {{ $_format }} heatmap {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
 	    pool = cpu_heavy
 	
 	{{ else }}
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }} : z-run-in-out $
-	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}--{{ $_metric }}--lines.pdf
+	build ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }} : z-run-in-out $
+	        ./plots/{{ $_dataset }}/{{ $_filter }}/pdf/{{ $_method }}--{{ $_metric }}--lines.pdf
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
 	    pool = cpu_moderate
 	
-	build ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : z-run-in-out $
-	        ./plots/jhu/{{ $_filter }}/pdf/{{ $_method }}--{{ $_metric }}--heatmap.pdf
+	build ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : z-run-in-out $
+	        ./plots/{{ $_dataset }}/{{ $_filter }}/pdf/{{ $_method }}--{{ $_metric }}--heatmap.pdf
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
 	    pool = cpu_moderate
@@ -71,19 +89,19 @@
 	{{ end }}
 	
 	
-	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }} : symlink $
-	        ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }}
+	build ./plots/{{ $_dataset }}/{{ $_filter }}/all/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }} : symlink $
+	        ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }}
 	
-	build ./plots/jhu/{{ $_filter }}/all/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : symlink $
-	        ./plots/jhu/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }}
+	build ./plots/{{ $_dataset }}/{{ $_filter }}/all/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : symlink $
+	        ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }}
 	
 	
-	{{ $_chart := (printf "./plots/jhu/%s/all/%s--%s--lines.%s" $_filter $_method $_metric $_format) }}
+	{{ $_chart := (printf "./plots/%s/%s/all/%s--%s--lines.%s" $_dataset $_filter $_method $_metric $_format) }}
 	{{ $_all_format_charts = append $_all_format_charts $_chart }}
 	{{ $_all_filter_charts = append $_all_filter_charts $_chart }}
 	{{ $_all_method_charts = append $_all_method_charts $_chart }}
 	
-	{{ $_chart := (printf "./plots/jhu/%s/all/%s--%s--heatmap.%s" $_filter $_method $_metric $_format) }}
+	{{ $_chart := (printf "./plots/%s/%s/all/%s--%s--heatmap.%s" $_dataset $_filter $_method $_metric $_format) }}
 	{{ $_all_format_charts = append $_all_format_charts $_chart }}
 	{{ $_all_filter_charts = append $_all_filter_charts $_chart }}
 	{{ $_all_method_charts = append $_all_method_charts $_chart }}
@@ -92,29 +110,30 @@
 	{{ end }}
 	{{ end }}
 	
-	build __jhu__plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__jhu__plots__%s__%s__%s" $_filter $_method $_format) }}
+	build __{{ $_dataset }}__plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__%s__plots__%s__%s__%s" $_dataset $_filter $_method $_format) }}
 	
 	{{ end }}
 	
-	build __jhu__plots__{{ $_filter }}__all__{{ $_format }} : phony {{ $_all_filter_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__jhu__plots__%s__all__%s" $_filter $_format ) }}
+	build __{{ $_dataset }}__plots__{{ $_filter }}__all__{{ $_format }} : phony {{ $_all_filter_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__%s__plots__%s__all__%s" $_dataset $_filter $_format ) }}
 	
 	{{ end }}
 	
-	build __jhu__plots__all__all__{{ $_format }} : phony {{ $_all_format_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__jhu__plots__all__all__%s" $_format ) }}
+	build __{{ $_dataset }}__plots__all__all__{{ $_format }} : phony {{ $_all_format_charts | array_join " " }}
+	{{ $_all_phony = append $_all_phony (printf "__%s__plots__all__all__%s" $_dataset $_format ) }}
 	
 	{{ end }}
 	
 	
 	{{ range $_, $_filter := $_filters }}
-	build __jhu__plots__{{ $_filter }}__all__all : phony {{ range $_, $_format := $_formats }}  __jhu__plots__{{ $_filter }}__all__{{ $_format }} {{ end }}
+	build __{{ $_dataset }}__plots__{{ $_filter }}__all__all : phony {{ range $_, $_format := $_formats }} __{{ $_dataset }}__plots__{{ $_filter }}__all__{{ $_format }} {{ end }}
 	{{ end }}
 	
 	
-	build __jhu__plots : phony {{ $_all_phony | array_join " " }}
+	build __{{ $_dataset }}__plots : phony {{ $_all_phony | array_join " " }}
 	
+	{{ end }}
 !!
 
 
@@ -123,31 +142,37 @@
 --<<== plots / generate
 	#! {{}}
 	
-	<< plots / view / jhu / all
+	
+	{{ $_datasets := array "jhu" "ecdc" }}
+	
+	
+	{{ range $_, $_dataset := $_datasets }}
+	
+	<< plots / view / {{ $_dataset }} / all
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __jhu__plots__all__all__png
+		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __{{ $_dataset }}__plots__all__all__png -path '*/{{ $_dataset }}/*'
 	!!
 	
-	<< plots / clean / jhu / all
+	<< plots / clean / {{ $_dataset }} / all
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / clean / exec' -path '*/jhu/*'
+		exec -- "${ZRUN[@]}" ':: plots / clean / exec' -path '*/{{ $_dataset }}/*'
 	!!
 	
 	{{ range $_, $_filter := array "global" "europe" "europe-major" "europe-minor" "us" "us-major" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
 	
-	<< plots / view / jhu / {{ $_filter }} / all
+	<< plots / view / {{ $_dataset }} / {{ $_filter }} / all
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __jhu__plots__{{ $_filter }}__all__png -path '*/jhu/*' -path '*/{{ $_filter }}/*'
+		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __{{ $_dataset }}__plots__{{ $_filter }}__all__png -path '*/{{ $_dataset }}/*' -path '*/{{ $_filter }}/*'
 	!!
 	
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
-	<< plots / view / jhu / {{ $_filter }} / {{ $_method }}
+	<< plots / view / {{ $_dataset }} / {{ $_filter }} / {{ $_method }}
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __jhu__plots__{{ $_filter }}__{{ $_method }}__png -path '*/jhu/*' -path '*/{{ $_filter }}/png/{{ $_method }}--*'
+		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __{{ $_dataset }}__plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_dataset }}/*' -path '*/{{ $_filter }}/png/{{ $_method }}--*'
 	!!
 	{{ end }}
 	
 	{{ end }}
-	
+	{{ end }}
 !!
 
