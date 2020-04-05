@@ -561,32 +561,67 @@ if _plot_type == :lines
 elseif _plot_type == :heatmap
 	
 	
-	_plot_colormap_hues = [
+	_plot_colormap_negative_hues = [
 			
-			Colors.HSL(270, 0.75, 0.25),
-			Colors.HSL(60, 0.75, 0.5),
-			Colors.HSL(30, 1, 0.5),
-			Colors.HSL(0, 1, 0.5),
-			
-		#	Colors.LCHuv(75, 100, 270),
-		#	Colors.LCHuv(75, 100, 60),
-		#	Colors.LCHuv(75, 100, 30),
-		#	Colors.LCHuv(75, 100, 0),
+			Colors.HSL(270, 1.0, 0.5),
+			Colors.HSL(270, 1.0, 0.1),
 			
 		]
 	
-	_plot_colormap_count = size(_plot_colormap_hues)[1]
+	_plot_colormap_positive_hues = [
+			
+			Colors.HSL(60, 1.0, 0.1),
+			Colors.HSL(60, 1.0, 0.5),
+			Colors.HSL(30, 1.0, 0.5),
+			Colors.HSL(0, 1.0, 0.5),
+			Colors.HSL(320, 1.0, 0.5),
+			
+		]
 	
 	
-	_plot_colormap_1 = Gadfly.Scale.lab_gradient(_plot_colormap_hues...)
+	_plot_colormap_negative_gradient = Gadfly.Scale.lab_gradient(_plot_colormap_negative_hues...)
+	_plot_colormap_positive_gradient = Gadfly.Scale.lab_gradient(_plot_colormap_positive_hues...)
 	
-	_plot_colormap_2 = (_value -> begin
-			_index = Int64(floor(_value * _plot_colormap_count) + 1)
-			if (_index > _plot_colormap_count) _index = _plot_colormap_count end
-			_plot_colormap_hues[_index]
+	
+	_plot_colormap_stepped = ((_value, _hues) -> begin
+			_count = size(_hues)[1]
+			_index = Int64(floor(_value * _count) + 1)
+			if (_index > _count) _index = _count end
+			_hues[_index]
 		end)
 	
-	_plot_colormap = _plot_colormap_1
+	_plot_colormap_negative_stepped = (_value -> _plot_colormap_stepped(_value, _plot_colormap_negative_hues))
+	_plot_colormap_positive_stepped = (_value -> _plot_colormap_stepped(_value, _plot_colormap_positive_hues))
+	
+	
+	if true
+		_plot_colormap_negative = _plot_colormap_negative_stepped
+		_plot_colormap_positive = _plot_colormap_positive_stepped
+		if true
+			_plot_colormap_hues_steps = 1 / 8
+			_plot_colormap_negative_hues = map(_value -> _plot_colormap_negative_gradient(_value), [0 : _plot_colormap_hues_steps : 1;])
+			_plot_colormap_positive_hues = map(_value -> _plot_colormap_positive_gradient(_value), [0 : _plot_colormap_hues_steps : 1;])
+		end
+	else
+		_plot_colormap_negative = _plot_colormap_negative_gradient
+		_plot_colormap_positive = _plot_colormap_positive_gradient
+	end
+	
+	
+	_plot_colormap = (_value -> begin
+			_value = _dataset_rmin_metric + (_dataset_rmax_metric - _dataset_rmin_metric) * _value
+			if _value < 0
+				_value = 1 - _value / _dataset_rmin_metric
+				_plot_colormap_negative(_value)
+			else
+				if _dataset_rmin_metric <= 0
+					_value = _value / _dataset_rmax_metric
+				else
+					_value = (_value - _dataset_rmin_metric) / (_dataset_rmax_metric - _dataset_rmin_metric)
+				end
+				_plot_colormap_positive(_value)
+			end
+		end)
 	
 	
 	_plot_descriptor = [
