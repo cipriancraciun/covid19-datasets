@@ -237,10 +237,6 @@
 	shift -- 7
 	test "${#}" -eq 0
 	
-	if test "${_NINJA_DRY:-false}" == true -a -e "${_output}" ; then
-		exit -- 0
-	fi
-	
 	export -- \
 			FONTCONFIG_PATH=/etc/fonts \
 	#

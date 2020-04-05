@@ -3,32 +3,44 @@
 
 
 rule fetch-curl
-    command = exec -- z-run ':: tools / fetch / curl' ${url} ${out}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        exec -- z-run ':: tools / fetch / curl' ${url} ${out}
     description = [fetch-curl]  ${out}
     restat = true
 
 rule csv-to-json
-    command = exec -- z-run ':: tools / convert / csv-to-json' ${in} ${out} ${dataset} ${format}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        exec -- z-run ':: tools / convert / csv-to-json' ${in} ${out} ${dataset} ${format}
     description = [csv-to-json]  ${out}
     restat = true
 
 rule sql-from-json
-    command = exec -- z-run ':: tools / convert / sql-from-json' ${in} ${out} ${dataset} ${format}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        exec -- z-run ':: tools / convert / sql-from-json' ${in} ${out} ${dataset} ${format}
     description = [sql-from-json]  ${out}
     restat = true
 
 rule sqlite-create
-    command = exec -- z-run ':: tools / convert / sqlite' ${in} ${out} ${dataset}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        exec -- z-run ':: tools / convert / sqlite' ${in} ${out} ${dataset}
     description = [sqlite-create]  ${out}
     restat = true
 
 rule z-run-in-out
-    command = exec -- z-run ${scriptlet} ${arguments_pre} ${in} ${out} ${arguments}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        exec -- z-run ${scriptlet} ${arguments_pre} ${in} ${out} ${arguments}
     description = [z-run]  ${scriptlet}  ${out}
     restat = true
 
 rule z-run-out-in
-    command = exec -- z-run ${scriptlet} ${arguments_pre} ${out} ${in} ${arguments}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        exec -- z-run ${scriptlet} ${arguments_pre} ${out} ${in} ${arguments}
     description = [z-run]  ${scriptlet}  ${out}
     restat = true
 
@@ -36,21 +48,32 @@ rule z-run-out-in
 
 
 rule marker
-    command = exec -- touch -- ${out}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        exec -- touch -- ${out}
     description = [marker]  ${out}
 
 rule copy
-    command = if ! cmp -s -- ${in} ${out} ; then exec -- cp -f -T -- ${in} ${out} ; fi
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        if cmp -s -- ${in} ${out} ; then exit -- 0 ; fi ; $
+        cp -T -- ${in} ${out}.tmp ; $
+        mv -T -- ${out}.tmp ${out}
     description = [copy]  ${out}
     restat = true
 
 rule symlink
-    command = exec -- ln -f -s -T -- "$$( exec -- realpath --relative-to "$$( exec -- dirname -- ${out} )" -- ${in} )" ${out}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        exec -- ln -f -s -T -- "$$( exec -- realpath --relative-to "$$( exec -- dirname -- ${out} )" -- ${in} )" ${out}
     description = [symlink]  ${out}
     restat = true
 
 rule gzip
-    command = gzip --best --rsyncable < ${in} >| ${out}.tmp ; mv -T -- ${out}.tmp ${out}
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        gzip --best --rsyncable < ${in} >| ${out}.tmp ; $
+        mv -T -- ${out}.tmp ${out}
     description = [gzip]  ${out}
     restat = true
 

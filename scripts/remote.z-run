@@ -80,6 +80,7 @@
 			--ssh \
 			--ssh-target=covid19-datasets-processor \
 			--ssh-workspace=./workbench/covid19-datasets/ \
+			--ssh-export=__ninja_fake \
 			"${@}" \
 	#
 !!

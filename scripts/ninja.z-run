@@ -57,6 +57,7 @@
 
 :: ninja / processor / local :: export -- __ninja_processor=local
 :: ninja / processor / remote :: export -- __ninja_processor=remote
+:: ninja / processor / fake :: export -- __ninja_fake=true
 
 
 
