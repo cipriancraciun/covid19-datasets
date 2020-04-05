@@ -7,7 +7,7 @@
 	#! {{}}
 	
 	
-	{{ $_datasets := array "jhu" "ecdc" }}
+	{{ $_datasets := array "jhu" "ecdc" "nytimes" }}
 	{{ $_filters := array "global" "europe" "europe-major" "europe-minor" "us" "us-major" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
 	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
 	{{ $_metrics := array "confirmed" "deaths" "infected" "recovered" }}
@@ -26,16 +26,22 @@
 	{{ range $_, $_method := $_methods }}
 	{{ $_all_method_charts := array }}
 	
+	
+	{{ $_should_skip_0 := false }}
+	{{ $_should_skip_0 = or (and (eq $_dataset "ecdc") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor"))) $_should_skip_0 }}
+	{{ $_should_skip_0 = or (and (eq $_dataset "nytimes") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor") | not)) $_should_skip_0 }}
+	
+	
 	{{ range $_, $_metric := $_metrics }}
 	
 	
-	{{ $_should_skip := false }}
-	{{ $_should_skip = or (and (eq $_dataset "ecdc") (eq $_filter "us")) $_should_skip }}
-	{{ $_should_skip = or (and (eq $_dataset "ecdc") (eq $_filter "us-major")) $_should_skip }}
-	{{ $_should_skip = or (and (eq $_dataset "ecdc") (eq $_filter "us-minor")) $_should_skip }}
+	{{ $_should_skip := $_should_skip_0 }}
 	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "nytimes") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
 	{{ $_should_skip = or (and (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor")) (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_method "relative") (eq $_metric "confirmed")) $_should_skip }}
+	
+	
 	{{ if $_should_skip | not }}
 	
 	
@@ -56,6 +62,8 @@
 	{{ $_source = "./exports/jhu/v1/daily/values.tsv" }}
 	{{ else if eq $_dataset "ecdc" }}
 	{{ $_source = "./exports/ecdc/v1/worldwide/values.tsv" }}
+	{{ else if eq $_dataset "nytimes" }}
+	{{ $_source = "./exports/nytimes/v1/us-states/values.tsv" }}
 	{{ end }}
 	
 	build ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--lines.{{ $_format }} : z-run-in-out $
@@ -110,8 +118,10 @@
 	{{ end }}
 	{{ end }}
 	
+	{{ if $_should_skip_0 | not }}
 	build __{{ $_dataset }}__plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
 	{{ $_all_phony = append $_all_phony (printf "__%s__plots__%s__%s__%s" $_dataset $_filter $_method $_format) }}
+	{{ end }}
 	
 	{{ end }}
 	
@@ -143,7 +153,7 @@
 	#! {{}}
 	
 	
-	{{ $_datasets := array "jhu" "ecdc" }}
+	{{ $_datasets := array "jhu" "ecdc" "nytimes" }}
 	
 	
 	{{ range $_, $_dataset := $_datasets }}
@@ -158,7 +168,16 @@
 		exec -- "${ZRUN[@]}" ':: plots / clean / exec' -path '*/{{ $_dataset }}/*'
 	!!
 	
+	
 	{{ range $_, $_filter := array "global" "europe" "europe-major" "europe-minor" "us" "us-major" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
+	
+	
+	{{ $_should_skip_0 := false }}
+	{{ $_should_skip_0 = or (and (eq $_dataset "ecdc") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor"))) $_should_skip_0 }}
+	{{ $_should_skip_0 = or (and (eq $_dataset "nytimes") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor") | not)) $_should_skip_0 }}
+	
+	
+	{{ if $_should_skip_0 | not }}
 	
 	<< plots / view / {{ $_dataset }} / {{ $_filter }} / all
 		test "${#}" -eq 0
@@ -166,12 +185,16 @@
 	!!
 	
 	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
+	
 	<< plots / view / {{ $_dataset }} / {{ $_filter }} / {{ $_method }}
 		test "${#}" -eq 0
 		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __{{ $_dataset }}__plots__{{ $_filter }}__{{ $_method }}__png -path '*/{{ $_dataset }}/*' -path '*/{{ $_filter }}/png/{{ $_method }}--*'
 	!!
+	
 	{{ end }}
 	
+	
+	{{ end }}
 	{{ end }}
 	{{ end }}
 !!

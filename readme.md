@@ -58,13 +58,13 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
   -- [JHU](./plots/jhu/europe) or [ECDC](./plots/ecdc/europe)
   -- European countries with more than 5K confirmed cases;
 * `us-major`
-  -- [JHU](./plots/jhu/us-major) only
+  -- [JHU](./plots/jhu/us-major) or [NY Times](./plots/nytimes/us-major)
   -- US states with more than 10K confirmed cases;
 * `us-minor`
-  -- [JHU](./plots/jhu/us-minor) only
+  -- [JHU](./plots/jhu/us-minor) or [NY Times](./plots/nytimes/us-minor)
   -- US states with more than 2.5K confirmed cases, but less than 20K;
 * `us`
-  -- [JHU](./plots/jhu/us) only
+  -- [JHU](./plots/jhu/us) or [NY Times](./plots/nytimes/us)
   -- US states with more than 2.5K confirmed cases;
 * `continents`
   -- [JHU](./plots/jhu/continents) or [ECDC](./plots/ecdc/continents)

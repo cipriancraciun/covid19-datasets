@@ -63,17 +63,29 @@ _dataset = filter(
 
 
 if _dataset_id == :jhu
+	
 	_dataset_title = "JHU"
 	_dataset = filter(
 			(_data -> _data[:dataset] == "jhu/daily"),
 			_dataset,
 		)
+	
 elseif _dataset_id == :ecdc
+	
 	_dataset_title = "ECDC"
 	_dataset = filter(
 			(_data -> _data[:dataset] == "ecdc/worldwide"),
 			_dataset,
 		)
+	
+elseif _dataset_id == :nytimes
+	
+	_dataset_title = "NY Times"
+	_dataset = filter(
+			(_data -> _data[:dataset] == "nytimes/us-states"),
+			_dataset,
+		)
+	
 else
 	throw(error(("[0cfe0ed4]", _dataset_id)))
 end
