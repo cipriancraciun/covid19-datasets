@@ -122,7 +122,7 @@ elseif _dataset_filter == :countries
 	
 	_dataset_confirmed_at_least = 5000
 	
-elseif _dataset_filter in [:europe, :europe_major, :europe_minor]
+elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor]
 	
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
@@ -137,14 +137,17 @@ elseif _dataset_filter in [:europe, :europe_major, :europe_minor]
 	
 	if _dataset_filter == :europe_major
 		_dataset_confirmed_at_least = 20000
-	elseif _dataset_filter == :europe_minor
+	elseif _dataset_filter == :europe_medium
 		_dataset_confirmed_at_most = 20000
 		_dataset_confirmed_at_least = 5000
+	elseif _dataset_filter == :europe_minor
+		_dataset_confirmed_at_most = 5000
+		_dataset_confirmed_at_least = 500
 	else
 		_dataset_confirmed_at_least = 5000
 	end
 	
-elseif _dataset_filter in [:us, :us_major, :us_minor]
+elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
 	
 	_dataset_location_key = :province
 	_dataset_location_type = "total-province"
@@ -161,9 +164,12 @@ elseif _dataset_filter in [:us, :us_major, :us_minor]
 	
 	if _dataset_filter == :us_major
 		_dataset_confirmed_at_least = 10000
-	elseif _dataset_filter == :us_minor
+	elseif _dataset_filter == :us_medium
 		_dataset_confirmed_at_most = 10000
 		_dataset_confirmed_at_least = 2500
+	elseif _dataset_filter == :us_minor
+		_dataset_confirmed_at_most = 2500
+		_dataset_confirmed_at_least = 500
 	else
 		_dataset_confirmed_at_least = 2500
 	end
@@ -173,12 +179,9 @@ elseif _dataset_filter == :romania
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
 	_dataset_locations = [
-			"Romania", "Hungary", "Bulgaria",
-			"Italy", "Spain", "Germany", "France",
-			"United Kingdom", "Austria",
+			"Romania", "Moldova", "Hungary", "Bulgaria",
+			"Serbia", "Ukraine",
 		]
-	
-	_dataset_index_at_most = 25
 	
 elseif _dataset_filter == :continents
 	
@@ -416,13 +419,23 @@ if _dataset_metric in [:relative_recovered, :relative_deaths, :relative_infected
 elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_deaths, :deltapct_infected]
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = "%"
-	_dataset_cmin_metric = -150
-	_dataset_cmax_metric = +150
+	if _plot_type == :heatmap
+		_dataset_cmin_metric = -100
+		_dataset_cmax_metric = +100
+	else
+		_dataset_cmin_metric = -200
+		_dataset_cmax_metric = +200
+	end
 elseif _dataset_metric in [:peakpct_confirmed, :peakpct_recovered, :peakpct_deaths, :peakpct_infected]
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = "%"
-	_dataset_cmin_metric = -150
-	_dataset_cmax_metric = +150
+	if _plot_type == :heatmap
+		_dataset_cmin_metric = -100
+		_dataset_cmax_metric = +100
+	else
+		_dataset_cmin_metric = -200
+		_dataset_cmax_metric = +200
+	end
 else
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = ""

@@ -44,6 +44,24 @@
 
 
 
+<< plots / build / all
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: ninja' __all__plots
+!!
+
+<< plots / view / all
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __all__plots -true
+!!
+
+<< plots / clean / all
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: plots / clean / exec' -true
+!!
+
+
+
+
 --<< process / generic / plot
 	
 	test "${#}" -eq 8

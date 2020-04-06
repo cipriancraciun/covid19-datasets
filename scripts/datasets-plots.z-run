@@ -8,7 +8,7 @@
 	
 	
 	{{ $_datasets := array "jhu" "ecdc" "nytimes" }}
-	{{ $_filters := array "global" "europe" "europe-major" "europe-minor" "us" "us-major" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
+	{{ $_filters := array "global" "europe" "europe-major" "europe-medium" "europe-minor" "us" "us-major" "us-medium" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
 	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
 	{{ $_metrics := array "confirmed" "deaths" "infected" "recovered" }}
 	{{ $_formats := array "pdf" "svg" "png" }}
@@ -27,18 +27,17 @@
 	{{ $_all_method_charts := array }}
 	
 	
-	{{ $_should_skip_0 := false }}
-	{{ $_should_skip_0 = or (and (eq $_dataset "ecdc") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor"))) $_should_skip_0 }}
-	{{ $_should_skip_0 = or (and (eq $_dataset "nytimes") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor") | not)) $_should_skip_0 }}
+	{{ $_should_skip := false }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "nytimes") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor") | not)) $_should_skip }}
 	
 	
 	{{ range $_, $_metric := $_metrics }}
 	
 	
-	{{ $_should_skip := $_should_skip_0 }}
+	{{ $_should_skip := $_should_skip }}
 	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_dataset "nytimes") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
-	{{ $_should_skip = or (and (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor")) (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_method "relative") (eq $_metric "confirmed")) $_should_skip }}
 	
 	
@@ -118,7 +117,7 @@
 	{{ end }}
 	{{ end }}
 	
-	{{ if $_should_skip_0 | not }}
+	{{ if $_should_skip | not }}
 	build __{{ $_dataset }}__plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
 	{{ $_all_phony = append $_all_phony (printf "__%s__plots__%s__%s__%s" $_dataset $_filter $_method $_format) }}
 	{{ end }}
@@ -158,6 +157,11 @@
 	
 	{{ range $_, $_dataset := $_datasets }}
 	
+	<< plots / build / {{ $_dataset }} / all
+		test "${#}" -eq 0
+		exec -- "${ZRUN[@]}" ':: ninja' __{{ $_dataset }}__plots__all__all__png
+	!!
+	
 	<< plots / view / {{ $_dataset }} / all
 		test "${#}" -eq 0
 		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __{{ $_dataset }}__plots__all__all__png -path '*/{{ $_dataset }}/*'
@@ -169,15 +173,15 @@
 	!!
 	
 	
-	{{ range $_, $_filter := array "global" "europe" "europe-major" "europe-minor" "us" "us-major" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
+	{{ range $_, $_filter := array "global" "europe" "europe-major" "europe-medium" "europe-minor" "us" "us-major" "us-medium" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
 	
 	
-	{{ $_should_skip_0 := false }}
-	{{ $_should_skip_0 = or (and (eq $_dataset "ecdc") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor"))) $_should_skip_0 }}
-	{{ $_should_skip_0 = or (and (eq $_dataset "nytimes") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-minor") | not)) $_should_skip_0 }}
+	{{ $_should_skip := false }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "nytimes") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor") | not)) $_should_skip }}
 	
 	
-	{{ if $_should_skip_0 | not }}
+	{{ if $_should_skip | not }}
 	
 	<< plots / view / {{ $_dataset }} / {{ $_filter }} / all
 		test "${#}" -eq 0
