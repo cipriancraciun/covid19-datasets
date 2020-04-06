@@ -233,18 +233,30 @@
 	touch -- ./imports/.force
 !!
 
-<< ninja / force / all / data / local
+<< ninja / all / data / local + force
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
 	"${ZRUN[@]}" ':: ninja / processor / force'
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
 !!
 
-<< ninja / force / all / data / remote
+<< ninja / all / data / remote + force
 	test "${#}" -eq 0
 	export -- __ninja_processor=remote
 	"${ZRUN[@]}" ':: ninja / processor / force'
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
+!!
+
+<< ninja / all / plots / local
+	test "${#}" -eq 0
+	export -- __ninja_processor=local
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
+!!
+
+<< ninja / all / plots / remote
+	test "${#}" -eq 0
+	export -- __ninja_processor=remote
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
 !!
 
 
