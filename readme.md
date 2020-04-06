@@ -48,24 +48,30 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 * `global`
   -- [JHU](./plots/jhu/global) or [ECDC](./plots/ecdc/global)
   -- world-wide countries with more than 20K confirmed cases;
-* `europe-major`
-  -- [JHU](./plots/jhu/europe-major) or [ECDC](./plots/ecdc/europe-major)
-  -- European countries with more than 20K confirmed cases;
-* `europe-minor`
-  -- [JHU](./plots/jhu/europe-minor) or [ECDC](./plots/ecdc/europe-minor)
-  -- European countries with more than 5K confirmed cases, but less than 20K;
 * `europe`
   -- [JHU](./plots/jhu/europe) or [ECDC](./plots/ecdc/europe)
   -- European countries with more than 5K confirmed cases;
-* `us-major`
-  -- [JHU](./plots/jhu/us-major) or [NY Times](./plots/nytimes/us-major)
-  -- US states with more than 10K confirmed cases;
-* `us-minor`
-  -- [JHU](./plots/jhu/us-minor) or [NY Times](./plots/nytimes/us-minor)
-  -- US states with more than 2.5K confirmed cases, but less than 20K;
+* `europe-major`
+  -- [JHU](./plots/jhu/europe-major) or [ECDC](./plots/ecdc/europe-major)
+  -- European countries with more than 20K confirmed cases;
+* `europe-medium`
+  -- [JHU](./plots/jhu/europe-medium) or [ECDC](./plots/ecdc/europe-medium)
+  -- European countries with more than 5K confirmed cases, but less than 20K;
+* `europe-minor`
+  -- [JHU](./plots/jhu/europe-minor) or [ECDC](./plots/ecdc/europe-minor)
+  -- European countries with more than 500 confirmed cases, but less than 5K;
 * `us`
   -- [JHU](./plots/jhu/us) or [NY Times](./plots/nytimes/us)
   -- US states with more than 2.5K confirmed cases;
+* `us-major`
+  -- [JHU](./plots/jhu/us-major) or [NY Times](./plots/nytimes/us-major)
+  -- US states with more than 10K confirmed cases;
+* `us-medium`
+  -- [JHU](./plots/jhu/us-medium) or [NY Times](./plots/nytimes/us-medium)
+  -- US states with more than 2.5K confirmed cases, but less than 20K;
+* `us-minor`
+  -- [JHU](./plots/jhu/us-minor) or [NY Times](./plots/nytimes/us-minor)
+  -- US states with more than 500 confirmed cases, but less than 2.5K;
 * `continents`
   -- [JHU](./plots/jhu/continents) or [ECDC](./plots/ecdc/continents)
   -- aggregated countries grouped by continents;
