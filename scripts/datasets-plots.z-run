@@ -38,6 +38,10 @@
 	{{ $_should_skip := $_should_skip }}
 	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_dataset "nytimes") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_filter "us") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_filter "us-major") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_filter "us-medium") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_filter "us-minor") (or (eq $_metric "recovered") (eq $_metric "infected"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_method "relative") (eq $_metric "confirmed")) $_should_skip }}
 	
 	
