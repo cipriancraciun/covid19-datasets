@@ -135,7 +135,7 @@
         "administrative": "Bibb",
         "latlong": [
           32.99642064,
-          -87.12511459999996
+          -87.1251146
         ]
       },
       "date": "2020-04-06",
@@ -1429,7 +1429,7 @@
         "administrative": "Jefferson",
         "latlong": [
           33.55554728,
-          -86.89506300000002
+          -86.895063
         ]
       },
       "date": "2020-04-06",
@@ -2726,7 +2726,7 @@
         "administrative": "Anchorage",
         "latlong": [
           61.14998174,
-          -149.14269860000005
+          -149.1426986
         ]
       },
       "date": "2020-04-06",
@@ -2772,24 +2772,29 @@
           -146.5692662
         ]
       },
-      "date": "2020-04-06",
+      "date": "2020-04-05",
       "day_index": {
-        "confirmed_1": 16,
-        "confirmed_10": 13,
-        "peak": 7,
-        "peak_confirmed": 7
+        "confirmed_1": 15,
+        "confirmed_10": 12,
+        "peak": 6,
+        "peak_confirmed": 6
       },
       "values": {
-        "absolute": null,
+        "absolute": {
+          "confirmed": 53,
+          "infected": 53
+        },
         "absolute_pop100k": null,
         "delta": {
-          "confirmed": -53,
-          "infected": -53
+          "confirmed": 7,
+          "infected": 7
         },
-        "relative": null,
+        "relative": {
+          "infected": 100
+        },
         "peak_pct": {
-          "confirmed": -913.7931034482759,
-          "infected": -913.7931034482759
+          "confirmed": 120.6896551724138,
+          "infected": 120.6896551724138
         }
       },
       "factbook": null
@@ -2846,7 +2851,7 @@
         "administrative": "Kenai Peninsula",
         "latlong": [
           60.24429722,
-          -151.53888840000005
+          -151.5388884
         ]
       },
       "date": "2020-04-06",
@@ -3159,7 +3164,7 @@
         "administrative": "Coconino",
         "latlong": [
           35.83883429,
-          -111.77071780000001
+          -111.7707178
         ]
       },
       "date": "2020-04-06",
@@ -3359,7 +3364,7 @@
         "administrative": "Maricopa",
         "latlong": [
           33.34835867,
-          -112.49181540000001
+          -112.4918154
         ]
       },
       "date": "2020-04-06",
@@ -6238,7 +6243,7 @@
         "administrative": "Amador",
         "latlong": [
           38.44583082,
-          -120.65696000000001
+          -120.65696
         ]
       },
       "date": "2020-04-06",
@@ -6319,7 +6324,7 @@
         "administrative": "Calaveras",
         "latlong": [
           38.20537103,
-          -120.55291299999999
+          -120.552913
         ]
       },
       "date": "2020-04-06",
@@ -6652,7 +6657,7 @@
         "administrative": "Imperial",
         "latlong": [
           33.0393082,
-          -115.36690420000001
+          -115.3669042
         ]
       },
       "date": "2020-04-06",
@@ -6739,7 +6744,7 @@
         "administrative": "Kern",
         "latlong": [
           35.34329425,
-          -118.72777959999999
+          -118.7277796
         ]
       },
       "date": "2020-04-06",
@@ -6824,7 +6829,7 @@
         "administrative": "Lake",
         "latlong": [
           39.10124298,
-          -122.75362439999999
+          -122.7536244
         ]
       },
       "date": "2020-04-06",
@@ -6859,7 +6864,7 @@
         "administrative": "Los Angeles",
         "latlong": [
           34.30828379,
-          -118.22824109999999
+          -118.2282411
         ]
       },
       "date": "2020-04-06",
@@ -6951,7 +6956,7 @@
         "administrative": "Marin",
         "latlong": [
           38.07122463,
-          -122.72106310000001
+          -122.7210631
         ]
       },
       "date": "2020-04-06",
@@ -7036,7 +7041,7 @@
         "administrative": "Merced",
         "latlong": [
           37.18922369,
-          -120.72090349999999
+          -120.7209035
         ]
       },
       "date": "2020-04-06",
@@ -7167,7 +7172,7 @@
         "administrative": "Napa",
         "latlong": [
           38.50735751,
-          -122.33283899999999
+          -122.332839
         ]
       },
       "date": "2020-04-06",
@@ -7211,7 +7216,7 @@
         "administrative": "Nevada",
         "latlong": [
           39.30394768,
-          -120.76272809999999
+          -120.7627281
         ]
       },
       "date": "2020-04-06",
@@ -7254,7 +7259,7 @@
         "administrative": "Orange",
         "latlong": [
           33.70147516,
-          -117.76459979999998
+          -117.7645998
         ]
       },
       "date": "2020-04-06",
@@ -7299,7 +7304,7 @@
         "administrative": "Placer",
         "latlong": [
           39.06167234,
-          -120.72405690000001
+          -120.7240569
         ]
       },
       "date": "2020-04-06",
@@ -7431,7 +7436,7 @@
         "administrative": "Sacramento",
         "latlong": [
           38.45106826,
-          -121.34253740000001
+          -121.3425374
         ]
       },
       "date": "2020-04-06",
@@ -7567,7 +7572,7 @@
         "administrative": "San Diego",
         "latlong": [
           33.03484597,
-          -116.73653259999999
+          -116.7365326
         ]
       },
       "date": "2020-04-06",
@@ -7615,7 +7620,7 @@
         "administrative": "San Francisco",
         "latlong": [
           37.75215114,
-          -122.43856720000001
+          -122.4385672
         ]
       },
       "date": "2020-04-06",
@@ -7750,8 +7755,8 @@
         "province": "California",
         "administrative": "San Mateo",
         "latlong": [
-          37.422880799999994,
-          -122.32755459999998
+          37.4228808,
+          -122.3275546
         ]
       },
       "date": "2020-04-06",
@@ -7978,7 +7983,7 @@
         "administrative": "Siskiyou",
         "latlong": [
           41.59198861,
-          -122.54074340000001
+          -122.5407434
         ]
       },
       "date": "2020-04-06",
@@ -8061,7 +8066,7 @@
         "administrative": "Sonoma",
         "latlong": [
           38.52746429,
-          -122.88625060000001
+          -122.8862506
         ]
       },
       "date": "2020-04-06",
@@ -8396,7 +8401,7 @@
         "administrative": "Yuba",
         "latlong": [
           39.26255932,
-          -121.35356440000001
+          -121.3535644
         ]
       },
       "date": "2020-04-06",
@@ -8571,7 +8576,7 @@
         "administrative": "Archuleta",
         "latlong": [
           37.19474156,
-          -107.04768670000001
+          -107.0476867
         ]
       },
       "date": "2020-04-06",
@@ -8939,7 +8944,7 @@
         "administrative": "Delta",
         "latlong": [
           38.86246243,
-          -107.86313419999999
+          -107.8631342
         ]
       },
       "date": "2020-04-06",
@@ -8979,7 +8984,7 @@
         "administrative": "Denver",
         "latlong": [
           39.76018276,
-          -104.87256950000001
+          -104.8725695
         ]
       },
       "date": "2020-04-06",
@@ -9929,7 +9934,7 @@
         "administrative": "Montrose",
         "latlong": [
           38.40214114,
-          -108.26390220000002
+          -108.2639022
         ]
       },
       "date": "2020-04-06",
@@ -9974,7 +9979,7 @@
         "province": "Colorado",
         "administrative": "Morgan",
         "latlong": [
-          40.26279810000001,
+          40.2627981,
           -103.8093302
         ]
       },
@@ -10574,7 +10579,7 @@
         "administrative": "Weld",
         "latlong": [
           40.55499405,
-          -104.39296209999999
+          -104.3929621
         ]
       },
       "date": "2020-04-06",
@@ -10849,7 +10854,7 @@
         "province": "Connecticut",
         "administrative": "New Haven",
         "latlong": [
-          41.408032500000004,
+          41.4080325,
           -72.93620426
         ]
       },
@@ -111917,33 +111922,33 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 365785,
+          "confirmed": 365838,
           "deaths": 10753,
           "recovered": 19581,
-          "infected": 335451
+          "infected": 335504
         },
         "absolute_pop100k": {
-          "confirmed": 109.96452245112181,
+          "confirmed": 109.98045563506842,
           "recovered": 5.886559902990599,
           "deaths": 3.232632584487918,
-          "infected": 100.84532996364331
+          "infected": 100.8612631475899
         },
         "delta": {
-          "confirmed": 29502,
+          "confirmed": 29555,
           "recovered": 2133,
           "deaths": 1163,
-          "infected": 26206
+          "infected": 26259
         },
         "relative": {
-          "deaths": 2.93970501797504,
-          "recovered": 5.353144606804543,
-          "infected": 91.70715037522041
+          "deaths": 2.939279134480289,
+          "recovered": 5.3523690813966835,
+          "infected": 91.70835178412304
         },
         "peak_pct": {
-          "confirmed": 100.96163717874131,
+          "confirmed": 101.10633697779117,
           "recovered": 97.38836635923661,
           "deaths": 104.04365718375381,
-          "infected": 101.1275845302503
+          "infected": 101.29067596549967
         }
       },
       "factbook": {
@@ -115195,26 +115200,26 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 137,
+          "confirmed": 190,
           "deaths": 6,
-          "infected": 131
+          "infected": 184
         },
         "absolute_pop100k": {
-          "confirmed": 18.727487714357967,
+          "confirmed": 25.972428216992803,
           "deaths": 0.8201819436945096,
-          "infected": 17.90730577066346
+          "infected": 25.152246273298296
         },
         "delta": {
-          "confirmed": -48,
-          "infected": -48
+          "confirmed": 5,
+          "infected": 5
         },
         "relative": {
-          "deaths": 4.37956204379562,
-          "infected": 95.62043795620438
+          "deaths": 3.1578947368421053,
+          "infected": 96.84210526315789
         },
         "peak_pct": {
-          "confirmed": -324.3243243243243,
-          "infected": -333.3333333333333
+          "confirmed": 33.78378378378378,
+          "infected": 34.72222222222222
         }
       },
       "factbook": {
@@ -117971,33 +117976,33 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 418420,
+          "confirmed": 418473,
           "deaths": 12444,
           "recovered": 26309,
-          "infected": 379667
+          "infected": 379720
         },
         "absolute_pop100k": {
-          "confirmed": 41.23730709784095,
+          "confirmed": 41.242530503213985,
           "recovered": 2.592878716211217,
           "deaths": 1.2264161596614234,
-          "infected": 37.418012221968304
+          "infected": 37.42323562734134
         },
         "delta": {
-          "confirmed": 33022,
+          "confirmed": 33075,
           "recovered": 2617,
           "deaths": 1402,
-          "infected": 29003
+          "infected": 29056
         },
         "relative": {
-          "deaths": 2.9740452177238184,
-          "recovered": 6.287701352707805,
-          "infected": 90.73825342956837
+          "deaths": 2.9736685520929664,
+          "recovered": 6.286905009403235,
+          "infected": 90.7394264385038
         },
         "peak_pct": {
-          "confirmed": 98.66207745489963,
+          "confirmed": 98.78914230415407,
           "recovered": 91.01342421923906,
           "deaths": 108.26254826254826,
-          "infected": 99.51482960706002
+          "infected": 99.66043560281256
         }
       },
       "factbook": {
@@ -118812,33 +118817,33 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 384529,
+          "confirmed": 384582,
           "deaths": 11187,
           "recovered": 23491,
-          "infected": 349851
+          "infected": 349904
         },
         "absolute_pop100k": {
-          "confirmed": 77.0417841419354,
+          "confirmed": 77.0524028847598,
           "recovered": 4.706507314866251,
           "deaths": 2.241356150500564,
-          "infected": 70.09392067656859
+          "infected": 70.10453941939299
         },
         "delta": {
-          "confirmed": 30564,
+          "confirmed": 30617,
           "recovered": 2381,
           "deaths": 1260,
-          "infected": 26923
+          "infected": 26976
         },
         "relative": {
-          "deaths": 2.909273422810763,
-          "recovered": 6.109032088607101,
-          "infected": 90.98169448858214
+          "deaths": 2.9088724901321434,
+          "recovered": 6.108190190908571,
+          "infected": 90.98293731895929
         },
         "peak_pct": {
-          "confirmed": 98.87422360248446,
+          "confirmed": 99.01172605149632,
           "recovered": 92.40142812791058,
           "deaths": 107.39856801909306,
-          "infected": 99.91983551435167
+          "infected": 100.07716507390039
         }
       },
       "factbook": {
@@ -119496,33 +119501,33 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 1345048,
+          "confirmed": 1345101,
           "deaths": 74565,
           "recovered": 276515,
-          "infected": 993968
+          "infected": 994021
         },
         "absolute_pop100k": {
-          "confirmed": 17.514911360938545,
+          "confirmed": 17.515601514971806,
           "recovered": 3.6007158963620047,
           "deaths": 0.9709685941530581,
-          "infected": 12.943226870423482
+          "infected": 12.943917024456745
         },
         "delta": {
-          "confirmed": 72933,
+          "confirmed": 72986,
           "recovered": 16503,
           "deaths": 5191,
-          "infected": 51239
+          "infected": 51292
         },
         "relative": {
-          "deaths": 5.543668330052162,
-          "recovered": 20.558002390992737,
-          "infected": 73.8983292789551
+          "deaths": 5.543449897070926,
+          "recovered": 20.557192359532852,
+          "infected": 73.89935774339622
         },
         "peak_pct": {
-          "confirmed": 93.92240291349655,
+          "confirmed": 93.99065579428326,
           "recovered": 103.46838204867773,
           "deaths": 98.74828793182164,
-          "infected": 89.14634273644945
+          "infected": 89.23855289209324
         }
       },
       "factbook": {
