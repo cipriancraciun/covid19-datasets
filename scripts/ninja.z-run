@@ -248,6 +248,21 @@
 !!
 
 
+<< ninja / all / plots / local + fake
+	test "${#}" -eq 0
+	export -- __ninja_processor=local
+	export -- __ninja_fake=true
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
+!!
+
+<< ninja / all / plots / remote + fake
+	test "${#}" -eq 0
+	export -- __ninja_processor=remote
+	export -- __ninja_fake=true
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
+!!
+
+
 << ninja / all / data / local
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
