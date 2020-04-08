@@ -15,3 +15,22 @@
 --::&&.. process / factbook / imports / table / script :: ../sources/factbook-imports-table.jq
 --::&&.. process / factbook / imports / fields / script :: ../sources/factbook-imports-fields.jq
 
+
+
+
+--<<~~.. process / facts / imports / countries / list
+	test "${#}" -eq 0
+	jq -r \
+		'
+			.
+			| to_entries
+			| map (.value | .code)
+			| map (ascii_downcase)
+			| sort
+			| .[]
+		' \
+		< ./imports/facts/countries.json
+!!
+
+&&__ ../imports/facts/countries.json
+

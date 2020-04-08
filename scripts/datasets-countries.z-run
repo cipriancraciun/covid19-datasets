@@ -1,0 +1,51 @@
+#!/dev/null
+
+
+
+
+--<<~~.. ninja / script / datasets / countries
+	#! {{}}
+	
+	{{ $_datasets := array "jhu/daily" "jhu/series" "ecdc/worldwide" }}
+	{{ $_outputs := array }}
+	
+	{{ range $_, $_dataset := $_datasets }}
+	{{ range $_, $_country := ZRUN ":: process / facts / imports / countries / list" | split_lines }}
+	
+	{{ $_dataset := $_dataset | split "/" }}
+	{{ $_dataset_0 := index $_dataset 0 }}
+	{{ $_dataset_1 := index $_dataset 1 }}
+	
+	
+	build ./exports/{{ $_dataset_0 }}/v1/{{ $_dataset_1 }}-by-country/{{ $_country }}.json : z-run-in-out $
+	        ./exports/{{ $_dataset_0 }}/v1/{{ $_dataset_1 }}/values.json $
+	        | ./sources/generic-exports-country-json.jq
+	    scriptlet = ':: tools / jq / filter'
+	    arguments_pre = ':: process / generic / exports / country / json / script'
+	    arguments = --arg country {{ $_country }}
+	    pool = cpu_moderate
+	
+	
+	build ./exports/{{ $_dataset_0 }}/v1/{{ $_dataset_1 }}-by-country/{{ $_country }}.tsv : z-run-in-out $
+	        ./exports/{{ $_dataset_0 }}/v1/{{ $_dataset_1 }}-by-country/{{ $_country }}.json $
+	        | ./sources/generic-exports-values-tsv.jq
+	    scriptlet = ':: tools / jq / filter'
+	    arguments_pre = ':: process / generic / exports / values / tsv / script'
+	    arguments = --raw-output
+	    pool = cpu_moderate
+	
+	
+	{{ $_outputs = append $_outputs (printf "./exports/%s/v1/%s-by-country/%s.json" $_dataset_0 $_dataset_1 $_country ) }}
+	{{ $_outputs = append $_outputs (printf "./exports/%s/v1/%s-by-country/%s.tsv" $_dataset_0 $_dataset_1 $_country ) }}
+	
+	{{ end }}
+	{{ end }}
+	
+	
+	build __all__countries : phony {{ range $_, $_output := $_outputs }} {{ $_output }} {{ end }}
+	
+!!
+
+
+--::&&.. process / generic / exports / country / json / script :: ../sources/generic-exports-country-json.jq
+

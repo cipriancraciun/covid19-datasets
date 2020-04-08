@@ -29,6 +29,7 @@
 && ./datasets-generic.z-run
 && ./datasets-plots.z-run
 && ./datasets-facts.z-run
+&& ./datasets-countries.z-run
 
 && ./ninja.z-run
 && ./remote.z-run
