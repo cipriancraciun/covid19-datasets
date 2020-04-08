@@ -108,6 +108,7 @@
 				(. == ["United Kingdom", "Montserrat", null]) or
 				(. == ["United Kingdom", "Turks and Caicos Islands", null]) or
 				(. == ["United Kingdom", "Guernsey", null]) or
+				(. == ["United Kingdom", "Falkland Islands (Malvinas)", null]) or
 				(. == ["United States", "United States Virgin Islands", null]) or
 				(. == ["United States", "Virgin Islands", null]) or
 				(. == ["United States", "Virgin Islands, U.S.", null]) or

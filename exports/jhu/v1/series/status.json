@@ -3526,6 +3526,53 @@
         "area": 1104300
       }
     },
+    "Falkland Islands": {
+      "dataset": "jhu/series",
+      "location": {
+        "label": "Falkland Islands",
+        "type": "total-country",
+        "country_code": "FK",
+        "country": "Falkland Islands",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          -51.75,
+          -59
+        ]
+      },
+      "date": "2020-04-05",
+      "day_index": {
+        "confirmed_1": 2,
+        "peak": 1,
+        "peak_confirmed": 1
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 2,
+          "infected": 2
+        },
+        "absolute_pop100k": {
+          "confirmed": 62.539086929330836,
+          "infected": 62.539086929330836
+        },
+        "delta": {
+          "confirmed": 1,
+          "infected": 1
+        },
+        "relative": {
+          "infected": 100
+        },
+        "peak_pct": {
+          "confirmed": 100,
+          "infected": 100
+        }
+      },
+      "factbook": {
+        "population": 3198,
+        "death_rate": 4.9,
+        "area": 12173
+      }
+    },
     "Faroe Islands": {
       "dataset": "jhu/series",
       "location": {
@@ -11210,16 +11257,16 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 55579,
+          "confirmed": 55577,
           "deaths": 6166,
           "recovered": 169,
-          "infected": 49244
+          "infected": 49242
         },
         "absolute_pop100k": {
-          "confirmed": 84.51650844069452,
+          "confirmed": 84.51346712982385,
           "recovered": 0.2569907685722553,
           "deaths": 9.37636141429897,
-          "infected": 74.8831562578233
+          "infected": 74.88011494695263
         },
         "delta": {
           "confirmed": 3646,
@@ -11228,15 +11275,15 @@
           "infected": 2853
         },
         "relative": {
-          "deaths": 11.09411828208496,
-          "recovered": 0.30407168175030136,
-          "infected": 88.60181003616474
+          "deaths": 11.094517516238732,
+          "recovered": 0.30408262410709463,
+          "infected": 88.60139985965418
         },
         "peak_pct": {
-          "confirmed": 88.10593978058094,
+          "confirmed": 88.11019816336395,
           "recovered": 42.6829268292683,
           "deaths": 124.84116899618805,
-          "infected": 80.53861788617887
+          "infected": 80.54316526452487
         }
       },
       "factbook": {
@@ -14071,99 +14118,6 @@
         }
       },
       "factbook": null
-    },
-    "United Kingdom / (mainland)": {
-      "dataset": "jhu/series",
-      "location": {
-        "label": "United Kingdom / (mainland)",
-        "type": "total-province",
-        "country_code": "GB",
-        "country": "United Kingdom",
-        "province": "(mainland)",
-        "administrative": null,
-        "latlong": [
-          55.3781,
-          -3.4360000000000004
-        ]
-      },
-      "date": "2020-04-07",
-      "day_index": {
-        "confirmed_1": 68,
-        "confirmed_10": 44,
-        "confirmed_100": 34,
-        "confirmed_1k": 25,
-        "confirmed_10k": 13,
-        "peak": 4,
-        "peak_confirmed": 4,
-        "peak_deaths": 4
-      },
-      "values": {
-        "absolute": {
-          "confirmed": 55577,
-          "deaths": 6166,
-          "recovered": 169,
-          "infected": 49242
-        },
-        "absolute_pop100k": null,
-        "delta": {
-          "confirmed": 3646,
-          "recovered": 7,
-          "deaths": 786,
-          "infected": 2853
-        },
-        "relative": {
-          "deaths": 11.094517516238732,
-          "recovered": 0.30408262410709463,
-          "infected": 88.60139985965418
-        },
-        "peak_pct": {
-          "confirmed": 88.11019816336395,
-          "recovered": 42.6829268292683,
-          "deaths": 124.84116899618805,
-          "infected": 80.54316526452487
-        }
-      },
-      "factbook": null
-    },
-    "United Kingdom / Falkland Islands (Malvinas)": {
-      "dataset": "jhu/series",
-      "location": {
-        "label": "United Kingdom / Falkland Islands (Malvinas)",
-        "type": "total-province",
-        "country_code": "GB",
-        "country": "United Kingdom",
-        "province": "Falkland Islands (Malvinas)",
-        "administrative": null,
-        "latlong": [
-          -51.7963,
-          -59.5236
-        ]
-      },
-      "date": "2020-04-05",
-      "day_index": {
-        "confirmed_1": 2,
-        "peak": 1,
-        "peak_confirmed": 1
-      },
-      "values": {
-        "absolute": {
-          "confirmed": 2,
-          "infected": 2
-        },
-        "absolute_pop100k": null,
-        "delta": {
-          "confirmed": 1,
-          "infected": 1
-        },
-        "relative": {
-          "infected": 100
-        },
-        "peak_pct": {
-          "confirmed": 100,
-          "infected": 100
-        }
-      },
-      "factbook": null
     }
   },
   "regions": {
@@ -14249,16 +14203,16 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 453148,
+          "confirmed": 453150,
           "deaths": 14636,
           "recovered": 29621,
-          "infected": 408891
+          "infected": 408893
         },
         "absolute_pop100k": {
-          "confirmed": 44.659918829817954,
+          "confirmed": 44.66011593945468,
           "recovered": 2.919292274616765,
           "deaths": 1.4424483215047084,
-          "infected": 40.29817823369648
+          "infected": 40.298375343333205
         },
         "delta": {
           "confirmed": 34402,
@@ -14267,15 +14221,15 @@
           "infected": 28906
         },
         "relative": {
-          "deaths": 3.229849850380008,
-          "recovered": 6.536716481149646,
-          "infected": 90.23343366847034
+          "deaths": 3.229835595277502,
+          "recovered": 6.536687631027253,
+          "infected": 90.23347677369524
         },
         "peak_pct": {
-          "confirmed": 100.2757422596874,
+          "confirmed": 100.27515769100725,
           "recovered": 104.77696931350837,
           "deaths": 156.46940822467403,
-          "infected": 97.5657503915321
+          "infected": 97.56443316367171
         }
       },
       "factbook": {
@@ -14365,16 +14319,16 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 711079,
+          "confirmed": 711077,
           "deaths": 57417,
           "recovered": 146536,
-          "infected": 507126
+          "infected": 507124
         },
         "absolute_pop100k": {
-          "confirmed": 94.73440388218583,
+          "confirmed": 94.73413742964291,
           "recovered": 19.52244491439064,
           "deaths": 7.649452828312274,
-          "infected": 67.56250613948292
+          "infected": 67.56223968693999
         },
         "delta": {
           "confirmed": 36317,
@@ -14383,9 +14337,9 @@
           "infected": 15712
         },
         "relative": {
-          "deaths": 8.074630245022002,
-          "recovered": 20.607555559930756,
-          "infected": 71.31781419504725
+          "deaths": 8.074652956008983,
+          "recovered": 20.607613521461108,
+          "infected": 71.31773352252992
         },
         "peak_pct": {
           "confirmed": 99.6712115224169,
@@ -15151,16 +15105,16 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 86943,
+          "confirmed": 86941,
           "deaths": 7338,
           "recovered": 3067,
-          "infected": 76538
+          "infected": 76536
         },
         "absolute_pop100k": {
-          "confirmed": 83.15613370145853,
+          "confirmed": 83.15422081292924,
           "recovered": 2.9334145596813235,
           "deaths": 7.018388014001159,
-          "infected": 73.20433112777604
+          "infected": 73.20241823924675
         },
         "delta": {
           "confirmed": 5341,
@@ -15169,15 +15123,15 @@
           "infected": 4109
         },
         "relative": {
-          "deaths": 8.44001242193161,
-          "recovered": 3.5275985415732145,
-          "infected": 88.03238903649518
+          "deaths": 8.440206576873972,
+          "recovered": 3.527679690824812,
+          "infected": 88.03211373230123
         },
         "peak_pct": {
-          "confirmed": 91.19314301324955,
+          "confirmed": 91.19625721408326,
           "recovered": 87.59372869802318,
           "deaths": 135.11640798226162,
-          "infected": 87.04033214709371
+          "infected": 87.04401982798797
         }
       },
       "factbook": {
@@ -15253,16 +15207,16 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 30272,
+          "confirmed": 30274,
           "deaths": 1172,
           "recovered": 3138,
-          "infected": 25962
+          "infected": 25964
         },
         "absolute_pop100k": {
-          "confirmed": 7.114230693749992,
+          "confirmed": 7.114700714276799,
           "recovered": 0.7374622065601042,
           "deaths": 0.27543202870887257,
-          "infected": 6.101336458481015
+          "infected": 6.101806479007823
         },
         "delta": {
           "confirmed": 2875,
@@ -15271,15 +15225,15 @@
           "infected": 2167
         },
         "relative": {
-          "deaths": 3.8715644820295982,
-          "recovered": 10.366014799154334,
-          "infected": 85.76242071881607
+          "deaths": 3.87130871374777,
+          "recovered": 10.365329986126708,
+          "infected": 85.76336130012552
         },
         "peak_pct": {
-          "confirmed": 127.77777777777777,
+          "confirmed": 127.7664207625989,
           "recovered": 143.08093994778068,
           "deaths": 140.10507880910683,
-          "infected": 117.91272173250627
+          "infected": 117.89989118607183
         }
       },
       "factbook": {
