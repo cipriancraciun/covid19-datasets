@@ -233,14 +233,15 @@
 	touch -- ./imports/.force
 !!
 
-<< ninja / all / data / local + force
+
+<< ninja / do / data / local + force
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
 	"${ZRUN[@]}" ':: ninja / processor / force'
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
 !!
 
-<< ninja / all / data / remote + force
+<< ninja / do / data / remote + force
 	test "${#}" -eq 0
 	export -- __ninja_processor=remote
 	"${ZRUN[@]}" ':: ninja / processor / force'
@@ -248,44 +249,57 @@
 !!
 
 
-<< ninja / all / plots / local + fake
-	test "${#}" -eq 0
-	export -- __ninja_processor=local
-	export -- __ninja_fake=true
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
-!!
-
-<< ninja / all / plots / remote + fake
-	test "${#}" -eq 0
-	export -- __ninja_processor=remote
-	export -- __ninja_fake=true
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
-!!
-
-
-<< ninja / all / data / local
+<< ninja / do / data / local
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
 !!
 
-<< ninja / all / data / remote
+<< ninja / do / data / remote
 	test "${#}" -eq 0
 	export -- __ninja_processor=remote
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
 !!
 
 
-<< ninja / all / plots / local
+<< ninja / do / plots / local
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
 !!
 
-<< ninja / all / plots / remote
+<< ninja / do / plots / remote
 	test "${#}" -eq 0
 	export -- __ninja_processor=remote
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
+!!
+
+
+<< ninja / do / all / local
+	test "${#}" -eq 0
+	export -- __ninja_processor=local
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
+!!
+
+<< ninja / do / all / remote
+	test "${#}" -eq 0
+	export -- __ninja_processor=remote
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
+!!
+
+
+<< ninja / do / all / local + fake
+	test "${#}" -eq 0
+	export -- __ninja_processor=local
+	export -- __ninja_fake=true
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
+!!
+
+<< ninja / do / all / remote + fake
+	test "${#}" -eq 0
+	export -- __ninja_processor=remote
+	export -- __ninja_fake=true
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
 !!
 
 
