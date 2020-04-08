@@ -247,6 +247,20 @@
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
 !!
 
+
+<< ninja / all / data / local
+	test "${#}" -eq 0
+	export -- __ninja_processor=local
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
+!!
+
+<< ninja / all / data / remote
+	test "${#}" -eq 0
+	export -- __ninja_processor=remote
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
+!!
+
+
 << ninja / all / plots / local
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
