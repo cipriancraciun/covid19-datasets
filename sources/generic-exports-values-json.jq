@@ -228,6 +228,7 @@
 				.value
 				| to_entries
 				| map (select (.value | ((. != 0) and (. != null))))
+				| map (.value |= (. * 1000 | round | . / 1000))
 				| from_entries
 			)
 		)
