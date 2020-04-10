@@ -9,7 +9,7 @@
 	
 	{{ $_datasets := array "jhu" "ecdc" "nytimes" }}
 	{{ $_filters := array "global" "europe" "europe-major" "europe-medium" "europe-minor" "us" "us-major" "us-medium" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
-	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
+	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "delta_pct" "delta_pop100k" "peak_pct" }}
 	{{ $_metrics := array "confirmed" "deaths" "infected" "recovered" }}
 	{{ $_formats := array "pdf" "svg" "png" }}
 	
@@ -192,7 +192,7 @@
 		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __{{ $_dataset }}__plots__{{ $_filter }}__all__png -path '*/{{ $_dataset }}/*' -path '*/{{ $_filter }}/*'
 	!!
 	
-	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "deltapct" "peakpct" }}
+	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "delta_pct" "delta_pop100k" "peak_pct" }}
 	
 	<< plots / view / {{ $_dataset }} / {{ $_filter }} / {{ $_method }}
 		test "${#}" -eq 0

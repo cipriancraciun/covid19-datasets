@@ -327,7 +327,7 @@ end
 
 
 
-if startswith(String(_dataset_metric), "peakpct_")
+if startswith(String(_dataset_metric), "peak_pct_")
 	if endswith(String(_dataset_metric), "_confirmed")
 		_dataset_index = :day_index_peak_confirmed
 	elseif endswith(String(_dataset_metric), "_deaths")
@@ -416,7 +416,7 @@ if _dataset_metric in [:relative_recovered, :relative_deaths, :relative_infected
 	_dataset_rsuf_metric = "%"
 	_dataset_cmin_metric = 0
 	_dataset_cmax_metric = 100
-elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_deaths, :deltapct_infected]
+elseif _dataset_metric in [:delta_pct_confirmed, :delta_pct_recovered, :delta_pct_deaths, :delta_pct_infected]
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = "%"
 	if _plot_type == :heatmap
@@ -426,7 +426,7 @@ elseif _dataset_metric in [:deltapct_confirmed, :deltapct_recovered, :deltapct_d
 		_dataset_cmin_metric = -200
 		_dataset_cmax_metric = +200
 	end
-elseif _dataset_metric in [:peakpct_confirmed, :peakpct_recovered, :peakpct_deaths, :peakpct_infected]
+elseif _dataset_metric in [:peak_pct_confirmed, :peak_pct_recovered, :peak_pct_deaths, :peak_pct_infected]
 	_dataset_rstep_metric = maximum([10 ^ floor(log10(_dataset_delta_metric / 4)), 0.01])
 	_dataset_rsuf_metric = "%"
 	if _plot_type == :heatmap

@@ -52,15 +52,20 @@ map (
 		delta_recovered : .values.delta.recovered,
 		delta_infected : .values.delta.infected,
 		
-		deltapct_confirmed : .values.delta_pct.confirmed,
-		deltapct_deaths : .values.delta_pct.deaths,
-		deltapct_recovered : .values.delta_pct.recovered,
-		deltapct_infected : .values.delta_pct.infected,
+		delta_pct_confirmed : .values.delta_pct.confirmed,
+		delta_pct_deaths : .values.delta_pct.deaths,
+		delta_pct_recovered : .values.delta_pct.recovered,
+		delta_pct_infected : .values.delta_pct.infected,
 		
-		peakpct_confirmed : .values.peak_pct.confirmed,
-		peakpct_deaths : .values.peak_pct.deaths,
-		peakpct_recovered : .values.peak_pct.recovered,
-		peakpct_infected : .values.peak_pct.infected,
+		delta_pop100k_confirmed : .values.delta_pop100k.confirmed,
+		delta_pop100k_deaths : .values.delta_pop100k.deaths,
+		delta_pop100k_recovered : .values.delta_pop100k.recovered,
+		delta_pop100k_infected : .values.delta_pop100k.infected,
+		
+		peak_pct_confirmed : .values.peak_pct.confirmed,
+		peak_pct_deaths : .values.peak_pct.deaths,
+		peak_pct_recovered : .values.peak_pct.recovered,
+		peak_pct_infected : .values.peak_pct.infected,
 		
 		factbook_area : .factbook.area,
 		factbook_population : .factbook.population,
