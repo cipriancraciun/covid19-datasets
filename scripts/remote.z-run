@@ -52,6 +52,10 @@
 			--times --omit-dir-times --omit-link-times \
 			--prune-empty-dirs \
 			\
+			--compress \
+			--compress-level 9 \
+			--skip-compress gz \
+			\
 			--exclude '*.tmp' \
 			--exclude '*.tmp.*' \
 			--exclude '*#' \
