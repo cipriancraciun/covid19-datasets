@@ -19,9 +19,9 @@
 			--template <( exec -- "${ZRUN[@]}" ':: process / generic / exports / values / html / script' ) \
 			--no-filter \
 		< "${_input}" \
+	| sed -r -e '/^\s*$/d' \
 		>| "${_output}.tmp" \
 	#
-	
 	
 	if cmp -s -- "${_output}.tmp" "${_output}" ; then
 		rm -- "${_output}.tmp"
