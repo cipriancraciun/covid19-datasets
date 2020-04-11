@@ -86,6 +86,12 @@ build ./exports/jhu/v1/daily/values.txt : z-run-in-out $
     scriptlet = ':: tools / columns'
     pool = cpu_moderate
 
+build ./exports/jhu/v1/daily/values.html : z-run-in-out $
+        ./exports/jhu/v1/daily/values.json $
+        | ./sources/generic-exports-values-html.ashes
+    scriptlet = ':: process / generic / html'
+    pool = cpu_moderate
+
 
 
 

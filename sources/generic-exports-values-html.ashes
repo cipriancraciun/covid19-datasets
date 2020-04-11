@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		
+		<title>COVID-19 datasets</title>
+		
+		<meta charset="utf-8" />
+		
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.0, user-scalable=yes" />
+		
+		<script src="https://cdn.jsdelivr.net/npm/handsontable@7.4.2/dist/handsontable.full.min.js" type="text/javascript"></script>
+		<link href="https://cdn.jsdelivr.net/npm/handsontable@7.4.2/dist/handsontable.full.min.css" rel="stylesheet">
+		
+		<style>
+			html {
+				font-family : "JetBrains Mono", "Fira Mono", "Fira Sans", "Verdana", "Trebuchet MS", sans-serif;
+				font-size : 10pt;
+				line-height : 1.40;
+			}
+			html:root, html:root > body {
+				display : block;
+				left : 0px;
+				right : 0px;
+				top : 0px;
+				bottom : 0px;
+				margin : 0px;
+				padding : 0px;
+				width : 100vw;
+				height : 100vh;
+				overflow : hidden;
+			}
+			html:root > *, script, style {
+				display : none;
+			}
+			#dataset {
+				display : block;
+				width : 100vw;
+				height : 100vh;
+				overflow : hidden;
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		
+		<div id="dataset" />
+		
+		<script type="text/javascript">
+			"use strict";
+			(function () {
+				
+				var _columns = [
+					//	{data : "type", title : "Type"},
+						{data : "country_code", title : "CC"},
+						{data : "country", title : "Country"},
+						{data : "date", title : "Date", type : "date"},
+					//	{data : "province", title : "Province"},
+					//	{data : "administrative", title : "Administrative"},
+						
+						{data : "absolute_confirmed", title : "conf.", type : "numeric"},
+						{data : "delta_confirmed", title : "+/-", type : "numeric"},
+						{data : "delta_pct_confirmed", title : "+/-%", type : "numeric"},
+					//	{data : "peak_pct_confirmed", title : "peak", type : "numeric"},
+						{data : "absolute_pop100k_confirmed", title : "/100k", type : "numeric"},
+						
+						{data : "absolute_deaths", title : "dead", type : "numeric"},
+						{data : "delta_deaths", title : "+/-", type : "numeric"},
+						{data : "delta_pct_deaths", title : "+/-%", type : "numeric"},
+					//	{data : "peak_pct_deaths", title : "peak", type : "numeric"},
+						{data : "absolute_pop100k_deaths", title : "/100k", type : "numeric"},
+						
+					//	{data : "absolute_recovered", title : "rec.", type : "numeric"},
+					//	{data : "delta_recovered", title : "+/-", type : "numeric"},
+					//	{data : "delta_pct_recovered", title : "+/-%", type : "numeric"},
+					//	{data : "peak_pct_recovered", title : "peak", type : "numeric"},
+						{data : "absolute_pop100k_recovered", title : "/100k", type : "numeric"},
+						
+					//	{data : "absolute_infected", title : "inf.", type : "numeric"},
+					//	{data : "delta_infected", title : "+/-", type : "numeric"},
+					//	{data : "delta_pct_infected", title : "+/-%", type : "numeric"},
+					//	{data : "peak_pct_infected", title : "peak", type : "numeric"},
+						{data : "absolute_pop100k_infected", title : "/100k", type : "numeric"},
+						
+						{data : "region", title : "Region"},
+						{data : "subregion", title : "Subregion"},
+						
+					];
+				
+				var _data = [
+					{#.}
+					{@eq key=location.type value="total-country"}
+					{
+						date : {.date.date|ppjson},
+						type : {.location.type|ppjson},
+						{#.location.subregion}subregion : {.|ppjson},{/.location.subregion}
+						{#.location.region}region : {.|ppjson},{/.location.region}
+						{#.location.country_code}country_code : {.|ppjson},{/.location.country_code}
+						{#.location.country}country : {.|ppjson},{/.location.country}
+						{#.location.province}province : {.|ppjson},{/.location.province}
+						{#.location.administrative}administrative : {.|ppjson},{/.location.administrative}
+						
+						{#.values.absolute.confirmed}absolute_confirmed : {.|ppjson},{/.values.absolute.confirmed}
+						{#.values.absolute.recovered}absolute_recovered : {.|ppjson},{/.values.absolute.recovered}
+						{#.values.absolute.deaths}absolute_deaths : {.|ppjson},{/.values.absolute.deaths}
+						{#.values.absolute.infected}absolute_infected : {.|ppjson},{/.values.absolute.infected}
+						
+						{#.values.absolute_pop100k.confirmed}absolute_pop100k_confirmed : {.|ppjson},{/.values.absolute_pop100k.confirmed}
+						{#.values.absolute_pop100k.recovered}absolute_pop100k_recovered : {.|ppjson},{/.values.absolute_pop100k.recovered}
+						{#.values.absolute_pop100k.deaths}absolute_pop100k_deaths : {.|ppjson},{/.values.absolute_pop100k.deaths}
+						{#.values.absolute_pop100k.infected}absolute_pop100k_infected : {.|ppjson},{/.values.absolute_pop100k.infected}
+						
+						{#.values.delta.confirmed}delta_confirmed : {.|ppjson},{/.values.delta.confirmed}
+						{#.values.delta.recovered}delta_recovered : {.|ppjson},{/.values.delta.recovered}
+						{#.values.delta.deaths}delta_deaths : {.|ppjson},{/.values.delta.deaths}
+						{#.values.delta.infected}delta_infected : {.|ppjson},{/.values.delta.infected}
+						
+						{#.values.delta_pct.confirmed}delta_pct_confirmed : {.|ppjson},{/.values.delta_pct.confirmed}
+						{#.values.delta_pct.recovered}delta_pct_recovered : {.|ppjson},{/.values.delta_pct.recovered}
+						{#.values.delta_pct.deaths}delta_pct_deaths : {.|ppjson},{/.values.delta_pct.deaths}
+						{#.values.delta_pct.infected}delta_pct_infected : {.|ppjson},{/.values.delta_pct.infected}
+						
+						{#.values.peak_pct.confirmed}peak_pct_confirmed : {.|ppjson},{/.values.peak_pct.confirmed}
+						{#.values.peak_pct.recovered}peak_pct_recovered : {.|ppjson},{/.values.peak_pct.recovered}
+						{#.values.peak_pct.deaths}peak_pct_deaths : {.|ppjson},{/.values.peak_pct.deaths}
+						{#.values.peak_pct.infected}peak_pct_infected : {.|ppjson},{/.values.peak_pct.infected}
+						
+					},
+					{/eq}
+					{/.}
+				]
+				
+				var _settings = {
+						
+						data : _data,
+						columns : _columns,
+						
+						dropdownMenu : true,
+						contextMenu : true,
+						hiddenRows : true,
+						hiddenColumns : true,
+						
+						filters : true,
+					//	columnSorting : true,
+						multiColumnSorting : true,
+						
+						rowHeaders : true,
+						colHeaders : true,
+						fixedColumnsLeft : 3,
+						manualRowMove : true,
+						manualRowResize : false,
+						manualColumnFreeze : true,
+						manualColumnMove : true,
+						manualColumnResize : true,
+						
+						
+						allowInsertRow : false,
+						allowRemoveRow : true,
+						allowInsertColumn : false,
+						allowRemoveColumn : true,
+						autoRowSize : false,
+						autoColumnSize : {
+							useHeaders : true,
+						},
+						
+						editor : false,
+						disableVisualSelection : false,
+						trimDropdown : false,
+						fillHandle : false,
+						fragmentSelection : false,
+						formulas : false,
+						headerTooltips : true,
+						dateFormat : "YYYY-MM-DD",
+						wordWrap : true,
+						className : "htCenter htMiddle",
+						
+						licenseKey : "non-commercial-and-evaluation",
+					};
+				
+				var _container = document.getElementById ("dataset");
+				var _table = new Handsontable (_container, _settings);
+				
+			}) ();
+		</script>
+		
+	</body>
+	
+</html>

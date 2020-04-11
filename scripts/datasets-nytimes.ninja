@@ -12,6 +12,7 @@ build __nytimes__exports : phony $
         ./exports/nytimes/v1/us-states/values.json $
         ./exports/nytimes/v1/us-states/values.tsv $
         ./exports/nytimes/v1/us-states/values.txt $
+        ./exports/nytimes/v1/us-states/values.html $
         ./exports/nytimes/v1/us-states/values-sqlite.sql $
         ./exports/nytimes/v1/us-states/values-sqlite.db $
         ./exports/nytimes/v1/us-states/status.json $
@@ -19,6 +20,7 @@ build __nytimes__exports : phony $
         ./exports/nytimes/v1/us-counties/values.json $
         ./exports/nytimes/v1/us-counties/values.tsv $
         ./exports/nytimes/v1/us-counties/values.txt $
+        ./exports/nytimes/v1/us-counties/values.html $
         ./exports/nytimes/v1/us-counties/values-sqlite.sql $
         ./exports/nytimes/v1/us-counties/values-sqlite.db $
         ./exports/nytimes/v1/us-counties/status.json $

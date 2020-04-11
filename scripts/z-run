@@ -28,6 +28,7 @@
 && ./datasets-nytimes.z-run
 && ./datasets-generic.z-run
 && ./datasets-plots.z-run
+&& ./datasets-html.z-run
 && ./datasets-facts.z-run
 && ./datasets-countries.z-run
 

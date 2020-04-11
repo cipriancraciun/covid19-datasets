@@ -1,0 +1,33 @@
+#!/dev/null
+
+
+
+
+--<< process / generic / html
+	
+	test "${#}" -eq 2
+	_input="${1}"
+	_output="${2}"
+	shift -- 2
+	test "${#}" -eq 0
+	
+	rm -f -- "${_output}.tmp"
+	
+	"${ZRUN[@]}" ':: tools / ashes' \
+			--model - \
+			--output - \
+			--template <( exec -- "${ZRUN[@]}" ':: process / generic / exports / values / html / script' ) \
+			--no-filter \
+		< "${_input}" \
+		>| "${_output}.tmp" \
+	#
+	
+	
+	if cmp -s -- "${_output}.tmp" "${_output}" ; then
+		rm -- "${_output}.tmp"
+		exit -- 0
+	fi
+	
+	mv -T -- "${_output}.tmp" "${_output}"
+!!
+

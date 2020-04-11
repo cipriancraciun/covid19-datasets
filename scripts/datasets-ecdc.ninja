@@ -107,6 +107,12 @@ build ./exports/ecdc/v1/worldwide/values.txt : z-run-in-out $
     scriptlet = ':: tools / columns'
     pool = cpu_moderate
 
+build ./exports/ecdc/v1/worldwide/values.html : z-run-in-out $
+        ./exports/ecdc/v1/worldwide/values.json $
+        | ./sources/generic-exports-values-html.ashes
+    scriptlet = ':: process / generic / html'
+    pool = cpu_moderate
+
 
 
 
@@ -148,6 +154,7 @@ build __ecdc__exports : phony $
         ./exports/ecdc/v1/worldwide/values.json $
         ./exports/ecdc/v1/worldwide/values.tsv $
         ./exports/ecdc/v1/worldwide/values.txt $
+        ./exports/ecdc/v1/worldwide/values.html $
         ./exports/ecdc/v1/worldwide/values-sqlite.sql $
         ./exports/ecdc/v1/worldwide/values-sqlite.db $
         ./exports/ecdc/v1/worldwide/status.json $

@@ -117,6 +117,7 @@
 --::&&.. process / generic / exports / values / json / script :: ../sources/generic-exports-values-json.jq
 --::&&.. process / generic / exports / values / tsv / script :: ../sources/generic-exports-values-tsv.jq
 --::&&.. process / generic / exports / values / sql / script :: ../sources/generic-exports-values-sql.jq
+--::&&.. process / generic / exports / values / html / script :: ../sources/generic-exports-values-html.ashes
 
 --::&&.. process / generic / exports / status / json / script :: ../sources/generic-exports-status-json.jq
 --::&&.. process / generic / exports / status / tsv / script :: ../sources/generic-exports-status-tsv.jq

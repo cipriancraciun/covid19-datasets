@@ -107,6 +107,12 @@ build ./exports/nytimes/v1/us-states/values.txt : z-run-in-out $
     scriptlet = ':: tools / columns'
     pool = cpu_moderate
 
+build ./exports/nytimes/v1/us-states/values.html : z-run-in-out $
+        ./exports/nytimes/v1/us-states/values.json $
+        | ./sources/generic-exports-values-html.ashes
+    scriptlet = ':: process / generic / html'
+    pool = cpu_moderate
+
 
 
 

@@ -303,3 +303,14 @@
 	mv -T -- "${_output}.tmp" "${_output}"
 !!
 
+
+
+
+--<<~~ tools / ashes
+	#! {{}}
+	#! <python2>
+	{{ ZRUN ":: tools / ashes / script" }}
+!!
+
+--::&&.. tools / ashes / script :: ./ashes.py
+
