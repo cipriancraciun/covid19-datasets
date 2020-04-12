@@ -22,6 +22,8 @@ build ./imports/nytimes/us-states/raw-json/merged.json : z-run-out-in $
         | ./sources/csv-to-json-merge.jq
     scriptlet = ':: tools / jq / filter / multi'
     arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
+    arguments = $
+        --compact-output
     pool = cpu_moderate
 
 
@@ -30,6 +32,8 @@ build ./imports/nytimes/us-states/raw-json/extracted.json : z-run-in-out $
         | ./sources/nytimes-imports-extract.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / nytimes / imports / extract / script'
+    arguments = $
+        --compact-output
     pool = cpu_moderate
 
 
@@ -80,7 +84,8 @@ build ./imports/nytimes/us-states/values.json : z-run-in-out $
         --argfile countries ./imports/facts/countries.json $
         --argfile factbook ./imports/factbook/fields.json $
         --argfile us_states ./imports/facts/us-states.json $
-        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json
+        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json $
+        --compact-output
     pool = cpu_moderate
 
 
@@ -91,6 +96,8 @@ build ./exports/nytimes/v1/us-states/values.json : z-run-in-out $
         | ./sources/generic-exports-values-json.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / json / script'
+    arguments = $
+        --compact-output
     pool = cpu_heavy
 
 build ./exports/nytimes/v1/us-states/values.tsv : z-run-in-out $
@@ -121,6 +128,8 @@ build ./exports/nytimes/v1/us-states/values.sql-json : z-run-in-out $
         | ./sources/generic-exports-values-sql.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / sql / script'
+    arguments = $
+        --compact-output
     pool = cpu_moderate
 
 build ./exports/nytimes/v1/us-states/values-sqlite.sql : sql-from-json $

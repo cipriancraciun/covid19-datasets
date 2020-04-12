@@ -40,7 +40,7 @@ rule z-run-in-out
 rule z-run-out-in
     command = $
         if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
-        exec -- z-run ${scriptlet} ${arguments_pre} ${out} ${in} ${arguments}
+        exec -- z-run ${scriptlet} ${arguments_pre} ${out} ${arguments} ${in}
     description = [z-run]  ${scriptlet}  ${out}
     restat = true
 

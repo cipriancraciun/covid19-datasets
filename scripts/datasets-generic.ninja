@@ -11,6 +11,8 @@ build ./exports/combined/v1/values.json : z-run-out-in $
         | ./sources/generic-exports-combine.jq
     scriptlet = ':: tools / jq / filter / multi'
     arguments_pre = ':: process / generic / exports / combine / script'
+    arguments = $
+        --compact-output
     pool = cpu_heavy
 
 build ./exports/combined/v1/values.tsv : z-run-in-out $
@@ -37,6 +39,8 @@ build ./exports/combined/v1/values.sql-json : z-run-in-out $
         | ./sources/generic-exports-values-sql.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / sql / script'
+    arguments = $
+        --compact-output
     pool = cpu_moderate
 
 build ./exports/combined/v1/values-sqlite.sql : sql-from-json $

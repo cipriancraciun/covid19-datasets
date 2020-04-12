@@ -157,11 +157,30 @@
 	_input="${2}"
 	_output="${3}"
 	shift -- 3
+	
 	_flags=(
 		#	--ascii-output
-			"${@}"
 		)
-	shift -- "${#}"
+	while test "${#}" -gt 0 ; do
+		case "${1}" in
+			( --argfile | --arg )
+				test "${#}" -ge 3
+				_flags+=( "${1}" "${2}" "${3}" )
+				shift -- 3
+			;;
+			( --slurp | --compact-output | --raw-input | --raw-output )
+				_flags+=( "${1}" )
+				shift -- 1
+			;;
+			( --* )
+				exit -- 1
+			;;
+			( * )
+				break
+			;;
+		esac
+	done
+	
 	test "${#}" -eq 0
 	
 	rm -f -- "${_output}.tmp"
@@ -189,19 +208,45 @@
 
 --<< tools / jq / filter / multi
 	
-	test "${#}" -ge 3
+	test "${#}" -ge 2
 	_script="${1}"
 	_output="${2}"
 	shift -- 2
+	
+	_flags=(
+			--slurp
+		)
+	while test "${#}" -gt 0 ; do
+		case "${1}" in
+			( --argfile | --arg )
+				test "${#}" -ge 3
+				_flags+=( "${1}" "${2}" "${3}" )
+				shift -- 3
+			;;
+			( --compact-output | --raw-input | --raw-output )
+				_flags+=( "${1}" )
+				shift -- 1
+			;;
+			( --* )
+				exit -- 1
+			;;
+			( * )
+				break
+			;;
+		esac
+	done
+	
+	test "${#}" -ge 1
 	_inputs=( "${@}" )
 	shift -- "${#}"
+	
 	test "${#}" -eq 0
 	
 	exec -- "${ZRUN[@]}" ':: tools / jq / filter' \
 			"${_script}" \
 			<( exec -- cat -- "${_inputs[@]}" ) \
 			"${_output}" \
-			--slurp \
+			"${_flags[@]}" \
 	#
 !!
 

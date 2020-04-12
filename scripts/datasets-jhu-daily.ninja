@@ -7,6 +7,8 @@ build ./imports/jhu/daily/raw-json/extracted.json : z-run-in-out $
         | ./sources/jhu-imports-extract-daily.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / jhu / imports / extract-daily / script'
+    arguments = $
+        --compact-output
     pool = cpu_moderate
 
 
@@ -59,7 +61,8 @@ build ./imports/jhu/daily/values.json : z-run-in-out $
         --argfile countries ./imports/facts/countries.json $
         --argfile factbook ./imports/factbook/fields.json $
         --argfile us_states ./imports/facts/us-states.json $
-        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json
+        --argfile us_states_by_alias ./imports/facts/us-states-by-alias.json $
+        --compact-output
     pool = cpu_moderate
 
 
@@ -70,6 +73,8 @@ build ./exports/jhu/v1/daily/values.json : z-run-in-out $
         | ./sources/generic-exports-values-json.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / json / script'
+    arguments = $
+        --compact-output
     pool = cpu_heavy
 
 build ./exports/jhu/v1/daily/values.tsv : z-run-in-out $
@@ -100,6 +105,8 @@ build ./exports/jhu/v1/daily/values.sql-json : z-run-in-out $
         | ./sources/generic-exports-values-sql.jq
     scriptlet = ':: tools / jq / filter'
     arguments_pre = ':: process / generic / exports / values / sql / script'
+    arguments = $
+        --compact-output
     pool = cpu_moderate
 
 build ./exports/jhu/v1/daily/values-sqlite.sql : sql-from-json $
