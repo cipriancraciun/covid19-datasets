@@ -45,6 +45,7 @@
 			(. == "Out of OK") or
 			(. == "Out of CO") or
 			(. == "Out of HI") or
+			(. == "Out of GA") or
 			(. == "Out-of-state") or
 			(. == "Federal Correctional Institution (FCI)") or
 			(. == "Michigan Department of Corrections (MDOC)") or
