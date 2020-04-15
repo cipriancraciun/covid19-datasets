@@ -57,37 +57,37 @@
           144.78333333
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 30,
-        "confirmed_10": 26,
-        "confirmed_100": 14,
-        "peak": 10,
-        "peak_confirmed": 8,
-        "peak_deaths": 12
+        "confirmed_1": 31,
+        "confirmed_10": 27,
+        "confirmed_100": 15,
+        "peak": 11,
+        "peak_confirmed": 9,
+        "peak_deaths": 13
       },
       "values": {
         "absolute": {
-          "confirmed": 716,
+          "confirmed": 721,
           "deaths": 6,
-          "infected": 710
+          "infected": 715
         },
         "absolute_pop100k": {
-          "confirmed": 424.964,
+          "confirmed": 427.931,
           "deaths": 3.561,
-          "infected": 421.402
+          "infected": 424.37
         },
         "delta": {
-          "deaths": 1,
-          "infected": -1
+          "confirmed": 5,
+          "infected": 5
         },
         "relative": {
-          "deaths": 0.838,
-          "infected": 99.162
+          "deaths": 0.832,
+          "infected": 99.168
         },
         "peak_pct": {
-          "deaths": 100,
-          "infected": -1.176
+          "confirmed": 5.855,
+          "infected": 5.882
         }
       },
       "factbook": {
@@ -111,36 +111,36 @@
           145.75
         ]
       },
-      "date": "2020-04-08",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 12,
-        "confirmed_10": 1,
-        "peak": 6,
-        "peak_confirmed": 6,
-        "peak_deaths": 7
+        "confirmed_1": 18,
+        "confirmed_10": 7,
+        "peak": 11,
+        "peak_confirmed": 9,
+        "peak_deaths": 13
       },
       "values": {
         "absolute": {
-          "confirmed": 11,
+          "confirmed": 13,
           "deaths": 2,
-          "infected": 9
+          "infected": 11
         },
         "absolute_pop100k": {
-          "confirmed": 21.387,
+          "confirmed": 25.276,
           "deaths": 3.889,
-          "infected": 17.498
+          "infected": 21.387
         },
         "delta": {
-          "confirmed": 3,
-          "infected": 3
+          "confirmed": 2,
+          "infected": 2
         },
         "relative": {
-          "deaths": 18.182,
-          "infected": 81.818
+          "deaths": 15.385,
+          "infected": 84.615
         },
         "peak_pct": {
-          "confirmed": 128.571,
-          "infected": 128.571
+          "confirmed": 88.889,
+          "infected": 88.889
         }
       },
       "factbook": {
@@ -164,39 +164,37 @@
           -66.5
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 32,
-        "confirmed_10": 25,
-        "confirmed_100": 17,
-        "peak": 8,
-        "peak_confirmed": 8,
-        "peak_deaths": 8
+        "confirmed_1": 33,
+        "confirmed_10": 26,
+        "confirmed_100": 18,
+        "peak": 9,
+        "peak_confirmed": 9,
+        "peak_deaths": 9
       },
       "values": {
         "absolute": {
-          "confirmed": 903,
+          "confirmed": 923,
           "deaths": 45,
-          "infected": 858
+          "infected": 878
         },
         "absolute_pop100k": {
-          "confirmed": 28.315,
+          "confirmed": 28.943,
           "deaths": 1.411,
-          "infected": 26.904
+          "infected": 27.532
         },
         "delta": {
-          "confirmed": 6,
-          "deaths": 1,
-          "infected": 5
+          "confirmed": 20,
+          "infected": 20
         },
         "relative": {
-          "deaths": 4.983,
-          "infected": 95.017
+          "deaths": 4.875,
+          "infected": 95.125
         },
         "peak_pct": {
-          "confirmed": 9.174,
-          "deaths": 27.778,
-          "infected": 8.039
+          "confirmed": 30.581,
+          "infected": 32.154
         }
       },
       "factbook": {
@@ -220,41 +218,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 84,
-        "confirmed_10": 72,
-        "confirmed_100": 43,
-        "confirmed_1k": 35,
-        "confirmed_10k": 26,
-        "peak": 5,
-        "peak_confirmed": 6,
-        "peak_deaths": 4
+        "confirmed_1": 85,
+        "confirmed_10": 73,
+        "confirmed_100": 44,
+        "confirmed_1k": 36,
+        "confirmed_10k": 27,
+        "peak": 6,
+        "peak_confirmed": 7,
+        "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 579197,
-          "deaths": 23553,
-          "infected": 555644
+          "confirmed": 605610,
+          "deaths": 26027,
+          "infected": 579583
         },
         "absolute_pop100k": {
-          "confirmed": 174.122,
-          "deaths": 7.081,
-          "infected": 167.041
+          "confirmed": 182.062,
+          "deaths": 7.824,
+          "infected": 174.238
         },
         "delta": {
-          "confirmed": 25547,
-          "deaths": 1549,
-          "infected": 23998
+          "confirmed": 26413,
+          "deaths": 2474,
+          "infected": 23939
         },
         "relative": {
-          "deaths": 4.066,
-          "infected": 95.934
+          "deaths": 4.298,
+          "infected": 95.702
         },
         "peak_pct": {
-          "confirmed": 78.772,
-          "deaths": 85.016,
-          "infected": 78.15
+          "confirmed": 81.442,
+          "deaths": 128.948,
+          "infected": 77.957
         }
       },
       "factbook": {
@@ -280,40 +278,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 32,
-        "confirmed_10": 31,
-        "confirmed_100": 25,
-        "confirmed_1k": 13,
+        "confirmed_1": 33,
+        "confirmed_10": 32,
+        "confirmed_100": 26,
+        "confirmed_1k": 14,
         "peak": 4,
-        "peak_confirmed": 4,
+        "peak_confirmed": 5,
         "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 3805,
-          "deaths": 104,
-          "infected": 3701
+          "confirmed": 3953,
+          "deaths": 114,
+          "infected": 3839
         },
         "absolute_pop100k": {
-          "confirmed": 77.603,
-          "deaths": 2.121,
-          "infected": 75.482
+          "confirmed": 80.621,
+          "deaths": 2.325,
+          "infected": 78.296
         },
         "delta": {
-          "confirmed": 222,
-          "deaths": 11,
-          "infected": 211
+          "confirmed": 148,
+          "deaths": 10,
+          "infected": 138
         },
         "relative": {
-          "deaths": 2.733,
-          "infected": 97.267
+          "deaths": 2.884,
+          "infected": 97.116
         },
         "peak_pct": {
-          "confirmed": 81.378,
-          "deaths": 101.852,
-          "infected": 79.264
+          "confirmed": 54.252,
+          "deaths": 89.286,
+          "infected": 51.841
         }
       },
       "factbook": {
@@ -335,37 +333,39 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 33,
-        "confirmed_10": 26,
-        "confirmed_100": 17,
-        "peak": 12,
-        "peak_confirmed": 13,
-        "peak_deaths": 11
+        "confirmed_1": 34,
+        "confirmed_10": 27,
+        "confirmed_100": 18,
+        "peak": 11,
+        "peak_confirmed": 14,
+        "peak_deaths": 9
       },
       "values": {
         "absolute": {
-          "confirmed": 275,
-          "deaths": 6,
-          "infected": 269
+          "confirmed": 283,
+          "deaths": 7,
+          "infected": 276
         },
         "absolute_pop100k": {
-          "confirmed": 37.592,
-          "deaths": 0.82,
-          "infected": 36.771
+          "confirmed": 38.685,
+          "deaths": 0.957,
+          "infected": 37.728
         },
         "delta": {
-          "confirmed": 5,
-          "infected": 5
+          "confirmed": 8,
+          "deaths": 1,
+          "infected": 7
         },
         "relative": {
-          "deaths": 2.182,
-          "infected": 97.818
+          "deaths": 2.473,
+          "infected": 97.527
         },
         "peak_pct": {
-          "confirmed": 30.864,
-          "infected": 31.646
+          "confirmed": 49.383,
+          "deaths": 100,
+          "infected": 44.304
         }
       },
       "factbook": {
@@ -387,40 +387,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 79,
-        "confirmed_10": 31,
-        "confirmed_100": 24,
-        "confirmed_1k": 15,
-        "peak": 7,
-        "peak_confirmed": 8,
-        "peak_deaths": 6
+        "confirmed_1": 80,
+        "confirmed_10": 32,
+        "confirmed_100": 25,
+        "confirmed_1k": 16,
+        "peak": 8,
+        "peak_confirmed": 9,
+        "peak_deaths": 7
       },
       "values": {
         "absolute": {
-          "confirmed": 3702,
-          "deaths": 122,
-          "infected": 3580
+          "confirmed": 3806,
+          "deaths": 131,
+          "infected": 3675
         },
         "absolute_pop100k": {
-          "confirmed": 50.861,
-          "deaths": 1.676,
-          "infected": 49.184
+          "confirmed": 52.289,
+          "deaths": 1.8,
+          "infected": 50.49
         },
         "delta": {
-          "confirmed": 163,
-          "deaths": 5,
-          "infected": 158
+          "confirmed": 104,
+          "deaths": 9,
+          "infected": 95
         },
         "relative": {
-          "deaths": 3.296,
-          "infected": 96.704
+          "deaths": 3.442,
+          "infected": 96.558
         },
         "peak_pct": {
-          "confirmed": 66.968,
-          "deaths": 50,
-          "infected": 67.291
+          "confirmed": 42.728,
+          "deaths": 88.235,
+          "infected": 40.46
         }
       },
       "factbook": {
@@ -442,40 +442,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 34,
-        "confirmed_10": 30,
-        "confirmed_100": 25,
-        "confirmed_1k": 6,
+        "confirmed_1": 35,
+        "confirmed_10": 31,
+        "confirmed_100": 26,
+        "confirmed_1k": 7,
         "peak": 7,
-        "peak_confirmed": 9,
-        "peak_deaths": 5
+        "peak_confirmed": 10,
+        "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 1475,
-          "deaths": 30,
-          "infected": 1445
+          "confirmed": 1498,
+          "deaths": 32,
+          "infected": 1466
         },
         "absolute_pop100k": {
-          "confirmed": 48.877,
-          "deaths": 0.994,
-          "infected": 47.882
+          "confirmed": 49.639,
+          "deaths": 1.06,
+          "infected": 48.578
         },
         "delta": {
-          "confirmed": 195,
-          "deaths": 3,
-          "infected": 192
+          "confirmed": 23,
+          "deaths": 2,
+          "infected": 21
         },
         "relative": {
-          "deaths": 2.034,
-          "infected": 97.966
+          "deaths": 2.136,
+          "infected": 97.864
         },
         "peak_pct": {
-          "confirmed": 237.805,
-          "deaths": 125,
-          "infected": 236.453
+          "confirmed": 28.049,
+          "deaths": 83.333,
+          "infected": 25.862
         }
       },
       "factbook": {
@@ -497,41 +497,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 80,
-        "confirmed_10": 50,
-        "confirmed_100": 38,
-        "confirmed_1k": 26,
-        "confirmed_10k": 12,
-        "peak": 6,
-        "peak_confirmed": 10,
+        "confirmed_1": 81,
+        "confirmed_10": 51,
+        "confirmed_100": 39,
+        "confirmed_1k": 27,
+        "confirmed_10k": 13,
+        "peak": 5,
+        "peak_confirmed": 8,
         "peak_deaths": 3
       },
       "values": {
         "absolute": {
-          "confirmed": 24334,
-          "deaths": 725,
-          "infected": 23609
+          "confirmed": 25758,
+          "deaths": 778,
+          "infected": 24980
         },
         "absolute_pop100k": {
-          "confirmed": 61.586,
-          "deaths": 1.835,
-          "infected": 59.751
+          "confirmed": 65.19,
+          "deaths": 1.969,
+          "infected": 63.221
         },
         "delta": {
-          "confirmed": 1011,
-          "deaths": 49,
-          "infected": 962
+          "confirmed": 1424,
+          "deaths": 53,
+          "infected": 1371
         },
         "relative": {
-          "deaths": 2.979,
-          "infected": 97.021
+          "deaths": 3.02,
+          "infected": 96.98
         },
         "peak_pct": {
-          "confirmed": 77.495,
-          "deaths": 102.083,
-          "infected": 75.903
+          "confirmed": 106.063,
+          "deaths": 105.578,
+          "infected": 105.251
         }
       },
       "factbook": {
@@ -553,40 +553,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 40,
-        "confirmed_10": 36,
-        "confirmed_100": 31,
-        "confirmed_1k": 20,
-        "peak": 5,
-        "peak_confirmed": 5,
-        "peak_deaths": 5
+        "confirmed_1": 41,
+        "confirmed_10": 37,
+        "confirmed_100": 32,
+        "confirmed_1k": 21,
+        "peak": 4,
+        "peak_confirmed": 6,
+        "peak_deaths": 3
       },
       "values": {
         "absolute": {
-          "confirmed": 7691,
-          "deaths": 308,
-          "infected": 7383
+          "confirmed": 7941,
+          "deaths": 329,
+          "infected": 7612
         },
         "absolute_pop100k": {
-          "confirmed": 133.554,
-          "deaths": 5.348,
-          "infected": 128.205
+          "confirmed": 137.895,
+          "deaths": 5.713,
+          "infected": 132.182
         },
         "delta": {
-          "confirmed": 388,
-          "deaths": 18,
-          "infected": 370
+          "confirmed": 250,
+          "deaths": 21,
+          "infected": 229
         },
         "relative": {
-          "deaths": 4.005,
-          "infected": 95.995
+          "deaths": 4.143,
+          "infected": 95.857
         },
         "peak_pct": {
-          "confirmed": 95.708,
-          "deaths": 80.357,
-          "infected": 95.067
+          "confirmed": 61.667,
+          "deaths": 91.304,
+          "infected": 58.839
         }
       },
       "factbook": {
@@ -608,41 +608,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 37,
-        "confirmed_10": 32,
-        "confirmed_100": 26,
-        "confirmed_1k": 19,
-        "confirmed_10k": 4,
-        "peak": 4,
-        "peak_confirmed": 6,
+        "confirmed_1": 38,
+        "confirmed_10": 33,
+        "confirmed_100": 27,
+        "confirmed_1k": 20,
+        "confirmed_10k": 5,
+        "peak": 5,
+        "peak_confirmed": 7,
         "peak_deaths": 3
       },
       "values": {
         "absolute": {
-          "confirmed": 13381,
-          "deaths": 602,
-          "infected": 12779
+          "confirmed": 13989,
+          "deaths": 671,
+          "infected": 13318
         },
         "absolute_pop100k": {
-          "confirmed": 375.314,
-          "deaths": 16.885,
-          "infected": 358.429
+          "confirmed": 392.368,
+          "deaths": 18.82,
+          "infected": 373.547
         },
         "delta": {
-          "confirmed": 1346,
-          "deaths": 48,
-          "infected": 1298
+          "confirmed": 608,
+          "deaths": 69,
+          "infected": 539
         },
         "relative": {
-          "deaths": 4.499,
-          "infected": 95.501
+          "deaths": 4.797,
+          "infected": 95.203
         },
         "peak_pct": {
-          "confirmed": 127.053,
-          "deaths": 85.714,
-          "infected": 126.981
+          "confirmed": 57.391,
+          "deaths": 113.861,
+          "infected": 52.729
         }
       },
       "factbook": {
@@ -664,40 +664,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 34,
-        "confirmed_10": 28,
-        "confirmed_100": 21,
-        "confirmed_1k": 6,
-        "peak": 6,
-        "peak_confirmed": 4,
-        "peak_deaths": 8
+        "confirmed_1": 35,
+        "confirmed_10": 29,
+        "confirmed_100": 22,
+        "confirmed_1k": 7,
+        "peak": 7,
+        "peak_confirmed": 5,
+        "peak_deaths": 9
       },
       "values": {
         "absolute": {
-          "confirmed": 1761,
-          "deaths": 41,
-          "infected": 1720
+          "confirmed": 1926,
+          "deaths": 43,
+          "infected": 1883
         },
         "absolute_pop100k": {
-          "confirmed": 180.845,
-          "deaths": 4.21,
-          "infected": 176.634
+          "confirmed": 197.789,
+          "deaths": 4.416,
+          "infected": 193.373
         },
         "delta": {
-          "confirmed": 136,
-          "deaths": 6,
-          "infected": 130
+          "confirmed": 165,
+          "deaths": 2,
+          "infected": 163
         },
         "relative": {
-          "deaths": 2.328,
-          "infected": 97.672
+          "deaths": 2.233,
+          "infected": 97.767
         },
         "peak_pct": {
-          "confirmed": 94.053,
-          "deaths": 157.895,
-          "infected": 91.164
+          "confirmed": 109.707,
+          "deaths": 52.632,
+          "infected": 109.249
         }
       },
       "factbook": {
@@ -719,40 +719,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 38,
-        "confirmed_10": 34,
-        "confirmed_100": 23,
-        "confirmed_1k": 8,
+        "confirmed_1": 39,
+        "confirmed_10": 35,
+        "confirmed_100": 24,
+        "confirmed_1k": 9,
         "peak": 7,
-        "peak_confirmed": 7,
-        "peak_deaths": 7
+        "peak_confirmed": 8,
+        "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 1955,
-          "deaths": 52,
-          "infected": 1903
+          "confirmed": 2058,
+          "deaths": 67,
+          "infected": 1991
         },
         "absolute_pop100k": {
-          "confirmed": 277.011,
-          "deaths": 7.368,
-          "infected": 269.643
+          "confirmed": 291.605,
+          "deaths": 9.493,
+          "infected": 282.112
         },
         "delta": {
-          "confirmed": 80,
-          "deaths": 2,
-          "infected": 78
+          "confirmed": 103,
+          "deaths": 15,
+          "infected": 88
         },
         "relative": {
-          "deaths": 2.66,
-          "infected": 97.34
+          "deaths": 3.256,
+          "infected": 96.744
         },
         "peak_pct": {
-          "confirmed": 59.97,
-          "deaths": 37.037,
-          "infected": 60.653
+          "confirmed": 77.211,
+          "deaths": 241.935,
+          "infected": 68.429
         }
       },
       "factbook": {
@@ -774,41 +774,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 44,
-        "confirmed_10": 38,
-        "confirmed_100": 30,
-        "confirmed_1k": 23,
-        "confirmed_10k": 11,
-        "peak": 6,
-        "peak_confirmed": 7,
+        "confirmed_1": 45,
+        "confirmed_10": 39,
+        "confirmed_100": 31,
+        "confirmed_1k": 24,
+        "confirmed_10k": 12,
+        "peak": 7,
+        "peak_confirmed": 8,
         "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 21011,
-          "deaths": 498,
-          "infected": 20513
+          "confirmed": 21620,
+          "deaths": 570,
+          "infected": 21050
         },
         "absolute_pop100k": {
-          "confirmed": 97.827,
-          "deaths": 2.319,
-          "infected": 95.508
+          "confirmed": 100.662,
+          "deaths": 2.654,
+          "infected": 98.008
         },
         "delta": {
-          "confirmed": 1156,
-          "deaths": 38,
-          "infected": 1118
+          "confirmed": 609,
+          "deaths": 72,
+          "infected": 537
         },
         "relative": {
-          "deaths": 2.37,
-          "infected": 97.63
+          "deaths": 2.636,
+          "infected": 97.364
         },
         "peak_pct": {
-          "confirmed": 95.238,
-          "deaths": 92.683,
-          "infected": 95.02
+          "confirmed": 50.173,
+          "deaths": 163.636,
+          "infected": 45.64
         }
       },
       "factbook": {
@@ -830,41 +830,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 43,
-        "confirmed_10": 37,
-        "confirmed_100": 29,
-        "confirmed_1k": 21,
-        "confirmed_10k": 6,
+        "confirmed_1": 44,
+        "confirmed_10": 38,
+        "confirmed_100": 30,
+        "confirmed_1k": 22,
+        "confirmed_10k": 7,
         "peak": 6,
-        "peak_confirmed": 6,
-        "peak_deaths": 7
+        "peak_confirmed": 7,
+        "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 13125,
-          "deaths": 479,
-          "infected": 12646
+          "confirmed": 13913,
+          "deaths": 517,
+          "infected": 13396
         },
         "absolute_pop100k": {
-          "confirmed": 123.618,
-          "deaths": 4.511,
-          "infected": 119.106
+          "confirmed": 131.039,
+          "deaths": 4.869,
+          "infected": 126.17
         },
         "delta": {
-          "confirmed": 1022,
-          "deaths": 41,
-          "infected": 981
+          "confirmed": 788,
+          "deaths": 38,
+          "infected": 750
         },
         "relative": {
-          "deaths": 3.65,
-          "infected": 96.35
+          "deaths": 3.716,
+          "infected": 96.284
         },
         "peak_pct": {
-          "confirmed": 103.337,
-          "deaths": 108.466,
-          "infected": 102.809
+          "confirmed": 79.676,
+          "deaths": 93.137,
+          "infected": 78.452
         }
       },
       "factbook": {
@@ -886,37 +886,37 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 39,
-        "confirmed_10": 29,
-        "confirmed_100": 19,
-        "peak": 9,
-        "peak_confirmed": 12,
-        "peak_deaths": 6
+        "confirmed_1": 40,
+        "confirmed_10": 30,
+        "confirmed_100": 20,
+        "peak": 10,
+        "peak_confirmed": 13,
+        "peak_deaths": 7
       },
       "values": {
         "absolute": {
-          "confirmed": 502,
+          "confirmed": 511,
           "deaths": 9,
-          "infected": 493
+          "infected": 502
         },
         "absolute_pop100k": {
-          "confirmed": 35.455,
+          "confirmed": 36.091,
           "deaths": 0.636,
-          "infected": 34.82
+          "infected": 35.455
         },
         "delta": {
-          "confirmed": 5,
-          "infected": 5
+          "confirmed": 9,
+          "infected": 9
         },
         "relative": {
-          "deaths": 1.793,
-          "infected": 98.207
+          "deaths": 1.761,
+          "infected": 98.239
         },
         "peak_pct": {
-          "confirmed": 16.556,
-          "infected": 16.667
+          "confirmed": 29.801,
+          "infected": 30
         }
       },
       "factbook": {
@@ -938,40 +938,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 32,
-        "confirmed_10": 27,
-        "confirmed_100": 20,
-        "confirmed_1k": 11,
-        "peak": 9,
-        "peak_confirmed": 11,
+        "confirmed_1": 33,
+        "confirmed_10": 28,
+        "confirmed_100": 21,
+        "confirmed_1k": 12,
+        "peak": 10,
+        "peak_confirmed": 12,
         "peak_deaths": 8
       },
       "values": {
         "absolute": {
-          "confirmed": 1453,
-          "deaths": 33,
-          "infected": 1420
+          "confirmed": 1464,
+          "deaths": 39,
+          "infected": 1425
         },
         "absolute_pop100k": {
-          "confirmed": 81.306,
-          "deaths": 1.847,
-          "infected": 79.46
+          "confirmed": 81.922,
+          "deaths": 2.182,
+          "infected": 79.74
         },
         "delta": {
-          "confirmed": 27,
+          "confirmed": 11,
           "deaths": 6,
-          "infected": 21
+          "infected": 5
         },
         "relative": {
-          "deaths": 2.271,
-          "infected": 97.729
+          "deaths": 2.664,
+          "infected": 97.336
         },
         "peak_pct": {
-          "confirmed": 22.425,
-          "deaths": 176.471,
-          "infected": 17.707
+          "confirmed": 9.136,
+          "deaths": 142.857,
+          "infected": 4.216
         }
       },
       "factbook": {
@@ -993,41 +993,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 81,
-        "confirmed_10": 36,
-        "confirmed_100": 29,
-        "confirmed_1k": 23,
-        "confirmed_10k": 10,
+        "confirmed_1": 82,
+        "confirmed_10": 37,
+        "confirmed_100": 30,
+        "confirmed_1k": 24,
+        "confirmed_10k": 11,
         "peak": 4,
-        "peak_confirmed": 5,
+        "peak_confirmed": 6,
         "peak_deaths": 3
       },
       "values": {
         "absolute": {
-          "confirmed": 22025,
-          "deaths": 800,
-          "infected": 21225
+          "confirmed": 23247,
+          "deaths": 878,
+          "infected": 22369
         },
         "absolute_pop100k": {
-          "confirmed": 173.811,
-          "deaths": 6.313,
-          "infected": 167.498
+          "confirmed": 183.454,
+          "deaths": 6.929,
+          "infected": 176.526
         },
         "delta": {
-          "confirmed": 1173,
-          "deaths": 73,
-          "infected": 1100
+          "confirmed": 1222,
+          "deaths": 78,
+          "infected": 1144
         },
         "relative": {
-          "deaths": 3.632,
-          "infected": 96.368
+          "deaths": 3.777,
+          "infected": 96.223
         },
         "peak_pct": {
-          "confirmed": 82.792,
-          "deaths": 99.727,
-          "infected": 81.494
+          "confirmed": 86.251,
+          "deaths": 104.278,
+          "infected": 84.753
         }
       },
       "factbook": {
@@ -1049,40 +1049,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 39,
-        "confirmed_10": 34,
-        "confirmed_100": 24,
-        "confirmed_1k": 17,
+        "confirmed_1": 40,
+        "confirmed_10": 35,
+        "confirmed_100": 25,
+        "confirmed_1k": 18,
         "peak": 5,
-        "peak_confirmed": 5,
-        "peak_deaths": 6
+        "peak_confirmed": 6,
+        "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 8236,
-          "deaths": 350,
-          "infected": 7886
+          "confirmed": 8527,
+          "deaths": 387,
+          "infected": 8140
         },
         "absolute_pop100k": {
-          "confirmed": 122.337,
-          "deaths": 5.199,
-          "infected": 117.138
+          "confirmed": 126.66,
+          "deaths": 5.748,
+          "infected": 120.911
         },
         "delta": {
-          "confirmed": 308,
-          "deaths": 7,
-          "infected": 301
+          "confirmed": 291,
+          "deaths": 37,
+          "infected": 254
         },
         "relative": {
-          "deaths": 4.25,
-          "infected": 95.75
+          "deaths": 4.539,
+          "infected": 95.461
         },
         "peak_pct": {
-          "confirmed": 58.488,
-          "deaths": 22.013,
-          "infected": 60.176
+          "confirmed": 55.26,
+          "deaths": 107.558,
+          "infected": 50.78
         }
       },
       "factbook": {
@@ -1104,40 +1104,38 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 37,
-        "confirmed_10": 35,
-        "confirmed_100": 22,
-        "confirmed_1k": 7,
-        "peak": 3,
+        "confirmed_1": 38,
+        "confirmed_10": 36,
+        "confirmed_100": 23,
+        "confirmed_1k": 8,
+        "peak": 4,
         "peak_confirmed": 4,
-        "peak_deaths": 3
+        "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 1710,
+          "confirmed": 1899,
           "deaths": 44,
-          "infected": 1666
+          "infected": 1855
         },
         "absolute_pop100k": {
-          "confirmed": 54.198,
+          "confirmed": 60.189,
           "deaths": 1.395,
-          "infected": 52.804
+          "infected": 58.794
         },
         "delta": {
-          "confirmed": 123,
-          "deaths": 3,
-          "infected": 120
+          "confirmed": 189,
+          "infected": 189
         },
         "relative": {
-          "deaths": 2.573,
-          "infected": 97.427
+          "deaths": 2.317,
+          "infected": 97.683
         },
         "peak_pct": {
-          "confirmed": 109.431,
-          "deaths": 75,
-          "infected": 109.091
+          "confirmed": 160.169,
+          "infected": 163.212
         }
       },
       "factbook": {
@@ -1159,40 +1157,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 38,
-        "confirmed_10": 29,
-        "confirmed_100": 20,
-        "confirmed_1k": 6,
+        "confirmed_1": 39,
+        "confirmed_10": 30,
+        "confirmed_100": 21,
+        "confirmed_1k": 7,
         "peak": 6,
-        "peak_confirmed": 8,
-        "peak_deaths": 5
+        "peak_confirmed": 9,
+        "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 1383,
-          "deaths": 63,
-          "infected": 1320
+          "confirmed": 1439,
+          "deaths": 69,
+          "infected": 1370
         },
         "absolute_pop100k": {
-          "confirmed": 47.472,
-          "deaths": 2.162,
-          "infected": 45.309
+          "confirmed": 49.394,
+          "deaths": 2.368,
+          "infected": 47.025
         },
         "delta": {
-          "confirmed": 45,
-          "deaths": 7,
-          "infected": 38
+          "confirmed": 56,
+          "deaths": 6,
+          "infected": 50
         },
         "relative": {
-          "deaths": 4.555,
-          "infected": 95.445
+          "deaths": 4.795,
+          "infected": 95.205
         },
         "peak_pct": {
-          "confirmed": 55.419,
-          "deaths": 116.667,
-          "infected": 48.843
+          "confirmed": 68.966,
+          "deaths": 96.774,
+          "infected": 64.267
         }
       },
       "factbook": {
@@ -1214,40 +1212,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 39,
-        "confirmed_10": 33,
-        "confirmed_100": 23,
-        "confirmed_1k": 9,
-        "peak": 6,
-        "peak_confirmed": 6,
+        "confirmed_1": 40,
+        "confirmed_10": 34,
+        "confirmed_100": 24,
+        "confirmed_1k": 10,
+        "peak": 5,
+        "peak_confirmed": 5,
         "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 2048,
-          "deaths": 106,
-          "infected": 1942
+          "confirmed": 2210,
+          "deaths": 115,
+          "infected": 2095
         },
         "absolute_pop100k": {
-          "confirmed": 45.84,
-          "deaths": 2.373,
-          "infected": 43.468
+          "confirmed": 49.466,
+          "deaths": 2.574,
+          "infected": 46.892
         },
         "delta": {
-          "confirmed": 85,
-          "deaths": 8,
-          "infected": 77
+          "confirmed": 162,
+          "deaths": 9,
+          "infected": 153
         },
         "relative": {
-          "deaths": 5.176,
-          "infected": 94.824
+          "deaths": 5.204,
+          "infected": 94.796
         },
         "peak_pct": {
-          "confirmed": 57.745,
-          "deaths": 83.333,
-          "infected": 54.61
+          "confirmed": 105.606,
+          "deaths": 90,
+          "infected": 103.799
         }
       },
       "factbook": {
@@ -1269,41 +1267,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 36,
-        "confirmed_10": 34,
-        "confirmed_100": 30,
-        "confirmed_1k": 22,
-        "confirmed_10k": 11,
-        "peak": 8,
-        "peak_confirmed": 8,
-        "peak_deaths": 8
+        "confirmed_1": 37,
+        "confirmed_10": 35,
+        "confirmed_100": 31,
+        "confirmed_1k": 23,
+        "confirmed_10k": 12,
+        "peak": 9,
+        "peak_confirmed": 9,
+        "peak_deaths": 10
       },
       "values": {
         "absolute": {
-          "confirmed": 21016,
-          "deaths": 884,
-          "infected": 20132
+          "confirmed": 21518,
+          "deaths": 1013,
+          "infected": 20505
         },
         "absolute_pop100k": {
-          "confirmed": 452.074,
-          "deaths": 19.016,
-          "infected": 433.059
+          "confirmed": 462.873,
+          "deaths": 21.791,
+          "infected": 441.082
         },
         "delta": {
-          "confirmed": 421,
-          "deaths": 44,
-          "infected": 377
+          "confirmed": 502,
+          "deaths": 129,
+          "infected": 373
         },
         "relative": {
-          "deaths": 4.206,
-          "infected": 95.794
+          "deaths": 4.708,
+          "infected": 95.292
         },
         "peak_pct": {
-          "confirmed": 26.518,
-          "deaths": 72.848,
-          "infected": 24.522
+          "confirmed": 31.62,
+          "deaths": 202.194,
+          "infected": 24.262
         }
       },
       "factbook": {
@@ -1325,37 +1323,39 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 33,
-        "confirmed_10": 30,
-        "confirmed_100": 22,
+        "confirmed_1": 34,
+        "confirmed_10": 31,
+        "confirmed_100": 23,
         "peak": 10,
-        "peak_confirmed": 13,
-        "peak_deaths": 8
+        "peak_confirmed": 12,
+        "peak_deaths": 9
       },
       "values": {
         "absolute": {
-          "confirmed": 698,
-          "deaths": 19,
-          "infected": 679
+          "confirmed": 734,
+          "deaths": 20,
+          "infected": 714
         },
         "absolute_pop100k": {
-          "confirmed": 51.926,
-          "deaths": 1.413,
-          "infected": 50.513
+          "confirmed": 54.604,
+          "deaths": 1.488,
+          "infected": 53.117
         },
         "delta": {
-          "confirmed": 65,
-          "infected": 65
+          "confirmed": 36,
+          "deaths": 1,
+          "infected": 35
         },
         "relative": {
-          "deaths": 2.722,
-          "infected": 97.278
+          "deaths": 2.725,
+          "infected": 97.275
         },
         "peak_pct": {
-          "confirmed": 151.869,
-          "infected": 156.25
+          "confirmed": 82.569,
+          "deaths": 50,
+          "infected": 82.938
         }
       },
       "factbook": {
@@ -1377,40 +1377,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 40,
-        "confirmed_10": 34,
-        "confirmed_100": 26,
-        "confirmed_1k": 17,
+        "confirmed_1": 41,
+        "confirmed_10": 35,
+        "confirmed_100": 27,
+        "confirmed_1k": 18,
         "peak": 3,
-        "peak_confirmed": 2,
+        "peak_confirmed": 3,
         "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 8936,
-          "deaths": 262,
-          "infected": 8674
+          "confirmed": 9472,
+          "deaths": 302,
+          "infected": 9170
         },
         "absolute_pop100k": {
-          "confirmed": 147.808,
-          "deaths": 4.334,
-          "infected": 143.474
+          "confirmed": 156.674,
+          "deaths": 4.995,
+          "infected": 151.679
         },
         "delta": {
-          "confirmed": 711,
-          "deaths": 26,
-          "infected": 685
+          "confirmed": 536,
+          "deaths": 40,
+          "infected": 496
         },
         "relative": {
-          "deaths": 2.932,
-          "infected": 97.068
+          "deaths": 3.188,
+          "infected": 96.812
         },
         "peak_pct": {
-          "confirmed": 104.344,
-          "deaths": 98.485,
-          "infected": 104.772
+          "confirmed": 78.546,
+          "deaths": 136.054,
+          "infected": 75.864
         }
       },
       "factbook": {
@@ -1432,41 +1432,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 73,
-        "confirmed_10": 38,
-        "confirmed_100": 33,
-        "confirmed_1k": 21,
-        "confirmed_10k": 11,
-        "peak": 4,
-        "peak_confirmed": 5,
-        "peak_deaths": 3
+        "confirmed_1": 74,
+        "confirmed_10": 39,
+        "confirmed_100": 34,
+        "confirmed_1k": 22,
+        "confirmed_10k": 12,
+        "peak": 5,
+        "peak_confirmed": 6,
+        "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 26867,
-          "deaths": 844,
-          "infected": 26023
+          "confirmed": 28163,
+          "deaths": 957,
+          "infected": 27206
         },
         "absolute_pop100k": {
-          "confirmed": 389.8,
-          "deaths": 12.245,
-          "infected": 377.555
+          "confirmed": 408.603,
+          "deaths": 13.885,
+          "infected": 394.719
         },
         "delta": {
-          "confirmed": 1392,
-          "deaths": 88,
-          "infected": 1304
+          "confirmed": 1296,
+          "deaths": 113,
+          "infected": 1183
         },
         "relative": {
-          "deaths": 3.141,
-          "infected": 96.859
+          "deaths": 3.398,
+          "infected": 96.602
         },
         "peak_pct": {
-          "confirmed": 76.534,
-          "deaths": 105.263,
-          "infected": 74.719
+          "confirmed": 71.256,
+          "deaths": 127.252,
+          "infected": 67.786
         }
       },
       "factbook": {
@@ -1488,41 +1488,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 35,
-        "confirmed_10": 33,
-        "confirmed_100": 26,
-        "confirmed_1k": 23,
-        "confirmed_10k": 12,
-        "peak": 6,
-        "peak_confirmed": 9,
+        "confirmed_1": 36,
+        "confirmed_10": 34,
+        "confirmed_100": 27,
+        "confirmed_1k": 24,
+        "confirmed_10k": 13,
+        "peak": 7,
+        "peak_confirmed": 10,
         "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 25487,
-          "deaths": 1601,
-          "infected": 23886
+          "confirmed": 26844,
+          "deaths": 1766,
+          "infected": 25078
         },
         "absolute_pop100k": {
-          "confirmed": 255.205,
-          "deaths": 16.031,
-          "infected": 239.174
+          "confirmed": 268.793,
+          "deaths": 17.683,
+          "infected": 251.11
         },
         "delta": {
-          "confirmed": 993,
-          "deaths": 115,
-          "infected": 878
+          "confirmed": 1357,
+          "deaths": 165,
+          "infected": 1192
         },
         "relative": {
-          "deaths": 6.282,
-          "infected": 93.718
+          "deaths": 6.579,
+          "infected": 93.421
         },
         "peak_pct": {
-          "confirmed": 62.587,
-          "deaths": 100,
-          "infected": 58.619
+          "confirmed": 85.529,
+          "deaths": 131.161,
+          "infected": 79.583
         }
       },
       "factbook": {
@@ -1544,38 +1544,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 39,
-        "confirmed_10": 32,
-        "confirmed_100": 25,
-        "confirmed_1k": 7,
+        "confirmed_1": 40,
+        "confirmed_10": 33,
+        "confirmed_100": 26,
+        "confirmed_1k": 8,
         "peak": 4,
-        "peak_confirmed": 4,
-        "peak_deaths": 4
+        "peak_confirmed": 5,
+        "peak_deaths": 3
       },
       "values": {
         "absolute": {
-          "confirmed": 1650,
-          "deaths": 70,
-          "infected": 1580
+          "confirmed": 1695,
+          "deaths": 79,
+          "infected": 1616
         },
         "absolute_pop100k": {
-          "confirmed": 29.257,
-          "deaths": 1.241,
-          "infected": 28.016
+          "confirmed": 30.055,
+          "deaths": 1.401,
+          "infected": 28.654
         },
         "delta": {
-          "confirmed": 29,
-          "infected": 29
+          "confirmed": 45,
+          "deaths": 9,
+          "infected": 36
         },
         "relative": {
-          "deaths": 4.242,
-          "infected": 95.758
+          "deaths": 4.661,
+          "infected": 95.339
         },
         "peak_pct": {
-          "confirmed": 32.88,
-          "infected": 35.627
+          "confirmed": 51.02,
+          "deaths": 132.353,
+          "infected": 44.226
         }
       },
       "factbook": {
@@ -1597,40 +1599,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 34,
-        "confirmed_10": 30,
-        "confirmed_100": 24,
-        "confirmed_1k": 13,
+        "confirmed_1": 35,
+        "confirmed_10": 31,
+        "confirmed_100": 25,
+        "confirmed_1k": 14,
         "peak": 6,
-        "peak_confirmed": 6,
+        "peak_confirmed": 7,
         "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 2942,
-          "deaths": 98,
-          "infected": 2844
+          "confirmed": 3087,
+          "deaths": 111,
+          "infected": 2976
         },
         "absolute_pop100k": {
-          "confirmed": 98.853,
-          "deaths": 3.293,
-          "infected": 95.56
+          "confirmed": 103.725,
+          "deaths": 3.73,
+          "infected": 99.995
         },
         "delta": {
-          "confirmed": 161,
-          "deaths": 2,
-          "infected": 159
+          "confirmed": 145,
+          "deaths": 13,
+          "infected": 132
         },
         "relative": {
-          "deaths": 3.331,
-          "infected": 96.669
+          "deaths": 3.596,
+          "infected": 96.404
         },
         "peak_pct": {
-          "confirmed": 87.216,
-          "deaths": 24.39,
-          "infected": 89.628
+          "confirmed": 78.548,
+          "deaths": 147.727,
+          "infected": 74.408
         }
       },
       "factbook": {
@@ -1652,40 +1654,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 38,
-        "confirmed_10": 28,
-        "confirmed_100": 23,
-        "confirmed_1k": 15,
+        "confirmed_1": 39,
+        "confirmed_10": 29,
+        "confirmed_100": 24,
+        "confirmed_1k": 16,
         "peak": 6,
         "peak_confirmed": 8,
         "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 4388,
-          "deaths": 137,
-          "infected": 4251
+          "confirmed": 4686,
+          "deaths": 152,
+          "infected": 4534
         },
         "absolute_pop100k": {
-          "confirmed": 71.496,
-          "deaths": 2.232,
-          "infected": 69.264
+          "confirmed": 76.351,
+          "deaths": 2.477,
+          "infected": 73.875
         },
         "delta": {
-          "confirmed": 228,
-          "deaths": 21,
-          "infected": 207
+          "confirmed": 298,
+          "deaths": 15,
+          "infected": 283
         },
         "relative": {
-          "deaths": 3.122,
-          "infected": 96.878
+          "deaths": 3.244,
+          "infected": 96.756
         },
         "peak_pct": {
-          "confirmed": 78.893,
-          "deaths": 164.063,
-          "infected": 74.194
+          "confirmed": 100.472,
+          "deaths": 105.634,
+          "infected": 99.02
         }
       },
       "factbook": {
@@ -1707,39 +1709,37 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 32,
-        "confirmed_10": 27,
-        "confirmed_100": 18,
-        "peak": 11,
-        "peak_confirmed": 12,
-        "peak_deaths": 10
+        "confirmed_1": 33,
+        "confirmed_10": 28,
+        "confirmed_100": 19,
+        "peak": 12,
+        "peak_confirmed": 13,
+        "peak_deaths": 11
       },
       "values": {
         "absolute": {
-          "confirmed": 394,
+          "confirmed": 399,
           "deaths": 7,
-          "infected": 387
+          "infected": 392
         },
         "absolute_pop100k": {
-          "confirmed": 36.865,
+          "confirmed": 37.332,
           "deaths": 0.655,
-          "infected": 36.21
+          "infected": 36.677
         },
         "delta": {
-          "confirmed": 7,
-          "deaths": 1,
-          "infected": 6
+          "confirmed": 5,
+          "infected": 5
         },
         "relative": {
-          "deaths": 1.777,
-          "infected": 98.223
+          "deaths": 1.754,
+          "infected": 98.246
         },
         "peak_pct": {
-          "confirmed": 29.661,
-          "deaths": 100,
-          "infected": 25.424
+          "confirmed": 21.186,
+          "infected": 21.186
         }
       },
       "factbook": {
@@ -1761,39 +1761,39 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 57,
-        "confirmed_10": 57,
-        "confirmed_100": 18,
-        "peak": 7,
-        "peak_confirmed": 6,
-        "peak_deaths": 9
+        "confirmed_1": 58,
+        "confirmed_10": 58,
+        "confirmed_100": 19,
+        "peak": 5,
+        "peak_confirmed": 4,
+        "peak_deaths": 7
       },
       "values": {
         "absolute": {
-          "confirmed": 871,
-          "deaths": 19,
-          "infected": 852
+          "confirmed": 931,
+          "deaths": 21,
+          "infected": 910
         },
         "absolute_pop100k": {
-          "confirmed": 45.027,
-          "deaths": 0.982,
-          "infected": 44.044
+          "confirmed": 48.128,
+          "deaths": 1.086,
+          "infected": 47.043
         },
         "delta": {
-          "confirmed": 65,
-          "deaths": 1,
-          "infected": 64
+          "confirmed": 60,
+          "deaths": 2,
+          "infected": 58
         },
         "relative": {
-          "deaths": 2.181,
-          "infected": 97.819
+          "deaths": 2.256,
+          "infected": 97.744
         },
         "peak_pct": {
-          "confirmed": 100.619,
-          "deaths": 50,
-          "infected": 101.587
+          "confirmed": 91.743,
+          "deaths": 100,
+          "infected": 91.195
         }
       },
       "factbook": {
@@ -1815,40 +1815,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 40,
-        "confirmed_10": 33,
-        "confirmed_100": 25,
-        "confirmed_1k": 15,
-        "peak": 10,
-        "peak_confirmed": 10,
-        "peak_deaths": 10
+        "confirmed_1": 41,
+        "confirmed_10": 34,
+        "confirmed_100": 26,
+        "confirmed_1k": 16,
+        "peak": 9,
+        "peak_confirmed": 11,
+        "peak_deaths": 8
       },
       "values": {
         "absolute": {
-          "confirmed": 3036,
-          "deaths": 114,
-          "infected": 2922
+          "confirmed": 3137,
+          "deaths": 130,
+          "infected": 3007
         },
         "absolute_pop100k": {
-          "confirmed": 98.566,
-          "deaths": 3.701,
-          "infected": 94.865
+          "confirmed": 101.845,
+          "deaths": 4.221,
+          "infected": 97.625
         },
         "delta": {
-          "confirmed": 176,
-          "deaths": 1,
-          "infected": 175
+          "confirmed": 101,
+          "deaths": 16,
+          "infected": 85
         },
         "relative": {
-          "deaths": 3.755,
-          "infected": 96.245
+          "deaths": 4.144,
+          "infected": 95.856
         },
         "peak_pct": {
-          "confirmed": 96.491,
-          "deaths": 9.615,
-          "infected": 98.758
+          "confirmed": 55.373,
+          "deaths": 129.032,
+          "infected": 47.968
         }
       },
       "factbook": {
@@ -1870,38 +1870,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 43,
-        "confirmed_10": 30,
-        "confirmed_100": 22,
-        "confirmed_1k": 1,
-        "peak": 7,
-        "peak_confirmed": 8,
+        "confirmed_1": 44,
+        "confirmed_10": 31,
+        "confirmed_100": 23,
+        "confirmed_1k": 2,
+        "peak": 6,
+        "peak_confirmed": 6,
         "peak_deaths": 7
       },
       "values": {
         "absolute": {
-          "confirmed": 1020,
-          "deaths": 23,
-          "infected": 997
+          "confirmed": 1091,
+          "deaths": 27,
+          "infected": 1064
         },
         "absolute_pop100k": {
-          "confirmed": 75.016,
-          "deaths": 1.692,
-          "infected": 73.324
+          "confirmed": 80.238,
+          "deaths": 1.986,
+          "infected": 78.252
         },
         "delta": {
-          "confirmed": 35,
-          "infected": 35
+          "confirmed": 71,
+          "deaths": 4,
+          "infected": 67
         },
         "relative": {
-          "deaths": 2.255,
-          "infected": 97.745
+          "deaths": 2.475,
+          "infected": 97.525
         },
         "peak_pct": {
-          "confirmed": 57.756,
-          "infected": 58.528
+          "confirmed": 111.635,
+          "deaths": 133.333,
+          "infected": 108.065
         }
       },
       "factbook": {
@@ -1923,41 +1925,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 41,
-        "confirmed_10": 36,
-        "confirmed_100": 29,
-        "confirmed_1k": 24,
-        "confirmed_10k": 17,
+        "confirmed_1": 42,
+        "confirmed_10": 37,
+        "confirmed_100": 30,
+        "confirmed_1k": 25,
+        "confirmed_10k": 18,
         "peak": 5,
         "peak_confirmed": 5,
-        "peak_deaths": 5
+        "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 64584,
-          "deaths": 2443,
-          "infected": 62141
+          "confirmed": 68824,
+          "deaths": 2805,
+          "infected": 66019
         },
         "absolute_pop100k": {
-          "confirmed": 727.118,
-          "deaths": 27.504,
-          "infected": 699.613
+          "confirmed": 774.854,
+          "deaths": 31.58,
+          "infected": 743.274
         },
         "delta": {
-          "confirmed": 2734,
-          "deaths": 93,
-          "infected": 2641
+          "confirmed": 4240,
+          "deaths": 362,
+          "infected": 3878
         },
         "relative": {
-          "deaths": 3.783,
-          "infected": 96.217
+          "deaths": 4.076,
+          "infected": 95.924
         },
         "peak_pct": {
-          "confirmed": 73.235,
-          "deaths": 42.043,
-          "infected": 73.676
+          "confirmed": 109.6,
+          "deaths": 153.13,
+          "infected": 105.34
         }
       },
       "factbook": {
@@ -1979,40 +1981,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 34,
-        "confirmed_10": 32,
-        "confirmed_100": 21,
-        "confirmed_1k": 4,
-        "peak": 6,
-        "peak_confirmed": 5,
-        "peak_deaths": 7
+        "confirmed_1": 35,
+        "confirmed_10": 33,
+        "confirmed_100": 22,
+        "confirmed_1k": 5,
+        "peak": 5,
+        "peak_confirmed": 6,
+        "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 1345,
-          "deaths": 31,
-          "infected": 1314
+          "confirmed": 1407,
+          "deaths": 36,
+          "infected": 1371
         },
         "absolute_pop100k": {
-          "confirmed": 64.144,
-          "deaths": 1.478,
-          "infected": 62.666
+          "confirmed": 67.101,
+          "deaths": 1.717,
+          "infected": 65.384
         },
         "delta": {
-          "confirmed": 100,
+          "confirmed": 62,
           "deaths": 5,
-          "infected": 95
+          "infected": 57
         },
         "relative": {
-          "deaths": 2.305,
-          "infected": 97.695
+          "deaths": 2.559,
+          "infected": 97.441
         },
         "peak_pct": {
-          "confirmed": 103.093,
-          "deaths": 166.667,
-          "infected": 100.423
+          "confirmed": 63.918,
+          "deaths": 138.889,
+          "infected": 60.254
         }
       },
       "factbook": {
@@ -2034,41 +2036,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 44,
-        "confirmed_10": 41,
-        "confirmed_100": 37,
-        "confirmed_1k": 28,
-        "confirmed_10k": 24,
-        "peak": 5,
-        "peak_confirmed": 5,
-        "peak_deaths": 5
+        "confirmed_1": 45,
+        "confirmed_10": 42,
+        "confirmed_100": 38,
+        "confirmed_1k": 29,
+        "confirmed_10k": 25,
+        "peak": 4,
+        "peak_confirmed": 6,
+        "peak_deaths": 3
       },
       "values": {
         "absolute": {
-          "confirmed": 195031,
-          "deaths": 10056,
-          "infected": 184975
+          "confirmed": 202208,
+          "deaths": 10834,
+          "infected": 191374
         },
         "absolute_pop100k": {
-          "confirmed": 1002.547,
-          "deaths": 51.692,
-          "infected": 950.854
+          "confirmed": 1039.44,
+          "deaths": 55.692,
+          "infected": 983.748
         },
         "delta": {
-          "confirmed": 6337,
-          "deaths": 671,
-          "infected": 5666
+          "confirmed": 7177,
+          "deaths": 778,
+          "infected": 6399
         },
         "relative": {
-          "deaths": 5.156,
-          "infected": 94.844
+          "deaths": 5.358,
+          "infected": 94.642
         },
         "peak_pct": {
-          "confirmed": 62.699,
-          "deaths": 87.621,
-          "infected": 60.109
+          "confirmed": 71.01,
+          "deaths": 99.872,
+          "infected": 67.885
         }
       },
       "factbook": {
@@ -2090,40 +2092,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 42,
-        "confirmed_10": 33,
-        "confirmed_100": 26,
-        "confirmed_1k": 16,
-        "peak": 6,
-        "peak_confirmed": 7,
-        "peak_deaths": 6
+        "confirmed_1": 43,
+        "confirmed_10": 34,
+        "confirmed_100": 27,
+        "confirmed_1k": 17,
+        "peak": 7,
+        "peak_confirmed": 8,
+        "peak_deaths": 7
       },
       "values": {
         "absolute": {
-          "confirmed": 4815,
-          "deaths": 91,
-          "infected": 4724
+          "confirmed": 5024,
+          "deaths": 116,
+          "infected": 4908
         },
         "absolute_pop100k": {
-          "confirmed": 45.909,
-          "deaths": 0.868,
-          "infected": 45.042
+          "confirmed": 47.902,
+          "deaths": 1.106,
+          "infected": 46.796
         },
         "delta": {
-          "confirmed": 295,
-          "deaths": 5,
-          "infected": 290
+          "confirmed": 209,
+          "deaths": 25,
+          "infected": 184
         },
         "relative": {
-          "deaths": 1.89,
-          "infected": 98.11
+          "deaths": 2.309,
+          "infected": 97.691
         },
         "peak_pct": {
-          "confirmed": 97.424,
-          "deaths": 53.191,
-          "infected": 98.039
+          "confirmed": 69.022,
+          "deaths": 235.849,
+          "infected": 62.204
         }
       },
       "factbook": {
@@ -2145,39 +2147,37 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 34,
-        "confirmed_10": 26,
-        "confirmed_100": 15,
-        "peak": 6,
-        "peak_confirmed": 7,
-        "peak_deaths": 5
+        "confirmed_1": 35,
+        "confirmed_10": 27,
+        "confirmed_100": 16,
+        "peak": 7,
+        "peak_confirmed": 8,
+        "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 331,
+          "confirmed": 341,
           "deaths": 9,
-          "infected": 322
+          "infected": 332
         },
         "absolute_pop100k": {
-          "confirmed": 43.435,
+          "confirmed": 44.747,
           "deaths": 1.181,
-          "infected": 42.254
+          "infected": 43.566
         },
         "delta": {
-          "confirmed": 23,
-          "deaths": 1,
-          "infected": 22
+          "confirmed": 10,
+          "infected": 10
         },
         "relative": {
-          "deaths": 2.719,
-          "infected": 97.281
+          "deaths": 2.639,
+          "infected": 97.361
         },
         "peak_pct": {
-          "confirmed": 113.861,
-          "deaths": 83.333,
-          "infected": 111.111
+          "confirmed": 49.505,
+          "infected": 50.505
         }
       },
       "factbook": {
@@ -2199,40 +2199,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 36,
-        "confirmed_10": 32,
-        "confirmed_100": 26,
-        "confirmed_1k": 18,
-        "peak": 4,
-        "peak_confirmed": 5,
-        "peak_deaths": 4
+        "confirmed_1": 37,
+        "confirmed_10": 33,
+        "confirmed_100": 27,
+        "confirmed_1k": 19,
+        "peak": 6,
+        "peak_confirmed": 6,
+        "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 6975,
-          "deaths": 274,
-          "infected": 6701
+          "confirmed": 7280,
+          "deaths": 324,
+          "infected": 6956
         },
         "absolute_pop100k": {
-          "confirmed": 59.671,
-          "deaths": 2.344,
-          "infected": 57.327
+          "confirmed": 62.28,
+          "deaths": 2.772,
+          "infected": 59.508
         },
         "delta": {
-          "confirmed": 371,
-          "deaths": 21,
-          "infected": 350
+          "confirmed": 305,
+          "deaths": 50,
+          "infected": 255
         },
         "relative": {
-          "deaths": 3.928,
-          "infected": 96.072
+          "deaths": 4.451,
+          "infected": 95.549
         },
         "peak_pct": {
-          "confirmed": 96.314,
-          "deaths": 98.131,
-          "infected": 95.212
+          "confirmed": 79.18,
+          "deaths": 217.391,
+          "infected": 69.369
         }
       },
       "factbook": {
@@ -2254,40 +2254,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 39,
-        "confirmed_10": 29,
-        "confirmed_100": 21,
-        "confirmed_1k": 10,
-        "peak": 9,
+        "confirmed_1": 40,
+        "confirmed_10": 30,
+        "confirmed_100": 22,
+        "confirmed_1k": 11,
+        "peak": 8,
         "peak_confirmed": 8,
-        "peak_deaths": 10
+        "peak_deaths": 8
       },
       "values": {
         "absolute": {
-          "confirmed": 2069,
-          "deaths": 98,
-          "infected": 1971
+          "confirmed": 2184,
+          "deaths": 109,
+          "infected": 2075
         },
         "absolute_pop100k": {
-          "confirmed": 52.287,
-          "deaths": 2.477,
-          "infected": 49.811
+          "confirmed": 55.194,
+          "deaths": 2.755,
+          "infected": 52.439
         },
         "delta": {
-          "confirmed": 99,
-          "deaths": 2,
-          "infected": 97
+          "confirmed": 115,
+          "deaths": 11,
+          "infected": 104
         },
         "relative": {
-          "deaths": 4.737,
-          "infected": 95.263
+          "deaths": 4.991,
+          "infected": 95.009
         },
         "peak_pct": {
-          "confirmed": 67.995,
-          "deaths": 25,
-          "infected": 69.784
+          "confirmed": 78.445,
+          "deaths": 122.222,
+          "infected": 74.82
         }
       },
       "factbook": {
@@ -2309,40 +2309,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 46,
-        "confirmed_10": 37,
-        "confirmed_100": 25,
-        "confirmed_1k": 9,
-        "peak": 7,
-        "peak_confirmed": 10,
-        "peak_deaths": 5
+        "confirmed_1": 47,
+        "confirmed_10": 38,
+        "confirmed_100": 26,
+        "confirmed_1k": 10,
+        "peak": 8,
+        "peak_confirmed": 11,
+        "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 1584,
-          "deaths": 53,
-          "infected": 1531
+          "confirmed": 1633,
+          "deaths": 55,
+          "infected": 1578
         },
         "absolute_pop100k": {
-          "confirmed": 37.556,
-          "deaths": 1.257,
-          "infected": 36.299
+          "confirmed": 38.717,
+          "deaths": 1.304,
+          "infected": 37.413
         },
         "delta": {
-          "confirmed": 57,
-          "deaths": 1,
-          "infected": 56
+          "confirmed": 49,
+          "deaths": 2,
+          "infected": 47
         },
         "relative": {
-          "deaths": 3.346,
-          "infected": 96.654
+          "deaths": 3.368,
+          "infected": 96.632
         },
         "peak_pct": {
-          "confirmed": 65.668,
-          "deaths": 25,
-          "infected": 66.508
+          "confirmed": 56.452,
+          "deaths": 50,
+          "infected": 55.819
         }
       },
       "factbook": {
@@ -2364,41 +2364,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 39,
-        "confirmed_10": 36,
-        "confirmed_100": 28,
-        "confirmed_1k": 20,
-        "confirmed_10k": 10,
+        "confirmed_1": 40,
+        "confirmed_10": 37,
+        "confirmed_100": 29,
+        "confirmed_1k": 21,
+        "confirmed_10k": 11,
         "peak": 5,
-        "peak_confirmed": 5,
+        "peak_confirmed": 6,
         "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 24295,
-          "deaths": 563,
-          "infected": 23732
+          "confirmed": 25591,
+          "deaths": 746,
+          "infected": 24845
         },
         "absolute_pop100k": {
-          "confirmed": 189.775,
-          "deaths": 4.398,
-          "infected": 185.377
+          "confirmed": 199.899,
+          "deaths": 5.827,
+          "infected": 194.071
         },
         "delta": {
-          "confirmed": 1340,
-          "deaths": 38,
-          "infected": 1302
+          "confirmed": 1296,
+          "deaths": 183,
+          "infected": 1113
         },
         "relative": {
-          "deaths": 2.317,
-          "infected": 97.683
+          "deaths": 2.915,
+          "infected": 97.085
         },
         "peak_pct": {
-          "confirmed": 79.535,
-          "deaths": 63.545,
-          "infected": 80.271
+          "confirmed": 76.923,
+          "deaths": 259.207,
+          "infected": 68.619
         }
       },
       "factbook": {
@@ -2420,40 +2420,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 44,
-        "confirmed_10": 32,
-        "confirmed_100": 22,
-        "confirmed_1k": 8,
+        "confirmed_1": 45,
+        "confirmed_10": 33,
+        "confirmed_100": 23,
+        "confirmed_1k": 9,
         "peak": 3,
         "peak_confirmed": 3,
         "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 2976,
-          "deaths": 73,
-          "infected": 2903
+          "confirmed": 3251,
+          "deaths": 80,
+          "infected": 3171
         },
         "absolute_pop100k": {
-          "confirmed": 280.924,
-          "deaths": 6.891,
-          "infected": 274.033
+          "confirmed": 306.883,
+          "deaths": 7.552,
+          "infected": 299.331
         },
         "delta": {
-          "confirmed": 311,
-          "deaths": 10,
-          "infected": 301
+          "confirmed": 275,
+          "deaths": 7,
+          "infected": 268
         },
         "relative": {
-          "deaths": 2.453,
-          "infected": 97.547
+          "deaths": 2.461,
+          "infected": 97.539
         },
         "peak_pct": {
-          "confirmed": 110.05,
-          "deaths": 138.889,
-          "infected": 109.296
+          "confirmed": 93.729,
+          "deaths": 94.595,
+          "infected": 93.772
         }
       },
       "factbook": {
@@ -2475,40 +2475,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 39,
-        "confirmed_10": 34,
-        "confirmed_100": 25,
-        "confirmed_1k": 14,
+        "confirmed_1": 40,
+        "confirmed_10": 35,
+        "confirmed_100": 26,
+        "confirmed_1k": 15,
         "peak": 7,
-        "peak_confirmed": 9,
-        "peak_deaths": 5
+        "peak_confirmed": 10,
+        "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 3439,
-          "deaths": 87,
-          "infected": 3352
+          "confirmed": 3553,
+          "deaths": 97,
+          "infected": 3456
         },
         "absolute_pop100k": {
-          "confirmed": 66.793,
-          "deaths": 1.69,
-          "infected": 65.104
+          "confirmed": 69.008,
+          "deaths": 1.884,
+          "infected": 67.124
         },
         "delta": {
-          "confirmed": 120,
-          "deaths": 5,
-          "infected": 115
+          "confirmed": 114,
+          "deaths": 10,
+          "infected": 104
         },
         "relative": {
-          "deaths": 2.53,
-          "infected": 97.47
+          "deaths": 2.73,
+          "infected": 97.27
         },
         "peak_pct": {
-          "confirmed": 53.908,
-          "deaths": 86.207,
-          "infected": 52.704
+          "confirmed": 51.213,
+          "deaths": 147.059,
+          "infected": 47.663
         }
       },
       "factbook": {
@@ -2530,37 +2530,37 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 35,
-        "confirmed_10": 29,
-        "confirmed_100": 15,
+        "confirmed_1": 36,
+        "confirmed_10": 30,
+        "confirmed_100": 16,
         "peak": 9,
         "peak_confirmed": 3,
-        "peak_deaths": 15
+        "peak_deaths": 16
       },
       "values": {
         "absolute": {
-          "confirmed": 868,
+          "confirmed": 988,
           "deaths": 6,
-          "infected": 862
+          "infected": 982
         },
         "absolute_pop100k": {
-          "confirmed": 98.117,
+          "confirmed": 111.681,
           "deaths": 0.678,
-          "infected": 97.439
+          "infected": 111.003
         },
         "delta": {
-          "confirmed": 138,
-          "infected": 138
+          "confirmed": 120,
+          "infected": 120
         },
         "relative": {
-          "deaths": 0.691,
-          "infected": 99.309
+          "deaths": 0.607,
+          "infected": 99.393
         },
         "peak_pct": {
-          "confirmed": 168.293,
-          "infected": 168.293
+          "confirmed": 126.05,
+          "infected": 125.786
         }
       },
       "factbook": {
@@ -2582,40 +2582,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 40,
-        "confirmed_10": 33,
-        "confirmed_100": 26,
-        "confirmed_1k": 18,
-        "peak": 6,
-        "peak_confirmed": 6,
+        "confirmed_1": 41,
+        "confirmed_10": 34,
+        "confirmed_100": 27,
+        "confirmed_1k": 19,
+        "peak": 7,
+        "peak_confirmed": 7,
         "peak_deaths": 7
       },
       "values": {
         "absolute": {
-          "confirmed": 5483,
-          "deaths": 114,
-          "infected": 5369
+          "confirmed": 5654,
+          "deaths": 123,
+          "infected": 5531
         },
         "absolute_pop100k": {
-          "confirmed": 80.288,
-          "deaths": 1.669,
-          "infected": 78.619
+          "confirmed": 82.792,
+          "deaths": 1.801,
+          "infected": 80.991
         },
         "delta": {
-          "confirmed": 339,
-          "deaths": 7,
-          "infected": 332
+          "confirmed": 171,
+          "deaths": 9,
+          "infected": 162
         },
         "relative": {
-          "deaths": 2.079,
-          "infected": 97.921
+          "deaths": 2.175,
+          "infected": 97.825
         },
         "peak_pct": {
-          "confirmed": 110.495,
-          "deaths": 66.038,
-          "infected": 110.08
+          "confirmed": 55.737,
+          "deaths": 84.906,
+          "infected": 53.714
         }
       },
       "factbook": {
@@ -2637,41 +2637,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 62,
-        "confirmed_10": 50,
-        "confirmed_100": 28,
-        "confirmed_1k": 20,
-        "confirmed_10k": 5,
-        "peak": 5,
-        "peak_confirmed": 6,
-        "peak_deaths": 4
+        "confirmed_1": 63,
+        "confirmed_10": 51,
+        "confirmed_100": 29,
+        "confirmed_1k": 21,
+        "confirmed_10k": 6,
+        "peak": 6,
+        "peak_confirmed": 7,
+        "peak_deaths": 6
       },
       "values": {
         "absolute": {
-          "confirmed": 14488,
-          "deaths": 320,
-          "infected": 14168
+          "confirmed": 15304,
+          "deaths": 365,
+          "infected": 14939
         },
         "absolute_pop100k": {
-          "confirmed": 49.966,
-          "deaths": 1.104,
-          "infected": 48.862
+          "confirmed": 52.78,
+          "deaths": 1.259,
+          "infected": 51.521
         },
         "delta": {
-          "confirmed": 714,
-          "deaths": 31,
-          "infected": 683
+          "confirmed": 816,
+          "deaths": 45,
+          "infected": 771
         },
         "relative": {
-          "deaths": 2.209,
-          "infected": 97.791
+          "deaths": 2.385,
+          "infected": 97.615
         },
         "peak_pct": {
-          "confirmed": 76.315,
-          "deaths": 126.016,
-          "infected": 74.677
+          "confirmed": 87.217,
+          "deaths": 164.234,
+          "infected": 84.299
         }
       },
       "factbook": {
@@ -2693,38 +2693,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 49,
-        "confirmed_10": 31,
-        "confirmed_100": 25,
-        "confirmed_1k": 13,
+        "confirmed_1": 50,
+        "confirmed_10": 32,
+        "confirmed_100": 26,
+        "confirmed_1k": 14,
         "peak": 9,
-        "peak_confirmed": 10,
-        "peak_deaths": 8
+        "peak_confirmed": 11,
+        "peak_deaths": 7
       },
       "values": {
         "absolute": {
-          "confirmed": 2363,
-          "deaths": 18,
-          "infected": 2345
+          "confirmed": 2418,
+          "deaths": 19,
+          "infected": 2399
         },
         "absolute_pop100k": {
-          "confirmed": 73.707,
-          "deaths": 0.561,
-          "infected": 73.145
+          "confirmed": 75.422,
+          "deaths": 0.593,
+          "infected": 74.829
         },
         "delta": {
-          "confirmed": 60,
-          "infected": 60
+          "confirmed": 55,
+          "deaths": 1,
+          "infected": 54
         },
         "relative": {
-          "deaths": 0.762,
-          "infected": 99.238
+          "deaths": 0.786,
+          "infected": 99.214
         },
         "peak_pct": {
-          "confirmed": 41.609,
-          "infected": 41.783
+          "confirmed": 38.141,
+          "deaths": 50,
+          "infected": 37.604
         }
       },
       "factbook": {
@@ -2746,39 +2748,39 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 38,
-        "confirmed_10": 29,
-        "confirmed_100": 20,
-        "peak": 10,
-        "peak_confirmed": 11,
-        "peak_deaths": 10
+        "confirmed_1": 39,
+        "confirmed_10": 30,
+        "confirmed_100": 21,
+        "peak": 11,
+        "peak_confirmed": 12,
+        "peak_deaths": 11
       },
       "values": {
         "absolute": {
-          "confirmed": 748,
-          "deaths": 28,
-          "infected": 720
+          "confirmed": 752,
+          "deaths": 29,
+          "infected": 723
         },
         "absolute_pop100k": {
-          "confirmed": 119.874,
-          "deaths": 4.487,
-          "infected": 115.387
+          "confirmed": 120.515,
+          "deaths": 4.648,
+          "infected": 115.867
         },
         "delta": {
-          "confirmed": 21,
+          "confirmed": 4,
           "deaths": 1,
-          "infected": 20
+          "infected": 3
         },
         "relative": {
-          "deaths": 3.743,
-          "infected": 96.257
+          "deaths": 3.856,
+          "infected": 96.144
         },
         "peak_pct": {
-          "confirmed": 46.667,
+          "confirmed": 8.889,
           "deaths": 41.667,
-          "infected": 45.455
+          "infected": 6.818
         }
       },
       "factbook": {
@@ -2800,40 +2802,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 38,
-        "confirmed_10": 34,
-        "confirmed_100": 25,
-        "confirmed_1k": 15,
+        "confirmed_1": 39,
+        "confirmed_10": 35,
+        "confirmed_100": 26,
+        "confirmed_1k": 16,
         "peak": 4,
-        "peak_confirmed": 5,
-        "peak_deaths": 3
+        "peak_confirmed": 4,
+        "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 5747,
-          "deaths": 149,
-          "infected": 5598
+          "confirmed": 6171,
+          "deaths": 154,
+          "infected": 6017
         },
         "absolute_pop100k": {
-          "confirmed": 67.33,
-          "deaths": 1.746,
-          "infected": 65.585
+          "confirmed": 72.298,
+          "deaths": 1.804,
+          "infected": 70.494
         },
         "delta": {
-          "confirmed": 473,
-          "deaths": 8,
-          "infected": 465
+          "confirmed": 424,
+          "deaths": 5,
+          "infected": 419
         },
         "relative": {
-          "deaths": 2.593,
-          "infected": 97.407
+          "deaths": 2.496,
+          "infected": 97.504
         },
         "peak_pct": {
-          "confirmed": 108.139,
-          "deaths": 72.727,
-          "infected": 110.085
+          "confirmed": 95.668,
+          "deaths": 45.455,
+          "infected": 96.633
         }
       },
       "factbook": {
@@ -2855,41 +2857,41 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 84,
-        "confirmed_10": 45,
-        "confirmed_100": 38,
-        "confirmed_1k": 27,
-        "confirmed_10k": 3,
-        "peak": 11,
-        "peak_confirmed": 15,
-        "peak_deaths": 8
+        "confirmed_1": 85,
+        "confirmed_10": 46,
+        "confirmed_100": 39,
+        "confirmed_1k": 28,
+        "confirmed_10k": 4,
+        "peak": 10,
+        "peak_confirmed": 16,
+        "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 10538,
-          "deaths": 525,
-          "infected": 10013
+          "confirmed": 10694,
+          "deaths": 552,
+          "infected": 10142
         },
         "absolute_pop100k": {
-          "confirmed": 138.387,
-          "deaths": 6.894,
-          "infected": 131.492
+          "confirmed": 140.435,
+          "deaths": 7.249,
+          "infected": 133.186
         },
         "delta": {
-          "confirmed": 127,
-          "deaths": 14,
-          "infected": 113
+          "confirmed": 156,
+          "deaths": 27,
+          "infected": 129
         },
         "relative": {
-          "deaths": 4.982,
-          "infected": 95.018
+          "deaths": 5.162,
+          "infected": 94.838
         },
         "peak_pct": {
-          "confirmed": 22.336,
-          "deaths": 53.435,
-          "infected": 20.613
+          "confirmed": 27.436,
+          "deaths": 102.273,
+          "infected": 23.532
         }
       },
       "factbook": {
@@ -2911,39 +2913,39 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 28,
-        "confirmed_10": 24,
-        "confirmed_100": 17,
-        "peak": 5,
-        "peak_confirmed": 6,
-        "peak_deaths": 5
+        "confirmed_1": 29,
+        "confirmed_10": 25,
+        "confirmed_100": 18,
+        "peak": 4,
+        "peak_confirmed": 5,
+        "peak_deaths": 4
       },
       "values": {
         "absolute": {
-          "confirmed": 638,
-          "deaths": 9,
-          "infected": 629
+          "confirmed": 697,
+          "deaths": 10,
+          "infected": 687
         },
         "absolute_pop100k": {
-          "confirmed": 35.6,
-          "deaths": 0.502,
-          "infected": 35.098
+          "confirmed": 38.892,
+          "deaths": 0.558,
+          "infected": 38.334
         },
         "delta": {
-          "confirmed": 23,
+          "confirmed": 59,
           "deaths": 1,
-          "infected": 22
+          "infected": 58
         },
         "relative": {
-          "deaths": 1.411,
-          "infected": 98.589
+          "deaths": 1.435,
+          "infected": 98.565
         },
         "peak_pct": {
-          "confirmed": 46.748,
+          "confirmed": 111.321,
           "deaths": 100,
-          "infected": 45.267
+          "infected": 111.111
         }
       },
       "factbook": {
@@ -2965,40 +2967,40 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 69,
-        "confirmed_10": 32,
-        "confirmed_100": 27,
-        "confirmed_1k": 17,
+        "confirmed_1": 70,
+        "confirmed_10": 33,
+        "confirmed_100": 28,
+        "confirmed_1k": 18,
         "peak": 8,
-        "peak_confirmed": 8,
+        "peak_confirmed": 9,
         "peak_deaths": 8
       },
       "values": {
         "absolute": {
-          "confirmed": 3428,
-          "deaths": 155,
-          "infected": 3273
+          "confirmed": 3555,
+          "deaths": 172,
+          "infected": 3383
         },
         "absolute_pop100k": {
-          "confirmed": 58.876,
-          "deaths": 2.662,
-          "infected": 56.214
+          "confirmed": 61.057,
+          "deaths": 2.954,
+          "infected": 58.103
         },
         "delta": {
-          "confirmed": 87,
-          "deaths": 10,
-          "infected": 77
+          "confirmed": 127,
+          "deaths": 17,
+          "infected": 110
         },
         "relative": {
-          "deaths": 4.522,
-          "infected": 95.478
+          "deaths": 4.838,
+          "infected": 95.162
         },
         "peak_pct": {
-          "confirmed": 47.129,
-          "deaths": 83.333,
-          "infected": 44.101
+          "confirmed": 68.797,
+          "deaths": 132.813,
+          "infected": 63.001
         }
       },
       "factbook": {
@@ -3020,37 +3022,36 @@
           -97
         ]
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 34,
-        "confirmed_10": 29,
-        "confirmed_100": 14,
-        "peak": 11,
-        "peak_confirmed": 11
+        "confirmed_1": 35,
+        "confirmed_10": 30,
+        "confirmed_100": 15,
+        "peak": 12,
+        "peak_confirmed": 12
       },
       "values": {
         "absolute": {
-          "confirmed": 275,
+          "confirmed": 282,
           "deaths": 1,
-          "infected": 274
+          "infected": 281
         },
         "absolute_pop100k": {
-          "confirmed": 47.515,
+          "confirmed": 48.725,
           "deaths": 0.173,
-          "infected": 47.343
+          "infected": 48.552
         },
         "delta": {
-          "confirmed": 5,
-          "deaths": 1,
-          "infected": 4
+          "confirmed": 7,
+          "infected": 7
         },
         "relative": {
-          "deaths": 0.364,
-          "infected": 99.636
+          "deaths": 0.355,
+          "infected": 99.645
         },
         "peak_pct": {
-          "confirmed": 29.412,
-          "infected": 23.529
+          "confirmed": 41.176,
+          "infected": 41.176
         }
       },
       "factbook": {
@@ -3071,41 +3072,41 @@
         "administrative": null,
         "latlong": null
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 84,
-        "confirmed_10": 72,
-        "confirmed_100": 43,
-        "confirmed_1k": 35,
-        "confirmed_10k": 26,
-        "peak": 5,
-        "peak_confirmed": 6,
-        "peak_deaths": 4
+        "confirmed_1": 85,
+        "confirmed_10": 73,
+        "confirmed_100": 44,
+        "confirmed_1k": 36,
+        "confirmed_10k": 27,
+        "peak": 6,
+        "peak_confirmed": 7,
+        "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 580151,
-          "deaths": 23599,
-          "infected": 556552
+          "confirmed": 606584,
+          "deaths": 26073,
+          "infected": 580511
         },
         "absolute_pop100k": {
-          "confirmed": 57.177,
-          "deaths": 2.326,
-          "infected": 54.851
+          "confirmed": 59.782,
+          "deaths": 2.57,
+          "infected": 57.212
         },
         "delta": {
-          "confirmed": 25553,
-          "deaths": 1550,
-          "infected": 24003
+          "confirmed": 26433,
+          "deaths": 2474,
+          "infected": 23959
         },
         "relative": {
-          "deaths": 4.068,
-          "infected": 95.932
+          "deaths": 4.298,
+          "infected": 95.702
         },
         "peak_pct": {
-          "confirmed": 78.656,
-          "deaths": 84.922,
-          "infected": 78.033
+          "confirmed": 81.364,
+          "deaths": 128.667,
+          "infected": 77.89
         }
       },
       "factbook": {
@@ -3124,37 +3125,37 @@
         "administrative": null,
         "latlong": null
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 30,
-        "confirmed_10": 26,
-        "confirmed_100": 14,
-        "peak": 7,
-        "peak_confirmed": 8,
-        "peak_deaths": 7
+        "confirmed_1": 31,
+        "confirmed_10": 27,
+        "confirmed_100": 15,
+        "peak": 8,
+        "peak_confirmed": 9,
+        "peak_deaths": 8
       },
       "values": {
         "absolute": {
-          "confirmed": 727,
+          "confirmed": 734,
           "deaths": 8,
-          "infected": 719
+          "infected": 726
         },
         "absolute_pop100k": {
-          "confirmed": 1.769,
+          "confirmed": 1.786,
           "deaths": 0.019,
-          "infected": 1.749
+          "infected": 1.766
         },
         "delta": {
-          "deaths": 1,
-          "infected": -1
+          "confirmed": 7,
+          "infected": 7
         },
         "relative": {
-          "deaths": 1.1,
-          "infected": 98.9
+          "deaths": 1.09,
+          "infected": 98.91
         },
         "peak_pct": {
-          "deaths": 100,
-          "infected": -1.176
+          "confirmed": 8.197,
+          "infected": 8.235
         }
       },
       "factbook": {
@@ -3175,39 +3176,37 @@
         "administrative": null,
         "latlong": null
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 32,
-        "confirmed_10": 25,
-        "confirmed_100": 17,
-        "peak": 8,
-        "peak_confirmed": 8,
-        "peak_deaths": 8
+        "confirmed_1": 33,
+        "confirmed_10": 26,
+        "confirmed_100": 18,
+        "peak": 9,
+        "peak_confirmed": 9,
+        "peak_deaths": 9
       },
       "values": {
         "absolute": {
-          "confirmed": 954,
+          "confirmed": 974,
           "deaths": 46,
-          "infected": 908
+          "infected": 928
         },
         "absolute_pop100k": {
-          "confirmed": 2.295,
+          "confirmed": 2.343,
           "deaths": 0.111,
-          "infected": 2.184
+          "infected": 2.232
         },
         "delta": {
-          "confirmed": 6,
-          "deaths": 1,
-          "infected": 5
+          "confirmed": 20,
+          "infected": 20
         },
         "relative": {
-          "deaths": 4.822,
-          "infected": 95.178
+          "deaths": 4.723,
+          "infected": 95.277
         },
         "peak_pct": {
-          "confirmed": 8.876,
-          "deaths": 27.778,
-          "infected": 7.74
+          "confirmed": 29.586,
+          "infected": 30.96
         }
       },
       "factbook": {
@@ -3226,37 +3225,37 @@
         "administrative": null,
         "latlong": null
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 30,
-        "confirmed_10": 26,
-        "confirmed_100": 14,
-        "peak": 7,
-        "peak_confirmed": 8,
-        "peak_deaths": 7
+        "confirmed_1": 31,
+        "confirmed_10": 27,
+        "confirmed_100": 15,
+        "peak": 8,
+        "peak_confirmed": 9,
+        "peak_deaths": 8
       },
       "values": {
         "absolute": {
-          "confirmed": 727,
+          "confirmed": 734,
           "deaths": 8,
-          "infected": 719
+          "infected": 726
         },
         "absolute_pop100k": {
-          "confirmed": 133.455,
+          "confirmed": 134.74,
           "deaths": 1.469,
-          "infected": 131.987
+          "infected": 133.272
         },
         "delta": {
-          "deaths": 1,
-          "infected": -1
+          "confirmed": 7,
+          "infected": 7
         },
         "relative": {
-          "deaths": 1.1,
-          "infected": 98.9
+          "deaths": 1.09,
+          "infected": 98.91
         },
         "peak_pct": {
-          "deaths": 100,
-          "infected": -1.176
+          "confirmed": 8.197,
+          "infected": 8.235
         }
       },
       "factbook": {
@@ -3275,41 +3274,41 @@
         "administrative": null,
         "latlong": null
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 84,
-        "confirmed_10": 72,
-        "confirmed_100": 43,
-        "confirmed_1k": 35,
-        "confirmed_10k": 26,
-        "peak": 5,
-        "peak_confirmed": 6,
-        "peak_deaths": 4
+        "confirmed_1": 85,
+        "confirmed_10": 73,
+        "confirmed_100": 44,
+        "confirmed_1k": 36,
+        "confirmed_10k": 27,
+        "peak": 6,
+        "peak_confirmed": 7,
+        "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 579197,
-          "deaths": 23553,
-          "infected": 555644
+          "confirmed": 605610,
+          "deaths": 26027,
+          "infected": 579583
         },
         "absolute_pop100k": {
-          "confirmed": 116.044,
-          "deaths": 4.719,
-          "infected": 111.325
+          "confirmed": 121.336,
+          "deaths": 5.215,
+          "infected": 116.122
         },
         "delta": {
-          "confirmed": 25547,
-          "deaths": 1549,
-          "infected": 23998
+          "confirmed": 26413,
+          "deaths": 2474,
+          "infected": 23939
         },
         "relative": {
-          "deaths": 4.066,
-          "infected": 95.934
+          "deaths": 4.298,
+          "infected": 95.702
         },
         "peak_pct": {
-          "confirmed": 78.772,
-          "deaths": 85.016,
-          "infected": 78.15
+          "confirmed": 81.442,
+          "deaths": 128.948,
+          "infected": 77.957
         }
       },
       "factbook": {
@@ -3330,41 +3329,41 @@
         "administrative": null,
         "latlong": null
       },
-      "date": "2020-04-13",
+      "date": "2020-04-14",
       "day_index": {
-        "confirmed_1": 84,
-        "confirmed_10": 72,
-        "confirmed_100": 43,
-        "confirmed_1k": 35,
-        "confirmed_10k": 26,
-        "peak": 5,
-        "peak_confirmed": 6,
-        "peak_deaths": 4
+        "confirmed_1": 85,
+        "confirmed_10": 73,
+        "confirmed_100": 44,
+        "confirmed_1k": 36,
+        "confirmed_10k": 27,
+        "peak": 6,
+        "peak_confirmed": 7,
+        "peak_deaths": 5
       },
       "values": {
         "absolute": {
-          "confirmed": 580878,
-          "deaths": 23607,
-          "infected": 557271
+          "confirmed": 607318,
+          "deaths": 26081,
+          "infected": 581237
         },
         "absolute_pop100k": {
-          "confirmed": 7.564,
-          "deaths": 0.307,
-          "infected": 7.257
+          "confirmed": 7.908,
+          "deaths": 0.34,
+          "infected": 7.569
         },
         "delta": {
-          "confirmed": 25553,
-          "deaths": 1551,
-          "infected": 24002
+          "confirmed": 26440,
+          "deaths": 2474,
+          "infected": 23966
         },
         "relative": {
-          "deaths": 4.064,
-          "infected": 95.936
+          "deaths": 4.294,
+          "infected": 95.706
         },
         "peak_pct": {
-          "confirmed": 78.503,
-          "deaths": 84.949,
-          "infected": 77.822
+          "confirmed": 81.228,
+          "deaths": 128.64,
+          "infected": 77.705
         }
       },
       "factbook": {
