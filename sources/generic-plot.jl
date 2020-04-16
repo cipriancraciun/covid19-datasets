@@ -113,14 +113,14 @@ elseif _dataset_filter == :global
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
 	
-	_dataset_confirmed_at_least = 20000
+	_dataset_confirmed_at_least = 50000
 	
 elseif _dataset_filter == :countries
 	
 	_dataset_location_key = :country
 	_dataset_location_type = "total-country"
 	
-	_dataset_confirmed_at_least = 5000
+	_dataset_confirmed_at_least = 25000
 	
 elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor]
 	
@@ -136,13 +136,13 @@ elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor
 		)
 	
 	if _dataset_filter == :europe_major
-		_dataset_confirmed_at_least = 20000
+		_dataset_confirmed_at_least = 30000
 	elseif _dataset_filter == :europe_medium
-		_dataset_confirmed_at_most = 20000
-		_dataset_confirmed_at_least = 5000
+		_dataset_confirmed_at_most = 30000
+		_dataset_confirmed_at_least = 10000
 	elseif _dataset_filter == :europe_minor
-		_dataset_confirmed_at_most = 5000
-		_dataset_confirmed_at_least = 500
+		_dataset_confirmed_at_most = 10000
+		_dataset_confirmed_at_least = 2500
 	else
 		_dataset_confirmed_at_least = 5000
 	end
@@ -163,15 +163,15 @@ elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
 	_dataset_locations = unique(_dataset[:, :province])
 	
 	if _dataset_filter == :us_major
-		_dataset_confirmed_at_least = 10000
+		_dataset_confirmed_at_least = 30000
 	elseif _dataset_filter == :us_medium
+		_dataset_confirmed_at_most = 30000
+		_dataset_confirmed_at_least = 10000
+	elseif _dataset_filter == :us_minor
 		_dataset_confirmed_at_most = 10000
 		_dataset_confirmed_at_least = 2500
-	elseif _dataset_filter == :us_minor
-		_dataset_confirmed_at_most = 2500
-		_dataset_confirmed_at_least = 500
 	else
-		_dataset_confirmed_at_least = 2500
+		_dataset_confirmed_at_least = 5000
 	end
 	
 elseif _dataset_filter == :romania
