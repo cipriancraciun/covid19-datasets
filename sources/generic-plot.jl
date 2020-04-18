@@ -290,18 +290,21 @@ _dataset = filter(
 
 
 
+_dataset_colors_count = _dataset_locations_count - 1
+_dataset_colors_maximum = 330
+_dataset_colors_shift = -30
 
 if false
 	_dataset_colors_increment = 15
 	_dataset_colors_delta = _dataset_colors_increment
-	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_locations_count) < 300
+	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_colors_count) < _dataset_colors_maximum
 		global _dataset_colors_delta += _dataset_colors_increment
 	end
-	if (_dataset_colors_delta * _dataset_locations_count) >= 300
-		println(("[28e552a2]", _dataset_colors_delta, _dataset_locations_count))
+	if (_dataset_colors_delta * _dataset_colors_count) >= _dataset_colors_maximum
+		println(("[28e552a2]", _dataset_colors_delta, _dataset_colors_count))
 	end
 else
-	_dataset_colors_delta = floor(300 / _dataset_locations_count)
+	_dataset_colors_delta = floor(_dataset_colors_maximum / _dataset_colors_count)
 end
 
 
@@ -309,15 +312,22 @@ for (_index, _dataset_location) in enumerate(_dataset_locations_meta[:, :locatio
 	
 	_dataset_color_index = _index - 1
 	_dataset_color_hue = _dataset_color_index * _dataset_colors_delta
-	_dataset_color_hue -= 60
+	_dataset_color_hue += _dataset_colors_shift
 	if _dataset_color_hue < 0
 		_dataset_color_hue += 360
+	elseif _dataset_color_hue >= 360
+		_dataset_color_hue -= 360
 	end
 	
-	_dataset_color = Colors.HSL(
+#	_dataset_color = Colors.HSL(
+#			_dataset_color_hue,
+#			1,
+#			0.5,
+#		)
+	_dataset_color = Colors.LCHab(
+			75,
+			132,
 			_dataset_color_hue,
-			1,
-			0.5,
 		)
 	
 	_dataset_locations_meta[_index, :color] = _dataset_color
