@@ -294,7 +294,9 @@ _dataset_colors_count = _dataset_locations_count - 1
 _dataset_colors_maximum = 330
 _dataset_colors_shift = -30
 
-if false
+if _dataset_colors_count == 0
+	_dataset_colors_delta = 0
+elseif false
 	_dataset_colors_increment = 15
 	_dataset_colors_delta = _dataset_colors_increment
 	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_colors_count) < _dataset_colors_maximum
