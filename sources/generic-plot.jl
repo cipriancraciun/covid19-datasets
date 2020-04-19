@@ -548,7 +548,7 @@ _plot_font_name = "JetBrains Mono"
 _plot_font_size = 12px
 
 _plot_style = Gadfly.style(
-		point_size = 2px,
+		point_size = 1.25px,
 		line_width = 2px,
 		highlight_width = 1px,
 		grid_line_width = 1px,
