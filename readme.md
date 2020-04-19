@@ -89,9 +89,9 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 ![absolute--confirmed](./plots/ecdc/global/svg/absolute--confirmed--lines.svg)
 ![absolute_pop100k--confirmed](./plots/ecdc/global/svg/absolute_pop100k--confirmed--lines.svg)
 ![absolute--deaths](./plots/ecdc/global/svg/absolute--deaths--lines.svg)
-![peak--confirmed](./plots/ecdc/global/svg/peakpct--confirmed--lines.svg)
-![peak--confirmed](./plots/ecdc/global/svg/peakpct--confirmed--heatmap.svg)
-![peak--deaths](./plots/ecdc/global/svg/peakpct--deaths--heatmap.svg)
+![peak--confirmed](./plots/ecdc/global/svg/peak_pct--confirmed--lines.svg)
+![peak--confirmed](./plots/ecdc/global/svg/peak_pct--confirmed--heatmap.svg)
+![peak--deaths](./plots/ecdc/global/svg/peak_pct--deaths--heatmap.svg)
 
 
 
