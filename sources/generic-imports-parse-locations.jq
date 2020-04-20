@@ -47,6 +47,13 @@
 			(. == "Out of HI") or
 			(. == "Out of GA") or
 			(. == "Out-of-state") or
+			# NOTE:  Administrative in Utah
+			(. == "Bear River") or
+			(. == "Central Utah") or
+			(. == "Southeast Utah") or
+			(. == "Southwest Utah") or
+			(. == "TriCounty") or
+			# NOTE:  Administrative in Michigan
 			(. == "Federal Correctional Institution (FCI)") or
 			(. == "Michigan Department of Corrections (MDOC)") or
 			false
