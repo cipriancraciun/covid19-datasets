@@ -101,3 +101,17 @@
 	"${ZRUN[@]}" ':: git / snapshot / combined / data'
 !!
 
+
+
+
+<< git / optimize
+	test "${#}" -eq 0
+	
+	git reflog expire --all --expire=all --expire-unreachable=all
+	git pack-refs --all
+	
+	nice -n 19 -- git prune --expire=all --verbose
+	nice -n 19 -- git repack -d
+	nice -n 19 -- git prune --expire=all --verbose
+!!
+
