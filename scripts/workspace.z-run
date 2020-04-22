@@ -27,3 +27,77 @@
 	
 !!
 
+
+
+
+<< git / snapshot / jhu / data
+	test "${#}" -eq 0
+	git add -- ./imports/jhu ./exports/jhu
+	if ! git diff --cached --exit-code --quiet -- ./imports/jhu ./exports/jhu ; then
+		git commit -m '[jhu][datasets]  Update JHU datasets due to upstream data changes.' -- ./imports/jhu ./exports/jhu
+	fi
+!!
+
+<< git / snapshot / nytimes / data
+	test "${#}" -eq 0
+	git add -- ./imports/nytimes ./exports/nytimes
+	if ! git diff --cached --exit-code --quiet -- ./imports/nytimes ./exports/nytimes ; then
+		git commit -m '[nytimes][datasets]  Update NY Times datasets due to upstream data changes.' -- ./imports/nytimes ./exports/nytimes
+	fi
+!!
+
+<< git / snapshot / ecdc / data
+	test "${#}" -eq 0
+	git add -- ./imports/ecdc ./exports/ecdc
+	if ! git diff --cached --exit-code --quiet -- ./imports/ecdc ./exports/ecdc ; then
+		git commit -m '[ecdc][datasets]  Update ECDC datasets due to upstream data changes.' -- ./imports/ecdc ./exports/ecdc
+	fi
+!!
+
+<< git / snapshot / combined / data
+	test "${#}" -eq 0
+	git add -- ./exports/combined
+	if ! git diff --cached --exit-code --quiet -- ./exports/combined ; then
+		git commit -m '[combined][datasets]  Update combined datasets due to upstream data changes.' -- ./exports/combined
+	fi
+!!
+
+
+<< git / snapshot / jhu / plots
+	test "${#}" -eq 0
+	git add -- ./plots/jhu
+	if ! git diff --cached --exit-code --quiet -- ./plots/jhu ; then
+		git commit -m '[jhu][plots]  Update JHU plots due to upstream data changes.' -- ./plots/jhu
+	fi
+!!
+
+<< git / snapshot / nytimes / plots
+	test "${#}" -eq 0
+	git add -- ./plots/nytimes
+	if ! git diff --cached --exit-code --quiet -- ./plots/nytimes ; then
+		git commit -m '[nytimes][plots]  Update NY Times plots due to upstream data changes.' -- ./plots/nytimes
+	fi
+!!
+
+<< git / snapshot / ecdc / plots
+	test "${#}" -eq 0
+	git add -- ./plots/ecdc
+	if ! git diff --cached --exit-code --quiet -- ./plots/ecdc ; then
+		git commit -m '[ecdc][plots]  Update ECDC plots due to upstream data changes.' -- ./plots/ecdc
+	fi
+!!
+
+
+
+
+<< git / snapshot / all
+	test "${#}" -eq 0
+	"${ZRUN[@]}" ':: git / snapshot / jhu / data'
+	"${ZRUN[@]}" ':: git / snapshot / jhu / plots'
+	"${ZRUN[@]}" ':: git / snapshot / nytimes / data'
+	"${ZRUN[@]}" ':: git / snapshot / nytimes / plots'
+	"${ZRUN[@]}" ':: git / snapshot / ecdc / data'
+	"${ZRUN[@]}" ':: git / snapshot / ecdc / plots'
+	"${ZRUN[@]}" ':: git / snapshot / combined / data'
+!!
+
