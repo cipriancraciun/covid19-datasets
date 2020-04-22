@@ -138,6 +138,16 @@
 			| (
 				(. == ["Germany", "Bavaria", null]) or
 				(. == ["United States", "US", null]) or
+				(. == ["United States", "US Military", null]) or
+				(. == ["United States", "US Military", "Unassigned"]) or
+				(. == ["United States", "US Military", "Air Force"]) or
+				(. == ["United States", "US Military", "Army"]) or
+				(. == ["United States", "US Military", "Marine Corps"]) or
+				(. == ["United States", "US Military", "Navy"]) or
+				(. == ["United States", "US Military", "Unassigned"]) or
+				(. == ["United States", "Federal Bureau of Prisons", "Inmates"]) or
+				(. == ["United States", "Federal Bureau of Prisons", "Staff"]) or
+				(. == ["United States", "Veteran Hospitals", null]) or
 				false
 			)
 	) then
