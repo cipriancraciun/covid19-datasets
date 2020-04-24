@@ -154,6 +154,17 @@
 		[.[0], null, null, null, null, null, .[6], .[7], .[8]]
 	else . end
 	
+	# NOTE:  Re-group some US counties.
+	| if (
+			[.[0], .[1], .[2]]
+			| (
+				(. == ["United States", "Utah", "Southwest"]) or
+				false
+			)
+	) then
+		[.[0], .[1], null, null, null, null, .[6], .[7], .[8]]
+	else . end
+	
 	# NOTE:  Re-group some teritories under UK.
 	| if (
 			[.[0], .[1], .[2]]
