@@ -31,6 +31,7 @@ None of these datasets were collected by me, however I have re-processed, re-for
 
 * [covid19.geo-spatial.org](https://covid19.geo-spatial.org/dashboard/statistici/situatie-europa);
 * [github.com/jojo4u/covid-19-graphs-jo](https://github.com/jojo4u/covid-19-graphs-jo);
+* [github.com/bogdanvso/diseases_risk_analysing](https://github.com/bogdanvso/diseases_risk_analysing);
 
 
 
