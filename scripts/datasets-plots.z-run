@@ -192,7 +192,7 @@
 		exec -- "${ZRUN[@]}" ':: plots / view / build + exec' __{{ $_dataset }}__plots__{{ $_filter }}__all__png -path '*/{{ $_dataset }}/*' -path '*/{{ $_filter }}/*'
 	!!
 	
-	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "delta_pct" "delta_pop100k" "peak_pct" }}
+	{{ range $_, $_method := array "absolute" "absolute_pop100k" "relative" "delta" "delta_pop100k" "peak_pct" }}
 	
 	<< plots / view / {{ $_dataset }} / {{ $_filter }} / {{ $_method }}
 		test "${#}" -eq 0
