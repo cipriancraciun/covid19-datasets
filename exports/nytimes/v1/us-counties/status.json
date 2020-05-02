@@ -64572,41 +64572,6 @@
       },
       "factbook": null
     },
-    "United States / Nebraska / Dawes": {
-      "dataset": "nytimes/us-counties",
-      "location": {
-        "label": "United States / Nebraska / Dawes",
-        "type": "administrative",
-        "country_code": "US",
-        "country": "United States",
-        "province": "Nebraska",
-        "administrative": "Dawes",
-        "latlong": [
-          38,
-          -97
-        ]
-      },
-      "date": "2020-04-30",
-      "day_index": {
-        "confirmed_1": 1
-      },
-      "values": {
-        "absolute": {
-          "confirmed": 2,
-          "infected": 2
-        },
-        "absolute_pop100k": null,
-        "delta": {
-          "confirmed": 2,
-          "infected": 2
-        },
-        "relative": {
-          "infected": 100
-        },
-        "peak_pct": null
-      },
-      "factbook": null
-    },
     "United States / Nebraska / Dawson": {
       "dataset": "nytimes/us-counties",
       "location": {
@@ -64631,20 +64596,20 @@
       },
       "values": {
         "absolute": {
-          "confirmed": 456,
-          "infected": 456
+          "confirmed": 458,
+          "infected": 458
         },
         "absolute_pop100k": null,
         "delta": {
-          "confirmed": 32,
-          "infected": 32
+          "confirmed": 34,
+          "infected": 34
         },
         "relative": {
           "infected": 100
         },
         "peak_pct": {
-          "confirmed": 65.306,
-          "infected": 65.306
+          "confirmed": 69.388,
+          "infected": 69.388
         }
       },
       "factbook": null
