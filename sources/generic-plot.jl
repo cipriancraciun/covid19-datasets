@@ -508,7 +508,7 @@ if _dataset_cmax_metric !== nothing
 end
 
 
-_dataset_smoothing = 0.9
+_dataset_smoothing = 0.5
 
 
 
