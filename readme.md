@@ -106,13 +106,13 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 
 * I have re-formatted the original JHU dataset in a one-data-point-per-row format (thus more "relational" and SQL friendly):
   * the `daily` dataset (includes world countries and US counties, plus higher level aggregates):
-    * in JSON format: [values.json](./exports/jhu/v1/daily/values.json);
-    * in TSV format: [values.tsv](./exports/jhu/v1/daily/values.tsv);
+    * in JSON format: [values.json](./exports/jhu/v1/daily/values.json.gz);
+    * in TSV format: [values.tsv](./exports/jhu/v1/daily/values.tsv.gz);
     * in SQL format (for SQLite): [values-sqlite.sql](./exports/jhu/v1/daily/values-sqlite.sql) and [values-sqlite.db](./exports/jhu/v1/daily/values-sqlite.db);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/jhu/v1/daily/status.json);
   * the `series` dataset (includes world countries and US states, plus higher level aggregates):
-    * in JSON format: [values.json](./exports/jhu/v1/series/values.json);
-    * in TSV format: [values.tsv](./exports/jhu/v1/series/values.tsv);
+    * in JSON format: [values.json](./exports/jhu/v1/series/values.json.gz);
+    * in TSV format: [values.tsv](./exports/jhu/v1/series/values.tsv.gz);
     * in SQL format (for SQLite): [values-sqlite.sql](./exports/jhu/v1/series/values-sqlite.sql) and [values-sqlite.db](./exports/jhu/v1/series/values-sqlite.db);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/jhu/v1/series/status.json);
 * I have also augmented the original JHU dataset with the following:
@@ -134,13 +134,13 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 
 * although the original NY dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
   * the `us-counties` dataset (includes only US counties, plus higher level aggregates):
-    * in JSON format: [values.json](./exports/nytimes/v1/us-counties/values.json);
-    * in TSV format: [values.tsv](./exports/nytimes/v1/us-counties/values.tsv);
+    * in JSON format: [values.json](./exports/nytimes/v1/us-counties/values.json.gz);
+    * in TSV format: [values.tsv](./exports/nytimes/v1/us-counties/values.tsv.gz);
     * in SQL format (for SQLite): [values-sqlite.sql](./exports/nytimes/v1/us-counties/values-sqlite.sql) and [values-sqlite.db](./exports/nytimes/v1/us-counties/values-sqlite.db);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/nytimes/v1/us-counties/status.json);
   * the `us-states` dataset (includes only US states, plus higher level aggregates):
-    * in JSON format: [values.json](./exports/nytimes/v1/us-states/values.json);
-    * in TSV format: [values.tsv](./exports/nytimes/v1/us-states/values.tsv);
+    * in JSON format: [values.json](./exports/nytimes/v1/us-states/values.json.gz);
+    * in TSV format: [values.tsv](./exports/nytimes/v1/us-states/values.tsv.gz);
     * in SQL format (for SQLite): [values-sqlite.sql](./exports/nytimes/v1/us-states/values-sqlite.sql) and [values-sqlite.db](./exports/nytimes/v1/us-states/values-sqlite.db);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/nytimes/v1/us-states/status.json);
 * all the transformations and augmentations described for the JHU one were applied also to the NY one;
@@ -153,8 +153,8 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 
 * although the original ECDC dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
   * the `worldwide` dataset (includes world countries, plus higher level aggregates):
-    * in JSON format: [values.json](./exports/ecdc/v1/worldwide/values.json);
-    * in TSV format: [values.tsv](./exports/ecdc/v1/worldwide/values.tsv);
+    * in JSON format: [values.json](./exports/ecdc/v1/worldwide/values.json.gz);
+    * in TSV format: [values.tsv](./exports/ecdc/v1/worldwide/values.tsv.gz);
     * in SQL format (for SQLite): [values-sqlite.sql](./exports/ecdc/v1/worldwide/values-sqlite.sql) and [values-sqlite.db](./exports/ecdc/v1/worldwide/values-sqlite.db);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/ecdc/v1/worldwide/status.json);
 * all the transformations and augmentations described for the JHU one were applied also to the ECDC one;
