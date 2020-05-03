@@ -246,7 +246,7 @@ for (_index, _dataset_location) in enumerate(_dataset_locations)
 		continue
 	end
 	
-	_dataset_0 = filter((_data -> _data[_dataset_metric] !== missing), _dataset)
+	_dataset_0 = filter((_data -> _data[_dataset_metric] !== missing), _dataset_0)
 	if ! isempty(_dataset_0)
 		_dataset_max_date = findmax(_dataset_0[:, :date])[1]
 		_dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
