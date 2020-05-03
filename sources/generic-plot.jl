@@ -278,7 +278,11 @@ for (_index, _dataset_location) in enumerate(_dataset_locations)
 	push!(_dataset_locations_meta, _dataset_location_meta)
 end
 
-_dataset_locations_meta = sort(_dataset_locations_meta, :confirmed_max, rev = true)
+if false
+	_dataset_locations_meta = sort(_dataset_locations_meta, :confirmed_max, rev = true)
+else
+	_dataset_locations_meta = sort(_dataset_locations_meta, :day_metric_max, rev = true)
+end
 
 _dataset_locations = _dataset_locations_meta[:, :location]
 _dataset_locations_count = size(_dataset_locations)[1]
