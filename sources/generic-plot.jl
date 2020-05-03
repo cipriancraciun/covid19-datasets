@@ -230,8 +230,9 @@ _dataset_locations_meta = DataFrame(
 
 _dataset_locations = unique(_dataset[:, _dataset_location_key])
 _dataset_locations_count = size(_dataset_locations)[1]
+_dataset_colors_count = 0
 
-for (_index, _dataset_location) in enumerate(_dataset_locations)
+for _dataset_location in _dataset_locations
 	
 	_dataset_0 = filter((_data -> _data[_dataset_location_key] == _dataset_location), _dataset)
 	if isempty(_dataset_0)
@@ -247,17 +248,16 @@ for (_index, _dataset_location) in enumerate(_dataset_locations)
 	end
 	
 	_dataset_0 = filter((_data -> _data[_dataset_metric] !== missing), _dataset_0)
-	if ! isempty(_dataset_0)
-		_dataset_max_date = findmax(_dataset_0[:, :date])[1]
-		_dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
-		_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])[1]
-	else
-		_dataset_max_date = missing
-		_dataset_max_index = NaN
-		_dataset_max_metric = NaN
+	if isempty(_dataset_0)
+		continue
 	end
 	
-	_dataset_color_index = _index - 1
+	_dataset_max_date = findmax(_dataset_0[:, :date])[1]
+	_dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
+	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])[1]
+	
+	global _dataset_colors_count += 1
+	_dataset_color_index = _dataset_colors_count - 1
 	_dataset_color = Colors.HSL(
 			0,
 			0,
@@ -294,23 +294,23 @@ _dataset = filter(
 
 
 
-_dataset_colors_count = _dataset_locations_count - 1
+
 _dataset_colors_maximum = 330
 _dataset_colors_shift = -30
 
-if _dataset_colors_count == 0
+if _dataset_colors_count == 1
 	_dataset_colors_delta = 0
 elseif false
 	_dataset_colors_increment = 15
 	_dataset_colors_delta = _dataset_colors_increment
-	while ((_dataset_colors_delta + _dataset_colors_increment) * _dataset_colors_count) < _dataset_colors_maximum
+	while ((_dataset_colors_delta + _dataset_colors_increment) * (_dataset_colors_count - 1)) < _dataset_colors_maximum
 		global _dataset_colors_delta += _dataset_colors_increment
 	end
-	if (_dataset_colors_delta * _dataset_colors_count) >= _dataset_colors_maximum
+	if (_dataset_colors_delta * (_dataset_colors_count - 1)) >= _dataset_colors_maximum
 		println(("[28e552a2]", _dataset_colors_delta, _dataset_colors_count))
 	end
 else
-	_dataset_colors_delta = floor(_dataset_colors_maximum / _dataset_colors_count)
+	_dataset_colors_delta = floor(_dataset_colors_maximum / (_dataset_colors_count - 1))
 end
 
 
@@ -325,11 +325,6 @@ for (_index, _dataset_location) in enumerate(_dataset_locations_meta[:, :locatio
 		_dataset_color_hue -= 360
 	end
 	
-#	_dataset_color = Colors.HSL(
-#			_dataset_color_hue,
-#			1,
-#			0.5,
-#		)
 	_dataset_color = Colors.LCHab(
 			75,
 			132,
