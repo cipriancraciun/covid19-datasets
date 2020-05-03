@@ -3,13 +3,16 @@
 !.gitignore
 !.z-run
 
-/imports/jhu/daily/values.json
-
-/exports/combined/v1/values.json
 /exports/combined/v1/values.tsv
 /exports/combined/v1/values-sqlite.sql
 /exports/combined/v1/values-sqlite.db
-/exports/**/*.sql-json
+
+/exports/**/values.json
+/exports/**/values.sql-json
+/exports/**/values.txt
+
+/imports/**/values.json
+/imports/**/merged.json
 
 *~
 *#
