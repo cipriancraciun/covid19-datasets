@@ -121,6 +121,13 @@ build ./exports/nytimes/v1/us-counties/values.html : z-run-in-out $
     pool = cpu_moderate
 
 
+build ./exports/nytimes/v1/us-counties/values.json.gz : gzip ./exports/nytimes/v1/us-counties/values.json
+    pool = cpu_moderate
+
+build ./exports/nytimes/v1/us-counties/values.tsv.gz : gzip ./exports/nytimes/v1/us-counties/values.tsv
+    pool = cpu_moderate
+
+
 
 
 build ./exports/nytimes/v1/us-counties/values.sql-json : z-run-in-out $

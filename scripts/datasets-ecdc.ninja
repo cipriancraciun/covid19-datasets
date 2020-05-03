@@ -121,6 +121,13 @@ build ./exports/ecdc/v1/worldwide/values.html : z-run-in-out $
     pool = cpu_moderate
 
 
+build ./exports/ecdc/v1/worldwide/values.json.gz : gzip ./exports/ecdc/v1/worldwide/values.json
+    pool = cpu_moderate
+
+build ./exports/ecdc/v1/worldwide/values.tsv.gz : gzip ./exports/ecdc/v1/worldwide/values.tsv
+    pool = cpu_moderate
+
+
 
 
 build ./exports/ecdc/v1/worldwide/values.sql-json : z-run-in-out $
@@ -161,7 +168,9 @@ build __ecdc__imports : phony $
 
 build __ecdc__exports : phony $
         ./exports/ecdc/v1/worldwide/values.json $
+        ./exports/ecdc/v1/worldwide/values.json.gz $
         ./exports/ecdc/v1/worldwide/values.tsv $
+        ./exports/ecdc/v1/worldwide/values.tsv.gz $
         ./exports/ecdc/v1/worldwide/values.txt $
         ./exports/ecdc/v1/worldwide/values.html $
         ./exports/ecdc/v1/worldwide/values-sqlite.sql $

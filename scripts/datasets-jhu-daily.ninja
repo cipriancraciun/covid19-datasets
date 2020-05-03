@@ -98,6 +98,13 @@ build ./exports/jhu/v1/daily/values.html : z-run-in-out $
     pool = cpu_moderate
 
 
+build ./exports/jhu/v1/daily/values.json.gz : gzip ./exports/jhu/v1/daily/values.json
+    pool = cpu_moderate
+
+build ./exports/jhu/v1/daily/values.tsv.gz : gzip ./exports/jhu/v1/daily/values.tsv
+    pool = cpu_moderate
+
+
 
 
 build ./exports/jhu/v1/daily/values.sql-json : z-run-in-out $

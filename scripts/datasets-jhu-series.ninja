@@ -156,6 +156,13 @@ build ./exports/jhu/v1/series/values.html : z-run-in-out $
     pool = cpu_moderate
 
 
+build ./exports/jhu/v1/series/values.json.gz : gzip ./exports/jhu/v1/series/values.json
+    pool = cpu_moderate
+
+build ./exports/jhu/v1/series/values.tsv.gz : gzip ./exports/jhu/v1/series/values.tsv
+    pool = cpu_moderate
+
+
 
 
 build ./exports/jhu/v1/series/values.sql-json : z-run-in-out $
