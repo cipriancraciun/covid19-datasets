@@ -12,7 +12,7 @@
 
 --<< ninja / exec
 	exec -- \
-			cgexec -g "cpu:${USER}--covid19-datasets" -- \
+			cgexec -g "cpu,memory:${USER}--covid19-datasets" -- \
 			nice -n 19 -- \
 	"${ZRUN[@]}" ':: ninja / script / exec' \
 			"${@}" \
@@ -308,9 +308,15 @@
 
 << ninja / processor / cgroup / create
 	test "${#}" -eq 0
+	
 	root-exec cgcreate -a root:root -t "${USER}:${USER}" -g "cpu:${USER}--covid19-datasets"
 	root-exec cgset -r cpu.shares=128 -- "${USER}--covid19-datasets"
 	root-exec cgset -r cpu.cfs_period_us=1000000 -- "${USER}--covid19-datasets"
+	
+	root-exec cgcreate -a root:root -t "${USER}:${USER}" -g "memory:${USER}--covid19-datasets"
+	root-exec cgset -r memory.limit_in_bytes=16G -- "${USER}--covid19-datasets"
+	root-exec cgset -r memory.soft_limit_in_bytes=1G -- "${USER}--covid19-datasets"
+	root-exec cgset -r memory.memsw.limit_in_bytes=16G -- "${USER}--covid19-datasets"
 !!
 
 << ninja / processor / cgroup / set / 10%
