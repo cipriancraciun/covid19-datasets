@@ -74,14 +74,14 @@
 	        | ./sources/generic-plot.jl
 	    scriptlet = ':: process / generic / plot'
 	    arguments = {{ $_dataset }} {{ $_format }} lines {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
-	    pool = cpu_heavy
+	    pool = cpu_plots
 	
 	build ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : z-run-in-out $
 	        {{ $_source }} $
 	        | ./sources/generic-plot.jl
 	    scriptlet = ':: process / generic / plot'
 	    arguments = {{ $_dataset }} {{ $_format }} heatmap {{ $_filter }} {{ $_index }} {{ $_method }}-{{ $_metric }}
-	    pool = cpu_heavy
+	    pool = cpu_plots
 	
 	{{ else }}
 	
@@ -89,13 +89,13 @@
 	        ./plots/{{ $_dataset }}/{{ $_filter }}/pdf/{{ $_method }}--{{ $_metric }}--lines.pdf
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
-	    pool = cpu_moderate
+	    pool = cpu_plots
 	
 	build ./plots/{{ $_dataset }}/{{ $_filter }}/{{ $_format }}/{{ $_method }}--{{ $_metric }}--heatmap.{{ $_format }} : z-run-in-out $
 	        ./plots/{{ $_dataset }}/{{ $_filter }}/pdf/{{ $_method }}--{{ $_metric }}--heatmap.pdf
 	    scriptlet = ':: tools / inkscape / convert'
 	    arguments = {{ $_format }}
-	    pool = cpu_moderate
+	    pool = cpu_plots
 	
 	{{ end }}
 	
