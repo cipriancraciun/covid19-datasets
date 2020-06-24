@@ -47,6 +47,7 @@
 			(. == "Out of HI") or
 			(. == "Out of GA") or
 			(. == "Out of IL") or
+			(. == "Out of AL") or
 			(. == "Out-of-state") or
 			# NOTE:  Administrative in Utah
 			(. == "Bear River") or
