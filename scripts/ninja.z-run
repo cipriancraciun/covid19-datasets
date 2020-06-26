@@ -15,6 +15,7 @@
 			cgexec -g "cpu,memory:${USER}--covid19-datasets" -- \
 			nice -n 19 -- \
 	"${ZRUN[@]}" ':: ninja / script / exec' \
+			-k 0 \
 			"${@}" \
 	#
 !!
