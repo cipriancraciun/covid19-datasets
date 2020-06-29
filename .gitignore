@@ -4,16 +4,25 @@
 !.z-run
 
 /exports/combined/v1/values.tsv
+/exports/combined/v1/values.sql-json
 /exports/combined/v1/values-sqlite.sql
 /exports/combined/v1/values-sqlite.db
 
-./exports/jhu/v1/daily/values.sql-json
-./exports/jhu/v1/daily/values-sqlite.sql
-./exports/jhu/v1/daily/values-sqlite.db
+/exports/jhu/v1/daily/values.sql-json
+/exports/jhu/v1/daily/values-sqlite.sql
+/exports/jhu/v1/daily/values-sqlite.db
 
-./exports/jhu/v1/series/values.sql-json
-./exports/jhu/v1/series/values-sqlite.sql
-./exports/jhu/v1/series/values-sqlite.db
+/exports/jhu/v1/series/values.sql-json
+/exports/jhu/v1/series/values-sqlite.sql
+/exports/jhu/v1/series/values-sqlite.db
+
+/exports/nytimes/v1/us-counties/values.sql-json
+/exports/nytimes/v1/us-counties/values-sqlite.sql
+/exports/nytimes/v1/us-counties/values-sqlite.db
+
+/exports/nytimes/v1/us-states/values.sql-json
+/exports/nytimes/v1/us-states/values-sqlite.sql
+/exports/nytimes/v1/us-states/values-sqlite.db
 
 /exports/**/values.json
 /exports/**/values.sql-json
