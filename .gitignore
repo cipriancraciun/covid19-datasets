@@ -7,6 +7,14 @@
 /exports/combined/v1/values-sqlite.sql
 /exports/combined/v1/values-sqlite.db
 
+./exports/jhu/v1/daily/values.sql-json
+./exports/jhu/v1/daily/values-sqlite.sql
+./exports/jhu/v1/daily/values-sqlite.db
+
+./exports/jhu/v1/series/values.sql-json
+./exports/jhu/v1/series/values-sqlite.sql
+./exports/jhu/v1/series/values-sqlite.db
+
 /exports/**/values.json
 /exports/**/values.sql-json
 /exports/**/values.txt

@@ -16,7 +16,9 @@ build __jhu__exports : phony $
         ./exports/jhu/v1/series/values.txt $
         ./exports/jhu/v1/series/values.html $
         ./exports/jhu/v1/series/values-sqlite.sql $
+        ./exports/jhu/v1/series/values-sqlite.sql.gz $
         ./exports/jhu/v1/series/values-sqlite.db $
+        ./exports/jhu/v1/series/values-sqlite.db.gz $
         ./exports/jhu/v1/series/status.json $
         $
         ./exports/jhu/v1/daily/values.json $
@@ -26,7 +28,9 @@ build __jhu__exports : phony $
         ./exports/jhu/v1/daily/values.txt $
         ./exports/jhu/v1/daily/values.html $
         ./exports/jhu/v1/daily/values-sqlite.sql $
+        ./exports/jhu/v1/daily/values-sqlite.sql.gz $
         ./exports/jhu/v1/daily/values-sqlite.db $
+        ./exports/jhu/v1/daily/values-sqlite.db.gz $
         ./exports/jhu/v1/daily/status.json $
         ||
 

@@ -150,6 +150,13 @@ build ./exports/nytimes/v1/us-counties/values-sqlite.db : sqlite-create $
     pool = cpu_moderate
 
 
+build ./exports/nytimes/v1/us-counties/values-sqlite.sql.gz : gzip ./exports/nytimes/v1/us-counties/values-sqlite.sql
+    pool = cpu_moderate
+
+build ./exports/nytimes/v1/us-counties/values-sqlite.db.gz : gzip ./exports/nytimes/v1/us-counties/values-sqlite.db
+    pool = cpu_moderate
+
+
 
 
 build ./exports/nytimes/v1/us-counties/status.json : z-run-in-out $
