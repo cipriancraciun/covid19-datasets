@@ -114,9 +114,9 @@ elseif _dataset_filter in [:global, :global_major, :global_medium, :global_minor
 	_dataset_location_type = "total-country"
 	
 	if _dataset_filter == :global_major
-		_dataset_confirmed_at_least = 200000
+		_dataset_confirmed_at_least = 400000
 	elseif _dataset_filter == :global_medium
-		_dataset_confirmed_at_most = 200000
+		_dataset_confirmed_at_most = 400000
 		_dataset_confirmed_at_least = 100000
 	elseif _dataset_filter == :global_minor
 		_dataset_confirmed_at_most = 100000
@@ -139,9 +139,9 @@ elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor
 		)
 	
 	if _dataset_filter == :europe_major
-		_dataset_confirmed_at_least = 100000
+		_dataset_confirmed_at_least = 200000
 	elseif _dataset_filter == :europe_medium
-		_dataset_confirmed_at_most = 100000
+		_dataset_confirmed_at_most = 200000
 		_dataset_confirmed_at_least = 50000
 	elseif _dataset_filter == :europe_minor
 		_dataset_confirmed_at_most = 50000
@@ -166,9 +166,9 @@ elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
 	_dataset_locations = unique(_dataset[:, :province])
 	
 	if _dataset_filter == :us_major
-		_dataset_confirmed_at_least = 100000
+		_dataset_confirmed_at_least = 200000
 	elseif _dataset_filter == :us_medium
-		_dataset_confirmed_at_most = 100000
+		_dataset_confirmed_at_most = 200000
 		_dataset_confirmed_at_least = 50000
 	elseif _dataset_filter == :us_minor
 		_dataset_confirmed_at_most = 50000
