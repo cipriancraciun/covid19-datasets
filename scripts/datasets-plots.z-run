@@ -8,7 +8,7 @@
 	
 	
 	{{ $_datasets := array "jhu" "ecdc" "nytimes" }}
-	{{ $_filters := array "global" "europe" "europe-major" "europe-medium" "europe-minor" "us" "us-major" "us-medium" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
+	{{ $_filters := array "global" "global-major" "global-medium" "global-minor" "europe" "europe-major" "europe-medium" "europe-minor" "us" "us-major" "us-medium" "us-minor" "romania" "world" "continents" "subcontinents" }}
 	{{ $_methods := array "absolute" "absolute_pop100k" "relative" "delta" "delta_pop100k" "peak_pct" }}
 	{{ $_metrics := array "confirmed" "deaths" "infected" "recovered" }}
 	{{ $_formats := array "pdf" "svg" "png" }}
@@ -177,7 +177,7 @@
 	!!
 	
 	
-	{{ range $_, $_filter := array "global" "europe" "europe-major" "europe-medium" "europe-minor" "us" "us-major" "us-medium" "us-minor" "romania" "world" "continents" "subcontinents" "countries" }}
+	{{ range $_, $_filter := array "global" "global-major" "global-medium" "global-minor" "europe" "europe-major" "europe-medium" "europe-minor" "us" "us-major" "us-medium" "us-minor" "romania" "world" "continents" "subcontinents" }}
 	
 	
 	{{ $_should_skip := false }}
