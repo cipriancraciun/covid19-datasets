@@ -53,7 +53,7 @@
 			--prune-empty-dirs \
 			\
 			--compress \
-			--compress-level 9 \
+			--compress-level 1 \
 			--skip-compress gz \
 			\
 			--exclude '*.tmp' \
