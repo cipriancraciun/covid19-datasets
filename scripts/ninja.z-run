@@ -11,9 +11,15 @@
 
 
 --<< ninja / exec
-	exec -- \
-			cgexec -g "cpu,memory:${USER}--covid19-datasets" -- \
-			nice -n 19 -- \
+	_wrapper=()
+	if test -e "/sys/fs/cgroup/cpu/${USER}--covid19-datasets" ; then
+		_wrapper+=( cgexec -g "cpu:${USER}--covid19-datasets" -- )
+	fi
+	if test -e "/sys/fs/cgroup/memory/${USER}--covid19-datasets" ; then
+		_wrapper+=( cgexec -g "memory:${USER}--covid19-datasets" -- )
+	fi
+	_wrapper+=( nice -n 19 -- )
+	exec -- "${_wrapper[@]}" \
 	"${ZRUN[@]}" ':: ninja / script / exec' \
 			-k 0 \
 			"${@}" \
