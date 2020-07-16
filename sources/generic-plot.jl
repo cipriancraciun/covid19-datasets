@@ -40,14 +40,14 @@ _plot_type = Symbol(replace(_plot_type, "-" => "_"))
 
 
 
-_dataset = CSV.read(
+_dataset = DataFrame!(CSV.File(
 		_dataset_path,
 		header = 1,
 		normalizenames = true,
 		delim = "\t", quotechar = '\0', escapechar = '\0',
-		categorical = true,
+		pool = true,
 		strict = true,
-	)
+	))
 
 
 
