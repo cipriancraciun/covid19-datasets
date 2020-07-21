@@ -81,37 +81,43 @@ def convert (_input, _output, _format) :
 	
 	_output.write (_sql_schema)
 	
-	_output.write ("insert into \"%s\"\n" % _sql_table)
-	_output.write ("\t( " + ", ".join (["\"%s\"" % _field_key for _field_key in _field_keys if _field_types[_field_key][0] is not None]) + " )\n")
-	_output.write ("values\n")
-	for _index, _record in enumerate(_records) :
-		_sql_values = []
-		for _field_key in _field_keys :
-			_field_type, _field_null = _field_types[_field_key]
-			if _field_type is None :
-				continue
-				raise Exception (("[899b18a8]", _field_key))
-			_value = _record[_field_key]
-			if _value is None :
-				_value = "null"
-			elif isinstance (_value, (int, float)) :
-				_value = str (_value)
-			elif isinstance (_value, (str, unicode)) :
-				_value = _value.replace ("'", "''")
-				_value = "'%s'" % _value
-			elif _value is True :
-				_value = "true"
-			elif _value is False :
-				_value = "false"
+	while len (_records) > 0 :
+		_output.write ("insert into \"%s\"\n" % _sql_table)
+		_output.write ("\t( " + ", ".join (["\"%s\"" % _field_key for _field_key in _field_keys if _field_types[_field_key][0] is not None]) + " )\n")
+		_output.write ("values\n")
+		_index = 0
+		while len (_records) > 0 :
+			_record = _records.pop (0)
+			_sql_values = []
+			for _field_key in _field_keys :
+				_field_type, _field_null = _field_types[_field_key]
+				if _field_type is None :
+					continue
+					raise Exception (("[899b18a8]", _field_key))
+				_value = _record[_field_key]
+				if _value is None :
+					_value = "null"
+				elif isinstance (_value, (int, float)) :
+					_value = str (_value)
+				elif isinstance (_value, (str, unicode)) :
+					_value = _value.replace ("'", "''")
+					_value = "'%s'" % _value
+				elif _value is True :
+					_value = "true"
+				elif _value is False :
+					_value = "false"
+				else :
+					raise Exception (("[682148ee]", _field_key, _value))
+				_sql_values.append (_value)
+			_sql_values = ", ".join (_sql_values)
+			if _index < (1000 - 1) and len (_records) > 0 :
+				_output.write ("\t( " + _sql_values + " ),\n")
 			else :
-				raise Exception (("[682148ee]", _field_key, _value))
-			_sql_values.append (_value)
-		_sql_values = ", ".join (_sql_values)
-		if _index < (len (_records) - 1) :
-			_output.write ("\t( " + _sql_values + " ),\n")
-		else :
-			_output.write ("\t( " + _sql_values + " )\n")
-	_output.write (";")
+				_output.write ("\t( " + _sql_values + " )\n")
+			_index += 1
+			if _index == 1000 :
+				break
+		_output.write (";\n")
 	
 	_input.close ()
 	_output.close ()
