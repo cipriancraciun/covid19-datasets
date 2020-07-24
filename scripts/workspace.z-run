@@ -101,6 +101,11 @@
 	"${ZRUN[@]}" ':: git / snapshot / combined / data'
 !!
 
+++<< git / push / github
+	test "${#}" -eq 0
+	exec -- git push github/cipriancraciun
+!!
+
 
 
 
