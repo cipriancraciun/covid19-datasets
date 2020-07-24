@@ -90,7 +90,7 @@
 
 
 
-<< git / snapshot / all
+++<< git / snapshot / all
 	test "${#}" -eq 0
 	"${ZRUN[@]}" ':: git / snapshot / jhu / data'
 	"${ZRUN[@]}" ':: git / snapshot / jhu / plots'
