@@ -28,7 +28,7 @@
 
 
 --<< ninja
-	case "${__ninja_processor:-local}" in
+	case "${__ninja_processor:-remote}" in
 		
 		( local )
 			exec -- "${ZRUN[@]}" ':: ninja / exec' "${@}"
@@ -242,6 +242,12 @@
 !!
 
 
+++<< ninja / do / data / force
+	test "${#}" -eq 0
+	"${ZRUN[@]}" ':: ninja / processor / force'
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
+!!
+
 << ninja / do / data / local + force
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
@@ -257,6 +263,11 @@
 !!
 
 
+++<< ninja / do / data
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
+!!
+
 << ninja / do / data / local
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
@@ -270,6 +281,11 @@
 !!
 
 
+++<< ninja / do / plots
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
+!!
+
 << ninja / do / plots / local
 	test "${#}" -eq 0
 	export -- __ninja_processor=local
@@ -282,6 +298,11 @@
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
 !!
 
+
+++<< ninja / do / all
+	test "${#}" -eq 0
+	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
+!!
 
 << ninja / do / all / local
 	test "${#}" -eq 0

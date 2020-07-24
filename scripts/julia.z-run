@@ -79,26 +79,26 @@
 	test "${#}" -eq 0
 	
 	_sysimage="./.outputs/julia/${_script_name}.so"
-	_compile="./.outputs/julia/${_script_name}.so.compile"
+	_compile="./.outputs/julia/${_script_name}.compile"
+	_compile_out="./.outputs/julia/${_script_name}.so.compile"
 	
 	if test ! -e ./.outputs/julia ; then
 		mkdir -- ./.outputs/julia
 	fi
 	
+	rm -f -- "${_compile_out}.tmp"
+	rm -f -- "${_sysimage}.tmp"
+	
 	if test ! -e "${_compile}" ; then
-		find "./.outputs/julia/${_script_name}.compile" \
-				-type f -not -name '*.tmp' \
-				-exec cat -- {} + \
-		| LC_ALL=C sort -u \
-			>| "${_compile}.tmp" \
-		#
-		mv -T -- \
-				"${_compile}.tmp" \
-				"${_compile}" \
-		#
+		mkdir -- "${_compile}"
 	fi
 	
-	rm -f -- "${_sysimage}.tmp"
+	find "${_compile}" \
+			-type f -not -name '*.tmp' \
+			-exec cat -- {} + \
+	| LC_ALL=C sort -u \
+		>| "${_compile_out}.tmp" \
+	#
 	
 	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
 	if ! \
@@ -111,15 +111,20 @@
 					./sources/julia-environment.jl \
 					./.outputs/julia/environment \
 					"${_sysimage}.tmp" \
-					"${_compile}" \
+					"${_compile_out}.tmp" \
 	; then
 		rm -f -- "${_sysimage}.tmp"
+		rm -f -- "${_compile_out}.tmp"
 		exit -- 1
 	fi
 	
 	mv -T -- \
 			"${_sysimage}.tmp" \
 			"${_sysimage}" \
+	#
+	mv -T -- \
+			"${_compile_out}.tmp" \
+			"${_compile_out}" \
 	#
 !!
 

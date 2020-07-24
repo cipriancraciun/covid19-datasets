@@ -102,3 +102,9 @@
 	exec -- "${ZRUN[@]}" ':: remote / execute' ':: ninja / exec' "${@}"
 !!
 
+
+
+
+:: remote / tools / julia / shell / generic-plot :: exec -- "${ZRUN[@]}" ':: remote / execute' ':: tools / julia / shell / generic-plot' "${@}"
+:: remote / tools / julia / bootstrap / generic-plot :: exec -- "${ZRUN[@]}" ':: remote / execute' ':: tools / julia / bootstrap / generic-plot' "${@}"
+
