@@ -13,6 +13,7 @@ map ({key : .aliases[], value : .fips})
 		# NOTE:  From JHU dataset.
 		"ma_brockton" : "25023",
 		"mo_kansas_city" : "29095",
+		"mo_joplin" : "29097",
 		"mn_leseur" : "27079",
 		"nh_nashua" : "12057",
 		"ak_soldotna" : "02122",

@@ -28,6 +28,7 @@
 	# NOTE:  Drop false `administrative` values.
 	| if (.[1] | (
 			(. == "None") or
+			(. == "Unknown") or
 			(. == "Recovered") or
 			(. == "Wuhan Evacuee") or
 			false
@@ -35,7 +36,7 @@
 		.[1] = null
 	else . end
 	
-	# NOTE:  Drop false `provinnce` values.
+	# NOTE:  Drop false `province` values.
 	| if (.[2] | (
 			(. == "Unassigned") or (. == "unassigned") or
 			(. == "Unknown") or (. == "unknown") or
@@ -48,6 +49,8 @@
 			(. == "Out of GA") or
 			(. == "Out of IL") or
 			(. == "Out of AL") or
+			(. == "Out of LA") or
+			(. == "Out of PR") or
 			(. == "Out-of-state") or
 			# NOTE:  Administrative in Utah
 			(. == "Bear River") or
@@ -86,6 +89,16 @@
 			false
 	)) then
 		["Cruise Ship", null, null, null, null, null, .[6], .[7], .[8]]
+	else . end
+	
+	# NOTE:  Drop US counties for states that are next mapped as countries.
+	| if ([.[0], .[1]] | (
+			(. == ["United States", "Puerto Rico"]) or
+			(. == ["United States", "Northern Mariana Islands"]) or
+			(. == ["United States", "Virgin Islands"]) or
+			false
+	)) then
+		[.[0], .[1], null, null, null, null, .[6], .[7], .[8]]
 	else . end
 	
 	# NOTE:  Re-map some provinces an countries.
