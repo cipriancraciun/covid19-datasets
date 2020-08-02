@@ -741,7 +741,13 @@ _plot = Gadfly.plot(
 		Gadfly.Guide.ylabel(nothing),
 		
 		Gadfly.Guide.xticks(ticks =
-				if ((_dataset_max_index - _dataset_min_index) > 20)
+				if ((_dataset_max_index - _dataset_min_index) > 100)
+					if (_dataset_min_index > 0)
+						[1; 10 : 10 : (ceil(_dataset_max_index / 10) * 10);]
+					else
+						[(ceil(_dataset_min_index / 10) * 10) : 10 : (ceil(_dataset_max_index / 10) * 10);]
+					end
+				elseif ((_dataset_max_index - _dataset_min_index) > 20)
 					if (_dataset_min_index > 0)
 						[1; 5 : 5 : (ceil(_dataset_max_index / 5) * 5);]
 					else
