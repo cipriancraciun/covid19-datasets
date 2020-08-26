@@ -39,6 +39,29 @@
 !!
 
 
+<< remote / synchronize / push / sources
+	
+	test "${#}" -eq 0
+	
+	exec -- \
+		nice -n 19 -- \
+	rsync \
+			--recursive --one-file-system \
+			--delete \
+			--links \
+			--times --omit-dir-times --omit-link-times \
+			--prune-empty-dirs \
+			\
+			--itemize-changes \
+			--protect-args --no-iconv \
+			\
+		-- \
+			./sources/ \
+			covid19-datasets-processor:./workbench/covid19-datasets/sources/ \
+	#
+!!
+
+
 << remote / synchronize / pull
 	
 	test "${#}" -eq 0
