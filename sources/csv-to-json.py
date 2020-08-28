@@ -39,8 +39,9 @@ def convert (_input, _output, _dataset, _format) :
 		for _key, _value in _record.iteritems () :
 			if _key is None :
 				continue
-			_record_0[_keys_reverse[_key]] = _normalize_value (_value)
-			_record_0[_keys_reverse[_key] + "__normalized"] = _normalize_key_0 (_value, False)
+			_value_0 = _normalize_value (_value)
+			_record_0[_keys_reverse[_key]] = _value_0
+			_record_0[_keys_reverse[_key] + "__normalized"] = _normalize_key_0 (str (_value_0) if isinstance (_value_0, int) or isinstance (_value_0, float) else _value, False)
 		_records.append (_record_0)
 	
 	_data = {
@@ -122,7 +123,10 @@ def _normalize_value (_value) :
 		pass
 	
 	try :
-		return float (_value)
+		_value_0 = float (_value)
+		if _value_0 == int (_value_0) :
+			_value_0 = int (_value_0)
+		return _value_0
 	except :
 		pass
 	
