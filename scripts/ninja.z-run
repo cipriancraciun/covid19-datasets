@@ -30,6 +30,10 @@
 --<< ninja
 	case "${__ninja_processor:-remote}" in
 		
+		( none )
+			exit -- 0
+		;;
+		
 		( local )
 			exec -- "${ZRUN[@]}" ':: ninja / exec' "${@}"
 		;;
@@ -64,6 +68,7 @@
 
 :: ninja / processor / local :: export -- __ninja_processor=local
 :: ninja / processor / remote :: export -- __ninja_processor=remote
+:: ninja / processor / none :: export -- __ninja_processor=none
 :: ninja / processor / fake :: export -- __ninja_fake=true
 
 
