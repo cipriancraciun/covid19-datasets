@@ -98,7 +98,7 @@
 	"${ZRUN[@]}" ':: git / snapshot / nytimes / plots'
 	"${ZRUN[@]}" ':: git / snapshot / ecdc / data'
 	"${ZRUN[@]}" ':: git / snapshot / ecdc / plots'
-	# "${ZRUN[@]}" ':: git / snapshot / combined / data'
+	"${ZRUN[@]}" ':: git / snapshot / combined / data'
 !!
 
 ++<< git / push / github
