@@ -31,6 +31,9 @@ None of these datasets were collected by me, however I have re-processed, re-for
 
 * (paper) [Statistical Physics of Epidemic on Network Predictions for SARS-CoV-2 Parameters](https://arxiv.org/abs/2007.03101);
 * (website) [covid19.geo-spatial.org](https://covid19.geo-spatial.org/dashboard/statistici/situatie-europa);
+* (website) [jgoerzen.github.io/covid19ks](https://jgoerzen.github.io/covid19ks);
+* (code) [github.com/jgoerzen/covid19db](https://github.com/jgoerzen/covid19db);
+* (code) [github.com/jgoerzen/covid19ks](https://github.com/jgoerzen/covid19ks);
 * (code) [github.com/jojo4u/covid-19-graphs-jo](https://github.com/jojo4u/covid-19-graphs-jo);
 * (code) [github.com/bogdanvso/diseases_risk_analysing](https://github.com/bogdanvso/diseases_risk_analysing);
 
