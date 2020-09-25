@@ -150,6 +150,13 @@ build ./exports/ecdc/v1/worldwide/values-sqlite.db : sqlite-create $
     pool = cpu_moderate
 
 
+build ./exports/ecdc/v1/worldwide/values-sqlite.sql.gz : gzip ./exports/ecdc/v1/worldwide/values-sqlite.sql
+    pool = cpu_moderate
+
+build ./exports/ecdc/v1/worldwide/values-sqlite.db.gz : gzip ./exports/ecdc/v1/worldwide/values-sqlite.db
+    pool = cpu_moderate
+
+
 
 
 build ./exports/ecdc/v1/worldwide/status.json : z-run-in-out $
@@ -174,7 +181,9 @@ build __ecdc__exports : phony $
         ./exports/ecdc/v1/worldwide/values.txt $
         ./exports/ecdc/v1/worldwide/values.html $
         ./exports/ecdc/v1/worldwide/values-sqlite.sql $
+        ./exports/ecdc/v1/worldwide/values-sqlite.sql.gz $
         ./exports/ecdc/v1/worldwide/values-sqlite.db $
+        ./exports/ecdc/v1/worldwide/values-sqlite.db.gz $
         ./exports/ecdc/v1/worldwide/status.json $
         ||
 
