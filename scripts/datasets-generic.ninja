@@ -47,11 +47,11 @@ build ./exports/combined/v1/values-sqlite.sql : sql-from-json $
         ./exports/combined/v1/values.sql-json $
         | ./sources/sql-from-json.py
     format = sqlite
-    pool = cpu_moderate
+    pool = cpu_single
 
 build ./exports/combined/v1/values-sqlite.db : sqlite-create $
         ./exports/combined/v1/values-sqlite.sql
-    pool = cpu_moderate
+    pool = cpu_heavy
 
 
 build ./exports/combined/v1/values-sqlite.sql.gz : gzip ./exports/combined/v1/values-sqlite.sql

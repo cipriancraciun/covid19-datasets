@@ -75,7 +75,7 @@ build ./exports/jhu/v1/daily/values.json : z-run-in-out $
     arguments_pre = ':: process / generic / exports / values / json / script'
     arguments = $
         --compact-output
-    pool = cpu_heavy
+    pool = cpu_single
 
 build ./exports/jhu/v1/daily/values.tsv : z-run-in-out $
         ./exports/jhu/v1/daily/values.json $
@@ -120,11 +120,11 @@ build ./exports/jhu/v1/daily/values-sqlite.sql : sql-from-json $
         ./exports/jhu/v1/daily/values.sql-json $
         | ./sources/sql-from-json.py
     format = sqlite
-    pool = cpu_moderate
+    pool = cpu_single
 
 build ./exports/jhu/v1/daily/values-sqlite.db : sqlite-create $
         ./exports/jhu/v1/daily/values-sqlite.sql
-    pool = cpu_moderate
+    pool = cpu_heavy
 
 
 build ./exports/jhu/v1/daily/values-sqlite.sql.gz : gzip ./exports/jhu/v1/daily/values-sqlite.sql

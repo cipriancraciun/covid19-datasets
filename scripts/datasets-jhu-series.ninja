@@ -178,11 +178,11 @@ build ./exports/jhu/v1/series/values-sqlite.sql : sql-from-json $
         ./exports/jhu/v1/series/values.sql-json $
         | ./sources/sql-from-json.py
     format = sqlite
-    pool = cpu_moderate
+    pool = cpu_heavy
 
 build ./exports/jhu/v1/series/values-sqlite.db : sqlite-create $
         ./exports/jhu/v1/series/values-sqlite.sql
-    pool = cpu_moderate
+    pool = cpu_heavy
 
 
 build ./exports/jhu/v1/series/values-sqlite.sql.gz : gzip ./exports/jhu/v1/series/values-sqlite.sql

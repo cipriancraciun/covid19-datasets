@@ -143,11 +143,11 @@ build ./exports/ecdc/v1/worldwide/values-sqlite.sql : sql-from-json $
         ./exports/ecdc/v1/worldwide/values.sql-json $
         | ./sources/sql-from-json.py
     format = sqlite
-    pool = cpu_moderate
+    pool = cpu_heavy
 
 build ./exports/ecdc/v1/worldwide/values-sqlite.db : sqlite-create $
         ./exports/ecdc/v1/worldwide/values-sqlite.sql
-    pool = cpu_moderate
+    pool = cpu_heavy
 
 
 build ./exports/ecdc/v1/worldwide/values-sqlite.sql.gz : gzip ./exports/ecdc/v1/worldwide/values-sqlite.sql
