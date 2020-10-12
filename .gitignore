@@ -3,6 +3,8 @@
 !.gitignore
 !.z-run
 
+/exports/combined/v1/values.json.gz
+
 /exports/combined/v1/values.tsv
 /exports/combined/v1/values.sql-json
 /exports/combined/v1/values-sqlite.sql
