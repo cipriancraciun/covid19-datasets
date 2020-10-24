@@ -114,15 +114,15 @@ elseif _dataset_filter in [:global, :global_major, :global_medium, :global_minor
 	_dataset_location_type = "total-country"
 	
 	if _dataset_filter == :global_major
-		_dataset_confirmed_at_least = 400000
+		_dataset_confirmed_at_least = 1000 * 1000
 	elseif _dataset_filter == :global_medium
-		_dataset_confirmed_at_most = 400000
-		_dataset_confirmed_at_least = 100000
+		_dataset_confirmed_at_most = 1000 * 1000
+		_dataset_confirmed_at_least = 500 * 1000
 	elseif _dataset_filter == :global_minor
-		_dataset_confirmed_at_most = 100000
-		_dataset_confirmed_at_least = 50000
+		_dataset_confirmed_at_most = 500 * 1000
+		_dataset_confirmed_at_least = 250 * 1000
 	else
-		_dataset_confirmed_at_least = 50000
+		_dataset_confirmed_at_least = 250 * 1000
 	end
 	
 elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor]
@@ -139,15 +139,15 @@ elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor
 		)
 	
 	if _dataset_filter == :europe_major
-		_dataset_confirmed_at_least = 200000
+		_dataset_confirmed_at_least = 300 * 1000
 	elseif _dataset_filter == :europe_medium
-		_dataset_confirmed_at_most = 200000
-		_dataset_confirmed_at_least = 50000
+		_dataset_confirmed_at_most = 300 * 1000
+		_dataset_confirmed_at_least = 100 * 1000
 	elseif _dataset_filter == :europe_minor
-		_dataset_confirmed_at_most = 50000
-		_dataset_confirmed_at_least = 10000
+		_dataset_confirmed_at_most = 100 * 1000
+		_dataset_confirmed_at_least = 25 * 1000
 	else
-		_dataset_confirmed_at_least = 20000
+		_dataset_confirmed_at_least = 25 * 1000
 	end
 	
 elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
@@ -166,15 +166,15 @@ elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
 	_dataset_locations = unique(_dataset[:, :province])
 	
 	if _dataset_filter == :us_major
-		_dataset_confirmed_at_least = 200000
+		_dataset_confirmed_at_least = 300 * 1000
 	elseif _dataset_filter == :us_medium
-		_dataset_confirmed_at_most = 200000
-		_dataset_confirmed_at_least = 50000
+		_dataset_confirmed_at_most = 300 * 1000
+		_dataset_confirmed_at_least = 100 * 1000
 	elseif _dataset_filter == :us_minor
-		_dataset_confirmed_at_most = 50000
-		_dataset_confirmed_at_least = 10000
+		_dataset_confirmed_at_most = 100 * 1000
+		_dataset_confirmed_at_least = 25 * 1000
 	else
-		_dataset_confirmed_at_least = 20000
+		_dataset_confirmed_at_least = 25 * 1000
 	end
 	
 elseif _dataset_filter == :romania
@@ -506,7 +506,8 @@ if _dataset_cmax_metric !== nothing
 end
 
 
-_dataset_smoothing = 0.8
+# _dataset_smoothing = 0.8
+_dataset_smoothing = 0.25
 
 
 
@@ -597,13 +598,13 @@ if _plot_type == :lines
 #				Gadfly.Geom.label(position = :dynamic, hide_overlaps = true),
 #			),
 			
-			Gadfly.layer(
-				_dataset,
-				x = _dataset_index,
-				y = _dataset_metric,
-				color = _dataset_location_key,
-				Gadfly.Geom.point,
-			),
+#			Gadfly.layer(
+#				_dataset,
+#				x = _dataset_index,
+#				y = _dataset_metric,
+#				color = _dataset_location_key,
+#				Gadfly.Geom.point,
+#			),
 			
 			Gadfly.layer(
 				_dataset,
@@ -741,7 +742,13 @@ _plot = Gadfly.plot(
 		Gadfly.Guide.ylabel(nothing),
 		
 		Gadfly.Guide.xticks(ticks =
-				if ((_dataset_max_index - _dataset_min_index) > 100)
+				if ((_dataset_max_index - _dataset_min_index) > 200)
+					if (_dataset_min_index > 0)
+						[1; 20 : 20 : (ceil(_dataset_max_index / 20) * 20);]
+					else
+						[(ceil(_dataset_min_index / 20) * 20) : 20 : (ceil(_dataset_max_index / 20) * 20);]
+					end
+				elseif ((_dataset_max_index - _dataset_min_index) > 100)
 					if (_dataset_min_index > 0)
 						[1; 10 : 10 : (ceil(_dataset_max_index / 10) * 10);]
 					else
