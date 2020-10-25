@@ -381,7 +381,7 @@ end
 _dataset_locations = unique(_dataset[:, _dataset_location_key])
 
 _dataset_locations = filter(
-		(_location -> size(filter((_data -> _data[_dataset_location_key] == _location), _dataset)[:, _dataset_metric])[1] >= 4),
+		(_location -> size(filter((_data -> _data[_dataset_location_key] == _location), _dataset)[:, _dataset_metric])[1] >= 10),
 		_dataset_locations,
 	)
 
@@ -506,10 +506,6 @@ if _dataset_cmax_metric !== nothing
 end
 
 
-# _dataset_smoothing = 0.8
-_dataset_smoothing = 0.25
-
-
 
 
 for (_index, _dataset_location) in enumerate(_dataset_locations_meta[:, :location])
@@ -611,11 +607,7 @@ if _plot_type == :lines
 				x = _dataset_index,
 				y = _dataset_metric,
 				color = _dataset_location_key,
-				if _dataset_smoothing !== nothing
-					Gadfly.Geom.smooth(method = :loess, smoothing = _dataset_smoothing)
-				else
-					Gadfly.Geom.line
-				end,
+				Gadfly.Geom.smooth(method = :loess, smoothing = 0.5)
 			),
 			
 			Gadfly.Coord.cartesian(xmin = _dataset_min_index, xmax = _dataset_max_index, ymin = _dataset_rmin_metric, ymax = _dataset_rmax_metric),
