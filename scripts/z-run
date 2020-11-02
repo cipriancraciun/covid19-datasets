@@ -21,19 +21,19 @@
 ::// git / ...
 
 
-&& ./workspace.z-run
-&& ./tools.z-run
-&& ./julia.z-run
+&& ./scripts/workspace.z-run
+&& ./scripts/tools.z-run
+&& ./scripts/julia.z-run
 
-&& ./datasets-jhu.z-run
-&& ./datasets-ecdc.z-run
-&& ./datasets-nytimes.z-run
-&& ./datasets-generic.z-run
-&& ./datasets-plots.z-run
-&& ./datasets-html.z-run
-&& ./datasets-facts.z-run
-&& ./datasets-countries.z-run
+&& ./scripts/datasets-jhu.z-run
+&& ./scripts/datasets-ecdc.z-run
+&& ./scripts/datasets-nytimes.z-run
+&& ./scripts/datasets-generic.z-run
+&& ./scripts/datasets-plots.z-run
+&& ./scripts/datasets-html.z-run
+&& ./scripts/datasets-facts.z-run
+&& ./scripts/datasets-countries.z-run
 
-&& ./ninja.z-run
-&& ./remote.z-run
+&& ./scripts/ninja.z-run
+&& ./scripts/remote.z-run
 

@@ -70,7 +70,7 @@
 	{{ ZRUN ":: tools / convert / csv-to-json / script" }}
 !!
 
---::&&.. tools / convert / csv-to-json / script :: ../sources/csv-to-json.py
+--::&&.. tools / convert / csv-to-json / script :: ./sources/csv-to-json.py
 
 
 
@@ -112,7 +112,7 @@
 	{{ ZRUN ":: tools / convert / sql-from-json / script" }}
 !!
 
---::&&.. tools / convert / sql-from-json / script :: ../sources/sql-from-json.py
+--::&&.. tools / convert / sql-from-json / script :: ./sources/sql-from-json.py
 
 
 
@@ -357,5 +357,5 @@
 	{{ ZRUN ":: tools / ashes / script" }}
 !!
 
---::&&.. tools / ashes / script :: ./ashes.py
+--::&&.. tools / ashes / script :: ./scripts/ashes.py
 

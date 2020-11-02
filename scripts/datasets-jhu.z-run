@@ -57,6 +57,6 @@
 
 
 
---::&&.. process / jhu / imports / extract-daily / script :: ../sources/jhu-imports-extract-daily.jq
---::&&.. process / jhu / imports / extract-series / script :: ../sources/jhu-imports-extract-series.jq
+--::&&.. process / jhu / imports / extract-daily / script :: ./sources/jhu-imports-extract-daily.jq
+--::&&.. process / jhu / imports / extract-series / script :: ./sources/jhu-imports-extract-series.jq
 

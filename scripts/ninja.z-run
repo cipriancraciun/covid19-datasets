@@ -111,16 +111,16 @@
 	build __all : phony __all__data __all__plots
 !!
 
---::&&.. ninja / script / tools :: ./tools.ninja
---::&&.. ninja / script / datasets / jhu :: ./datasets-jhu.ninja
---::&&.. ninja / script / datasets / jhu / daily :: ./datasets-jhu-daily.ninja
---::&&.. ninja / script / datasets / jhu / series :: ./datasets-jhu-series.ninja
---::&&.. ninja / script / datasets / ecdc :: ./datasets-ecdc.ninja
---::&&.. ninja / script / datasets / nytimes :: ./datasets-nytimes.ninja
---::&&.. ninja / script / datasets / nytimes / us-states :: ./datasets-nytimes-us-states.ninja
---::&&.. ninja / script / datasets / nytimes / us-counties :: ./datasets-nytimes-us-counties.ninja
---::&&.. ninja / script / datasets / generic :: ./datasets-generic.ninja
---::&&.. ninja / script / datasets / facts :: ./datasets-facts.ninja
+--::&&.. ninja / script / tools :: ./scripts/tools.ninja
+--::&&.. ninja / script / datasets / jhu :: ./scripts/datasets-jhu.ninja
+--::&&.. ninja / script / datasets / jhu / daily :: ./scripts/datasets-jhu-daily.ninja
+--::&&.. ninja / script / datasets / jhu / series :: ./scripts/datasets-jhu-series.ninja
+--::&&.. ninja / script / datasets / ecdc :: ./scripts/datasets-ecdc.ninja
+--::&&.. ninja / script / datasets / nytimes :: ./scripts/datasets-nytimes.ninja
+--::&&.. ninja / script / datasets / nytimes / us-states :: ./scripts/datasets-nytimes-us-states.ninja
+--::&&.. ninja / script / datasets / nytimes / us-counties :: ./scripts/datasets-nytimes-us-counties.ninja
+--::&&.. ninja / script / datasets / generic :: ./scripts/datasets-generic.ninja
+--::&&.. ninja / script / datasets / facts :: ./scripts/datasets-facts.ninja
 
 
 
