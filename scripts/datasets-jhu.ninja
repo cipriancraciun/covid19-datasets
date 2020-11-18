@@ -7,8 +7,7 @@ build __jhu__imports : phony $
         ./imports/jhu/daily/values.json $
         ||
 
-build __jhu__exports : phony $
-        $
+build __jhu__exports__series : phony $
         ./exports/jhu/v1/series/values.json $
         ./exports/jhu/v1/series/values.json.gz $
         ./exports/jhu/v1/series/values.tsv $
@@ -20,7 +19,9 @@ build __jhu__exports : phony $
         ./exports/jhu/v1/series/values-sqlite.db $
         ./exports/jhu/v1/series/values-sqlite.db.gz $
         ./exports/jhu/v1/series/status.json $
-        $
+        ||
+
+build __jhu__exports__daily : phony $
         ./exports/jhu/v1/daily/values.json $
         ./exports/jhu/v1/daily/values.json.gz $
         ./exports/jhu/v1/daily/values.tsv $
@@ -32,5 +33,10 @@ build __jhu__exports : phony $
         ./exports/jhu/v1/daily/values-sqlite.db $
         ./exports/jhu/v1/daily/values-sqlite.db.gz $
         ./exports/jhu/v1/daily/status.json $
+        ||
+
+build __jhu__exports : phony $
+        __jhu__exports__series $
+        __jhu__exports__daily $
         ||
 

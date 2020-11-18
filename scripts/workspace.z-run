@@ -30,6 +30,37 @@
 
 
 
+<< clean / all
+	test "${#}" -eq 0
+	"${ZRUN[@]}" ':: clean / facts'
+	"${ZRUN[@]}" ':: clean / imports'
+	"${ZRUN[@]}" ':: clean / exports'
+	"${ZRUN[@]}" ':: clean / plots'
+!!
+
+<< clean / facts
+	test "${#}" -eq 0
+	find ./imports/facts -mindepth 1 -not -path './imports/facts/countries.json' -delete
+!!
+
+<< clean / imports
+	test "${#}" -eq 0
+	find ./imports -mindepth 1 -not -path './imports/facts' -not -path './imports/facts/*' -delete
+!!
+
+<< clean / exports
+	test "${#}" -eq 0
+	find ./exports -mindepth 1 -delete
+!!
+
+<< clean / plots
+	test "${#}" -eq 0
+	find ./plots -mindepth 3 -not -name 'readme.md' -delete
+!!
+
+
+
+
 << git / snapshot / jhu / data
 	test "${#}" -eq 0
 	git add -- ./imports/jhu ./exports/jhu

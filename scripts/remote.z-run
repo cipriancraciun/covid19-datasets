@@ -15,6 +15,7 @@
 			--links \
 			--times --omit-dir-times --omit-link-times \
 			--prune-empty-dirs \
+			--no-compress \
 			\
 			--exclude '*.tmp' \
 			--exclude '*.tmp.*' \
@@ -51,6 +52,7 @@
 			--links \
 			--times --omit-dir-times --omit-link-times \
 			--prune-empty-dirs \
+			--no-compress \
 			\
 			--itemize-changes \
 			--protect-args --no-iconv \
@@ -74,10 +76,7 @@
 			--links \
 			--times --omit-dir-times --omit-link-times \
 			--prune-empty-dirs \
-			\
-			--compress \
-			--compress-level 1 \
-			--skip-compress gz \
+			--no-compress \
 			\
 			--exclude '*.tmp' \
 			--exclude '*.tmp.*' \
