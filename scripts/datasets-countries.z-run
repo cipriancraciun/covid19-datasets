@@ -7,14 +7,15 @@
 	#! {{}}
 	
 	{{ $_datasets := array "jhu/daily" "jhu/series" "ecdc/worldwide" }}
-	{{ $_outputs := array }}
+	{{ $_outputs_all := array }}
 	
 	{{ range $_, $_dataset := $_datasets }}
-	{{ range $_, $_country := ZRUN ":: process / facts / imports / countries / list" | split_lines }}
-	
 	{{ $_dataset := $_dataset | split "/" }}
 	{{ $_dataset_0 := index $_dataset 0 }}
 	{{ $_dataset_1 := index $_dataset 1 }}
+	{{ $_outputs := array }}
+	
+	{{ range $_, $_country := ZRUN ":: process / facts / imports / countries / list" | split_lines }}
 	
 	
 	build ./exports/{{ $_dataset_0 }}/v1/{{ $_dataset_1 }}-by-country/{{ $_country }}.json : z-run-in-out $
@@ -37,12 +38,18 @@
 	
 	{{ $_outputs = append $_outputs (printf "./exports/%s/v1/%s-by-country/%s.json" $_dataset_0 $_dataset_1 $_country ) }}
 	{{ $_outputs = append $_outputs (printf "./exports/%s/v1/%s-by-country/%s.tsv" $_dataset_0 $_dataset_1 $_country ) }}
-	
-	{{ end }}
 	{{ end }}
 	
 	
-	build __all__countries : phony {{ range $_, $_output := $_outputs }} {{ $_output }} {{ end }}
+	build __{{ $_dataset_0 }}__countries__{{ $_dataset_1 }} : phony {{ range $_, $_output := $_outputs }} {{ $_output }} {{ end }}
+	
+	
+	{{ $_outputs_all = append $_outputs_all $_outputs }}
+	{{ $_outputs_all = append $_outputs_all $_outputs }}
+	{{ end }}
+	
+	
+	build __all__countries : phony {{ range $_, $_output := $_outputs_all }} {{ $_output }} {{ end }}
 	
 !!
 

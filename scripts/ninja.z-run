@@ -104,12 +104,43 @@
 	
 	build ${ninja_force} : marker
 	
-	build __all__imports : phony __jhu__imports __nytimes__imports __ecdc__imports
-	build __all__exports : phony __jhu__exports __nytimes__exports __ecdc__exports __combined__exports || __all__imports
-	build __all__exports__small : phony __jhu__exports__series __nytimes__exports__us-states __ecdc__exports || __all__imports
-	build __all__data : phony __all__imports __all__exports __all__countries || __all__exports
-	build __all__plots : phony __jhu__plots __ecdc__plots __nytimes__plots || __all__data
-	build __all : phony __all__data __all__plots
+	build __all__imports : phony $
+	        __jhu__imports $
+	        __nytimes__imports $
+	        __ecdc__imports $
+	        ||
+	
+	build __all__exports : phony $
+	        __jhu__exports $
+	        __nytimes__exports $
+	        __ecdc__exports $
+	        __combined__exports $
+	        || __all__imports
+	
+	build __all__data : phony $
+	        __all__imports $
+	        __all__exports $
+	        __all__countries $
+	        || __all__exports
+	
+	build __all__plots : phony $
+	        __jhu__plots $
+	        __ecdc__plots $
+	        __nytimes__plots $
+	        || __all__data
+	
+	build __all : phony $
+	        __all__data $
+	        __all__plots $
+	        ||
+	
+	build __all__small : phony $
+	        __jhu__exports__series $
+	        __jhu__countries__series $
+	        __nytimes__exports__us-states $
+	        __ecdc__exports $
+	        __ecdc__countries__worldwide $
+	        ||
 !!
 
 --::&&.. ninja / script / tools :: ./scripts/tools.ninja
