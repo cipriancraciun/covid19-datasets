@@ -11,6 +11,7 @@
 	_arguments=( "${@}" )
 	shift -- "${#}"
 	
+	_interpreter="./.outputs/julia/bin/julia"
 	_script_name="$( exec -- basename -- "${_script}" .jl )"
 	_sysimage="./.outputs/julia/${_script_name}.so"
 	_compile="./.outputs/julia/${_script_name}.compile"
@@ -26,7 +27,7 @@
 	if ! \
 			nodaemon \
 			nice -n 19 -- \
-			julia \
+			"${_interpreter}" \
 					--project=./.outputs/julia/environment \
 					--sysimage="${_sysimage}" \
 					--trace-compile="${_compile}/${_marker}.tmp" \
@@ -56,11 +57,12 @@
 	shift -- 1
 	test "${#}" -eq 0
 	
+	_interpreter="./.outputs/julia/bin/julia"
 	_sysimage="./.outputs/julia/${_script_name}.so"
 	
 	exec -- \
 		nice -n 19 -- \
-	julia \
+	"${_interpreter}" \
 			--project=./.outputs/julia/environment \
 			--sysimage="${_sysimage}" \
 			--startup-file=no \
@@ -78,6 +80,7 @@
 	shift -- 1
 	test "${#}" -eq 0
 	
+	_interpreter="./.outputs/julia/bin/julia"
 	_sysimage="./.outputs/julia/${_script_name}.so"
 	_compile="./.outputs/julia/${_script_name}.compile"
 	_compile_out="./.outputs/julia/${_script_name}.so.compile"
@@ -104,7 +107,7 @@
 	if ! \
 			nodaemon \
 			nice -n 19 -- \
-			julia \
+			"${_interpreter}" \
 					--startup-file=no \
 					--color=no \
 				-- \
