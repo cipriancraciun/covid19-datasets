@@ -44,8 +44,10 @@
 	build __{{ $_dataset_0 }}__countries__{{ $_dataset_1 }} : phony {{ range $_, $_output := $_outputs }} {{ $_output }} {{ end }}
 	
 	
-	{{ $_outputs_all = append $_outputs_all $_outputs }}
-	{{ $_outputs_all = append $_outputs_all $_outputs }}
+	{{ range $_, $_output := $_outputs }}
+	{{ $_outputs_all = append $_outputs_all $_output }}
+	{{ end }}
+	
 	{{ end }}
 	
 	
