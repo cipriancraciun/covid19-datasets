@@ -14,6 +14,8 @@
 	{{ $_formats := array "pdf" "svg" "png" }}
 	
 	
+	{{ $_all_sample_charts := array }}
+	
 	{{ range $_, $_dataset := $_datasets }}
 	{{ $_all_phony := array }}
 	
@@ -112,6 +114,10 @@
 	{{ $_all_filter_charts = append $_all_filter_charts $_chart }}
 	{{ $_all_method_charts = append $_all_method_charts $_chart }}
 	
+	{{ if and (or (eq $_dataset "ecdc") (eq $_dataset "nytimes")) (eq $_method "absolute") (eq $_metric "confirmed") (eq $_format "pdf") }}
+	{{ $_all_sample_charts = append $_all_sample_charts $_chart }}
+	{{ end }}
+	
 	{{ $_chart := (printf "./plots/%s/%s/all/%s--%s--heatmap.%s" $_dataset $_filter $_method $_metric $_format) }}
 	{{ $_all_format_charts = append $_all_format_charts $_chart }}
 	{{ $_all_filter_charts = append $_all_filter_charts $_chart }}
@@ -147,6 +153,9 @@
 	build __{{ $_dataset }}__plots : phony {{ $_all_phony | array_join " " }}
 	
 	{{ end }}
+	
+	
+	build __sample__plots : phony {{ $_all_sample_charts | array_join " " }}
 !!
 
 
