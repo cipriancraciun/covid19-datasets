@@ -66,7 +66,7 @@ if _dataset_id == :jhu
 	
 	_dataset_title = "JHU"
 	_dataset = filter(
-			(_data -> _data[:dataset] == "jhu/daily"),
+			(_data -> (_data[:dataset] == "jhu/daily") || (_data[:dataset] == "jhu/series")),
 			_dataset,
 		)
 	
@@ -98,6 +98,7 @@ _dataset_index_at_least = nothing
 _dataset_index_at_most = nothing
 _dataset_confirmed_at_least = nothing
 _dataset_confirmed_at_most = nothing
+_dataset_confirmed_cap = nothing
 
 
 
@@ -121,8 +122,10 @@ elseif _dataset_filter in [:global, :global_major, :global_medium, :global_minor
 	elseif _dataset_filter == :global_minor
 		_dataset_confirmed_at_most = 500 * 1000
 		_dataset_confirmed_at_least = 250 * 1000
+		_dataset_confirmed_cap = 25
 	else
-		_dataset_confirmed_at_least = 250 * 1000
+		_dataset_confirmed_at_least = 10 * 1000
+		_dataset_confirmed_cap = 30
 	end
 	
 elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor]
@@ -139,15 +142,17 @@ elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor
 		)
 	
 	if _dataset_filter == :europe_major
-		_dataset_confirmed_at_least = 300 * 1000
+		_dataset_confirmed_at_least = 500 * 1000
 	elseif _dataset_filter == :europe_medium
-		_dataset_confirmed_at_most = 300 * 1000
-		_dataset_confirmed_at_least = 100 * 1000
+		_dataset_confirmed_at_most = 500 * 1000
+		_dataset_confirmed_at_least = 150 * 1000
 	elseif _dataset_filter == :europe_minor
-		_dataset_confirmed_at_most = 100 * 1000
-		_dataset_confirmed_at_least = 25 * 1000
+		_dataset_confirmed_at_most = 150 * 1000
+		_dataset_confirmed_at_least = 50 * 1000
+		_dataset_confirmed_cap = 25
 	else
-		_dataset_confirmed_at_least = 25 * 1000
+		_dataset_confirmed_at_least = 10 * 1000
+		_dataset_confirmed_cap = 30
 	end
 	
 elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
@@ -166,15 +171,17 @@ elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
 	_dataset_locations = unique(_dataset[:, :province])
 	
 	if _dataset_filter == :us_major
-		_dataset_confirmed_at_least = 300 * 1000
+		_dataset_confirmed_at_least = 500 * 1000
 	elseif _dataset_filter == :us_medium
-		_dataset_confirmed_at_most = 300 * 1000
-		_dataset_confirmed_at_least = 100 * 1000
+		_dataset_confirmed_at_most = 500 * 1000
+		_dataset_confirmed_at_least = 250 * 1000
 	elseif _dataset_filter == :us_minor
-		_dataset_confirmed_at_most = 100 * 1000
-		_dataset_confirmed_at_least = 25 * 1000
+		_dataset_confirmed_at_most = 250 * 1000
+		_dataset_confirmed_at_least = 100 * 1000
+		_dataset_confirmed_cap = 25
 	else
-		_dataset_confirmed_at_least = 25 * 1000
+		_dataset_confirmed_at_least = 10 * 1000
+		_dataset_confirmed_cap = 30
 	end
 	
 elseif _dataset_filter == :romania
@@ -287,8 +294,17 @@ else
 	_dataset_locations_meta = sort(_dataset_locations_meta, :day_metric_max, rev = true)
 end
 
+if _dataset_confirmed_cap !== nothing
+	if size(_dataset_locations_meta)[1] > _dataset_confirmed_cap
+		_dataset_locations_meta = _dataset_locations_meta[1:_dataset_confirmed_cap, :]
+	end
+end
+
 _dataset_locations = _dataset_locations_meta[:, :location]
 _dataset_locations_count = size(_dataset_locations)[1]
+
+_dataset_locations_meta[!, :color_index] = 0:(_dataset_locations_count - 1)
+_dataset_colors_count = _dataset_locations_count
 
 _dataset = filter(
 		(_data -> _data[_dataset_location_key] in _dataset_locations),
@@ -537,6 +553,24 @@ _dataset_locations_meta = filter(
 		(_data -> _data[:color_index] != -1),
 		_dataset_locations_meta,
 	)
+
+
+
+
+if _plot_type == :lines && _dataset_filter in [
+			:global_major, :global_medium, :global_minor,
+			:europe_major, :europe_medium, :europe_minor,
+			:us_major, :us_medium, :us_minor,
+		]
+	
+	if _dataset_locations_count > 20
+		println(("[3391bc61]", _dataset_locations_count))
+	elseif _dataset_locations_count < 10
+		println(("[91d37e14]", _dataset_locations_count))
+	elseif size(_dataset_locations_meta)[1] < 10
+		println(("[a9d431fd]", _dataset_locations_count, size(_dataset_locations_meta)[1]))
+	end
+end
 
 
 
