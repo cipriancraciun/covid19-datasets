@@ -533,9 +533,9 @@ for (_index, _dataset_location) in enumerate(_dataset_locations_meta[:, :locatio
 		continue
 	end
 	
-	_dataset_max_date = findmax(_dataset_0[:, :date])[1]
-	_dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
-	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])[1]
+	global _dataset_max_date = findmax(_dataset_0[:, :date])[1]
+	global _dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
+	global _dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])[1]
 	
 	_dataset_label = (
 			_dataset_location
