@@ -21,7 +21,7 @@
 	_wrapper+=( nice -n 19 -- )
 	exec -- "${_wrapper[@]}" \
 	"${ZRUN[@]}" ':: ninja / script / exec' \
-			-j 8 \
+			-j 1 \
 			-k 0 \
 			"${@}" \
 	#
