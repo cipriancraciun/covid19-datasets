@@ -172,7 +172,7 @@
 	
 	<< plots / build / {{ $_dataset }} / all
 		test "${#}" -eq 0
-		exec -- "${ZRUN[@]}" ':: ninja' __{{ $_dataset }}__plots__all__all__png
+		exec -- "${ZRUN[@]}" ':: ninja' __{{ $_dataset }}__plots
 	!!
 	
 	<< plots / view / {{ $_dataset }} / all

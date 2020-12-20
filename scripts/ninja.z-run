@@ -21,7 +21,7 @@
 	_wrapper+=( nice -n 19 -- )
 	exec -- "${_wrapper[@]}" \
 	"${ZRUN[@]}" ':: ninja / script / exec' \
-			-j 1 \
+			-j "${__ninja_jobs:-1}" \
 			-k 0 \
 			"${@}" \
 	#
@@ -71,6 +71,9 @@
 :: ninja / processor / remote :: export -- __ninja_processor=remote
 :: ninja / processor / none :: export -- __ninja_processor=none
 :: ninja / processor / fake :: export -- __ninja_fake=true
+:: ninja / processor / jobs / 1 :: export -- __ninja_jobs=1
+:: ninja / processor / jobs / 4 :: export -- __ninja_jobs=4
+:: ninja / processor / jobs / 8 :: export -- __ninja_jobs=8
 
 
 

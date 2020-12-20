@@ -124,6 +124,7 @@
 				(. == ["France", "Reunion", null]) or
 				(. == ["France", "St Martin", null]) or
 				(. == ["France", "Saint Pierre and Miquelon", null]) or
+				(. == ["Belgium", "Luxembourg", null]) or
 				(. == ["United Kingdom", "Anguilla", null]) or
 				(. == ["United Kingdom", "Bermuda", null]) or
 				(. == ["United Kingdom", "British Virgin Islands", null]) or
