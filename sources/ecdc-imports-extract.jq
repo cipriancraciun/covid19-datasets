@@ -10,8 +10,8 @@
 		fips : null,
 		date : .daterep | (if ((. != null) and (. != "")) then . else null end),
 		values : {
-			confirmed : .cases | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
-			deaths : .deaths | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
+			confirmed : .cases_weekly | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
+			deaths : .deaths_weekly | (if ((. != null) and (. != "") and (. != 0)) then . else null end),
 		},
 	}
 )
