@@ -12417,59 +12417,6 @@
         "area": 4004451
       }
     },
-    "Central Europe": {
-      "dataset": "ecdc/worldwide",
-      "location": {
-        "label": "Central Europe",
-        "type": "total-subregion",
-        "country_code": null,
-        "country": "Central Europe",
-        "province": null,
-        "administrative": null,
-        "latlong": null
-      },
-      "date": "2020-12-14",
-      "day_index": {
-        "confirmed_1": 41,
-        "confirmed_10": 40,
-        "confirmed_100": 39,
-        "confirmed_1k": 35,
-        "confirmed_10k": 11,
-        "peak": 4,
-        "peak_confirmed": 5,
-        "peak_deaths": 3
-      },
-      "values": {
-        "absolute": {
-          "confirmed": 132984,
-          "deaths": 1175,
-          "infected": 131809
-        },
-        "absolute_pop100k": {
-          "confirmed": 2444.288,
-          "deaths": 21.597,
-          "infected": 2422.691
-        },
-        "delta": {
-          "confirmed": 16253,
-          "deaths": 179,
-          "infected": 16074
-        },
-        "relative": {
-          "deaths": 0.884,
-          "infected": 99.116
-        },
-        "peak_pct": {
-          "confirmed": 119.631,
-          "deaths": 115.335,
-          "infected": 119.371
-        }
-      },
-      "factbook": {
-        "population": 5440602,
-        "area": 49035
-      }
-    },
     "Eastern Africa": {
       "dataset": "ecdc/worldwide",
       "location": {
@@ -12593,40 +12540,40 @@
         "confirmed_10": 41,
         "confirmed_100": 40,
         "confirmed_1k": 39,
-        "confirmed_10k": 37,
+        "confirmed_10k": 38,
         "peak": 3,
         "peak_confirmed": 3,
         "peak_deaths": 3
       },
       "values": {
         "absolute": {
-          "confirmed": 6639497,
-          "deaths": 125975,
-          "infected": 6513522
+          "confirmed": 6772481,
+          "deaths": 127150,
+          "infected": 6645331
         },
         "absolute_pop100k": {
-          "confirmed": 2299.684,
-          "deaths": 43.633,
-          "infected": 2256.051
+          "confirmed": 2302.359,
+          "deaths": 43.226,
+          "infected": 2259.133
         },
         "delta": {
-          "confirmed": 506946,
-          "deaths": 12361,
-          "infected": 494585
+          "confirmed": 523199,
+          "deaths": 12540,
+          "infected": 510659
         },
         "relative": {
-          "deaths": 1.897,
-          "infected": 98.103
+          "deaths": 1.877,
+          "infected": 98.123
         },
         "peak_pct": {
-          "confirmed": 93.157,
-          "deaths": 112.24,
-          "infected": 92.763
+          "confirmed": 93.95,
+          "deaths": 112.241,
+          "infected": 93.576
         }
       },
       "factbook": {
-        "population": 288713450,
-        "area": 18797231
+        "population": 294154052,
+        "area": 18846266
       }
     },
     "Melanesia": {
