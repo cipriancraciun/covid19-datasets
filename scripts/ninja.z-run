@@ -72,6 +72,7 @@
 :: ninja / processor / none :: export -- __ninja_processor=none
 :: ninja / processor / fake :: export -- __ninja_fake=true
 :: ninja / processor / jobs / 1 :: export -- __ninja_jobs=1
+:: ninja / processor / jobs / 2 :: export -- __ninja_jobs=2
 :: ninja / processor / jobs / 4 :: export -- __ninja_jobs=4
 :: ninja / processor / jobs / 8 :: export -- __ninja_jobs=8
 
@@ -117,7 +118,6 @@
 	        __jhu__exports $
 	        __nytimes__exports $
 	        __ecdc__exports $
-	        __combined__exports $
 	        || __all__imports
 	
 	build __all__data : phony $

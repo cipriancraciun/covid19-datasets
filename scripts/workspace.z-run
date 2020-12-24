@@ -87,6 +87,9 @@
 
 << git / snapshot / combined / data
 	test "${#}" -eq 0
+	if ! test -e ./exports/combined ; then
+		exit -- 0
+	fi
 	git add -- ./exports/combined
 	if ! git diff --cached --exit-code --quiet -- ./exports/combined ; then
 		git commit -m '[combined][datasets]  Update combined datasets due to upstream data changes.' -- ./exports/combined
