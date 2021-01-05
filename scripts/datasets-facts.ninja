@@ -16,20 +16,16 @@ build ./imports/facts/raw/us-counties.tsv : copy $
         | ${ninja_force}
 
 
-build ./imports/factbook/raw/population.txt : fetch-curl $
-        | ${ninja_force}
+build ./imports/factbook/raw/population.txt : fetch-curl
     url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_335.txt'
 
-build ./imports/factbook/raw/median-age.txt : fetch-curl $
-        | ${ninja_force}
+build ./imports/factbook/raw/median-age.txt : fetch-curl
     url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_343.txt'
 
-build ./imports/factbook/raw/death-rate.txt : fetch-curl $
-        | ${ninja_force}
+build ./imports/factbook/raw/death-rate.txt : fetch-curl
     url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_346.txt'
 
-build ./imports/factbook/raw/area.txt : fetch-curl $
-        | ${ninja_force}
+build ./imports/factbook/raw/area.txt : fetch-curl
     url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_279.txt'
 
 
