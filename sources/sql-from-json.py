@@ -14,15 +14,20 @@ def convert (_input, _output, _format) :
 	
 	
 	_input_decoder = json.JSONDecoder (object_pairs_hook = collections.OrderedDict)
-	_input_data = _input.read ()
-	_input_data = "[" + _input_data.replace ("}\n{", "},\n{") + "]"
-	_records = _input_decoder.decode (_input_data)
+	
+	_records = []
 	
 	
 	_field_types = {}
 	_field_keys = []
 	
-	for _record in _records :
+	while len (_records) < 100000 :
+		
+		_record_line = _input.readline ()
+		if _record_line == "" :
+			break
+		_record = _input_decoder.decode (_record_line)
+		_records.append (_record)
 		
 		for _field_key, _value in _record.iteritems () :
 			
@@ -57,6 +62,7 @@ def convert (_input, _output, _format) :
 			
 			_field_types[_field_key] = (_field_type, _field_null)
 	
+	
 	_sql_table = "dataset";
 	
 	_sql_schema = []
@@ -81,7 +87,10 @@ def convert (_input, _output, _format) :
 	
 	_output.write (_sql_schema)
 	
+	
 	while len (_records) > 0 :
+		
+		_output.write ("\n")
 		_output.write ("insert into \"%s\"\n" % _sql_table)
 		_output.write ("\t( " + ", ".join (["\"%s\"" % _field_key for _field_key in _field_keys if _field_types[_field_key][0] is not None]) + " )\n")
 		_output.write ("values\n")
@@ -110,14 +119,21 @@ def convert (_input, _output, _format) :
 					raise Exception (("[682148ee]", _field_key, _value))
 				_sql_values.append (_value)
 			_sql_values = ", ".join (_sql_values)
-			if _index < (1000 - 1) and len (_records) > 0 :
+			if _index < (10000 - 1) and len (_records) > 0 :
 				_output.write ("\t( " + _sql_values + " ),\n")
 			else :
-				_output.write ("\t( " + _sql_values + " )\n")
+				_output.write ("\t( " + _sql_values + " );\n")
 			_index += 1
-			if _index == 1000 :
+			if _index == 10000 :
 				break
-		_output.write (";\n")
+		_output.write ("\n")
+		
+		while len (_records) < 100000 :
+			_record_line = _input.readline ()
+			if _record_line == "" :
+				break
+			_record = _input_decoder.decode (_record_line)
+			_records.append (_record)
 	
 	_input.close ()
 	_output.close ()
