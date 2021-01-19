@@ -2,6 +2,8 @@
 .*
 !.gitignore
 
+/exports/combined/**
+
 /exports/**/values.tsv
 /exports/**/values.json
 /exports/**/values.sql-json
