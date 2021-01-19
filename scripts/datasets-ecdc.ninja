@@ -128,6 +128,13 @@ build ./exports/ecdc/v1/worldwide/values.tsv.gz : gzip ./exports/ecdc/v1/worldwi
     pool = cpu_moderate
 
 
+build ./exports/ecdc/v1/worldwide/values.json.zst : zstd ./exports/ecdc/v1/worldwide/values.json
+    pool = cpu_moderate
+
+build ./exports/ecdc/v1/worldwide/values.tsv.zst : zstd ./exports/ecdc/v1/worldwide/values.tsv
+    pool = cpu_moderate
+
+
 
 
 build ./exports/ecdc/v1/worldwide/values.sql-json : z-run-in-out $
@@ -157,6 +164,13 @@ build ./exports/ecdc/v1/worldwide/values-sqlite.db.gz : gzip ./exports/ecdc/v1/w
     pool = cpu_moderate
 
 
+build ./exports/ecdc/v1/worldwide/values-sqlite.sql.zst : zstd ./exports/ecdc/v1/worldwide/values-sqlite.sql
+    pool = cpu_moderate
+
+build ./exports/ecdc/v1/worldwide/values-sqlite.db.zst : zstd ./exports/ecdc/v1/worldwide/values-sqlite.db
+    pool = cpu_moderate
+
+
 
 
 build ./exports/ecdc/v1/worldwide/status.json : z-run-in-out $
@@ -176,14 +190,18 @@ build __ecdc__imports : phony $
 build __ecdc__exports : phony $
         ./exports/ecdc/v1/worldwide/values.json $
         ./exports/ecdc/v1/worldwide/values.json.gz $
+        ./exports/ecdc/v1/worldwide/values.json.zst $
         ./exports/ecdc/v1/worldwide/values.tsv $
         ./exports/ecdc/v1/worldwide/values.tsv.gz $
+        ./exports/ecdc/v1/worldwide/values.tsv.zst $
         ./exports/ecdc/v1/worldwide/values.txt $
         ./exports/ecdc/v1/worldwide/values.html $
         ./exports/ecdc/v1/worldwide/values-sqlite.sql $
         ./exports/ecdc/v1/worldwide/values-sqlite.sql.gz $
+        ./exports/ecdc/v1/worldwide/values-sqlite.sql.zst $
         ./exports/ecdc/v1/worldwide/values-sqlite.db $
         ./exports/ecdc/v1/worldwide/values-sqlite.db.gz $
+        ./exports/ecdc/v1/worldwide/values-sqlite.db.zst $
         ./exports/ecdc/v1/worldwide/status.json $
         ||
 

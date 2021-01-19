@@ -32,6 +32,13 @@ build ./exports/combined/v1/values.tsv.gz : gzip ./exports/combined/v1/values.ts
     pool = cpu_moderate
 
 
+build ./exports/combined/v1/values.json.zst : zstd ./exports/combined/v1/values.json
+    pool = cpu_moderate
+
+build ./exports/combined/v1/values.tsv.zst : zstd ./exports/combined/v1/values.tsv
+    pool = cpu_moderate
+
+
 
 
 build ./exports/combined/v1/values.sql-json : z-run-in-out $
@@ -58,6 +65,13 @@ build ./exports/combined/v1/values-sqlite.sql.gz : gzip ./exports/combined/v1/va
     pool = cpu_moderate
 
 build ./exports/combined/v1/values-sqlite.db.gz : gzip ./exports/combined/v1/values-sqlite.db
+    pool = cpu_moderate
+
+
+build ./exports/combined/v1/values-sqlite.sql.zst : zstd ./exports/combined/v1/values-sqlite.sql
+    pool = cpu_moderate
+
+build ./exports/combined/v1/values-sqlite.db.zst : zstd ./exports/combined/v1/values-sqlite.db
     pool = cpu_moderate
 
 
@@ -97,6 +111,11 @@ build __combined__exports : phony $
         ./exports/combined/v1/values.tsv.gz $
         ./exports/combined/v1/values-sqlite.sql.gz $
         ./exports/combined/v1/values-sqlite.db.gz $
+        $
+        ./exports/combined/v1/values.json.zst $
+        ./exports/combined/v1/values.tsv.zst $
+        ./exports/combined/v1/values-sqlite.sql.zst $
+        ./exports/combined/v1/values-sqlite.db.zst $
         $
         ./exports/combined/v1/locations-diff.json $
         ./exports/combined/v1/locations-diff.tsv $

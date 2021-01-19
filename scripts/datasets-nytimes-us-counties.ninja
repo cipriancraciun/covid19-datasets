@@ -128,6 +128,13 @@ build ./exports/nytimes/v1/us-counties/values.tsv.gz : gzip ./exports/nytimes/v1
     pool = cpu_moderate
 
 
+build ./exports/nytimes/v1/us-counties/values.json.zst : zstd ./exports/nytimes/v1/us-counties/values.json
+    pool = cpu_moderate
+
+build ./exports/nytimes/v1/us-counties/values.tsv.zst : zstd ./exports/nytimes/v1/us-counties/values.tsv
+    pool = cpu_moderate
+
+
 
 
 build ./exports/nytimes/v1/us-counties/values.sql-json : z-run-in-out $
@@ -154,6 +161,13 @@ build ./exports/nytimes/v1/us-counties/values-sqlite.sql.gz : gzip ./exports/nyt
     pool = cpu_moderate
 
 build ./exports/nytimes/v1/us-counties/values-sqlite.db.gz : gzip ./exports/nytimes/v1/us-counties/values-sqlite.db
+    pool = cpu_moderate
+
+
+build ./exports/nytimes/v1/us-counties/values-sqlite.sql.zst : zstd ./exports/nytimes/v1/us-counties/values-sqlite.sql
+    pool = cpu_moderate
+
+build ./exports/nytimes/v1/us-counties/values-sqlite.db.zst : zstd ./exports/nytimes/v1/us-counties/values-sqlite.db
     pool = cpu_moderate
 
 

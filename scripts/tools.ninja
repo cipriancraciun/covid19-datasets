@@ -77,6 +77,14 @@ rule gzip
     description = [gzip]  ${out}
     restat = true
 
+rule zstd
+    command = $
+        if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        zstd --compress --ultra -22 --rsyncable < ${in} >| ${out}.tmp ; $
+        mv -T -- ${out}.tmp ${out}
+    description = [zstd]  ${out}
+    restat = true
+
 
 
 
