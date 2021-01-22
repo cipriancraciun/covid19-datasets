@@ -110,18 +110,18 @@
 	
 	
 	{{ $_chart := (printf "./plots/%s/%s/all/%s--%s--lines.%s" $_dataset $_filter $_method $_metric $_format) }}
-	{{ $_all_format_charts = append $_all_format_charts $_chart }}
-	{{ $_all_filter_charts = append $_all_filter_charts $_chart }}
-	{{ $_all_method_charts = append $_all_method_charts $_chart }}
+	{{ $_all_format_charts = array_append $_all_format_charts $_chart }}
+	{{ $_all_filter_charts = array_append $_all_filter_charts $_chart }}
+	{{ $_all_method_charts = array_append $_all_method_charts $_chart }}
 	
 	{{ if and (or (eq $_dataset "ecdc") (eq $_dataset "nytimes")) (eq $_method "absolute") (eq $_metric "confirmed") (or (eq $_format "pdf") (eq $_format "png")) }}
-	{{ $_all_sample_charts = append $_all_sample_charts $_chart }}
+	{{ $_all_sample_charts = array_append $_all_sample_charts $_chart }}
 	{{ end }}
 	
 	{{ $_chart := (printf "./plots/%s/%s/all/%s--%s--heatmap.%s" $_dataset $_filter $_method $_metric $_format) }}
-	{{ $_all_format_charts = append $_all_format_charts $_chart }}
-	{{ $_all_filter_charts = append $_all_filter_charts $_chart }}
-	{{ $_all_method_charts = append $_all_method_charts $_chart }}
+	{{ $_all_format_charts = array_append $_all_format_charts $_chart }}
+	{{ $_all_filter_charts = array_append $_all_filter_charts $_chart }}
+	{{ $_all_method_charts = array_append $_all_method_charts $_chart }}
 	
 	
 	{{ end }}
@@ -129,18 +129,18 @@
 	
 	{{ if $_should_skip | not }}
 	build __{{ $_dataset }}__plots__{{ $_filter }}__{{ $_method }}__{{ $_format }} : phony {{ $_all_method_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__%s__plots__%s__%s__%s" $_dataset $_filter $_method $_format) }}
+	{{ $_all_phony = array_append $_all_phony (printf "__%s__plots__%s__%s__%s" $_dataset $_filter $_method $_format) }}
 	{{ end }}
 	
 	{{ end }}
 	
 	build __{{ $_dataset }}__plots__{{ $_filter }}__all__{{ $_format }} : phony {{ $_all_filter_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__%s__plots__%s__all__%s" $_dataset $_filter $_format ) }}
+	{{ $_all_phony = array_append $_all_phony (printf "__%s__plots__%s__all__%s" $_dataset $_filter $_format ) }}
 	
 	{{ end }}
 	
 	build __{{ $_dataset }}__plots__all__all__{{ $_format }} : phony {{ $_all_format_charts | array_join " " }}
-	{{ $_all_phony = append $_all_phony (printf "__%s__plots__all__all__%s" $_dataset $_format ) }}
+	{{ $_all_phony = array_append $_all_phony (printf "__%s__plots__all__all__%s" $_dataset $_format ) }}
 	
 	{{ end }}
 	

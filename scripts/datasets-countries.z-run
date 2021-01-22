@@ -10,7 +10,7 @@
 	{{ $_outputs_all := array }}
 	
 	{{ range $_, $_dataset := $_datasets }}
-	{{ $_dataset := $_dataset | split "/" }}
+	{{ $_dataset := $_dataset | split_all "/" }}
 	{{ $_dataset_0 := index $_dataset 0 }}
 	{{ $_dataset_1 := index $_dataset 1 }}
 	{{ $_outputs := array }}
@@ -36,8 +36,8 @@
 	    pool = cpu_moderate
 	
 	
-	{{ $_outputs = append $_outputs (printf "./exports/%s/v1/%s-by-country/%s.json" $_dataset_0 $_dataset_1 $_country ) }}
-	{{ $_outputs = append $_outputs (printf "./exports/%s/v1/%s-by-country/%s.tsv" $_dataset_0 $_dataset_1 $_country ) }}
+	{{ $_outputs = array_append $_outputs (printf "./exports/%s/v1/%s-by-country/%s.json" $_dataset_0 $_dataset_1 $_country ) }}
+	{{ $_outputs = array_append $_outputs (printf "./exports/%s/v1/%s-by-country/%s.tsv" $_dataset_0 $_dataset_1 $_country ) }}
 	{{ end }}
 	
 	
@@ -45,7 +45,7 @@
 	
 	
 	{{ range $_, $_output := $_outputs }}
-	{{ $_outputs_all = append $_outputs_all $_output }}
+	{{ $_outputs_all = array_append $_outputs_all $_output }}
 	{{ end }}
 	
 	{{ end }}
