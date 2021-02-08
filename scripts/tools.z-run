@@ -66,7 +66,7 @@
 
 --<<~~ tools / convert / csv-to-json / exec
 	#! {{}}
-	#! <python2>
+	#! python2
 	{{ Z_zspawn_capture ":: tools / convert / csv-to-json / script" }}
 !!
 
@@ -108,7 +108,7 @@
 
 --<<~~ tools / convert / sql-from-json / exec
 	#! {{}}
-	#! <python2>
+	#! python2
 	{{ Z_zspawn_capture ":: tools / convert / sql-from-json / script" }}
 !!
 
@@ -353,7 +353,7 @@
 
 --<<~~ tools / ashes
 	#! {{}}
-	#! <python2>
+	#! python2
 	{{ Z_zspawn_capture ":: tools / ashes / script" }}
 !!
 
