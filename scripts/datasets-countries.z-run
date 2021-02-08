@@ -15,7 +15,7 @@
 	{{ $_dataset_1 := index $_dataset 1 }}
 	{{ $_outputs := array }}
 	
-	{{ range $_, $_country := ZRUN ":: process / facts / imports / countries / list" | split_lines }}
+	{{ range $_, $_country := Z_zspawn_capture ":: process / facts / imports / countries / list" | split_lines }}
 	
 	
 	build ./exports/{{ $_dataset_0 }}/v1/{{ $_dataset_1 }}-by-country/{{ $_country }}.json : z-run-in-out $

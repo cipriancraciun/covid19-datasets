@@ -6,7 +6,7 @@
 --<<~~ ninja / script / exec
 	#! {{}}
 	#! <ninja>
-	{{ ZRUN ":: ninja / script" }}
+	{{ Z_zspawn_capture ":: ninja / script" }}
 !!
 
 
@@ -87,24 +87,24 @@
 	
 	ninja_force = ./imports/.force
 	
-	{{ ZRUN ":: ninja / script / tools" }}
+	{{ Z_zspawn_capture ":: ninja / script / tools" }}
 	
-	{{ ZRUN ":: ninja / script / datasets / jhu" }}
-	{{ ZRUN ":: ninja / script / datasets / jhu / daily" }}
-	{{ ZRUN ":: ninja / script / datasets / jhu / series" }}
-	{{ ZRUN ":: ninja / script / datasets / jhu / generated" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / jhu" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / jhu / daily" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / jhu / series" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / jhu / generated" }}
 	
-	{{ ZRUN ":: ninja / script / datasets / ecdc" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / ecdc" }}
 	
-	{{ ZRUN ":: ninja / script / datasets / nytimes" }}
-	{{ ZRUN ":: ninja / script / datasets / nytimes / us-states" }}
-	{{ ZRUN ":: ninja / script / datasets / nytimes / us-counties" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / nytimes" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / nytimes / us-states" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / nytimes / us-counties" }}
 	
-	{{ ZRUN ":: ninja / script / datasets / generic" }}
-	{{ ZRUN ":: ninja / script / datasets / plots" }}
-	{{ ZRUN ":: ninja / script / datasets / countries" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / generic" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / plots" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / countries" }}
 	
-	{{ ZRUN ":: ninja / script / datasets / facts" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / facts" }}
 	
 	build ${ninja_force} : marker
 	
@@ -162,7 +162,7 @@
 
 --<<== ninja / generate
 	#! {{}}
-	{{ range $_, $_target := ZRUN ":: ninja / targets" | split_lines }}
+	{{ range $_, $_target := Z_zspawn_capture ":: ninja / targets" | split_lines }}
 	
 	{{ if $_target | has_prefix ("__") }}
 	
@@ -263,7 +263,7 @@
 
 --<<~~.. ninja / targets
 	test "${#}" -eq 0
-	"${ZRUN[@]}" ':: ninja / script / exec' -t targets all \
+	ninja -f <( exec -- "${ZRUN[@]}" ':: ninja / script' ) -t targets all \
 	| sed -r \
 			-e '\#^([^:]+): marker$# d' \
 			-e 's#^([^:]+): .*$#\1#' \
@@ -271,7 +271,7 @@
 !!
 
 --<<~~.. ninja / commands
-	"${ZRUN[@]}" ':: ninja / script / exec' -t commands
+	ninja -f <( exec -- "${ZRUN[@]}" ':: ninja / script' ) -t commands
 !!
 
 
