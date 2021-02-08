@@ -3,10 +3,8 @@
 
 
 
---<<~~ ninja / script / exec
-	#! {{}}
-	#! <ninja>
-	{{ Z_zspawn_capture ":: ninja / script" }}
+--<< ninja / script / exec
+	exec ninja -f <( exec -- "${ZRUN[@]}" ':: ninja / script' ) "${@}"
 !!
 
 
@@ -263,7 +261,7 @@
 
 --<<~~.. ninja / targets
 	test "${#}" -eq 0
-	ninja -f <( exec -- "${ZRUN[@]}" ':: ninja / script' ) -t targets all \
+	"${ZRUN[@]}" ':: ninja / script / exec' -t targets all \
 	| sed -r \
 			-e '\#^([^:]+): marker$# d' \
 			-e 's#^([^:]+): .*$#\1#' \
@@ -271,7 +269,7 @@
 !!
 
 --<<~~.. ninja / commands
-	ninja -f <( exec -- "${ZRUN[@]}" ':: ninja / script' ) -t commands
+	exec -- "${ZRUN[@]}" ':: ninja / script / exec' -t commands
 !!
 
 
