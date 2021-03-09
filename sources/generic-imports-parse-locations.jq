@@ -51,6 +51,10 @@
 			(. == "Out of AL") or
 			(. == "Out of LA") or
 			(. == "Out of PR") or
+			(. == "Out of AZ") or
+			(. == "Out of KS") or
+			(. == "Out of ME") or
+			(. == "Out of NY") or
 			(. == "Out-of-state") or
 			# NOTE:  Administrative in Utah
 			(. == "Bear River") or
@@ -124,6 +128,7 @@
 				(. == ["France", "Reunion", null]) or
 				(. == ["France", "St Martin", null]) or
 				(. == ["France", "Saint Pierre and Miquelon", null]) or
+				(. == ["France", "Wallis and Futuna", null]) or
 				(. == ["Belgium", "Luxembourg", null]) or
 				(. == ["United Kingdom", "Anguilla", null]) or
 				(. == ["United Kingdom", "Bermuda", null]) or
@@ -135,6 +140,7 @@
 				(. == ["United Kingdom", "Turks and Caicos Islands", null]) or
 				(. == ["United Kingdom", "Guernsey", null]) or
 				(. == ["United Kingdom", "Falkland Islands (Malvinas)", null]) or
+				(. == ["United Kingdom", "Saint Helena, Ascension and Tristan da Cunha", null]) or
 				(. == ["United States", "United States Virgin Islands", null]) or
 				(. == ["United States", "Virgin Islands", null]) or
 				(. == ["United States", "Virgin Islands, U.S.", null]) or
