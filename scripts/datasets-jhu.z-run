@@ -57,7 +57,7 @@
 	    scriptlet = ':: tools / jq / filter / multi'
 	    arguments_pre = ':: process / generic / imports / csv-to-json-merge / script'
 	    arguments = $
-	        --compact-output
+	        --compact-output-0
 	    pool = cpu_moderate
 	
 !!

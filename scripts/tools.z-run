@@ -168,6 +168,9 @@
 				_flags+=( "${1}" "${2}" "${3}" )
 				shift -- 3
 			;;
+			( --compact-output-0 )
+				shift -- 1
+			;;
 			( --slurp | --compact-output | --raw-input | --raw-output )
 				_flags+=( "${1}" )
 				shift -- 1
@@ -222,6 +225,9 @@
 				test "${#}" -ge 3
 				_flags+=( "${1}" "${2}" "${3}" )
 				shift -- 3
+			;;
+			( --compact-output-0 )
+				shift -- 1
 			;;
 			( --compact-output | --raw-input | --raw-output )
 				_flags+=( "${1}" )

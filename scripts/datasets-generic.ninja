@@ -12,7 +12,7 @@ build ./exports/combined/v1/values.json : z-run-out-in $
     scriptlet = ':: tools / jq / filter / multi'
     arguments_pre = ':: process / generic / exports / combine / script'
     arguments = $
-        --compact-output
+        --compact-output-0
     pool = cpu_heavy
 
 build ./exports/combined/v1/values.tsv : z-run-in-out $
