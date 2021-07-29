@@ -20,17 +20,27 @@
 
 --<<~~.. process / facts / imports / countries / list
 	test "${#}" -eq 0
-	jq -r \
-		'
-			.
-			| to_entries
-			| map (.value | .code)
-			| map (ascii_downcase)
-			| sort
-			| .[]
-		' \
-		< ./imports/facts/countries.json
+	if test -e ./imports/facts/countries.json ; then
+		jq -r \
+			'
+				.
+				| to_entries
+				| map (.value | .code)
+				| map (ascii_downcase)
+				| sort
+				| .[]
+			' \
+			< ./imports/facts/countries.json \
+			>| ./imports/facts/countries.txt.tmp \
+		#
+		if ! cmp -s -- ./imports/facts/countries.txt ./imports/facts/countries.txt.tmp ; then
+			mv -T -- ./imports/facts/countries.txt.tmp ./imports/facts/countries.txt
+		else
+			rm -- ./imports/facts/countries.txt.tmp
+		fi
+	fi
+	cat -- ./imports/facts/countries.txt
 !!
 
-&&__ ./imports/facts/countries.json
+&&__ ./imports/facts/countries.txt
 
