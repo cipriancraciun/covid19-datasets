@@ -18,15 +18,19 @@ build ./imports/facts/raw/us-counties.tsv : copy $
 
 build ./imports/factbook/raw/population.txt : fetch-curl
     url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_335.txt'
+    skip = true
 
 build ./imports/factbook/raw/median-age.txt : fetch-curl
     url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_343.txt'
+    skip = true
 
 build ./imports/factbook/raw/death-rate.txt : fetch-curl
     url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_346.txt'
+    skip = true
 
 build ./imports/factbook/raw/area.txt : fetch-curl
     url = 'https://www.cia.gov/library/publications/the-world-factbook/fields/rawdata_279.txt'
+    skip = true
 
 
 

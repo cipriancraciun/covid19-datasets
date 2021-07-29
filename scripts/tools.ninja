@@ -5,6 +5,7 @@
 rule fetch-curl
     command = $
         if test "$${__ninja_fake:-false}" == true ; then exit -- 0 ; fi ; $
+        if test '${skip}' == true -a -f ${out} ; then exit -- 0 ; fi ; $
         exec -- z-run ':: tools / fetch / curl' ${url} ${out}
     description = [fetch-curl]  ${out}
     restat = true

@@ -12,11 +12,13 @@
 	rsync \
 			--recursive --one-file-system \
 			--delete \
+			--delete-excluded \
 			--links \
 			--times --omit-dir-times --omit-link-times \
 			--prune-empty-dirs \
 			--no-compress \
 			\
+			--filter 'protect /.outputs' \
 			--exclude '*.tmp' \
 			--exclude '*.tmp.*' \
 			--exclude '*#' \
@@ -49,6 +51,7 @@
 	rsync \
 			--recursive --one-file-system \
 			--delete \
+			--delete-excluded \
 			--links \
 			--times --omit-dir-times --omit-link-times \
 			--prune-empty-dirs \
