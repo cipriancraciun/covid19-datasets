@@ -5,6 +5,7 @@
 build ./exports/combined/v1/values.json : z-run-out-in $
         ./exports/jhu/v1/series/values.json $
         ./exports/jhu/v1/daily/values.json $
+        ./exports/ecdc/v1/europe/values.json $
         ./exports/ecdc/v1/worldwide/values.json $
         ./exports/nytimes/v1/us-states/values.json $
         ./exports/nytimes/v1/us-counties/values.json $
@@ -80,6 +81,7 @@ build ./exports/combined/v1/values-sqlite.db.zst : zstd ./exports/combined/v1/va
 build ./exports/combined/v1/locations-diff.json : z-run-out-in $
         ./imports/jhu/series/locations.json $
         ./imports/jhu/daily/locations.json $
+        ./imports/ecdc/europe/locations.json $
         ./imports/ecdc/worldwide/locations.json $
         ./imports/nytimes/us-states/locations.json $
         ./imports/nytimes/us-counties/locations.json $

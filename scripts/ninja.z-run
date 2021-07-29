@@ -93,6 +93,8 @@
 	{{ Z_zspawn_capture ":: ninja / script / datasets / jhu / generated" }}
 	
 	{{ Z_zspawn_capture ":: ninja / script / datasets / ecdc" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / ecdc / europe" }}
+	{{ Z_zspawn_capture ":: ninja / script / datasets / ecdc / worldwide" }}
 	
 	{{ Z_zspawn_capture ":: ninja / script / datasets / nytimes" }}
 	{{ Z_zspawn_capture ":: ninja / script / datasets / nytimes / us-states" }}
@@ -116,19 +118,19 @@
 	        __jhu__exports $
 	        __nytimes__exports $
 	        __ecdc__exports $
-	        || __all__imports
+	        ||
 	
 	build __all__data : phony $
 	        __all__imports $
 	        __all__exports $
 	        __all__countries $
-	        || __all__exports
+	        ||
 	
 	build __all__plots : phony $
 	        __jhu__plots $
 	        __ecdc__plots $
 	        __nytimes__plots $
-	        || __all__data
+	        ||
 	
 	build __all : phony $
 	        __all__data $
@@ -140,8 +142,9 @@
 	        __jhu__countries__series $
 	        __nytimes__exports__us-states $
 	        __ecdc__exports $
+	        __ecdc__countries__europe $
 	        __ecdc__countries__worldwide $
-	        || __all__imports
+	        ||
 !!
 
 --::&&.. ninja / script / tools :: ./scripts/tools.ninja
@@ -149,6 +152,8 @@
 --::&&.. ninja / script / datasets / jhu / daily :: ./scripts/datasets-jhu-daily.ninja
 --::&&.. ninja / script / datasets / jhu / series :: ./scripts/datasets-jhu-series.ninja
 --::&&.. ninja / script / datasets / ecdc :: ./scripts/datasets-ecdc.ninja
+--::&&.. ninja / script / datasets / ecdc / europe :: ./scripts/datasets-ecdc-europe.ninja
+--::&&.. ninja / script / datasets / ecdc / worldwide :: ./scripts/datasets-ecdc-worldwide.ninja
 --::&&.. ninja / script / datasets / nytimes :: ./scripts/datasets-nytimes.ninja
 --::&&.. ninja / script / datasets / nytimes / us-states :: ./scripts/datasets-nytimes-us-states.ninja
 --::&&.. ninja / script / datasets / nytimes / us-counties :: ./scripts/datasets-nytimes-us-counties.ninja

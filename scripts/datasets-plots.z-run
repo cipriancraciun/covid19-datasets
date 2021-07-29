@@ -30,7 +30,11 @@
 	
 	
 	{{ $_should_skip := false }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_filter "world") (eq $_filter "continents") (eq $_filter "subcontinents"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_filter "global") (eq $_filter "global-major") (eq $_filter "global-medium") (eq $_filter "global-minor"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "jhu") (or (eq $_filter "europe") (eq $_filter "europe-major") (eq $_filter "europe-medium") (eq $_filter "europe-minor") (eq $_filter "romania"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "jhu") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_dataset "nytimes") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor") | not)) $_should_skip }}
 	
 	
@@ -64,9 +68,9 @@
 	
 	{{ $_source := "/dev/null/does-not-exist" }}
 	{{ if eq $_dataset "jhu" }}
-	{{ $_source = "./exports/jhu/v1/daily/values.tsv" }}
+	{{ $_source = "./exports/jhu/v1/series/values.tsv" }}
 	{{ else if eq $_dataset "ecdc" }}
-	{{ $_source = "./exports/ecdc/v1/worldwide/values.tsv" }}
+	{{ $_source = "./exports/ecdc/v1/europe/values.tsv" }}
 	{{ else if eq $_dataset "nytimes" }}
 	{{ $_source = "./exports/nytimes/v1/us-states/values.tsv" }}
 	{{ end }}
@@ -190,7 +194,11 @@
 	
 	
 	{{ $_should_skip := false }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_filter "world") (eq $_filter "continents") (eq $_filter "subcontinents"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_filter "global") (eq $_filter "global-major") (eq $_filter "global-medium") (eq $_filter "global-minor"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_dataset "ecdc") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "jhu") (or (eq $_filter "europe") (eq $_filter "europe-major") (eq $_filter "europe-medium") (eq $_filter "europe-minor") (eq $_filter "romania"))) $_should_skip }}
+	{{ $_should_skip = or (and (eq $_dataset "jhu") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor"))) $_should_skip }}
 	{{ $_should_skip = or (and (eq $_dataset "nytimes") (or (eq $_filter "us") (eq $_filter "us-major") (eq $_filter "us-medium") (eq $_filter "us-minor") | not)) $_should_skip }}
 	
 	

@@ -6,7 +6,7 @@
 --<<~~.. ninja / script / datasets / countries
 	#! {{}}
 	
-	{{ $_datasets := array "jhu/daily" "jhu/series" "ecdc/worldwide" }}
+	{{ $_datasets := array "jhu/daily" "jhu/series" "ecdc/europe" "ecdc/worldwide" }}
 	{{ $_outputs_all := array }}
 	
 	{{ range $_, $_dataset := $_datasets }}

@@ -19,7 +19,7 @@
 		| (if (($previous != null) and ($previous.dataset == $current.dataset) and ($previous.location.key == $current.location.key)) then $previous else null end) as $previous
 		| $current
 		
-		| if ((.dataset == "ecdc/worldwide") and ($previous != null)) then
+		| if (((.dataset == "ecdc/europe") or (.dataset == "ecdc/worldwide")) and ($previous != null)) then
 			.
 			| .values.absolute = {
 				confirmed : (.values.absolute.confirmed + $previous.values.absolute.confirmed),
@@ -46,7 +46,13 @@
 			}
 		else
 			.
-			| .values.delta = .values.absolute
+			| .values.delta = {
+				confirmed : 0,
+				recovered : 0,
+				infected : 0,
+				deaths : 0,
+			}
+			| .values.delta_pct = .values.delta
 		end
 		
 		| if ((.values.absolute.confirmed >= 1) or ($previous.day_index_1 != null)) then

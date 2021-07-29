@@ -74,7 +74,7 @@ elseif _dataset_id == :ecdc
 	
 	_dataset_title = "ECDC"
 	_dataset = filter(
-			(_data -> _data[:dataset] == "ecdc/worldwide"),
+			(_data -> (_data[:dataset] == "ecdc/europe") || (_data[:dataset] == "ecdc/worldwide")),
 			_dataset,
 		)
 	
@@ -232,6 +232,7 @@ _dataset_locations_meta = DataFrame(
 		label = String[],
 		color = Colors.Colorant[],
 		color_index = Int[],
+		day_date_min = Date[],
 		day_date_max = Date[],
 		day_index_max = Int[],
 		day_metric_max = Number[],
@@ -249,7 +250,7 @@ for _dataset_location in _dataset_locations
 		continue
 	end
 	
-	_dataset_max_confirmed = findmax(_dataset_0[:, :absolute_confirmed])[1]
+	_dataset_max_confirmed = maximum(skipmissing(_dataset_0[:, :absolute_confirmed]))
 	if (_dataset_confirmed_at_least !== nothing) && (_dataset_max_confirmed < _dataset_confirmed_at_least)
 		continue
 	end
@@ -262,6 +263,7 @@ for _dataset_location in _dataset_locations
 		continue
 	end
 	
+	_dataset_min_date = findmin(_dataset_0[:, :date])[1]
 	_dataset_max_date = findmax(_dataset_0[:, :date])[1]
 	_dataset_max_index = findmax(_dataset_0[:, _dataset_index])[1]
 	_dataset_max_metric = findmax(_dataset_0[:, _dataset_metric])[1]
@@ -279,6 +281,7 @@ for _dataset_location in _dataset_locations
 			_dataset_location,
 			_dataset_color,
 			_dataset_color_index,
+			_dataset_min_date,
 			_dataset_max_date,
 			_dataset_max_index,
 			_dataset_max_metric,
@@ -544,6 +547,7 @@ for (_index, _dataset_location) in enumerate(_dataset_locations_meta[:, :locatio
 		)
 	
 	_dataset_locations_meta[_index, :label] = _dataset_label
+	_dataset_locations_meta[_index, :day_date_min] = _dataset_min_date
 	_dataset_locations_meta[_index, :day_date_max] = _dataset_max_date
 	_dataset_locations_meta[_index, :day_index_max] = _dataset_max_index
 	_dataset_locations_meta[_index, :day_metric_max] = _dataset_max_metric
@@ -763,7 +767,7 @@ _plot = Gadfly.plot(
 		_plot_descriptor...,
 		_plot_style,
 		
-		Gadfly.Guide.title(@sprintf("%s dataset for `%s`: `%s` per `%s` (until %s)", _dataset_title, _dataset_filter, _dataset_metric, _dataset_index, _dataset_max_date)),
+		Gadfly.Guide.title(@sprintf("%s dataset for `%s`: `%s` per `%s` (until %s, since %s)", _dataset_title, _dataset_filter, _dataset_metric, _dataset_index, _dataset_max_date, _dataset_min_date)),
 		Gadfly.Guide.xlabel(nothing),
 		Gadfly.Guide.ylabel(nothing),
 		
