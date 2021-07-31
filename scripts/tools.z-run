@@ -288,7 +288,6 @@
 			inkscape \
 					"${_export_flag}" "${_output}.tmp" \
 					--export-area-page \
-					--export-width 1200 \
 					--export-text-to-path \
 					--export-background '#ffffff' \
 					--export-background-opacity 0.0 \
@@ -314,6 +313,7 @@
 				) \
 				output \
 				"${_output}.tmp.1" \
+			2> /dev/null \
 		#
 		mv -T -- "${_output}.tmp.1" "${_output}.tmp"
 	fi

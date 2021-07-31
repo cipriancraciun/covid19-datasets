@@ -115,17 +115,17 @@ elseif _dataset_filter in [:global, :global_major, :global_medium, :global_minor
 	_dataset_location_type = "total-country"
 	
 	if _dataset_filter == :global_major
-		_dataset_confirmed_at_least = 1000 * 1000
+		_dataset_confirmed_at_least = 4 * 1000 * 1000
 	elseif _dataset_filter == :global_medium
-		_dataset_confirmed_at_most = 1000 * 1000
-		_dataset_confirmed_at_least = 500 * 1000
+		_dataset_confirmed_at_most = 4 * 1000 * 1000
+		_dataset_confirmed_at_least = 1 * 1000 * 1000
 	elseif _dataset_filter == :global_minor
-		_dataset_confirmed_at_most = 500 * 1000
-		_dataset_confirmed_at_least = 250 * 1000
-		_dataset_confirmed_cap = 25
+		_dataset_confirmed_at_most = 1 * 1000 * 1000
+		_dataset_confirmed_at_least = 500 * 1000
+		_dataset_confirmed_cap = 20
 	else
-		_dataset_confirmed_at_least = 10 * 1000
-		_dataset_confirmed_cap = 30
+		_dataset_confirmed_at_least = 50 * 1000
+		_dataset_confirmed_cap = 25
 	end
 	
 elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor]
@@ -142,17 +142,17 @@ elseif _dataset_filter in [:europe, :europe_major, :europe_medium, :europe_minor
 		)
 	
 	if _dataset_filter == :europe_major
-		_dataset_confirmed_at_least = 500 * 1000
+		_dataset_confirmed_at_least = 1.5 * 1000 * 1000
 	elseif _dataset_filter == :europe_medium
-		_dataset_confirmed_at_most = 500 * 1000
-		_dataset_confirmed_at_least = 150 * 1000
+		_dataset_confirmed_at_most = 1.5 * 1000 * 1000
+		_dataset_confirmed_at_least = 500 * 1000
 	elseif _dataset_filter == :europe_minor
-		_dataset_confirmed_at_most = 150 * 1000
+		_dataset_confirmed_at_most = 500 * 1000
+		_dataset_confirmed_at_least = 100 * 1000
+		_dataset_confirmed_cap = 20
+	else
 		_dataset_confirmed_at_least = 50 * 1000
 		_dataset_confirmed_cap = 25
-	else
-		_dataset_confirmed_at_least = 10 * 1000
-		_dataset_confirmed_cap = 30
 	end
 	
 elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
@@ -171,17 +171,17 @@ elseif _dataset_filter in [:us, :us_major, :us_medium, :us_minor]
 	_dataset_locations = unique(_dataset[:, :province])
 	
 	if _dataset_filter == :us_major
-		_dataset_confirmed_at_least = 500 * 1000
+		_dataset_confirmed_at_least = 1 * 1000 * 1000
 	elseif _dataset_filter == :us_medium
-		_dataset_confirmed_at_most = 500 * 1000
-		_dataset_confirmed_at_least = 250 * 1000
+		_dataset_confirmed_at_most = 1 * 1000 * 1000
+		_dataset_confirmed_at_least = 500 * 1000
 	elseif _dataset_filter == :us_minor
-		_dataset_confirmed_at_most = 250 * 1000
+		_dataset_confirmed_at_most = 500 * 1000
 		_dataset_confirmed_at_least = 100 * 1000
-		_dataset_confirmed_cap = 25
+		_dataset_confirmed_cap = 20
 	else
-		_dataset_confirmed_at_least = 10 * 1000
-		_dataset_confirmed_cap = 30
+		_dataset_confirmed_at_least = 50 * 1000
+		_dataset_confirmed_cap = 25
 	end
 	
 elseif _dataset_filter == :romania
@@ -582,7 +582,7 @@ end
 Gadfly.push_theme(:dark)
 
 _plot_font_name = "JetBrains Mono"
-_plot_font_size = 12px
+_plot_font_size = 16px
 
 _plot_style = Gadfly.style(
 		point_size = 1.25px,
@@ -800,7 +800,7 @@ _plot = Gadfly.plot(
 
 
 if _plot_format == :pdf
-	_plot_output = Gadfly.PDF(_plot_path, 800px, 400px)
+	_plot_output = Gadfly.PDF(_plot_path, 1500px, 500px)
 else
 	throw(error(("[14de0af5]", _plot_format)))
 end
