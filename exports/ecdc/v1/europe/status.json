@@ -1,0 +1,2043 @@
+{
+  "countries": {
+    "Austria": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Austria",
+        "type": "total-country",
+        "country_code": "AT",
+        "country": "Austria",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          47.33333333,
+          13.33333333
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 116,
+        "peak_confirmed": 121,
+        "peak_deaths": 111
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 653096,
+          "deaths": 10534,
+          "infected": 642562
+        },
+        "absolute_pop100k": {
+          "confirmed": 7371.745,
+          "deaths": 118.901,
+          "infected": 7252.844
+        },
+        "delta": {
+          "confirmed": 528,
+          "deaths": 3,
+          "infected": 525
+        },
+        "relative": {
+          "deaths": 1.613,
+          "infected": 98.387
+        },
+        "peak_pct": {
+          "confirmed": 14.529,
+          "deaths": 7.538,
+          "infected": 14.547
+        }
+      },
+      "factbook": {
+        "population": 8859449,
+        "median_age": 44.5,
+        "death_rate": 9.8,
+        "area": 83871
+      }
+    },
+    "Belgium": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Belgium",
+        "type": "total-country",
+        "country_code": "BE",
+        "country": "Belgium",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          50.83333333,
+          4
+        ]
+      },
+      "date": "2021-07-28",
+      "day_index": {
+        "confirmed_1": 150,
+        "confirmed_10": 150,
+        "confirmed_100": 150,
+        "confirmed_1k": 150,
+        "confirmed_10k": 150,
+        "peak": 114,
+        "peak_confirmed": 125,
+        "peak_deaths": 104
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1120995,
+          "deaths": 25231,
+          "infected": 1095764
+        },
+        "absolute_pop100k": {
+          "confirmed": 9564.219,
+          "deaths": 215.268,
+          "infected": 9348.951
+        },
+        "delta": {
+          "confirmed": 1,
+          "infected": 1
+        },
+        "relative": {
+          "deaths": 2.251,
+          "infected": 97.749
+        },
+        "peak_pct": {
+          "confirmed": 0.017,
+          "infected": 0.017
+        }
+      },
+      "factbook": {
+        "population": 11720716,
+        "median_age": 41.6,
+        "death_rate": 9.8,
+        "area": 30528
+      }
+    },
+    "Bulgaria": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Bulgaria",
+        "type": "total-country",
+        "country_code": "BG",
+        "country": "Bulgaria",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          43,
+          25
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 121,
+        "peak_confirmed": 128,
+        "peak_deaths": 114
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 424295,
+          "deaths": 18205,
+          "infected": 406090
+        },
+        "absolute_pop100k": {
+          "confirmed": 6090.156,
+          "deaths": 261.307,
+          "infected": 5828.849
+        },
+        "delta": {
+          "confirmed": 216,
+          "deaths": 2,
+          "infected": 214
+        },
+        "relative": {
+          "deaths": 4.291,
+          "infected": 95.709
+        },
+        "peak_pct": {
+          "confirmed": 4.731,
+          "deaths": 1.018,
+          "infected": 4.854
+        }
+      },
+      "factbook": {
+        "population": 6966899,
+        "median_age": 43.7,
+        "death_rate": 14.6,
+        "area": 110879
+      }
+    },
+    "Croatia": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Croatia",
+        "type": "total-country",
+        "country_code": "HR",
+        "country": "Croatia",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          45.16666666,
+          15.5
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 96,
+        "peak_confirmed": 99,
+        "peak_deaths": 94
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 363039,
+          "deaths": 8249,
+          "infected": 354790
+        },
+        "absolute_pop100k": {
+          "confirmed": 8587.058,
+          "deaths": 195.116,
+          "infected": 8391.942
+        },
+        "delta": {
+          "confirmed": 198,
+          "deaths": 2,
+          "infected": 196
+        },
+        "relative": {
+          "deaths": 2.272,
+          "infected": 97.728
+        },
+        "peak_pct": {
+          "confirmed": 6.63,
+          "deaths": 3.953,
+          "infected": 6.663
+        }
+      },
+      "factbook": {
+        "population": 4227746,
+        "median_age": 43.9,
+        "death_rate": 12.8,
+        "area": 56594
+      }
+    },
+    "Cyprus": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Cyprus",
+        "type": "total-country",
+        "country_code": "CY",
+        "country": "Cyprus",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          35,
+          33
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 28,
+        "peak_confirmed": 11,
+        "peak_deaths": 45
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 100129,
+          "deaths": 412,
+          "infected": 99717
+        },
+        "absolute_pop100k": {
+          "confirmed": 7904.863,
+          "deaths": 32.526,
+          "infected": 7872.337
+        },
+        "delta": {
+          "confirmed": 769,
+          "deaths": 2,
+          "infected": 767
+        },
+        "relative": {
+          "deaths": 0.411,
+          "infected": 99.589
+        },
+        "peak_pct": {
+          "confirmed": 72.315,
+          "deaths": 37.037,
+          "infected": 72.331
+        }
+      },
+      "factbook": {
+        "population": 1266676,
+        "median_age": 37.9,
+        "death_rate": 7,
+        "area": 9251
+      }
+    },
+    "Czechia": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Czechia",
+        "type": "total-country",
+        "country_code": "CZ",
+        "country": "Czechia",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          49.75,
+          15.5
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 141,
+        "peak_confirmed": 143,
+        "peak_deaths": 140
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1673219,
+          "deaths": 30363,
+          "infected": 1642856
+        },
+        "absolute_pop100k": {
+          "confirmed": 15633.911,
+          "deaths": 283.7,
+          "infected": 15350.211
+        },
+        "delta": {
+          "confirmed": 202,
+          "deaths": 1,
+          "infected": 201
+        },
+        "relative": {
+          "deaths": 1.815,
+          "infected": 98.185
+        },
+        "peak_pct": {
+          "confirmed": 1.351,
+          "deaths": 0.435,
+          "infected": 1.364
+        }
+      },
+      "factbook": {
+        "population": 10702498,
+        "median_age": 43.3,
+        "death_rate": 10.7,
+        "area": 78867
+      }
+    },
+    "Denmark": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Denmark",
+        "type": "total-country",
+        "country_code": "DK",
+        "country": "Denmark",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          56,
+          10
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 76,
+        "peak_confirmed": 58,
+        "peak_deaths": 95
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 314135,
+          "deaths": 2547,
+          "infected": 311588
+        },
+        "absolute_pop100k": {
+          "confirmed": 5352.071,
+          "deaths": 43.394,
+          "infected": 5308.677
+        },
+        "delta": {
+          "confirmed": 1284,
+          "deaths": 1,
+          "infected": 1283
+        },
+        "relative": {
+          "deaths": 0.811,
+          "infected": 99.189
+        },
+        "peak_pct": {
+          "confirmed": 99.535,
+          "deaths": 23.81,
+          "infected": 99.488
+        }
+      },
+      "factbook": {
+        "population": 5869410,
+        "median_age": 42,
+        "death_rate": 9.5,
+        "area": 43094
+      }
+    },
+    "Estonia": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Estonia",
+        "type": "total-country",
+        "country_code": "EE",
+        "country": "Estonia",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          59,
+          26
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 127,
+        "peak_confirmed": 133,
+        "peak_deaths": 121
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 133111,
+          "deaths": 1271,
+          "infected": 131840
+        },
+        "absolute_pop100k": {
+          "confirmed": 10834.153,
+          "deaths": 103.449,
+          "infected": 10730.704
+        },
+        "delta": {
+          "confirmed": 220,
+          "infected": 220
+        },
+        "relative": {
+          "deaths": 0.955,
+          "infected": 99.045
+        },
+        "peak_pct": {
+          "confirmed": 13.142,
+          "infected": 13.25
+        }
+      },
+      "factbook": {
+        "population": 1228624,
+        "median_age": 43.7,
+        "death_rate": 12.9,
+        "area": 45228
+      }
+    },
+    "Finland": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Finland",
+        "type": "total-country",
+        "country_code": "FI",
+        "country": "Finland",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          64,
+          26
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 123,
+        "peak_confirmed": 134,
+        "peak_deaths": 113
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 104495,
+          "deaths": 982,
+          "infected": 103513
+        },
+        "absolute_pop100k": {
+          "confirmed": 1875.472,
+          "deaths": 17.625,
+          "infected": 1857.847
+        },
+        "delta": {
+          "confirmed": 644,
+          "infected": 644
+        },
+        "relative": {
+          "deaths": 0.94,
+          "infected": 99.06
+        },
+        "peak_pct": {
+          "confirmed": 78.498,
+          "infected": 78.786
+        }
+      },
+      "factbook": {
+        "population": 5571665,
+        "median_age": 42.8,
+        "death_rate": 10.3,
+        "area": 338145
+      }
+    },
+    "France": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "France",
+        "type": "total-country",
+        "country_code": "FR",
+        "country": "France",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          46,
+          2
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 120,
+        "peak_confirmed": 116,
+        "peak_deaths": 124
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 6054049,
+          "deaths": 111768,
+          "infected": 5942281
+        },
+        "absolute_pop100k": {
+          "confirmed": 8922.938,
+          "deaths": 164.733,
+          "infected": 8758.206
+        },
+        "delta": {
+          "confirmed": 27934,
+          "deaths": 43,
+          "infected": 27891
+        },
+        "relative": {
+          "deaths": 1.846,
+          "infected": 98.154
+        },
+        "peak_pct": {
+          "confirmed": 60.391,
+          "deaths": 10,
+          "infected": 60.801
+        }
+      },
+      "factbook": {
+        "population": 67848156,
+        "median_age": 41.7,
+        "death_rate": 9.6,
+        "area": 643801
+      }
+    },
+    "Germany": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Germany",
+        "type": "total-country",
+        "country_code": "DE",
+        "country": "Germany",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          51,
+          9
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 111,
+        "peak_confirmed": 104,
+        "peak_deaths": 119
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 3769608,
+          "deaths": 91702,
+          "infected": 3677906
+        },
+        "absolute_pop100k": {
+          "confirmed": 4702.625,
+          "deaths": 114.399,
+          "infected": 4588.225
+        },
+        "delta": {
+          "confirmed": 8439,
+          "deaths": 116,
+          "infected": 8323
+        },
+        "relative": {
+          "deaths": 2.433,
+          "infected": 97.567
+        },
+        "peak_pct": {
+          "confirmed": 31.69,
+          "deaths": 33.449,
+          "infected": 31.594
+        }
+      },
+      "factbook": {
+        "population": 80159662,
+        "median_age": 47.8,
+        "death_rate": 12.1,
+        "area": 357022
+      }
+    },
+    "Greece": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Greece",
+        "type": "total-country",
+        "country_code": "GR",
+        "country": "Greece",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          39,
+          22
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 84,
+        "peak_confirmed": 71,
+        "peak_deaths": 98
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 485015,
+          "deaths": 12926,
+          "infected": 472089
+        },
+        "absolute_pop100k": {
+          "confirmed": 4572.572,
+          "deaths": 121.862,
+          "infected": 4450.709
+        },
+        "delta": {
+          "confirmed": 2870,
+          "deaths": 15,
+          "infected": 2855
+        },
+        "relative": {
+          "deaths": 2.665,
+          "infected": 97.335
+        },
+        "peak_pct": {
+          "confirmed": 69.28,
+          "deaths": 15.756,
+          "infected": 69.781
+        }
+      },
+      "factbook": {
+        "population": 10607051,
+        "median_age": 45.3,
+        "death_rate": 12,
+        "area": 131957
+      }
+    },
+    "Hungary": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Hungary",
+        "type": "total-country",
+        "country_code": "HU",
+        "country": "Hungary",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          47,
+          20
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 121,
+        "peak_confirmed": 129,
+        "peak_deaths": 114
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 809427,
+          "deaths": 30025,
+          "infected": 779402
+        },
+        "absolute_pop100k": {
+          "confirmed": 8283.272,
+          "deaths": 307.261,
+          "infected": 7976.011
+        },
+        "delta": {
+          "confirmed": 65,
+          "infected": 65
+        },
+        "relative": {
+          "deaths": 3.709,
+          "infected": 96.291
+        },
+        "peak_pct": {
+          "confirmed": 0.621,
+          "infected": 0.635
+        }
+      },
+      "factbook": {
+        "population": 9771827,
+        "median_age": 43.6,
+        "death_rate": 12.9,
+        "area": 93028
+      }
+    },
+    "Iceland": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Iceland",
+        "type": "total-country",
+        "country_code": "IS",
+        "country": "Iceland",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          65,
+          -18
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "peak": 4,
+        "peak_confirmed": 4
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 7545,
+          "deaths": 30,
+          "infected": 7515
+        },
+        "absolute_pop100k": {
+          "confirmed": 2151.203,
+          "deaths": 8.553,
+          "infected": 2142.649
+        },
+        "delta": {
+          "confirmed": 117,
+          "infected": 117
+        },
+        "relative": {
+          "deaths": 0.398,
+          "infected": 99.602
+        },
+        "peak_pct": {
+          "confirmed": 117.706,
+          "infected": 117.706
+        }
+      },
+      "factbook": {
+        "population": 350734,
+        "median_age": 37.1,
+        "death_rate": 6.6,
+        "area": 103000
+      }
+    },
+    "Ireland": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Ireland",
+        "type": "total-country",
+        "country_code": "IE",
+        "country": "Ireland",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          53,
+          -8
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 71,
+        "peak_confirmed": 5,
+        "peak_deaths": 137
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 296687,
+          "deaths": 5035,
+          "infected": 291652
+        },
+        "absolute_pop100k": {
+          "confirmed": 5731.344,
+          "deaths": 97.265,
+          "infected": 5634.079
+        },
+        "delta": {
+          "confirmed": 1301,
+          "deaths": 9,
+          "infected": 1292
+        },
+        "relative": {
+          "deaths": 1.697,
+          "infected": 98.303
+        },
+        "peak_pct": {
+          "confirmed": 99.177,
+          "deaths": 26.163,
+          "infected": 98.626
+        }
+      },
+      "factbook": {
+        "population": 5176569,
+        "median_age": 37.8,
+        "death_rate": 6.8,
+        "area": 70273
+      }
+    },
+    "Italy": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Italy",
+        "type": "total-country",
+        "country_code": "IT",
+        "country": "Italy",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          42.83333333,
+          12.83333333
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 128,
+        "peak_confirmed": 134,
+        "peak_deaths": 123
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 4330739,
+          "deaths": 128010,
+          "infected": 4202729
+        },
+        "absolute_pop100k": {
+          "confirmed": 6939.991,
+          "deaths": 205.135,
+          "infected": 6734.856
+        },
+        "delta": {
+          "confirmed": 5693,
+          "deaths": 15,
+          "infected": 5678
+        },
+        "relative": {
+          "deaths": 2.956,
+          "infected": 97.044
+        },
+        "peak_pct": {
+          "confirmed": 22.451,
+          "deaths": 2.768,
+          "infected": 22.729
+        }
+      },
+      "factbook": {
+        "population": 62402659,
+        "median_age": 46.5,
+        "death_rate": 10.7,
+        "area": 301340
+      }
+    },
+    "Latvia": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Latvia",
+        "type": "total-country",
+        "country_code": "LV",
+        "country": "Latvia",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          57,
+          25
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 98,
+        "peak_confirmed": 108,
+        "peak_deaths": 89
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 138650,
+          "deaths": 2554,
+          "infected": 136096
+        },
+        "absolute_pop100k": {
+          "confirmed": 7370.17,
+          "deaths": 135.762,
+          "infected": 7234.408
+        },
+        "delta": {
+          "confirmed": 78,
+          "deaths": 2,
+          "infected": 76
+        },
+        "relative": {
+          "deaths": 1.842,
+          "infected": 98.158
+        },
+        "peak_pct": {
+          "confirmed": 9.066,
+          "deaths": 11.236,
+          "infected": 8.947
+        }
+      },
+      "factbook": {
+        "population": 1881232,
+        "median_age": 44.4,
+        "death_rate": 14.6,
+        "area": 64589
+      }
+    },
+    "Liechtenstein": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Liechtenstein",
+        "type": "total-country",
+        "country_code": "LI",
+        "country": "Liechtenstein",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          47.26666666,
+          9.53333333
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "peak": 110,
+        "peak_confirmed": 105,
+        "peak_deaths": 115
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 3085,
+          "deaths": 59,
+          "infected": 3026
+        },
+        "absolute_pop100k": {
+          "confirmed": 7882.566,
+          "deaths": 150.752,
+          "infected": 7731.814
+        },
+        "delta": {
+          "confirmed": 2,
+          "infected": 2
+        },
+        "relative": {
+          "deaths": 1.912,
+          "infected": 98.088
+        },
+        "peak_pct": {
+          "confirmed": 12.987,
+          "infected": 12.987
+        }
+      },
+      "factbook": {
+        "population": 39137,
+        "median_age": 43.7,
+        "death_rate": 7.8,
+        "area": 160
+      }
+    },
+    "Lithuania": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Lithuania",
+        "type": "total-country",
+        "country_code": "LT",
+        "country": "Lithuania",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          56,
+          24
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 86,
+        "peak_confirmed": 88,
+        "peak_deaths": 84
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 282039,
+          "deaths": 4413,
+          "infected": 277626
+        },
+        "absolute_pop100k": {
+          "confirmed": 10325.562,
+          "deaths": 161.562,
+          "infected": 10164
+        },
+        "delta": {
+          "confirmed": 410,
+          "deaths": 1,
+          "infected": 409
+        },
+        "relative": {
+          "deaths": 1.565,
+          "infected": 98.435
+        },
+        "peak_pct": {
+          "confirmed": 27.906,
+          "deaths": 4.95,
+          "infected": 28.087
+        }
+      },
+      "factbook": {
+        "population": 2731464,
+        "median_age": 44.5,
+        "death_rate": 15,
+        "area": 65300
+      }
+    },
+    "Luxembourg": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Luxembourg",
+        "type": "total-country",
+        "country_code": "LU",
+        "country": "Luxembourg",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          49.75,
+          6.16666666
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 112,
+        "peak_confirmed": 100,
+        "peak_deaths": 125
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 73744,
+          "deaths": 822,
+          "infected": 72922
+        },
+        "absolute_pop100k": {
+          "confirmed": 11735.555,
+          "deaths": 130.812,
+          "infected": 11604.743
+        },
+        "delta": {
+          "confirmed": 107,
+          "infected": 107
+        },
+        "relative": {
+          "deaths": 1.115,
+          "infected": 98.885
+        },
+        "peak_pct": {
+          "confirmed": 29.922,
+          "infected": 30.158
+        }
+      },
+      "factbook": {
+        "population": 628381,
+        "median_age": 39.5,
+        "death_rate": 7.3,
+        "area": 2586
+      }
+    },
+    "Malta": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Malta",
+        "type": "total-country",
+        "country_code": "MT",
+        "country": "Malta",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          35.83333333,
+          14.58333333
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 135,
+        "peak_confirmed": 142,
+        "peak_deaths": 128
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 33995,
+          "deaths": 423,
+          "infected": 33572
+        },
+        "absolute_pop100k": {
+          "confirmed": 7434.387,
+          "deaths": 92.506,
+          "infected": 7341.881
+        },
+        "delta": {
+          "confirmed": 91,
+          "deaths": 2,
+          "infected": 89
+        },
+        "relative": {
+          "deaths": 1.244,
+          "infected": 98.756
+        },
+        "peak_pct": {
+          "confirmed": 27.626,
+          "deaths": 45.455,
+          "infected": 27.334
+        }
+      },
+      "factbook": {
+        "population": 457267,
+        "median_age": 42.3,
+        "death_rate": 8.3,
+        "area": 316
+      }
+    },
+    "Netherlands": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Netherlands",
+        "type": "total-country",
+        "country_code": "NL",
+        "country": "Netherlands",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          52.5,
+          5.75
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 75,
+        "peak_confirmed": 14,
+        "peak_deaths": 137
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1852440,
+          "deaths": 17790,
+          "infected": 1834650
+        },
+        "absolute_pop100k": {
+          "confirmed": 10719.893,
+          "deaths": 102.949,
+          "infected": 10616.944
+        },
+        "delta": {
+          "confirmed": 3451,
+          "deaths": 8,
+          "infected": 3443
+        },
+        "relative": {
+          "deaths": 0.96,
+          "infected": 99.04
+        },
+        "peak_pct": {
+          "confirmed": 32.684,
+          "deaths": 16.064,
+          "infected": 32.612
+        }
+      },
+      "factbook": {
+        "population": 17280397,
+        "median_age": 42.8,
+        "death_rate": 9.2,
+        "area": 41543
+      }
+    },
+    "Norway": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Norway",
+        "type": "total-country",
+        "country_code": "NO",
+        "country": "Norway",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          62,
+          10
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 108,
+        "peak_confirmed": 107,
+        "peak_deaths": 109
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 136369,
+          "deaths": 799,
+          "infected": 135570
+        },
+        "absolute_pop100k": {
+          "confirmed": 2494.202,
+          "deaths": 14.614,
+          "infected": 2479.589
+        },
+        "delta": {
+          "confirmed": 273,
+          "infected": 273
+        },
+        "relative": {
+          "deaths": 0.586,
+          "infected": 99.414
+        },
+        "peak_pct": {
+          "confirmed": 13.957,
+          "infected": 13.974
+        }
+      },
+      "factbook": {
+        "population": 5467439,
+        "median_age": 39.5,
+        "death_rate": 8.1,
+        "area": 323802
+      }
+    },
+    "Poland": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Poland",
+        "type": "total-country",
+        "country_code": "PL",
+        "country": "Poland",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          52,
+          20
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 114,
+        "peak_confirmed": 124,
+        "peak_deaths": 104
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 2882465,
+          "deaths": 75252,
+          "infected": 2807213
+        },
+        "absolute_pop100k": {
+          "confirmed": 7529.493,
+          "deaths": 196.571,
+          "infected": 7332.922
+        },
+        "delta": {
+          "confirmed": 138,
+          "deaths": 3,
+          "infected": 135
+        },
+        "relative": {
+          "deaths": 2.611,
+          "infected": 97.389
+        },
+        "peak_pct": {
+          "confirmed": 0.419,
+          "deaths": 0.399,
+          "infected": 0.417
+        }
+      },
+      "factbook": {
+        "population": 38282325,
+        "median_age": 41.9,
+        "death_rate": 10.6,
+        "area": 312685
+      }
+    },
+    "Portugal": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Portugal",
+        "type": "total-country",
+        "country_code": "PT",
+        "country": "Portugal",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          39.5,
+          -8
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 63,
+        "peak_confirmed": 10,
+        "peak_deaths": 117
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 960437,
+          "deaths": 17320,
+          "infected": 943117
+        },
+        "absolute_pop100k": {
+          "confirmed": 9322.211,
+          "deaths": 168.112,
+          "infected": 9154.099
+        },
+        "delta": {
+          "confirmed": 3452,
+          "deaths": 13,
+          "infected": 3439
+        },
+        "relative": {
+          "deaths": 1.803,
+          "infected": 98.197
+        },
+        "peak_pct": {
+          "confirmed": 87.877,
+          "deaths": 41.139,
+          "infected": 87.761
+        }
+      },
+      "factbook": {
+        "population": 10302674,
+        "median_age": 44.6,
+        "death_rate": 10.8,
+        "area": 92090
+      }
+    },
+    "Romania": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Romania",
+        "type": "total-country",
+        "country_code": "RO",
+        "country": "Romania",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          46,
+          25
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 97,
+        "peak_confirmed": 126,
+        "peak_deaths": 69
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1082710,
+          "deaths": 34274,
+          "infected": 1048436
+        },
+        "absolute_pop100k": {
+          "confirmed": 5082.455,
+          "deaths": 160.889,
+          "infected": 4921.566
+        },
+        "delta": {
+          "confirmed": 159,
+          "deaths": 1,
+          "infected": 158
+        },
+        "relative": {
+          "deaths": 3.166,
+          "infected": 96.834
+        },
+        "peak_pct": {
+          "confirmed": 2.545,
+          "deaths": 0.415,
+          "infected": 2.579
+        }
+      },
+      "factbook": {
+        "population": 21302893,
+        "median_age": 42.5,
+        "death_rate": 12,
+        "area": 238391
+      }
+    },
+    "Slovakia": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Slovakia",
+        "type": "total-country",
+        "country_code": "SK",
+        "country": "Slovakia",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          48.66666666,
+          19.5
+        ]
+      },
+      "date": "2021-07-28",
+      "day_index": {
+        "confirmed_1": 150,
+        "confirmed_10": 150,
+        "confirmed_100": 150,
+        "confirmed_1k": 150,
+        "confirmed_10k": 150,
+        "peak": 143,
+        "peak_confirmed": 145,
+        "peak_deaths": 142
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 779977,
+          "deaths": 12534,
+          "infected": 767443
+        },
+        "absolute_pop100k": {
+          "confirmed": 14336.226,
+          "deaths": 230.379,
+          "infected": 14105.847
+        },
+        "delta": {
+          "confirmed": 108,
+          "infected": 108
+        },
+        "relative": {
+          "deaths": 1.607,
+          "infected": 98.393
+        },
+        "peak_pct": {
+          "confirmed": 2.018,
+          "infected": 2.054
+        }
+      },
+      "factbook": {
+        "population": 5440602,
+        "median_age": 41.8,
+        "death_rate": 10.1,
+        "area": 49035
+      }
+    },
+    "Slovenia": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Slovenia",
+        "type": "total-country",
+        "country_code": "SI",
+        "country": "Slovenia",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          46.11666666,
+          14.81666666
+        ]
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 117,
+        "peak_confirmed": 118,
+        "peak_deaths": 117
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 258963,
+          "deaths": 4761,
+          "infected": 254202
+        },
+        "absolute_pop100k": {
+          "confirmed": 12315.866,
+          "deaths": 226.426,
+          "infected": 12089.44
+        },
+        "delta": {
+          "confirmed": 99,
+          "infected": 99
+        },
+        "relative": {
+          "deaths": 1.838,
+          "infected": 98.162
+        },
+        "peak_pct": {
+          "confirmed": 7.053,
+          "infected": 7.113
+        }
+      },
+      "factbook": {
+        "population": 2102678,
+        "median_age": 44.9,
+        "death_rate": 10.3,
+        "area": 20273
+      }
+    },
+    "Spain": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Spain",
+        "type": "total-country",
+        "country_code": "ES",
+        "country": "Spain",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          40,
+          -4
+        ]
+      },
+      "date": "2021-07-28",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 74,
+        "peak_confirmed": 13,
+        "peak_deaths": 135
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 4395602,
+          "deaths": 81396,
+          "infected": 4314206
+        },
+        "absolute_pop100k": {
+          "confirmed": 8788.428,
+          "deaths": 162.741,
+          "infected": 8625.688
+        },
+        "delta": {
+          "confirmed": 27149,
+          "deaths": 73,
+          "infected": 27076
+        },
+        "relative": {
+          "deaths": 1.852,
+          "infected": 98.148
+        },
+        "peak_pct": {
+          "confirmed": 66.772,
+          "deaths": 14.647,
+          "infected": 66.635
+        }
+      },
+      "factbook": {
+        "population": 50015792,
+        "median_age": 43.9,
+        "death_rate": 9.3,
+        "area": 505370
+      }
+    },
+    "Sweden": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Sweden",
+        "type": "total-country",
+        "country_code": "SE",
+        "country": "Sweden",
+        "province": null,
+        "administrative": null,
+        "latlong": [
+          62,
+          15
+        ]
+      },
+      "date": "2021-07-27",
+      "day_index": {
+        "confirmed_1": 149,
+        "confirmed_10": 149,
+        "confirmed_100": 149,
+        "confirmed_1k": 149,
+        "confirmed_10k": 149,
+        "peak": 111,
+        "peak_confirmed": 117,
+        "peak_deaths": 105
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 1098795,
+          "deaths": 14655,
+          "infected": 1084140
+        },
+        "absolute_pop100k": {
+          "confirmed": 10769.87,
+          "deaths": 143.641,
+          "infected": 10626.228
+        },
+        "delta": {
+          "confirmed": 643,
+          "infected": 643
+        },
+        "relative": {
+          "deaths": 1.334,
+          "infected": 98.666
+        },
+        "peak_pct": {
+          "confirmed": 8.026,
+          "infected": 8.046
+        }
+      },
+      "factbook": {
+        "population": 10202491,
+        "median_age": 41.1,
+        "death_rate": 9.4,
+        "area": 450295
+      }
+    }
+  },
+  "regions": {
+    "Europe": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Europe",
+        "type": "total-region",
+        "country_code": null,
+        "country": "Europe",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 152,
+        "confirmed_10": 152,
+        "confirmed_100": 152,
+        "confirmed_1k": 152,
+        "confirmed_10k": 152,
+        "peak": 116,
+        "peak_confirmed": 123,
+        "peak_deaths": 109
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 34618855,
+          "deaths": 744342,
+          "infected": 33874513
+        },
+        "absolute_pop100k": {
+          "confirmed": 4612.141,
+          "deaths": 99.166,
+          "infected": 4512.975
+        },
+        "delta": {
+          "confirmed": 58740,
+          "deaths": 239,
+          "infected": 58501
+        },
+        "relative": {
+          "deaths": 2.15,
+          "infected": 97.85
+        },
+        "peak_pct": {
+          "confirmed": 31.365,
+          "deaths": 7.542,
+          "infected": 31.717
+        }
+      },
+      "factbook": {
+        "population": 750602707,
+        "area": 23164015.94
+      }
+    }
+  },
+  "subregions": {
+    "Eastern Europe": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Eastern Europe",
+        "type": "total-subregion",
+        "country_code": null,
+        "country": "Eastern Europe",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 117,
+        "peak_confirmed": 124,
+        "peak_deaths": 111
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 7752222,
+          "deaths": 201065,
+          "infected": 7551157
+        },
+        "absolute_pop100k": {
+          "confirmed": 2635.429,
+          "deaths": 68.354,
+          "infected": 2567.076
+        },
+        "delta": {
+          "confirmed": 1549,
+          "deaths": 9,
+          "infected": 1540
+        },
+        "relative": {
+          "deaths": 2.594,
+          "infected": 97.406
+        },
+        "peak_pct": {
+          "confirmed": 2.43,
+          "deaths": 0.615,
+          "infected": 2.466
+        }
+      },
+      "factbook": {
+        "population": 294154052,
+        "area": 18846266
+      }
+    },
+    "Northern Europe": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Northern Europe",
+        "type": "total-subregion",
+        "country_code": null,
+        "country": "Northern Europe",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 125,
+        "peak_confirmed": 124,
+        "peak_deaths": 126
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 2511826,
+          "deaths": 32286,
+          "infected": 2479540
+        },
+        "absolute_pop100k": {
+          "confirmed": 2402.422,
+          "deaths": 30.88,
+          "infected": 2371.542
+        },
+        "delta": {
+          "confirmed": 4327,
+          "deaths": 13,
+          "infected": 4314
+        },
+        "relative": {
+          "deaths": 1.285,
+          "infected": 98.715
+        },
+        "peak_pct": {
+          "confirmed": 32.586,
+          "deaths": 13.771,
+          "infected": 32.627
+        }
+      },
+      "factbook": {
+        "population": 104553923,
+        "area": 1811540
+      }
+    },
+    "Southern Europe": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Southern Europe",
+        "type": "total-subregion",
+        "country_code": null,
+        "country": "Southern Europe",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 152,
+        "confirmed_10": 152,
+        "confirmed_100": 152,
+        "confirmed_1k": 152,
+        "confirmed_10k": 152,
+        "peak": 80,
+        "peak_confirmed": 29,
+        "peak_deaths": 131
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 10827790,
+          "deaths": 253085,
+          "infected": 10574705
+        },
+        "absolute_pop100k": {
+          "confirmed": 6900.38,
+          "deaths": 161.287,
+          "infected": 6739.093
+        },
+        "delta": {
+          "confirmed": 12403,
+          "deaths": 47,
+          "infected": 12356
+        },
+        "relative": {
+          "deaths": 2.337,
+          "infected": 97.663
+        },
+        "peak_pct": {
+          "confirmed": 22.232,
+          "deaths": 4.615,
+          "infected": 22.218
+        }
+      },
+      "factbook": {
+        "population": 156915840,
+        "area": 1305419.94
+      }
+    },
+    "Western Europe": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "Western Europe",
+        "type": "total-subregion",
+        "country_code": null,
+        "country": "Western Europe",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 151,
+        "confirmed_10": 151,
+        "confirmed_100": 151,
+        "confirmed_1k": 151,
+        "confirmed_10k": 151,
+        "peak": 122,
+        "peak_confirmed": 121,
+        "peak_deaths": 124
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 13527017,
+          "deaths": 257906,
+          "infected": 13269111
+        },
+        "absolute_pop100k": {
+          "confirmed": 6937.683,
+          "deaths": 132.274,
+          "infected": 6805.409
+        },
+        "delta": {
+          "confirmed": 40461,
+          "deaths": 170,
+          "infected": 40291
+        },
+        "relative": {
+          "deaths": 1.907,
+          "infected": 98.093
+        },
+        "peak_pct": {
+          "confirmed": 52.205,
+          "deaths": 19.92,
+          "infected": 52.395
+        }
+      },
+      "factbook": {
+        "population": 194978892,
+        "area": 1200790
+      }
+    }
+  },
+  "world": {
+    "World": {
+      "dataset": "ecdc/europe",
+      "location": {
+        "label": "World",
+        "type": "total-world",
+        "country_code": null,
+        "country": "World",
+        "province": null,
+        "administrative": null,
+        "latlong": null
+      },
+      "date": "2021-07-29",
+      "day_index": {
+        "confirmed_1": 152,
+        "confirmed_10": 152,
+        "confirmed_100": 152,
+        "confirmed_1k": 152,
+        "confirmed_10k": 152,
+        "peak": 116,
+        "peak_confirmed": 123,
+        "peak_deaths": 109
+      },
+      "values": {
+        "absolute": {
+          "confirmed": 34618855,
+          "deaths": 744342,
+          "infected": 33874513
+        },
+        "absolute_pop100k": {
+          "confirmed": 450.799,
+          "deaths": 9.693,
+          "infected": 441.106
+        },
+        "delta": {
+          "confirmed": 58740,
+          "deaths": 239,
+          "infected": 58501
+        },
+        "relative": {
+          "deaths": 2.15,
+          "infected": 97.85
+        },
+        "peak_pct": {
+          "confirmed": 31.365,
+          "deaths": 7.542,
+          "infected": 31.717
+        }
+      },
+      "factbook": {
+        "population": 7679445087,
+        "area": 150584194.09
+      }
+    }
+  }
+}
