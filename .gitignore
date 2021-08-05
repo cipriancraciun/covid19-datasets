@@ -13,10 +13,20 @@
 /exports/**/values.html
 /exports/**/*.gz
 /exports/**/*.zst
+/exports/**/*-by-country/*.tsv
+/exports/**/*-by-country/*.json
 
+/imports/**/raw-json/*.json
 /imports/**/extracted.json
 /imports/**/values.json
 /imports/**/merged.json
+
+/imports/**/dates.json
+/imports/**/locations.json
+
+/plots/**/*.pdf
+/plots/**/*.png
+/plots/**/*.svg
 
 *~
 *#
