@@ -136,6 +136,8 @@ I have created a few groups of countries / regions, based on the derived dataset
     * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/series/values-sqlite.sql.zst)
       and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/series/values-sqlite.db.zst);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/series/status.json);
+* **for other files and formats see (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/);**
+* all the files above are also available in uncompressed format (just remove the `.zst` extension), or with `gzip` compression (just replace `.zst` with `.gz`);
 * I have also augmented the original JHU dataset with the following:
   * `day_index_*` means how many days have passed for that country since there were at least that many confirmed cases;
   * `absolute_pop100k` means the absolute metric per 100k people in that country / region;
@@ -158,7 +160,7 @@ I have created a few groups of countries / regions, based on the derived dataset
     * in JSON format: [values.json.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values.json.zst);
     * in TSV format: [values.tsv.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values.tsv.zst);
     * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values-sqlite.sql.zst)
-      and [values-sqlite.db](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values-sqlite.db.zst);
+      and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values-sqlite.db.zst);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/status.json);
   * the `us-states` dataset (includes only US states, plus higher level aggregates):
     * in JSON format: [values.json.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/values.json.zst);
@@ -166,6 +168,8 @@ I have created a few groups of countries / regions, based on the derived dataset
     * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/values-sqlite.sql.zst)
       and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/values-sqlite.db.zst);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/status.json);
+* **for other files and formats see (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/);**
+* all the files above are also available in uncompressed format (just remove the `.zst` extension), or with `gzip` compression (just replace `.zst` with `.gz`);
 * all the transformations and augmentations described for the JHU one were applied also to the NY one;
 * the original data is available at [github.com/nytimes/covid-19-data](https://github.com/nytimes/covid-19-data);
 
@@ -187,6 +191,8 @@ I have created a few groups of countries / regions, based on the derived dataset
     * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/worldwide/values-sqlite.sql.zst)
       and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/worldwide/values-sqlite.db.zst);
     * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/worldwide/status.json);
+* **for other files and formats see (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/);**
+* all the files above are also available in uncompressed format (just remove the `.zst` extension), or with `gzip` compression (just replace `.zst` with `.gz`);
 * all the transformations and augmentations described for the JHU one were applied also to the ECDC one;
 * the original data for the `europe` dataset is available at [ecdc.europa.eu](https://www.ecdc.europa.eu/en/publications-data/data-daily-new-cases-covid-19-eueea-country);
 * the original data for the `worldwide` dataset is available at [ecdc.europa.eu](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide);
