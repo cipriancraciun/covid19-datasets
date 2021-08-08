@@ -15,12 +15,19 @@
 ## About
 
 This repository contains various datasets related to COVID-19 (JHU CSSE, NY Times, ECDC):
-* the data files are available inside the [./exports](./exports) folder;
-* the original and intermediary data files are available inside the [./imports](./imports) folder;
+* the original data files are available inside the [./imports](./imports) folder;
+* some of the derived data files are available inside the [./exports](./exports) folder;
+* **due to the fact that the file sizes have become increasingly large, they can no longer be hosted on GitHub, however all the original, intermediary and derived data files are available at the links below;**
+* all the original and intermediary data files ar available at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/imports/)
+  (there is also an `md5` file that can be used as an index at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/imports/.md5));
+* all the derived data files are available at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/)
+  (there is also an `md5` file that can be used as an index at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/.md5));
 
 Also some visualizations based on the derived datasets are available at:
-* https://scratchpad.volution.ro/ciprian/eedf5eb117ec363ca4f88492b48dbcd3/
-* or inside the [./plots](./plots) folder of this repository;
+* inside the [./plots](./plots) folder of this repository;
+* or at (https://scratchpad.volution.ro/ciprian/eedf5eb117ec363ca4f88492b48dbcd3/);
+* all the plot variants (PDF, SVG and PNG) are available at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/)
+  (there is also an `md5` file that can be used as an index at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/.md5));
 
 None of these datasets were collected by me, however I have re-processed, re-formatted and augmented them for easier manipulation.
 
@@ -49,59 +56,62 @@ As with anything on the Internet these days, I take no responsibility for anythi
 
 ## Visualizations
 
-I have created 6 groups of countries / regions, based on the JHU CSSE dataset, and for each one I've plotted all the available metrics:
+I have created a few groups of countries / regions, based on the derived datasets, and for each one I've plotted all the available metrics:
 
 * `global`
-  -- [JHU](./plots/jhu/global) or [ECDC](./plots/ecdc/global)
-  -- world-wide countries with more than 50K confirmed cases;
+  -- [JHU](./plots/jhu/global)
+  -- first 25 world-wide countries ordered by confirmed cases;
 * `global-major`
-  -- [JHU](./plots/jhu/global-major) or [ECDC](./plots/ecdc/global-major)
-  -- world-wide countries with more than 400K confirmed cases;
+  -- [JHU](./plots/jhu/global-major)
+  -- world-wide countries with more than 4M confirmed cases;
 * `global-medium`
-  -- [JHU](./plots/jhu/global-medium) or [ECDC](./plots/ecdc/global-medium)
-  -- world-wide countries with more than 100K confirmed cases, but less than 400K;
+  -- [JHU](./plots/jhu/global-medium)
+  -- world-wide countries with more than 1M confirmed cases, but less than 4M;
 * `global-minor`
-  -- [JHU](./plots/jhu/global-minor) or [ECDC](./plots/ecdc/global-minor)
-  -- world-wide countries with more than 50K confirmed cases, but less than 100K;
+  -- [JHU](./plots/jhu/global-minor)
+  -- world-wide countries with more than 500K confirmed cases, but less than 1M, limited to 20 countries;
 * `europe`
-  -- [JHU](./plots/jhu/europe) or [ECDC](./plots/ecdc/europe)
-  -- European countries with more than 20K confirmed cases;
+  -- [ECDC](./plots/ecdc/europe) or [JHU](./plots/jhu/europe)
+  -- first 25 European countries ordered by confirmed cases;
 * `europe-major`
-  -- [JHU](./plots/jhu/europe-major) or [ECDC](./plots/ecdc/europe-major)
-  -- European countries with more than 200K confirmed cases;
+  -- [ECDC](./plots/ecdc/europe-major) or [JHU](./plots/jhu/europe-major)
+  -- European countries with more than 1.5M confirmed cases;
 * `europe-medium`
-  -- [JHU](./plots/jhu/europe-medium) or [ECDC](./plots/ecdc/europe-medium)
-  -- European countries with more than 50K confirmed cases, but less than 200K;
+  -- [ECDC](./plots/ecdc/europe-medium) or [JHU](./plots/jhu/europe-medium)
+  -- European countries with more than 500K confirmed cases, but less than 1.5M;
 * `europe-minor`
-  -- [JHU](./plots/jhu/europe-minor) or [ECDC](./plots/ecdc/europe-minor)
-  -- European countries with more than 10K confirmed cases, but less than 50K;
+  -- [ECDC](./plots/ecdc/europe-minor) or [JHU](./plots/jhu/europe-minor)
+  -- European countries with more than 100K confirmed cases, but less than 500K, limited to 20 countries;
 * `us`
-  -- [JHU](./plots/jhu/us) or [NY Times](./plots/nytimes/us)
-  -- US states with more than 20K confirmed cases;
+  -- [NY Times](./plots/nytimes/us)
+  -- first 25 US states ordered by confirmed cases;
 * `us-major`
-  -- [JHU](./plots/jhu/us-major) or [NY Times](./plots/nytimes/us-major)
-  -- US states with more than 200K confirmed cases;
+  -- [NY Times](./plots/nytimes/us-major)
+  -- US states with more than 1M confirmed cases;
 * `us-medium`
-  -- [JHU](./plots/jhu/us-medium) or [NY Times](./plots/nytimes/us-medium)
-  -- US states with more than 50K confirmed cases, but less than 200K;
+  -- [NY Times](./plots/nytimes/us-medium)
+  -- US states with more than 500K confirmed cases, but less than 1M;
 * `us-minor`
-  -- [JHU](./plots/jhu/us-minor) or [NY Times](./plots/nytimes/us-minor)
-  -- US states with more than 10K confirmed cases, but less than 50K;
+  -- [NY Times](./plots/nytimes/us-minor)
+  -- US states with more than 100K confirmed cases, but less than 500K, limited to 20 states;
+* `world`
+  -- [JHU](./plots/jhu/world)
+  -- overall aggregated values;
 * `continents`
-  -- [JHU](./plots/jhu/continents) or [ECDC](./plots/ecdc/continents)
+  -- [JHU](./plots/jhu/continents)
   -- aggregated countries grouped by continents;
 * `subcontinents`
-  -- [JHU](./plots/jhu/subcontinents) or [ECDC](./plots/ecdc/subcontinents)
+  -- [JHU](./plots/jhu/subcontinents)
   -- aggregated countries grouped by sub-continents;
 * `romania`
   -- [JHU](./plots/jhu/romania) or [ECDC](./plots/ecdc/romania)
   -- Romania, Hungary, Bulgaria and a few other countries for comparison;
 
-![absolute_pop100k--confirmed](./plots/ecdc/global/svg/absolute_pop100k--confirmed--lines.svg)
-![delta--confirmed](./plots/ecdc/global/svg/delta--confirmed--lines.svg)
-![delta--deaths](./plots/ecdc/global/svg/delta--deaths--lines.svg)
-![peak--confirmed](./plots/ecdc/global/svg/peak_pct--confirmed--heatmap.svg)
-![peak--deaths](./plots/ecdc/global/svg/peak_pct--deaths--heatmap.svg)
+![absolute_pop100k--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/absolute_pop100k--confirmed--lines.svg)
+![delta--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/delta--confirmed--lines.svg)
+![delta--deaths](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/delta--deaths--lines.svg)
+![peak--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/peak_pct--confirmed--heatmap.svg)
+![peak--deaths](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/peak_pct--deaths--heatmap.svg)
 
 
 
@@ -115,15 +125,17 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 
 * I have re-formatted the original JHU dataset in a one-data-point-per-row format (thus more "relational" and SQL friendly):
   * the `daily` dataset (includes world countries and US counties, plus higher level aggregates):
-    * in JSON format: [values.json.zst](./exports/jhu/v1/daily/values.json.zst);
-    * in TSV format: [values.tsv.zst](./exports/jhu/v1/daily/values.tsv.zst);
-    * in SQL format (for SQLite): [values-sqlite.sql.zst](./exports/jhu/v1/daily/values-sqlite.sql.zst) and [values-sqlite.db.zst](./exports/jhu/v1/daily/values-sqlite.db.zst);
-    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/jhu/v1/daily/status.json);
+    * in JSON format: [values.json.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/daily/values.json.zst);
+    * in TSV format: [values.tsv.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/daily/values.tsv.zst);
+    * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/daily/values-sqlite.sql.zst)
+      and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/daily/values-sqlite.db.zst);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/daily/status.json);
   * the `series` dataset (includes world countries and US states, plus higher level aggregates):
-    * in JSON format: [values.json.zst](./exports/jhu/v1/series/values.json.zst);
-    * in TSV format: [values.tsv.zst](./exports/jhu/v1/series/values.tsv.zst);
-    * in SQL format (for SQLite): [values-sqlite.sql.zst](./exports/jhu/v1/series/values-sqlite.sql.zst) and [values-sqlite.db.zst](./exports/jhu/v1/series/values-sqlite.db.zst);
-    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/jhu/v1/series/status.json);
+    * in JSON format: [values.json.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/series/values.json.zst);
+    * in TSV format: [values.tsv.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/series/values.tsv.zst);
+    * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/series/values-sqlite.sql.zst)
+      and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/series/values-sqlite.db.zst);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/jhu/v1/series/status.json);
 * I have also augmented the original JHU dataset with the following:
   * `day_index_*` means how many days have passed for that country since there were at least that many confirmed cases;
   * `absolute_pop100k` means the absolute metric per 100k people in that country / region;
@@ -143,15 +155,17 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 
 * although the original NY dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
   * the `us-counties` dataset (includes only US counties, plus higher level aggregates):
-    * in JSON format: [values.json.zst](./exports/nytimes/v1/us-counties/values.json.zst);
-    * in TSV format: [values.tsv.zst](./exports/nytimes/v1/us-counties/values.tsv.zst);
-    * in SQL format (for SQLite): [values-sqlite.sql.zst](./exports/nytimes/v1/us-counties/values-sqlite.sql.zst) and [values-sqlite.db](./exports/nytimes/v1/us-counties/values-sqlite.db.zst);
-    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/nytimes/v1/us-counties/status.json);
+    * in JSON format: [values.json.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values.json.zst);
+    * in TSV format: [values.tsv.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values.tsv.zst);
+    * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values-sqlite.sql.zst)
+      and [values-sqlite.db](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/values-sqlite.db.zst);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-counties/status.json);
   * the `us-states` dataset (includes only US states, plus higher level aggregates):
-    * in JSON format: [values.json.zst](./exports/nytimes/v1/us-states/values.json.zst);
-    * in TSV format: [values.tsv.zst](./exports/nytimes/v1/us-states/values.tsv.zst);
-    * in SQL format (for SQLite): [values-sqlite.sql.zst](./exports/nytimes/v1/us-states/values-sqlite.sql.zst) and [values-sqlite.db.zst](./exports/nytimes/v1/us-states/values-sqlite.db.zst);
-    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/nytimes/v1/us-states/status.json);
+    * in JSON format: [values.json.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/values.json.zst);
+    * in TSV format: [values.tsv.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/values.tsv.zst);
+    * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/values-sqlite.sql.zst)
+      and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/values-sqlite.db.zst);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/nytimes/v1/us-states/status.json);
 * all the transformations and augmentations described for the JHU one were applied also to the NY one;
 * the original data is available at [github.com/nytimes/covid-19-data](https://github.com/nytimes/covid-19-data);
 
@@ -161,13 +175,21 @@ I have created 6 groups of countries / regions, based on the JHU CSSE dataset, a
 ### ECDC COVID-19 dataset
 
 * although the original ECDC dataset is already in a friendly format, I have applied the same augmentations as described above for the JHU dataset:
-  * the `worldwide` dataset (includes world countries, plus higher level aggregates):
-    * in JSON format: [values.json.zst](./exports/ecdc/v1/worldwide/values.json.zst);
-    * in TSV format: [values.tsv.zst](./exports/ecdc/v1/worldwide/values.tsv.zst);
-    * in SQL format (for SQLite): [values-sqlite.sql.zst](./exports/ecdc/v1/worldwide/values-sqlite.sql.zst) and [values-sqlite.db.zst](./exports/ecdc/v1/worldwide/values-sqlite.db.zst);
-    * in JSON format only the "current status" (i.e. the latest values): [status.json](./exports/ecdc/v1/worldwide/status.json);
+  * the `europe` dataset (includes EU/EEA countries) (**this dataset is currently maintained by ECDC, and contains data from 2021-03-01**):
+    * in JSON format: [values.json.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/europe/values.json.zst);
+    * in TSV format: [values.tsv.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/europe/values.tsv.zst);
+    * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/europe/values-sqlite.sql.zst)
+      and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/europe/values-sqlite.db.zst);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/europe/status.json);
+  * the `worldwide` dataset (includes world countries, plus higher level aggregates) (**this dataset is no longer maintained by ECDC, and contains data until 2020-12-14**):
+    * in JSON format: [values.json.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/worldwide/values.json.zst);
+    * in TSV format: [values.tsv.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/worldwide/values.tsv.zst);
+    * in SQL format (for SQLite): [values-sqlite.sql.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/worldwide/values-sqlite.sql.zst)
+      and [values-sqlite.db.zst](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/worldwide/values-sqlite.db.zst);
+    * in JSON format only the "current status" (i.e. the latest values): [status.json](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/ecdc/v1/worldwide/status.json);
 * all the transformations and augmentations described for the JHU one were applied also to the ECDC one;
-* the original data is available at [ecdc.europa.eu](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide);
+* the original data for the `europe` dataset is available at [ecdc.europa.eu](https://www.ecdc.europa.eu/en/publications-data/data-daily-new-cases-covid-19-eueea-country);
+* the original data for the `worldwide` dataset is available at [ecdc.europa.eu](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide);
 
 
 
