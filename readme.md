@@ -107,11 +107,11 @@ I have created a few groups of countries / regions, based on the derived dataset
   -- [JHU](./plots/jhu/romania) or [ECDC](./plots/ecdc/romania)
   -- Romania, Hungary, Bulgaria and a few other countries for comparison;
 
-![absolute_pop100k--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/absolute_pop100k--confirmed--lines.svg)
-![delta--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/delta--confirmed--lines.svg)
-![delta--deaths](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/delta--deaths--lines.svg)
-![peak--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/peak_pct--confirmed--heatmap.svg)
-![peak--deaths](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/ecdc/global/svg/peak_pct--deaths--heatmap.svg)
+![absolute_pop100k--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/jhu/global/png/absolute_pop100k--confirmed--lines.png)
+![delta--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/jhu/global/png/delta--confirmed--lines.png)
+![delta--deaths](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/jhu/global/png/delta--deaths--lines.png)
+![peak--confirmed](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/jhu/global/png/peak_pct--confirmed--heatmap.png)
+![peak--deaths](https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/plots/jhu/global/png/peak_pct--deaths--heatmap.png)
 
 
 
