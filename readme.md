@@ -17,7 +17,7 @@
 This repository contains various datasets related to COVID-19 (JHU CSSE, NY Times, ECDC):
 * the original data files are available inside the [./imports](./imports) folder;
 * some of the derived data files are available inside the [./exports](./exports) folder;
-* **due to the fact that the file sizes have become increasingly large, they can no longer be hosted on GitHub, however all the original, intermediary and derived data files are available at the links below;**
+* **due to the fact that file sizes have become increasingly large, they can no longer be hosted on GitHub, however all the original, intermediary and derived data files are available at the links below;**
 * all the original and intermediary data files ar available at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/imports/)
   (there is also an `md5` file that can be used as an index at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/imports/.md5));
 * all the derived data files are available at (https://data.volution.ro/ciprian/f8ae5c63a7cccce956f5a634a79a293e/exports/)
