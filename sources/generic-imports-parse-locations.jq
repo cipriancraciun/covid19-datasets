@@ -70,7 +70,7 @@
 		.[2] = null
 	else . end
 	
-	# NOTE:  Merge cruise ships under one item.
+	# NOTE:  Merge cruise ships and olympics under one item.
 	| if ([.[0], .[1], .[2]] | (
 			(. == ["Australia", "From Diamond Princess", null]) or
 			(. == ["Canada", "Diamond Princess", null]) or
@@ -90,9 +90,10 @@
 			(. == ["United States", "Unassigned Location (From Diamond Princess)", null]) or
 			(. == ["United States", "Grand Princess Cruise Ship", null]) or
 			(. == ["MS Zaandam", null, null]) or
+			(. == ["Summer Olympics 2020", null, null]) or
 			false
 	)) then
-		["Cruise Ship", null, null, null, null, null, .[6], .[7], .[8]]
+		["Miscellaneous", null, null, null, null, null, .[6], .[7], .[8]]
 	else . end
 	
 	# NOTE:  Drop US counties for states that are next mapped as countries.
@@ -130,6 +131,7 @@
 				(. == ["France", "Saint Pierre and Miquelon", null]) or
 				(. == ["France", "Wallis and Futuna", null]) or
 				(. == ["Belgium", "Luxembourg", null]) or
+				(. == ["New Zealand", "Cook Islands", null]) or
 				(. == ["United Kingdom", "Anguilla", null]) or
 				(. == ["United Kingdom", "Bermuda", null]) or
 				(. == ["United Kingdom", "British Virgin Islands", null]) or

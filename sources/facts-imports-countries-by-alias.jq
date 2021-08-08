@@ -19,6 +19,7 @@ map ({key : .aliases[], value : .code})
 		"korea_south" : "KR",
 		"sudan" : "SD",
 		"cruise_ship" : "XX",
+		"miscellaneous" : "XX",
 		"the_bahamas" : "BS",
 		"the_gambia" : "GM",
 		"occupied_palestinian_territory" : "PS",
