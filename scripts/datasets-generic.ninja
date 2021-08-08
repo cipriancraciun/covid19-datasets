@@ -123,3 +123,10 @@ build __combined__exports : phony $
         ./exports/combined/v1/locations-diff.tsv $
         ||
 
+
+build __combined__diff : phony $
+        $
+        ./exports/combined/v1/locations-diff.json $
+        ./exports/combined/v1/locations-diff.tsv $
+        ||
+

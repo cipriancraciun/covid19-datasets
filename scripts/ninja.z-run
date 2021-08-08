@@ -124,6 +124,7 @@
 	        __all__imports $
 	        __all__exports $
 	        __all__countries $
+	        __combined__diff $
 	        ||
 	
 	build __all__plots : phony $
