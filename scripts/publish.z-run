@@ -1,0 +1,71 @@
+#!/dev/null
+
+
+
+
+<< publish / hash
+	test "${#}" -eq 0
+	rm -f -- ./imports/.force
+	md5-create -o ./imports/.md5 -- ./imports
+	md5-create -o ./exports/.md5 -- ./exports
+	md5-create -o ./plots/.md5 -- ./plots
+	for _hashes in ./imports/.md5 ./exports/.md5 ./plots/.md5 ; do
+		LC_ALL=C sort -k 2 -t ' ' \
+			< "${_hashes}" \
+			>| "${_hashes}.tmp" \
+		#
+		mv -f -T -- "${_hashes}.tmp" "${_hashes}"
+	done
+!!
+
+
+
+
+<< publish / push / remote
+	exec -- "${ZRUN[@]}" \
+			--ssh \
+			--ssh-target=covid19-datasets-publisher \
+			--ssh-workspace=./workbench/covid19-datasets/ \
+			':: publish / push / local' \
+			"${@}" \
+	#
+!!
+
+
+<< publish / push / local
+	
+	test "${#}" -eq 0
+	
+	test -d ./.publish
+	
+	exec -- \
+		nice -n 19 -- \
+	rsync \
+			--recursive --one-file-system \
+			--delete \
+			--delete-excluded \
+			--links \
+			--times --omit-dir-times --omit-link-times \
+			--prune-empty-dirs \
+			--no-compress \
+			\
+			--exclude '*.tmp' \
+			--exclude '*.tmp.*' \
+			--exclude '*#' \
+			--include '/imports/' \
+			--include '/imports/**' \
+			--include '/exports/' \
+			--include '/exports/**' \
+			--include '/plots/' \
+			--include '/plots/**' \
+			--exclude '**' \
+			\
+			--itemize-changes \
+			--protect-args --no-iconv \
+			\
+		-- \
+			./ \
+			./.publish/
+	#
+!!
+
