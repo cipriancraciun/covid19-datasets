@@ -25,7 +25,7 @@
 
 << publish / hash / local
 	test "${#}" -eq 0
-	rm -f -- ./imports/.force
+	# rm -f -- ./imports/.force
 	rm -f -- ./imports/.md5 ./exports/.md5 ./plots/.md5
 	md5-create -o ./imports/.md5 -- ./imports
 	md5-create -o ./exports/.md5 -- ./exports
