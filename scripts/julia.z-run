@@ -30,9 +30,10 @@
 			"${_interpreter}" \
 					--project=./.outputs/julia/environment \
 					--sysimage="${_sysimage}" \
-					--trace-compile="${_compile}/${_marker}.tmp" \
+					--threads=1 \
 					--startup-file=no \
 					--color=no \
+					--trace-compile="${_compile}/${_marker}.tmp" \
 				-- \
 					"${_script}" \
 					"${_arguments[@]}" \
@@ -64,7 +65,6 @@
 		nice -n 19 -- \
 	"${_interpreter}" \
 			--project=./.outputs/julia/environment \
-			--sysimage="${_sysimage}" \
 			--startup-file=no \
 			--color=no \
 	#
