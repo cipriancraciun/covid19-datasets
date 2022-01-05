@@ -40,7 +40,7 @@ _plot_type = Symbol(replace(_plot_type, "-" => "_"))
 
 
 
-_dataset = DataFrame!(CSV.File(
+_dataset = DataFrame(CSV.File(
 		_dataset_path,
 		header = 1,
 		normalizenames = true,

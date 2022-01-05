@@ -218,12 +218,6 @@ git-tree-sha1 = "335bfdceacc84c5cdf16aadc768aa5ddfc5383cc"
 uuid = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
 version = "0.8.4"
 
-[[Fontconfig]]
-deps = ["Fontconfig_jll", "Libdl", "Printf"]
-git-tree-sha1 = "beef89322ccf3b80062f522ed6f82089a254491e"
-uuid = "186bb1d3-e1f7-5a2c-a377-96d770f13627"
-version = "0.4.0"
-
 [[Fontconfig_jll]]
 deps = ["Artifacts", "Bzip2_jll", "Expat_jll", "FreeType2_jll", "JLLWrappers", "Libdl", "Libuuid_jll", "Pkg", "Zlib_jll"]
 git-tree-sha1 = "21efd19106a55620a188615da6d3d06cd7f6ee03"

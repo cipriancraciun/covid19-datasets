@@ -8,19 +8,20 @@ _packages = [
 		:Gadfly,
 		:Cairo,
 		:Colors,
-		:Fontconfig,
 		:Formatting,
 		:Printf,
 		:Dates,
 		
-		:Fontconfig,
+	#!	:Fontconfig,
+		
+		:PackageCompiler,
 		
 	]
 
 
 _packages_nocompile = [
 		
-	#!	:Fontconfig,
+		:PackageCompiler,
 		
 	]
 
@@ -40,11 +41,8 @@ begin
 	import Pkg
 	
 	Pkg.activate(_project_path)
-	Pkg.add("PackageCompiler")
 	
-	for _package in _packages
-		Pkg.add(String(_package))
-	end
+	Pkg.add(map(String, _packages))
 end
 
 

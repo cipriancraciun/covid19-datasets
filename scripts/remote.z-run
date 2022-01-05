@@ -102,6 +102,31 @@
 !!
 
 
+<< remote / synchronize / pull / sources
+	
+	test "${#}" -eq 0
+	
+	exec -- \
+		nice -n 19 -- \
+	rsync \
+			--recursive --one-file-system \
+			--delete \
+			--delete-excluded \
+			--links \
+			--times --omit-dir-times --omit-link-times \
+			--prune-empty-dirs \
+			--no-compress \
+			\
+			--itemize-changes \
+			--protect-args --no-iconv \
+			\
+		-- \
+			covid19-datasets-processor:./workbench/covid19-datasets/sources/ \
+			./sources/ \
+	#
+!!
+
+
 
 
 --<< remote / execute
@@ -132,5 +157,11 @@
 
 
 :: remote / tools / julia / shell / generic-plot :: exec -- "${ZRUN[@]}" ':: remote / execute' ':: tools / julia / shell / generic-plot' "${@}"
-:: remote / tools / julia / bootstrap / generic-plot :: exec -- "${ZRUN[@]}" ':: remote / execute' ':: tools / julia / bootstrap / generic-plot' "${@}"
+
+
+<< remote / tools / julia / bootstrap / generic-plot
+	"${ZRUN[@]}" ':: remote / synchronize / push / sources'
+	"${ZRUN[@]}" ':: remote / execute' ':: tools / julia / bootstrap / generic-plot' "${@}"
+	"${ZRUN[@]}" ':: remote / synchronize / pull / sources'
+!!
 

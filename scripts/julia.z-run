@@ -7,44 +7,43 @@
 	
 	test "${#}" -ge 1
 	_script="${1}"
+	_script_name="$( exec -- basename -- "${_script}" .jl )"
 	shift -- 1
 	_arguments=( "${@}" )
 	shift -- "${#}"
 	
 	_interpreter="./.outputs/julia/bin/julia"
-	_script_name="$( exec -- basename -- "${_script}" .jl )"
-	_sysimage="./.outputs/julia/${_script_name}.so"
-	_compile="./.outputs/julia/${_script_name}.compile"
+	_sysimage="./.outputs/julia/${_script_name}/sysimage.so"
+	_compile_trace="./.outputs/julia/${_script_name}/compile.trace"
+	_depot="./.outputs/julia/${_script_name}/depot"
+	_project="./sources/${_script_name}.env"
 	_marker="$( exec -- date -- +%s )-${$}"
 	
-	if test ! -e "${_compile}" ; then
-		mkdir -- "${_compile}"
-	fi
-	
-	rm -f -- "${_compile}/${_marker}.tmp"
+	rm -f -- "${_compile_trace}/${_marker}.tmp"
 	
 	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
 	if ! \
 			nodaemon \
+			env JULIA_DEPOT_PATH="${_depot}" \
 			nice -n 19 -- \
 			"${_interpreter}" \
-					--project=./.outputs/julia/environment \
+					--project="${_project}" \
 					--sysimage="${_sysimage}" \
 					--threads=1 \
 					--startup-file=no \
 					--color=no \
-					--trace-compile="${_compile}/${_marker}.tmp" \
+					--trace-compile="${_compile_trace}/${_marker}.tmp" \
 				-- \
 					"${_script}" \
 					"${_arguments[@]}" \
 	; then
-		rm -f -- "${_compile}/${_marker}.tmp"
+		rm -f -- "${_compile_trace}/${_marker}.tmp"
 		exit -- 1
 	fi
 	
 	mv -T -- \
-			"${_compile}/${_marker}.tmp" \
-			"${_compile}/${_marker}" \
+			"${_compile_trace}/${_marker}.tmp" \
+			"${_compile_trace}/${_marker}" \
 	#
 !!
 
@@ -59,12 +58,16 @@
 	test "${#}" -eq 0
 	
 	_interpreter="./.outputs/julia/bin/julia"
-	_sysimage="./.outputs/julia/${_script_name}.so"
+	_sysimage="./.outputs/julia/${_script_name}/sysimage.so"
+	_depot="./.outputs/julia/${_script_name}/depot"
+	_project="./sources/${_script_name}.env"
 	
 	exec -- \
+		env JULIA_DEPOT_PATH="${_depot}" \
 		nice -n 19 -- \
 	"${_interpreter}" \
-			--project=./.outputs/julia/environment \
+			--project="${_project}" \
+			--sysimage="${_sysimage}" \
 			--startup-file=no \
 			--color=no \
 	#
@@ -81,22 +84,35 @@
 	test "${#}" -eq 0
 	
 	_interpreter="./.outputs/julia/bin/julia"
-	_sysimage="./.outputs/julia/${_script_name}.so"
-	_compile="./.outputs/julia/${_script_name}.compile"
-	_compile_out="./.outputs/julia/${_script_name}.so.compile"
+	_sysimage="./.outputs/julia/${_script_name}/sysimage.so"
+	_compile_trace="./.outputs/julia/${_script_name}/compile.trace"
+	_compile_out="./.outputs/julia/${_script_name}/compile.sysimage"
+	_depot="./.outputs/julia/${_script_name}/depot"
+	_project="./sources/${_script_name}.env"
+	_compile_in="${_project}/sysimage.compile"
 	
 	if test ! -e ./.outputs/julia ; then
 		mkdir -- ./.outputs/julia
 	fi
-	
-	rm -f -- "${_compile_out}.tmp"
-	rm -f -- "${_sysimage}.tmp"
-	
-	if test ! -e "${_compile}" ; then
-		mkdir -- "${_compile}"
+	if test ! -s "${_project}/Manifest.toml" ; then
+		if test -e "./.outputs/julia/${_script_name}" ; then
+			rm -R -f -- "./.outputs/julia/${_script_name}"
+		fi
+	fi
+	if test ! -e "./.outputs/julia/${_script_name}" ; then
+		mkdir -- "./.outputs/julia/${_script_name}"
+	fi
+	if test ! -e "${_compile_trace}" ; then
+		mkdir -- "${_compile_trace}"
+	fi
+	if test ! -e "${_depot}" ; then
+		mkdir -- "${_depot}"
 	fi
 	
-	find "${_compile}" \
+	rm -f -- "${_sysimage}.tmp"
+	rm -f -- "${_compile_out}.tmp"
+	
+	find "${_compile_in}" "${_compile_trace}" \
 			-type f -not -name '*.tmp' \
 			-exec cat -- {} + \
 	| LC_ALL=C sort -u \
@@ -106,13 +122,14 @@
 	# if ! /usr/bin/time -f '(( elapsed: %E (user: %U, kernel: %S), CPU: %P, memory: %M (faults: %F, swapped: %W), I/O: %I / %O (waits: %w) ))' -- \
 	if ! \
 			nodaemon \
+			env JULIA_DEPOT_PATH="${_depot}" \
 			nice -n 19 -- \
 			"${_interpreter}" \
 					--startup-file=no \
 					--color=no \
 				-- \
-					./sources/julia-environment.jl \
-					./.outputs/julia/environment \
+					"${_project}/sysimage.jl" \
+					"${_project}" \
 					"${_sysimage}.tmp" \
 					"${_compile_out}.tmp" \
 	; then
@@ -128,6 +145,16 @@
 	mv -T -- \
 			"${_compile_out}.tmp" \
 			"${_compile_out}" \
+	#
+	
+	cp -T -- \
+			"${_compile_out}" \
+			"${_compile_in}" \
+	#
+	
+	find "${_compile_trace}" \
+			-type f -not -name '*.tmp' \
+			-delete \
 	#
 !!
 
