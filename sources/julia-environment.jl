@@ -40,6 +40,7 @@ begin
 	import Pkg
 	
 	Pkg.activate(_project_path)
+	Pkg.add("PackageCompiler")
 	
 	for _package in _packages
 		Pkg.add(String(_package))
@@ -49,7 +50,6 @@ end
 
 begin
 	
-	Pkg.develop("PackageCompiler")
 	import PackageCompiler
 	
 	PackageCompiler.create_sysimage(
