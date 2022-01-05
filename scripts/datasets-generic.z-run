@@ -80,30 +80,30 @@
 			FONTCONFIG_PATH=/etc/fonts \
 	#
 	
-	rm -f -- "${_output}.tmp.pdf"
+	rm -f -- "${_output}.tmp.0.pdf"
 	
 	if ! "${ZRUN[@]}" ':: tools / julia / exec' \
 			./sources/generic-plot.jl \
 			"${_input}" \
 			"${_dataset}" \
-			"${_output}.tmp.pdf" \
+			"${_output}.tmp.0.pdf" \
 			pdf \
 			"${_type}" \
 			"${_filter}" \
 			"${_index}" \
 			"${_metric}" \
 	; then
-		rm -f -- "${_output}.tmp.pdf"
+		rm -f -- "${_output}.tmp.0.pdf"
 		exit -- 1
 	fi
 	
 	"${ZRUN[@]}" ':: tools / inkscape / convert' \
-			"${_output}.tmp.pdf" \
+			"${_output}.tmp.0.pdf" \
 			"${_output}" \
 			"${_format}" \
 	#
 	
-	rm -- "${_output}.tmp.pdf"
+	rm -- "${_output}.tmp.0.pdf"
 !!
 
 
