@@ -41,15 +41,15 @@ begin
 	
 	Pkg.activate(_project_path)
 	
-#!	for _package in _packages
-#!		Pkg.add(String(_package))
-#!	end
+	for _package in _packages
+		Pkg.add(String(_package))
+	end
 end
 
 
 begin
 	
-#!	Pkg.develop("PackageCompiler")
+	Pkg.develop("PackageCompiler")
 	import PackageCompiler
 	
 	PackageCompiler.create_sysimage(
