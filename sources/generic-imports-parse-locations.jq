@@ -91,6 +91,7 @@
 			(. == ["United States", "Grand Princess Cruise Ship", null]) or
 			(. == ["MS Zaandam", null, null]) or
 			(. == ["Summer Olympics 2020", null, null]) or
+			(. == ["Winter Olympics 2022", null, null]) or
 			false
 	)) then
 		["Miscellaneous", null, null, null, null, null, .[6], .[7], .[8]]
@@ -143,6 +144,7 @@
 				(. == ["United Kingdom", "Guernsey", null]) or
 				(. == ["United Kingdom", "Falkland Islands (Malvinas)", null]) or
 				(. == ["United Kingdom", "Saint Helena, Ascension and Tristan da Cunha", null]) or
+				(. == ["United Kingdom", "Jersey", null]) or
 				(. == ["United States", "United States Virgin Islands", null]) or
 				(. == ["United States", "Virgin Islands", null]) or
 				(. == ["United States", "Virgin Islands, U.S.", null]) or

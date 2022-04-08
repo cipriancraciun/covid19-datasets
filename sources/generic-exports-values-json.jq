@@ -182,7 +182,7 @@
 
 | map (
 	.
-	| if (.factbook != null) then
+	| if ((.factbook != null) and (.factbook.population != null)) then
 		.values.absolute_pop1k = {
 			confirmed : (.values.absolute.confirmed / (.factbook.population / 1000)),
 			recovered : (.values.absolute.recovered / (.factbook.population / 1000)),
@@ -202,7 +202,7 @@
 			infected : (.values.absolute_pop1k.infected * 100),
 		}
 	else . end
-	| if (.factbook != null) then
+	| if ((.factbook != null) and (.factbook.population != null)) then
 		.values.delta_pop1k = {
 			confirmed : (.values.delta.confirmed / (.factbook.population / 1000)),
 			recovered : (.values.delta.recovered / (.factbook.population / 1000)),
