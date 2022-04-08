@@ -20,6 +20,8 @@
 		exit -- 1
 	fi
 	
+	dos2unix -q -- "${_output}.tmp"
+	
 	if cmp -s -- "${_output}.tmp" "${_output}" ; then
 		rm -- "${_output}.tmp"
 		exit -- 0

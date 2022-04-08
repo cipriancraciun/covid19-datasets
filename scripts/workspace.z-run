@@ -47,16 +47,28 @@
 
 << clean / imports
 	test "${#}" -eq 0
+	if test ! -e ./imports ; then
+		exit -- 0
+	fi
 	rm -f -- ./imports/.force
 	rm -f -- ./imports/.md5
-	find ./imports/ecdc -mindepth 1 -type f -print -delete
-	find ./imports/jhu -mindepth 1 -type f -print -delete
-	find ./imports/nytimes -mindepth 1 -type f -print -delete
+	if test -e ./imports/ecdc ; then
+		find ./imports/ecdc -mindepth 1 -type f -print -delete
+	fi
+	if test -e ./imports/jhu ; then
+		find ./imports/jhu -mindepth 1 -type f -print -delete
+	fi
+	if test -e ./imports/nytimes ; then
+		find ./imports/nytimes -mindepth 1 -type f -print -delete
+	fi
 	find ./imports -mindepth 2 -type d -empty -print -delete
 !!
 
 << clean / exports
 	test "${#}" -eq 0
+	if test ! -e ./exports ; then
+		exit -- 0
+	fi
 	rm -f -- ./exports/.md5
 	find ./exports -mindepth 1 -type f -print -delete
 	find ./exports -mindepth 1 -type d -empty -print -delete
@@ -64,6 +76,9 @@
 
 << clean / plots
 	test "${#}" -eq 0
+	if test ! -e ./plots ; then
+		exit -- 0
+	fi
 	rm -f -- ./plots/.md5
 	find ./plots -mindepth 3 -type f -not -name 'readme.md' -print -delete
 	find ./plots -mindepth 3 -type l -not -name 'readme.md' -print -delete
