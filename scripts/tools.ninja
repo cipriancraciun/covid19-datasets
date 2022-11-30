@@ -93,11 +93,11 @@ pool cpu_single
     depth = 1
 
 pool cpu_heavy
-    depth = 1
+    depth = 8
 
 pool cpu_moderate
-    depth = 4
+    depth = 16
 
 pool cpu_plots
-    depth = 8
+    depth = 32
 

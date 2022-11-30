@@ -10,6 +10,13 @@
 !!
 
 
+<< publish / all / local
+	test "${#}" -eq 0
+	"${ZRUN[@]}" ':: publish / hash / local'
+	"${ZRUN[@]}" ':: publish / push / local'
+!!
+
+
 
 
 << publish / hash / remote
@@ -81,6 +88,8 @@
 			--include '/plots/' \
 			--include '/plots/**' \
 			--exclude '**' \
+			\
+			--filter 'P .restic.excluded' \
 			\
 			--itemize-changes \
 			--protect-args --no-iconv \

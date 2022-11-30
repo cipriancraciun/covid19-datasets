@@ -77,8 +77,8 @@ def convert (_input, _output, _format) :
 		_sql_line += "\"%s\"" % (_field_key)
 		_sql_line += " "
 		_sql_line += "%s" % (_field_types_sqlite[_field_type])
-		if not _field_null :
-			_sql_line += " not null"
+	#!	if not _field_null :
+	#!		_sql_line += " not null"
 		_sql_line += ","
 		_sql_schema.append (_sql_line)
 	_sql_schema.append ("\t" + "primary key (\"data_key\")")

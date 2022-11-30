@@ -19,7 +19,7 @@
 	_wrapper+=( nice -n 19 -- )
 	exec -- "${_wrapper[@]}" \
 	"${ZRUN[@]}" ':: ninja / script / exec' \
-			-j "${__ninja_jobs:-1}" \
+			-j "${__ninja_jobs:?}" \
 			-k 0 \
 			"${@}" \
 	#
@@ -27,7 +27,7 @@
 
 
 --<< ninja
-	case "${__ninja_processor:-remote}" in
+	case "${__ninja_processor:?}" in
 		
 		( none )
 			exit -- 0
@@ -65,14 +65,22 @@
 	esac
 !!
 
+
+
+
 :: ninja / processor / local :: export -- __ninja_processor=local
 :: ninja / processor / remote :: export -- __ninja_processor=remote
 :: ninja / processor / none :: export -- __ninja_processor=none
+
 :: ninja / processor / fake :: export -- __ninja_fake=true
+
 :: ninja / processor / jobs / 1 :: export -- __ninja_jobs=1
 :: ninja / processor / jobs / 2 :: export -- __ninja_jobs=2
 :: ninja / processor / jobs / 4 :: export -- __ninja_jobs=4
 :: ninja / processor / jobs / 8 :: export -- __ninja_jobs=8
+:: ninja / processor / jobs / 16 :: export -- __ninja_jobs=16
+:: ninja / processor / jobs / 32 :: export -- __ninja_jobs=32
+:: ninja / processor / jobs / 64 :: export -- __ninja_jobs=64
 
 
 
@@ -294,35 +302,9 @@
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
 !!
 
-<< ninja / do / data / local + force
-	test "${#}" -eq 0
-	export -- __ninja_processor=local
-	"${ZRUN[@]}" ':: ninja / processor / force'
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
-!!
-
-<< ninja / do / data / remote + force
-	test "${#}" -eq 0
-	export -- __ninja_processor=remote
-	"${ZRUN[@]}" ':: ninja / processor / force'
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
-!!
-
 
 ++<< ninja / do / data
 	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
-!!
-
-<< ninja / do / data / local
-	test "${#}" -eq 0
-	export -- __ninja_processor=local
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
-!!
-
-<< ninja / do / data / remote
-	test "${#}" -eq 0
-	export -- __ninja_processor=remote
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / data'
 !!
 
@@ -333,35 +315,9 @@
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / small'
 !!
 
-<< ninja / do / small / local + force
-	test "${#}" -eq 0
-	export -- __ninja_processor=local
-	"${ZRUN[@]}" ':: ninja / processor / force'
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / small'
-!!
-
-<< ninja / do / small / remote + force
-	test "${#}" -eq 0
-	export -- __ninja_processor=remote
-	"${ZRUN[@]}" ':: ninja / processor / force'
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / small'
-!!
-
 
 ++<< ninja / do / small
 	test "${#}" -eq 0
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / small'
-!!
-
-<< ninja / do / small / local
-	test "${#}" -eq 0
-	export -- __ninja_processor=local
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / small'
-!!
-
-<< ninja / do / small / remote
-	test "${#}" -eq 0
-	export -- __ninja_processor=remote
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / small'
 !!
 
@@ -371,47 +327,15 @@
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
 !!
 
-<< ninja / do / plots / local
-	test "${#}" -eq 0
-	export -- __ninja_processor=local
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
-!!
-
-<< ninja / do / plots / remote
-	test "${#}" -eq 0
-	export -- __ninja_processor=remote
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all / plots'
-!!
-
 
 ++<< ninja / do / all
 	test "${#}" -eq 0
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
 !!
 
-<< ninja / do / all / local
-	test "${#}" -eq 0
-	export -- __ninja_processor=local
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
-!!
 
-<< ninja / do / all / remote
+<< ninja / do / all / fake
 	test "${#}" -eq 0
-	export -- __ninja_processor=remote
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
-!!
-
-
-<< ninja / do / all / local + fake
-	test "${#}" -eq 0
-	export -- __ninja_processor=local
-	export -- __ninja_fake=true
-	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
-!!
-
-<< ninja / do / all / remote + fake
-	test "${#}" -eq 0
-	export -- __ninja_processor=remote
 	export -- __ninja_fake=true
 	exec -- "${ZRUN[@]}" ':: ninja / targets / all'
 !!
